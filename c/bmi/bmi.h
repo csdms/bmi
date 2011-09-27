@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 
-void *BMI_Initialize (char *);
+void *BMI_Initialize (const char *);
 void BMI_Update (void *);
 void BMI_Finalize (void *);
 void BMI_Run_model (void *);
@@ -63,10 +63,10 @@ double *BMI_Get_grid_corner (void *, const char *, int *);
 // Since these are just wrappers for other BMI functions, I don't
 // think they should be included in the interface definition. They
 // could be CMI functions.
-int BMI_Is_scalar (void *, char *);
-int BMI_Is_vector (void *, char *);
-int BMI_Is_grid (void *, char *);
-int BMI_Has_var (void *, char *);
+int BMI_Is_scalar (void *, const char *);
+int BMI_Is_vector (void *, const char *);
+int BMI_Is_grid (void *, const char *);
+int BMI_Has_var (void *, const char *);
 
 // However, something that indicates if the grid is raster, or
 // uniform rectilinear would be needed.
