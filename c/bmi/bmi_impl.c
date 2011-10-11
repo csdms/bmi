@@ -15,7 +15,7 @@ typedef struct
 } Self;
 
 void *
-BMI_Initialize (char *config_file)
+BMI_Initialize (const char *config_file)
 {
   Self *self = NULL;
 
