@@ -5,6 +5,18 @@
 extern "C" {
 #endif
 
+typedef enum
+{
+  CMI_STATUS_CREATED,
+  CMI_STATUS_INITIALIZING,
+  CMI_STATUS_INITIALIZED,
+  CMI_STATUS_UPDATING,
+  CMI_STATUS_UPDATED,
+  CMI_STATUS_FINALIZING,
+  CMI_STATUS_FINALIZED
+}
+CMI_Component_status;
+
 void *BMI_Initialize (const char *);
 void BMI_Update (void *);
 void BMI_Finalize (void *);
@@ -51,9 +63,15 @@ const char *BMI_Get_component_name (void *);
 const char **BMI_Get_input_var_names (void *);
 const char **BMI_Get_output_var_names (void *);
 
+/*
 int *BMI_Get_grid_dimen (void *, const char *, int *);
 double *BMI_Get_grid_res (void *, const char *, int *);
 double *BMI_Get_grid_corner (void *, const char *, int *);
+ */
+
+int * BMI_Get_grid_shape (void *, const char *, int *);
+double * BMI_Get_grid_spacing (void *, const char *, int *);
+double * BMI_Get_grid_lower_left_corner (void *, const char *, int *);
 
 /*
   IElementSet get_Element_Set (void *handle);
