@@ -17,8 +17,19 @@ typedef enum
 }
 CMI_Component_status;
 
+typedef enum
+{
+  BMI_GRID_TYPE_UNKNOWN = -1,
+  BMI_GRID_TYPE_UNIFORM,
+  BMI_GRID_TYPE_RECTILINEAR,
+  BMI_GRID_TYPE_STRUCTURED,
+  BMI_GRID_TYPE_UNSTRUCTURED
+}
+BMI_Grid_type;
+
 void *BMI_Initialize (const char *);
 void BMI_Update (void *);
+void BMI_Update_until (void *, double);
 void BMI_Finalize (void *);
 void BMI_Run_model (void *);
 
@@ -72,6 +83,13 @@ double *BMI_Get_grid_corner (void *, const char *, int *);
 int * BMI_Get_grid_shape (void *, const char *, int *);
 double * BMI_Get_grid_spacing (void *, const char *, int *);
 double * BMI_Get_grid_lower_left_corner (void *, const char *, int *);
+
+double * BMI_Get_grid_x (void *, const char *, int *);
+double * BMI_Get_grid_y (void *, const char *, int *);
+double * BMI_Get_grid_z (void *, const char *, int *);
+
+int * BMI_Get_grid_connectivity (void *, const char *, int *);
+int * BMI_Get_grid_offset (void *, const char *, int *);
 
 /*
   IElementSet get_Element_Set (void *handle);
