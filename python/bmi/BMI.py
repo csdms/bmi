@@ -1,5 +1,13 @@
 #! /usr/bin/env python
 
+class BmiGridType (object):
+    UNKNOWN = -1
+    UNIFORM = 0
+    RECTILINEAR = 1
+    STRUCTURED = 2
+    UNSTRUCTURED = 3
+
+
 class BMI (object):
     def initialize (self, file):
         pass
