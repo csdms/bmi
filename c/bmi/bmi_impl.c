@@ -89,6 +89,7 @@ BMI_Initialize (const char *config_file)
 
   return (void *)self;
 }
+/* End: BMI_Initialize */
 
 void
 BMI_Update_until (void *handle, double dt)
@@ -117,6 +118,7 @@ BMI_Update_until (void *handle, double dt)
 
   return;
 }
+/* End: BMI_Update_until */
 
 void
 BMI_Finalize (void *handle)
@@ -134,6 +136,7 @@ BMI_Finalize (void *handle)
 
   return;
 }
+/* End: BMI_Finalize */
 
 const char *
 BMI_Get_var_type (void *handle, const char *long_var_name)
@@ -143,6 +146,7 @@ BMI_Get_var_type (void *handle, const char *long_var_name)
   else
     return NULL;
 }
+/* End: BMI_Get_var_type */
 
 const char *
 BMI_Get_var_units (void *handle, const char *long_var_name)
@@ -152,6 +156,7 @@ BMI_Get_var_units (void *handle, const char *long_var_name)
   else
     return NULL;
 }
+/* End: BMI_Get_var_units */
 
 int
 BMI_Get_var_rank (void *handle, const char *long_var_name)
@@ -161,6 +166,7 @@ BMI_Get_var_rank (void *handle, const char *long_var_name)
   else
     return -1;
 }
+/* End: BMI_Get_var_rank */
 
 int *
 BMI_Get_grid_shape (void *handle, const char *long_var_name, int * n_dim)
@@ -182,6 +188,7 @@ BMI_Get_grid_shape (void *handle, const char *long_var_name, int * n_dim)
 
   return shape;
 }
+/* End: BMI_Get_grid_shape */
 
 double *
 BMI_Get_grid_spacing (void *handle, const char *long_var_name, int * n_dim)
@@ -203,6 +210,7 @@ BMI_Get_grid_spacing (void *handle, const char *long_var_name, int * n_dim)
 
   return spacing;
 }
+/* End: BMI_Get_grid_spacing */
 
 double *
 BMI_Get_grid_origin (void *handle, const char *long_var_name, int * n_dim)
@@ -222,6 +230,7 @@ BMI_Get_grid_origin (void *handle, const char *long_var_name, int * n_dim)
 
   return origin;
 }
+/* End: BMI_Get_grid_origin */
 
 BMI_Grid_type
 BMI_Get_grid_type (void *handle, const char *long_var_name)
@@ -231,6 +240,7 @@ BMI_Get_grid_type (void *handle, const char *long_var_name)
   else
     return BMI_GRID_TYPE_UNKNOWN;
 }
+/* End: BMI_Get_grid_type */
 
 double *
 BMI_Get_double (void *handle, const char *long_var_name, int * n_dims, int **shape)
@@ -249,6 +259,7 @@ BMI_Get_double (void *handle, const char *long_var_name, int * n_dims, int **sha
 
   return val;
 }
+/* End: BMI_Get_double */
 
 void
 BMI_Set_double (void *handle, const char *long_var_name, double *array)
@@ -260,6 +271,7 @@ BMI_Set_double (void *handle, const char *long_var_name, double *array)
 
   return;
 }
+/* End: BMI_Set_double */
 
 // Assume string arrays are NULL-terminated
 const char *
@@ -267,6 +279,7 @@ BMI_Get_component_name (void *handle)
 {
   return "Example C model";
 }
+/* End: BMI_Get_component_name */
 
 const char *input_var_names[] = {
   "surface_elevation",
@@ -278,6 +291,7 @@ BMI_Get_input_var_names (void *handle)
 {
   return input_var_names;
 }
+/* End: BMI_Get_input_var_names */
 
 const char *output_var_names[] = {
   "surface_elevation",
@@ -289,19 +303,24 @@ BMI_Get_output_var_names (void *handle)
 {
   return output_var_names;
 }
+/* End: BMI_Get_output_var_names */
 
 double
 BMI_Get_start_time (void *handle) {
   return 0.;
 }
+/* End: BMI_Get_start_time */
 
 double
 BMI_Get_end_time (void *handle) {
   return DBL_MAX;
 }
+/* End: BMI_Get_end_time */
 
 double
 BMI_Get_current_time (void *handle) {
   BMI_Model *self = (BMI_Model *) handle;
   return self->t;
 }
+/* End: BMI_Get_current_time */
+
