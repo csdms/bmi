@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 
 """
->>> c = Laplace ()
+>>> c = Model ()
 >>> c.initialize ()
 
 >>> c.get_input_var_names ()
@@ -34,6 +34,8 @@ True
 
 >>> z = c.get_value (var_name)
 
+>>> import numpy as np
+>>> np.set_printoptions (precision=2, linewidth=150, suppress=True)
 >>> print z
 """
 
@@ -42,9 +44,7 @@ import numpy as np
 from BMI import BMI, BmiGridType
 from scipy import ndimage
 
-class Laplace (BMI):
-    np.set_printoptions (precision=2, linewidth=150, suppress=True)
-
+class Model (BMI):
     _var_units = {'height_above_sea_floor': 'meter'}
     _name = 'Example Python Model'
     _input_var_names = ['height_above_sea_floor']
@@ -121,8 +121,8 @@ class Laplace (BMI):
 
     def get_value (self, long_var_name):
         return self._value[long_var_name]
-    def value_at_indices (self, long_var_name, indices):
-        return self.get_value (long_var_name)[indeces]
+    def get_value_at_indices (self, long_var_name, indices):
+        return self.get_value (long_var_name)[indices]
     def set_value (self, long_var_name, src):
         val = self.get_value (long_var_name)
         val[:] = src
