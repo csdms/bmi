@@ -18,14 +18,14 @@ typedef struct
   double **z;
 
   double **temp_z;
-} Self;
+} BMI_Model;
 
 void *
 BMI_Initialize (const char *config_file)
 {
-  Self *self = NULL;
+  BMI_Model *self = NULL;
 
-  self = malloc (sizeof (Self));
+  self = malloc (sizeof (BMI_Model));
 
   if (config_file)
   { /* Read input file */
@@ -93,7 +93,7 @@ BMI_Initialize (const char *config_file)
 void
 BMI_Update_until (void *handle, double dt)
 {
-  Self *self = (Self *) handle;
+  BMI_Model *self = (BMI_Model *) handle;
 
   self->t += self->dt;
 
@@ -121,7 +121,7 @@ BMI_Update_until (void *handle, double dt)
 void
 BMI_Finalize (void *handle)
 {
-  Self *self = (Self *) handle;
+  BMI_Model *self = (BMI_Model *) handle;
 
   if (self)
   {
@@ -138,11 +138,7 @@ BMI_Finalize (void *handle)
 const char *
 BMI_Get_var_type (void *handle, const char *long_var_name)
 {
-  if (strcasecmp (long_var_name, "grid_longitude") == 0)
-    return "double";
-  else if (strcasecmp (long_var_name, "grid_latitude") == 0)
-    return "double";
-  else if (strcasecmp (long_var_name, "height_above_sea_floor") == 0)
+  if (strcasecmp (long_var_name, "surface_elevation") == 0)
     return "double";
   else
     return NULL;
@@ -151,11 +147,7 @@ BMI_Get_var_type (void *handle, const char *long_var_name)
 const char *
 BMI_Get_var_units (void *handle, const char *long_var_name)
 {
-  if (strcmp (long_var_name, "grid_longitude") == 0)
-    return "arc_degree";
-  else if (strcmp (long_var_name, "grid_latitude") == 0)
-    return "arc_degree";
-  else if (strcmp (long_var_name, "height_above_sea_floor") == 0)
+  if (strcmp (long_var_name, "surface_elevation") == 0)
     return "meter";
   else
     return NULL;
@@ -164,11 +156,7 @@ BMI_Get_var_units (void *handle, const char *long_var_name)
 int
 BMI_Get_var_rank (void *handle, const char *long_var_name)
 {
-  if (strcmp (long_var_name, "grid_longitude") == 0)
-    return 2;
-  else if (strcmp (long_var_name, "grid_latitude") == 0)
-    return 2;
-  else if (strcmp (long_var_name, "height_above_sea_floor") == 0)
+  if (strcmp (long_var_name, "surface_elevation") == 0)
     return 2;
   else
     return -1;
@@ -179,8 +167,8 @@ BMI_Get_grid_shape (void *handle, const char *long_var_name, int * n_dim)
 {
   int * shape = NULL;
 
-  if (strcmp (long_var_name, "height_above_sea_floor") == 0) {
-    Self *self = (Self *) handle;
+  if (strcmp (long_var_name, "surface_elevation") == 0) {
+    BMI_Model *self = (BMI_Model *) handle;
 
     shape = (int *)malloc (sizeof (int)*2);
 
@@ -200,8 +188,8 @@ BMI_Get_grid_spacing (void *handle, const char *long_var_name, int * n_dim)
 {
   double * spacing = NULL;
 
-  if (strcmp (long_var_name, "height_above_sea_floor") == 0) {
-    Self *self = (Self *) handle;
+  if (strcmp (long_var_name, "surface_elevation") == 0) {
+    BMI_Model *self = (BMI_Model *) handle;
 
     spacing = (double *)malloc (sizeof (double)*2);
 
@@ -221,7 +209,7 @@ BMI_Get_grid_origin (void *handle, const char *long_var_name, int * n_dim)
 {
   double * origin = NULL;
 
-  if (strcmp (long_var_name, "height_above_sea_floor") == 0) {
+  if (strcmp (long_var_name, "surface_elevation") == 0) {
     origin = (double *)malloc (sizeof (double)*2);
 
     origin[0] = 0.;
@@ -238,7 +226,7 @@ BMI_Get_grid_origin (void *handle, const char *long_var_name, int * n_dim)
 BMI_Grid_type
 BMI_Get_grid_type (void *handle, const char *long_var_name)
 {
-  if (strcmp (long_var_name, "height_above_sea_floor") == 0)
+  if (strcmp (long_var_name, "surface_elevation") == 0)
     return BMI_GRID_TYPE_UNIFORM;
   else
     return BMI_GRID_TYPE_UNKNOWN;
@@ -249,8 +237,8 @@ BMI_Get_double (void *handle, const char *long_var_name, int * n_dims, int **sha
 {
   double * val = NULL;
 
-  if (strcmp (long_var_name, "height_above_sea_floor")==0) {
-    Self *self = (Self *) handle;
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    BMI_Model *self = (BMI_Model *) handle;
 
     val = self->z[0];
     *n_dims = 2;
@@ -265,8 +253,8 @@ BMI_Get_double (void *handle, const char *long_var_name, int * n_dims, int **sha
 void
 BMI_Set_double (void *handle, const char *long_var_name, double *array)
 {
-  if (strcmp (long_var_name, "height_above_sea_floor")==0) {
-    Self *self = (Self *) handle;
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    BMI_Model *self = (BMI_Model *) handle;
     memcpy (self->z[0], array, sizeof (double) * self->n_x * self->n_y);
   }
 
@@ -281,7 +269,7 @@ BMI_Get_component_name (void *handle)
 }
 
 const char *input_var_names[] = {
-  "height_above_sea_floor",
+  "surface_elevation",
   NULL
 };
 
@@ -292,8 +280,7 @@ BMI_Get_input_var_names (void *handle)
 }
 
 const char *output_var_names[] = {
-  "grid_longitude",
-  "height_above_sea_floor",
+  "surface_elevation",
   NULL
 };
 
@@ -315,6 +302,6 @@ BMI_Get_end_time (void *handle) {
 
 double
 BMI_Get_current_time (void *handle) {
-  Self *self = (Self *) handle;
+  BMI_Model *self = (BMI_Model *) handle;
   return self->t;
 }
