@@ -70,6 +70,7 @@ initialize (std::string config_file)
 
   return;
 }
+// End: initialize
 
 void BMI::Model::
 update_until (double dt)
@@ -96,6 +97,7 @@ update_until (double dt)
 
   return;
 }
+// End: update_until
 
 void BMI::Model::
 finalize ()
@@ -107,6 +109,7 @@ finalize ()
 
   return;
 }
+// End: finalize
 
 std::string BMI::Model::
 get_var_type (std::string long_var_name)
@@ -119,6 +122,7 @@ get_var_type (std::string long_var_name)
 
   return std::string (type);
 }
+// End: get_var_type
 
 std::string BMI::Model::
 get_var_units (std::string long_var_name)
@@ -131,6 +135,7 @@ get_var_units (std::string long_var_name)
 
   return std::string (units);
 }
+// End: get_var_units
 
 int BMI::Model::
 get_var_rank (std::string long_var_name)
@@ -140,6 +145,7 @@ get_var_rank (std::string long_var_name)
   else
     return -1;
 }
+// End: get_var_rank
 
 int * BMI::Model::
 get_grid_shape (std::string long_var_name, int &n_dim)
@@ -159,6 +165,7 @@ get_grid_shape (std::string long_var_name, int &n_dim)
 
   return shape;
 }
+// End: get_grid_shape
 
 double * BMI::Model::
 get_grid_spacing (std::string long_var_name, int &n_dim)
@@ -178,6 +185,7 @@ get_grid_spacing (std::string long_var_name, int &n_dim)
 
   return spacing;
 }
+// End: get_grid_spacing
 
 double * BMI::Model::
 get_grid_origin (std::string long_var_name, int &n_dim)
@@ -197,6 +205,7 @@ get_grid_origin (std::string long_var_name, int &n_dim)
 
   return origin;
 }
+// End: get_grid_origin
 
 BMI::Grid_type BMI::Model::
 get_grid_type (std::string long_var_name)
@@ -206,6 +215,7 @@ get_grid_type (std::string long_var_name)
   else
     return GRID_TYPE_UNKNOWN;
 }
+// End: get_grid_type
 
 double * BMI::Model::
 get_double (std::string long_var_name, int &n_dims)
@@ -217,11 +227,9 @@ get_double (std::string long_var_name, int &n_dims)
     n_dims = 2;
   }
 
-  //if (shape != NULL)
-  //  *shape = get_grid_shape (long_var_name, n_dims);
-
   return val;
 }
+// End: get_double
 
 void BMI::Model::
 set_double (std::string long_var_name, double *array)
@@ -232,12 +240,14 @@ set_double (std::string long_var_name, double *array)
 
   return;
 }
+// End: set_double
 
 std::string BMI::Model::
 get_component_name ()
 {
   return "Example C++ model";
 }
+// End: get_component_name
 
 const char *input_var_names[] = {
   "surface_elevation",
@@ -249,6 +259,7 @@ get_input_var_names ()
 {
   return input_var_names;
 }
+// End: get_input_var_names
 
 const char *output_var_names[] = {
   "surface_elevation",
@@ -260,20 +271,23 @@ get_output_var_names ()
 {
   return output_var_names;
 }
+// End: get_output_var_names
 
 double BMI::Model::
 get_start_time () {
   return 0.;
 }
+// End: get_start_time
 
 double BMI::Model::
 get_end_time () {
   return DBL_MAX;
 }
+// End: get_end_time
 
 double BMI::Model::
 get_current_time () {
   return this->t;
 }
-
+// End: get_current_time
 
