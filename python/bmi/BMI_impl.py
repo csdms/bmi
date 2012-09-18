@@ -5,11 +5,11 @@
 >>> c.initialize ()
 
 >>> c.get_input_var_names ()
-['height_above_sea_floor']
+['surface_elevation']
 >>> c.get_output_var_names ()
-['height_above_sea_floor']
+['surface_elevation']
 
->>> var_name = 'height_above_sea_floor'
+>>> var_name = 'surface_elevation'
 
 >>> c.get_grid_type (var_name) == BmiGridType.UNIFORM
 True
@@ -45,10 +45,10 @@ from BMI import BMI, BmiGridType
 from scipy import ndimage
 
 class Model (BMI):
-    _var_units = {'height_above_sea_floor': 'meter'}
+    _var_units = {'surface_elevation': 'meter'}
     _name = 'Example Python Model'
-    _input_var_names = ['height_above_sea_floor']
-    _output_var_names = ['height_above_sea_floor']
+    _input_var_names = ['surface_elevation']
+    _output_var_names = ['surface_elevation']
 
     def __init__ (self):
         self._dt = 0
@@ -88,7 +88,7 @@ class Model (BMI):
         self._set_bc (self._z)
         self._temp_z = self._z.copy ()
 
-        self._value['height_above_sea_floor'] = self._z
+        self._value['surface_elevation'] = self._z
 
         dx, dy = self._shape
         self._stencil = np.array ([[0., dx**2, 0.], [dy**2, 0., dy**2], [0., dx**2, 0.]]) / (2. * (dx**2 + dy**2))
