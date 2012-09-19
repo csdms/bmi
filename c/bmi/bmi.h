@@ -82,7 +82,7 @@ double *BMI_Get_grid_corner (void *, const char *, int *);
 
 int * BMI_Get_grid_shape (void *, const char *, int *);
 double * BMI_Get_grid_spacing (void *, const char *, int *);
-double * BMI_Get_grid_lower_left_corner (void *, const char *, int *);
+double * BMI_Get_grid_origin (void *, const char *, int *);
 
 double * BMI_Get_grid_x (void *, const char *, int *);
 double * BMI_Get_grid_y (void *, const char *, int *);
@@ -112,6 +112,7 @@ double BMI_Get_current_time (void *);
 double BMI_Get_start_time (void *);
 double BMI_Get_end_time (void *);
 const char * BMI_Get_time_units (void *);
+double BMI_Get_time_step (void *);
 
 #if defined(__cplusplus)
 }

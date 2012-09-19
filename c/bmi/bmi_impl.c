@@ -9,6 +9,7 @@ typedef struct
 {
   double dt;
   double t;
+  double t_end;
 
   int n_x;
   int n_y;
@@ -32,15 +33,17 @@ BMI_Initialize (const char *config_file)
     FILE *fp = NULL;
 
     double dt = 0.;
+    double t_end = 1.;
     int n_x = 0;
     int n_y = 0;
 
     fp = fopen (config_file, "r");
     if (!fp)
       return NULL;
-    fscanf (fp, "%f, %d, %d", &dt, &n_x, &n_y);
+    fscanf (fp, "%lf, %lf, %d, %d", &dt, &t_end, &n_x, &n_y);
 
     self->dt = dt;
+    self->t_end = t_end;
     self->n_x = n_x;
     self->n_y = n_y;
     self->dx = 1.;
@@ -49,6 +52,7 @@ BMI_Initialize (const char *config_file)
   else
   { /* Set to default values */
     self->dt = 1.;
+    self->t_end = 10.;
     self->n_x = 10;
     self->n_y = 20;
     self->dx = 1.;
@@ -73,7 +77,7 @@ BMI_Initialize (const char *config_file)
 
     self->t = 0;
     for (i = 0; i < len; i++)
-      self->z[0][i] = random ()*1./RAND_MAX;
+      self->z[0][i] = random ()*1./RAND_MAX * top_x * top_x * .5 - top_x * top_x * .25;
     for (i = 0; i < self->n_y; i++) {
       self->z[i][0] = 0.;
       self->z[i][self->n_x-1] = 0.;
@@ -83,7 +87,6 @@ BMI_Initialize (const char *config_file)
       self->z[self->n_y-1][i] = top_x*top_x*.25 - (i-top_x*.5) * (i-top_x*.5);
     }
     
-
     memcpy (self->temp_z[0], self->z[0], sizeof (double)*self->n_x*self->n_y);
   }
 
@@ -92,11 +95,38 @@ BMI_Initialize (const char *config_file)
 /* End: BMI_Initialize */
 
 void
-BMI_Update_until (void *handle, double dt)
+BMI_Update_until (void *handle, double t)
 {
   BMI_Model *self = (BMI_Model *) handle;
 
-  self->t += self->dt;
+  {
+    int n;
+    const int n_steps = (t - BMI_Get_current_time (handle)) / BMI_Get_time_step (handle);
+
+    for (n=0; n<n_steps; n++) {
+      BMI_Update (handle);
+    }
+
+    if (t>BMI_Get_current_time (handle)) {
+      double dt = BMI_Get_time_step (handle);
+      self->dt = t - BMI_Get_current_time (handle); 
+
+      BMI_Update (handle);
+
+      self->dt = dt;
+    }
+  }
+
+  fprintf (stderr, "Time is %f\n", BMI_Get_current_time (handle));
+
+  return;
+}
+/* End: BMI_Update_until */
+
+void
+BMI_Update (void *handle)
+{
+  BMI_Model *self = (BMI_Model *) handle;
 
   {
     int i, j;
@@ -104,7 +134,7 @@ BMI_Update_until (void *handle, double dt)
     const double dx2 = self->dx * self->dx;
     const double dy2 = self->dy * self->dy;
     const double dx2_dy2_rho = dx2 * dy2 * rho;
-    const double denom = 1./(2 * (dx2 + dy2));
+    const double denom = self->dt/(2 * (dx2 + dy2));
     double **z = self->z;
 
     for (i=1; i<self->n_y-1; i++)
@@ -112,13 +142,14 @@ BMI_Update_until (void *handle, double dt)
         self->temp_z[i][j] = denom * (dx2 * (z[i-1][j] + z[i+1][j]) +
                                       dy2 * (z[i][j-1] + z[i][j+1]) -
                                       dx2_dy2_rho);
+    self->t += self->dt;
   }
 
   memcpy (self->z[0], self->temp_z[0], sizeof (double) * self->n_y * self->n_x);
 
   return;
 }
-/* End: BMI_Update_until */
+/* End: BMI_Update */
 
 void
 BMI_Finalize (void *handle)
@@ -313,7 +344,8 @@ BMI_Get_start_time (void *handle) {
 
 double
 BMI_Get_end_time (void *handle) {
-  return DBL_MAX;
+  return 1000.;
+  //return DBL_MAX;
 }
 /* End: BMI_Get_end_time */
 
@@ -323,4 +355,18 @@ BMI_Get_current_time (void *handle) {
   return self->t;
 }
 /* End: BMI_Get_current_time */
+
+double
+BMI_Get_time_step (void *handle) {
+  BMI_Model *self = (BMI_Model *) handle;
+  return self->dt;
+}
+/* End: BMI_Get_time_step */
+
+const char *
+BMI_Get_time_units (void *handle) {
+  BMI_Model *self = (BMI_Model *) handle;
+  return "-";
+}
+/* End: BMI_Get_time_units */
 
