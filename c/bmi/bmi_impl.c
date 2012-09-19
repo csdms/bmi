@@ -344,8 +344,8 @@ BMI_Get_start_time (void *handle) {
 
 double
 BMI_Get_end_time (void *handle) {
-  return 1000.;
-  //return DBL_MAX;
+  BMI_Model *self = (BMI_Model *) handle;
+  return self->t_end;
 }
 /* End: BMI_Get_end_time */
 
