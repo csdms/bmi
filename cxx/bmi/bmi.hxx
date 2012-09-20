@@ -31,6 +31,7 @@ namespace BMI {
     private:
       double dt;
       double t;
+      double t_end;
 
       int n_x;
       int n_y;
@@ -60,6 +61,7 @@ namespace BMI {
       double get_current_time ();
       double get_start_time ();
       double get_end_time ();
+      double get_time_step ();
       std::string get_time_units ();
 
       double *get_double (std::string, int &);

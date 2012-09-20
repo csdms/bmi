@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <float.h>
+//#include <float.h>
 
 #include <iostream>
+#include <cstdlib>
 #include <bmi.hxx>
 
 void BMI::Model::
@@ -14,15 +15,17 @@ initialize (std::string config_file)
     FILE *fp = NULL;
 
     double dt = 0.;
+    double t_end = 0.;
     int n_x = 0;
     int n_y = 0;
 
     fp = fopen (config_file.c_str (), "r");
     if (!fp)
       return;
-    fscanf (fp, "%f, %d, %d", &dt, &n_x, &n_y);
+    fscanf (fp, "%lf, %lf, %d, %d", &dt, &t_end, &n_x, &n_y);
 
     this->dt = dt;
+    this->t_end = t_end;
     this->n_x = n_x;
     this->n_y = n_y;
     this->dx = 1.;
@@ -31,6 +34,7 @@ initialize (std::string config_file)
   else
   { /* Set to default values */
     this->dt = 1.;
+    this->t_end = 10.;
     this->n_x = 10;
     this->n_y = 20;
     this->dx = 1.;
@@ -55,7 +59,7 @@ initialize (std::string config_file)
 
     this->t = 0;
     for (i = 0; i < len; i++)
-      this->z[0][i] = 0.;
+      this->z[0][i] = rand ()*1./RAND_MAX * top_x*top_x*.5 - top_x*top_x*.25;
     for (i = 0; i < this->n_y; i++) {
       this->z[i][0] = 0.;
       this->z[i][this->n_x-1] = 0.;
@@ -73,9 +77,8 @@ initialize (std::string config_file)
 // End: initialize
 
 void BMI::Model::
-update_until (double dt)
+update ()
 {
-  this->t += this->dt;
 
   {
     int i, j;
@@ -83,7 +86,7 @@ update_until (double dt)
     const double dx2 = this->dx * this->dx;
     const double dy2 = this->dy * this->dy;
     const double dx2_dy2_rho = dx2 * dy2 * rho;
-    const double denom = 1./(2 * (dx2 + dy2));
+    const double denom = this->dt/(2 * (dx2 + dy2));
     double **z = this->z;
 
     for (i=1; i<this->n_y-1; i++)
@@ -91,9 +94,32 @@ update_until (double dt)
         this->temp_z[i][j] = denom * (dx2 * (z[i-1][j] + z[i+1][j]) +
                                       dy2 * (z[i][j-1] + z[i][j+1]) -
                                       dx2_dy2_rho);
+
+    this->t += this->dt;
   }
 
   memcpy (this->z[0], this->temp_z[0], sizeof (double) * this->n_y * this->n_x);
+
+  return;
+}
+// End: update
+
+void BMI::Model::
+update_until (double t)
+{
+  const int n_steps = (t - this->t) / this->dt;
+
+  for (int n=0; n<n_steps; n++)
+    this->update ();
+
+  if (t > this->t) {
+    double dt = this->dt;
+    this->dt = t-this->t;
+
+    this->update ();
+
+    this->dt = dt;
+  }
 
   return;
 }
@@ -281,7 +307,7 @@ get_start_time () {
 
 double BMI::Model::
 get_end_time () {
-  return DBL_MAX;
+  return this->t_end;
 }
 // End: get_end_time
 
@@ -290,4 +316,16 @@ get_current_time () {
   return this->t;
 }
 // End: get_current_time
+
+double BMI::Model::
+get_time_step () {
+  return this->dt;
+}
+// End: get_current_time
+
+std::string BMI::Model::
+get_time_units () {
+  return std::string ("-");
+}
+// End: get_time_units
 

@@ -21,10 +21,12 @@ main (void)
     fprintf (stdout, "Running...\n");
     for (int i = 0; i < n_steps; i++)
     {
-      fprintf (stdout, "Time step: %d\n", i);
-      model.update_until (i);
+      model.update ();
+      fprintf (stdout, "Time: %f\n", model.get_current_time ());
     }
-    fprintf (stdout, "Done\n\n");
+    model.update_until (model.get_current_time () + 1.5);
+    fprintf (stdout, "Time: %f\n", model.get_current_time ());
+    fprintf (stdout, "Done\n");
   }
 
   fprintf (stdout, "Finalizing... ");
