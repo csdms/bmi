@@ -96,8 +96,6 @@ BMI_Initialize (const char *config_file)
 void
 BMI_Update_until (BMI_Model *self, double t)
 {
-  //BMI_Model *self = (BMI_Model *) handle;
-
   {
     int n;
     const int n_steps = (t - BMI_Get_current_time (self)) / BMI_Get_time_step (self);
@@ -125,8 +123,6 @@ BMI_Update_until (BMI_Model *self, double t)
 void
 BMI_Update (BMI_Model *self)
 {
-  //BMI_Model *self = (BMI_Model *) handle;
-
   {
     int i, j;
     const double rho = 0.;
@@ -153,8 +149,6 @@ BMI_Update (BMI_Model *self)
 void
 BMI_Finalize (BMI_Model *self)
 {
-  //BMI_Model *self = (BMI_Model *) handle;
-
   if (self)
   {
     free (self->temp_z[0]);
@@ -353,28 +347,24 @@ BMI_Get_start_time (BMI_Model *self) {
 
 double
 BMI_Get_end_time (BMI_Model *self) {
-  //BMI_Model *self = (BMI_Model *) handle;
   return self->t_end;
 }
 /* End: BMI_Get_end_time */
 
 double
 BMI_Get_current_time (BMI_Model *self) {
-  //BMI_Model *self = (BMI_Model *) handle;
   return self->t;
 }
 /* End: BMI_Get_current_time */
 
 double
 BMI_Get_time_step (BMI_Model *self) {
-  //BMI_Model *self = (BMI_Model *) handle;
   return self->dt;
 }
 /* End: BMI_Get_time_step */
 
 const char *
 BMI_Get_time_units (BMI_Model *self) {
-  //BMI_Model *self = (BMI_Model *) handle;
   return "-";
 }
 /* End: BMI_Get_time_units */
