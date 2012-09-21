@@ -5,8 +5,7 @@
 
 #include <bmi.h>
 
-typedef struct
-{
+struct _BMI_Model {
   double dt;
   double t;
   double t_end;
@@ -19,9 +18,9 @@ typedef struct
   double **z;
 
   double **temp_z;
-} BMI_Model;
+};
 
-void *
+BMI_Model *
 BMI_Initialize (const char *config_file)
 {
   BMI_Model *self = NULL;
@@ -95,38 +94,38 @@ BMI_Initialize (const char *config_file)
 /* End: BMI_Initialize */
 
 void
-BMI_Update_until (void *handle, double t)
+BMI_Update_until (BMI_Model *self, double t)
 {
-  BMI_Model *self = (BMI_Model *) handle;
+  //BMI_Model *self = (BMI_Model *) handle;
 
   {
     int n;
-    const int n_steps = (t - BMI_Get_current_time (handle)) / BMI_Get_time_step (handle);
+    const int n_steps = (t - BMI_Get_current_time (self)) / BMI_Get_time_step (self);
 
     for (n=0; n<n_steps; n++) {
-      BMI_Update (handle);
+      BMI_Update (self);
     }
 
-    if (t>BMI_Get_current_time (handle)) {
-      double dt = BMI_Get_time_step (handle);
-      self->dt = t - BMI_Get_current_time (handle); 
+    if (t>BMI_Get_current_time (self)) {
+      double dt = BMI_Get_time_step (self);
+      self->dt = t - BMI_Get_current_time (self); 
 
-      BMI_Update (handle);
+      BMI_Update (self);
 
       self->dt = dt;
     }
   }
 
-  fprintf (stderr, "Time is %f\n", BMI_Get_current_time (handle));
+  fprintf (stderr, "Time is %f\n", BMI_Get_current_time (self));
 
   return;
 }
 /* End: BMI_Update_until */
 
 void
-BMI_Update (void *handle)
+BMI_Update (BMI_Model *self)
 {
-  BMI_Model *self = (BMI_Model *) handle;
+  //BMI_Model *self = (BMI_Model *) handle;
 
   {
     int i, j;
@@ -152,9 +151,9 @@ BMI_Update (void *handle)
 /* End: BMI_Update */
 
 void
-BMI_Finalize (void *handle)
+BMI_Finalize (BMI_Model *self)
 {
-  BMI_Model *self = (BMI_Model *) handle;
+  //BMI_Model *self = (BMI_Model *) handle;
 
   if (self)
   {
@@ -169,18 +168,18 @@ BMI_Finalize (void *handle)
 }
 /* End: BMI_Finalize */
 
-const char *
-BMI_Get_var_type (void *handle, const char *long_var_name)
+BMI_Var_type
+BMI_Get_var_type (BMI_Model *self, const char *long_var_name)
 {
   if (strcasecmp (long_var_name, "surface_elevation") == 0)
-    return "double";
+    return BMI_VAR_TYPE_DOUBLE;
   else
-    return NULL;
+    return BMI_VAR_TYPE_UNKNOWN;
 }
 /* End: BMI_Get_var_type */
 
 const char *
-BMI_Get_var_units (void *handle, const char *long_var_name)
+BMI_Get_var_units (BMI_Model *self, const char *long_var_name)
 {
   if (strcmp (long_var_name, "surface_elevation") == 0)
     return "meter";
@@ -190,7 +189,7 @@ BMI_Get_var_units (void *handle, const char *long_var_name)
 /* End: BMI_Get_var_units */
 
 int
-BMI_Get_var_rank (void *handle, const char *long_var_name)
+BMI_Get_var_rank (BMI_Model *self, const char *long_var_name)
 {
   if (strcmp (long_var_name, "surface_elevation") == 0)
     return 2;
@@ -199,72 +198,45 @@ BMI_Get_var_rank (void *handle, const char *long_var_name)
 }
 /* End: BMI_Get_var_rank */
 
-int *
-BMI_Get_grid_shape (void *handle, const char *long_var_name, int * n_dim)
+void
+BMI_Get_grid_shape (BMI_Model *self, const char *long_var_name, int * shape)
 {
-  int * shape = NULL;
-
   if (strcmp (long_var_name, "surface_elevation") == 0) {
-    BMI_Model *self = (BMI_Model *) handle;
-
-    shape = (int *)malloc (sizeof (int)*2);
-
     shape[0] = self->n_y;
     shape[1] = self->n_x;
-
-    *n_dim = 2;
   }
-  else
-    *n_dim = 0;
 
-  return shape;
+  return;
 }
+
 /* End: BMI_Get_grid_shape */
 
-double *
-BMI_Get_grid_spacing (void *handle, const char *long_var_name, int * n_dim)
+void
+BMI_Get_grid_spacing (BMI_Model *self, const char *long_var_name, double * spacing)
 {
-  double * spacing = NULL;
-
   if (strcmp (long_var_name, "surface_elevation") == 0) {
-    BMI_Model *self = (BMI_Model *) handle;
-
-    spacing = (double *)malloc (sizeof (double)*2);
-
     spacing[0] = self->dy;
     spacing[1] = self->dx;
-
-    *n_dim = 2;
   }
-  else
-    *n_dim = 0;
 
-  return spacing;
+  return;
 }
 /* End: BMI_Get_grid_spacing */
 
-double *
-BMI_Get_grid_origin (void *handle, const char *long_var_name, int * n_dim)
+void
+BMI_Get_grid_origin (BMI_Model *self, const char *long_var_name, double * origin)
 {
-  double * origin = NULL;
-
   if (strcmp (long_var_name, "surface_elevation") == 0) {
-    origin = (double *)malloc (sizeof (double)*2);
-
     origin[0] = 0.;
     origin[1] = 0.;
-
-    *n_dim = 2;
   }
-  else
-    *n_dim = 0;
 
-  return origin;
+  return;
 }
 /* End: BMI_Get_grid_origin */
 
 BMI_Grid_type
-BMI_Get_grid_type (void *handle, const char *long_var_name)
+BMI_Get_grid_type (BMI_Model *self, const char *long_var_name)
 {
   if (strcmp (long_var_name, "surface_elevation") == 0)
     return BMI_GRID_TYPE_UNIFORM;
@@ -274,29 +246,47 @@ BMI_Get_grid_type (void *handle, const char *long_var_name)
 /* End: BMI_Get_grid_type */
 
 double *
-BMI_Get_double (void *handle, const char *long_var_name, int * n_dims, int **shape)
+BMI_Get_double (BMI_Model *self, const char *long_var_name, double *val)
 {
-  double * val = NULL;
+  double *src = NULL;
 
   if (strcmp (long_var_name, "surface_elevation")==0) {
-    BMI_Model *self = (BMI_Model *) handle;
-
-    val = self->z[0];
-    *n_dims = 2;
+    src = self->z[0];
   }
 
-  if (shape != NULL)
-    *shape = BMI_Get_grid_shape (handle, long_var_name, n_dims);
+  if (val)
+    memcpy (val, src, sizeof (double) * self->n_x * self->n_y);
+  else
+    val = src;
 
   return val;
 }
 /* End: BMI_Get_double */
 
+double *
+BMI_Get_double_at_indices (BMI_Model *self, const char *long_var_name, double *dest, int * inds, int len)
+{
+  double *src = NULL;
+
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    src = self->z[0];
+  }
+
+  { /* Copy the data */
+    int i;
+    for (i=0; i<len; i++) {
+      dest[i] = src[inds[i]];
+    }
+  }
+
+  return dest;
+}
+/* End: BMI_Get_double_at_indices */
+
 void
-BMI_Set_double (void *handle, const char *long_var_name, double *array)
+BMI_Set_double (BMI_Model *self, const char *long_var_name, double *array)
 {
   if (strcmp (long_var_name, "surface_elevation")==0) {
-    BMI_Model *self = (BMI_Model *) handle;
     memcpy (self->z[0], array, sizeof (double) * self->n_x * self->n_y);
   }
 
@@ -304,9 +294,28 @@ BMI_Set_double (void *handle, const char *long_var_name, double *array)
 }
 /* End: BMI_Set_double */
 
-// Assume string arrays are NULL-terminated
+void
+BMI_Set_double_at_indices (BMI_Model *self, const char *long_var_name, int * inds, int len, double *src)
+{
+  double * dest;
+
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    dest = self->z[0];
+  }
+
+  { /* Copy the data */
+    int i;
+    for (i=0; i<len; i++) {
+      dest[inds[i]] = src[i];
+    }
+  }
+
+  return;
+}
+/* End: BMI_Set_double_at_indices */
+
 const char *
-BMI_Get_component_name (void *handle)
+BMI_Get_component_name (BMI_Model *self)
 {
   return "Example C model";
 }
@@ -318,7 +327,7 @@ const char *input_var_names[] = {
 };
 
 const char **
-BMI_Get_input_var_names (void *handle)
+BMI_Get_input_var_names (BMI_Model *self)
 {
   return input_var_names;
 }
@@ -330,42 +339,42 @@ const char *output_var_names[] = {
 };
 
 const char **
-BMI_Get_output_var_names (void *handle)
+BMI_Get_output_var_names (BMI_Model *self)
 {
   return output_var_names;
 }
 /* End: BMI_Get_output_var_names */
 
 double
-BMI_Get_start_time (void *handle) {
+BMI_Get_start_time (BMI_Model *self) {
   return 0.;
 }
 /* End: BMI_Get_start_time */
 
 double
-BMI_Get_end_time (void *handle) {
-  BMI_Model *self = (BMI_Model *) handle;
+BMI_Get_end_time (BMI_Model *self) {
+  //BMI_Model *self = (BMI_Model *) handle;
   return self->t_end;
 }
 /* End: BMI_Get_end_time */
 
 double
-BMI_Get_current_time (void *handle) {
-  BMI_Model *self = (BMI_Model *) handle;
+BMI_Get_current_time (BMI_Model *self) {
+  //BMI_Model *self = (BMI_Model *) handle;
   return self->t;
 }
 /* End: BMI_Get_current_time */
 
 double
-BMI_Get_time_step (void *handle) {
-  BMI_Model *self = (BMI_Model *) handle;
+BMI_Get_time_step (BMI_Model *self) {
+  //BMI_Model *self = (BMI_Model *) handle;
   return self->dt;
 }
 /* End: BMI_Get_time_step */
 
 const char *
-BMI_Get_time_units (void *handle) {
-  BMI_Model *self = (BMI_Model *) handle;
+BMI_Get_time_units (BMI_Model *self) {
+  //BMI_Model *self = (BMI_Model *) handle;
   return "-";
 }
 /* End: BMI_Get_time_units */
