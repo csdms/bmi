@@ -57,6 +57,7 @@
           subroutine BMI_Initialize (self, config_file)
             type (BMI_Model), intent (out) :: self
             character (len=*), intent (in) :: config_file
+            ! end declaration section
 
             if (len (config_file)>0) then
               open (15, file=config_file)
@@ -102,6 +103,7 @@
           subroutine BMI_Finalize (self)
             implicit none
             type (BMI_Model), intent (inout) :: self
+            ! end declaration section
 
             deallocate (self%z)
             deallocate (self%z_temp)
@@ -110,6 +112,7 @@
           subroutine BMI_Update (self)
             implicit none
             type (BMI_Model), intent (inout) :: self
+            ! end declaration section
 
             real, parameter :: rho = 0.
             real :: dx2
@@ -141,6 +144,7 @@
             implicit none
             type (BMI_Model), intent (inout) :: self
             real, intent (in) :: t
+            ! end declaration section
 
             integer :: n
             integer :: n_steps
@@ -167,6 +171,7 @@
             implicit none
             type (BMI_Model), intent (inout) :: self
             real, intent (out) :: start
+            ! end declaration section
 
             start = 0.
           end subroutine BMI_Get_start_time
@@ -175,6 +180,7 @@
             implicit none
             type (BMI_Model), intent (inout) :: self
             real, intent (out) :: end
+            ! end declaration section
 
             end = self%t_end
           end subroutine BMI_Get_end_time
@@ -183,6 +189,7 @@
             implicit none
             type (BMI_Model), intent (inout) :: self
             real, intent (out) :: time
+            ! end declaration section
 
             time = self%t
           end subroutine BMI_Get_current_time
@@ -191,6 +198,7 @@
             implicit none
             type (BMI_Model), intent (inout) :: self
             real, intent (out) :: dt
+            ! end declaration section
 
             dt = self%dt
           end subroutine BMI_Get_time_step
@@ -199,6 +207,7 @@
             implicit none
             type (BMI_Model), intent (inout) :: self
             character (len=*), intent (out) :: units
+            ! end declaration section
 
             units = "-"
           end subroutine BMI_Get_time_units
@@ -208,6 +217,7 @@
             type (BMI_Model), intent (inout) :: self
             character (len=*), intent (in) :: var_name
             integer, intent (out) :: type
+            ! end declaration section
 
             type = BMI_VAR_TYPE_DOUBLE
           end subroutine BMI_Get_var_type
@@ -217,6 +227,7 @@
             type (BMI_Model), intent (inout) :: self
             character (len=*), intent (in) :: var_name
             character (len=*), intent (out) :: units
+            ! end declaration section
 
             units = "meter"
           end subroutine BMI_Get_var_units
@@ -226,6 +237,7 @@
             type (BMI_Model), intent (inout) :: self
             character (len=*), intent (in) :: var_name
             integer, intent (out) :: rank
+            ! end declaration section
 
             rank = 2
           end subroutine BMI_Get_var_rank
@@ -235,6 +247,7 @@
             type (BMI_Model), intent (inout) :: self
             character (len=*), intent (in) :: var_name
             integer, intent (out) :: type
+            ! end declaration section
 
             type = BMI_GRID_TYPE_UNIFORM
           end subroutine BMI_Get_grid_type
@@ -244,6 +257,7 @@
             type (BMI_Model), intent (inout) :: self
             character (len=*), intent (in) :: var_name
             integer, dimension (:), intent (out) :: shape
+            ! end declaration section
 
             shape(1) = self%n_x
             shape(2) = self%n_y
@@ -254,6 +268,7 @@
             type (BMI_Model), intent (inout) :: self
             character (len=*), intent (in) :: var_name
             real, dimension (:), intent (out) :: spacing
+            ! end declaration section
 
             spacing(1) = self%dx
             spacing(2) = self%dy
@@ -264,6 +279,7 @@
             type (BMI_Model), intent (inout) :: self
             character (len=*), intent (in) :: var_name
             real, dimension (:), intent (out) :: origin
+            ! end declaration section
 
             origin(1) = 0.
             origin(2) = 0.
@@ -274,6 +290,7 @@
             type (BMI_Model), intent (in) :: self
             character (len=*), intent (in) :: var_name
             real, pointer, intent (inout) :: dest(:)
+            ! end declaration section
 
             real, pointer :: src_as_1d (:)
             type (c_ptr) :: src
@@ -297,6 +314,7 @@
             type (BMI_Model), intent (in) :: self
             character (len=*), intent (in) :: var_name
             real, intent (out) :: dest (*)
+            ! end declaration section
 
             select case (var_name)
               case ('surface_elevation')
@@ -311,6 +329,7 @@
             character (len=*), intent (in) :: var_name
             real, pointer, intent (inout) :: dest(:)
             integer, intent (in) :: inds(:)
+            ! end declaration section
 
             real, pointer :: src_as_1d (:)
             type (c_ptr) :: src
@@ -334,6 +353,7 @@
             type (BMI_Model), intent (inout) :: self
             character (len=*), intent (in) :: var_name
             real, intent (in) :: src (*)
+            ! end declaration section
 
             call copy_array (self%z, src, self%n_x * self%n_y)
 
@@ -345,6 +365,7 @@
             character (len=*), intent (in) :: var_name
             integer, intent (in) :: inds(:)
             real, intent (in) :: src (*)
+            ! end declaration section
 
             real, pointer :: dest_as_1d (:)
             type (c_ptr) :: dest
@@ -374,6 +395,7 @@
             implicit none
             type (BMI_Model), intent (in) :: self
             character (*), pointer, intent (out) :: names(:)
+            ! end declaration section
 
             names => input_items
           end subroutine BMI_Get_input_var_names
@@ -382,6 +404,7 @@
             implicit none
             type (BMI_Model), intent (in) :: self
             character (*), pointer, intent (out) :: names(:)
+            ! end declaration section
 
             names => output_items
           end subroutine BMI_Get_output_var_names
@@ -390,6 +413,7 @@
             implicit none
             type (BMI_Model), intent (in) :: self
             character (len=*), pointer, intent (out) :: name
+            ! end declaration section
 
             name => component_name
           end subroutine BMI_Get_component_name
