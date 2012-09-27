@@ -168,7 +168,7 @@
             implicit none
             type (BMI_Model), intent (inout) :: self
             real, intent (out) :: start
-            ! end declaration section
+            ! end declaration BMI_Get_start_time
 
             start = 0.
           end subroutine BMI_Get_start_time
@@ -177,7 +177,7 @@
             implicit none
             type (BMI_Model), intent (inout) :: self
             real, intent (out) :: end
-            ! end declaration section
+            ! end declaration BMI_Get_end_time
 
             end = self%t_end
           end subroutine BMI_Get_end_time
@@ -186,7 +186,7 @@
             implicit none
             type (BMI_Model), intent (inout) :: self
             real, intent (out) :: time
-            ! end declaration section
+            ! end declaration BMI_Get_current_time
 
             time = self%t
           end subroutine BMI_Get_current_time
