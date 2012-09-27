@@ -1,7 +1,5 @@
       module bmif
       use, intrinsic :: iso_c_binding, only: c_ptr, c_loc, c_f_pointer
-      !use iso_c_binding
-      !use bmi_mod
       implicit none
 
       integer, parameter :: BMI_VAR_TYPE_UNKNOWN = 0
@@ -23,7 +21,6 @@
       integer, parameter :: BMI_GRID_TYPE_NUMBER = 5
 
       type :: BMI_Model
-      !type, extends (BMI_Model) :: MyModel
         private
           real :: dt
           real :: t
