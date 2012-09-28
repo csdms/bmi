@@ -39,6 +39,8 @@
       integer, parameter :: component_name_length = 22
       character (len=component_name_length), target :: &
         component_name = "Fortran test component"
+
+      ! start exchange item list
       integer, parameter :: input_item_count = 1
       integer, parameter :: output_item_count = 1
       integer, parameter :: item_name_length = 22
@@ -49,6 +51,7 @@
       character (len=item_name_length), target, &
         dimension (output_item_count) :: &
         output_items = (/'surface_elevation   '/)
+      ! end exchange item list
 
       contains
           subroutine BMI_Initialize (self, config_file)
