@@ -57,7 +57,7 @@ class BmiRaster (BMI):
     def get_grid_origin (self, long_var_name):
         pass
 
-class BmiRectlinear (BMI):
+class BmiRectilinear (BMI):
     def get_grid_shape (self, long_var_name):
         pass
     def get_grid_x (self, long_var_name):
