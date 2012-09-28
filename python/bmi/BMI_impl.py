@@ -1,6 +1,9 @@
 #! /usr/bin/env python
 
 """
+>>> import numpy as np
+>>> np.set_printoptions (precision=2, linewidth=150, suppress=True)
+
 >>> c = Model ()
 >>> c.initialize ()
 
@@ -28,15 +31,25 @@ True
 >>> print '%.2g' % c.get_end_time ()
 1.8e+308
 
+>>> c.update ()
+>>> c.get_current_time ()
+1.0
+
+>>> z = c.get_value (var_name)
+>>> z[:-3,:].sum ()
+0.0
+>>> np.all (z[-2:-1,:].sum () > 0)
+True
+
 >>> c.update_until (3.)
 >>> c.get_current_time ()
 3.0
 
->>> z = c.get_value (var_name)
+>>> z[:-5,:].sum ()
+0.0
+>>> np.all (z[-4:-1,:].sum () > 0)
+True
 
->>> import numpy as np
->>> np.set_printoptions (precision=2, linewidth=150, suppress=True)
->>> print z
 """
 
 import numpy as np
@@ -90,8 +103,8 @@ class Model (BMI):
 
         self._value['surface_elevation'] = self._z
 
-        dx, dy = self._shape
-        self._stencil = np.array ([[0., dx**2, 0.], [dy**2, 0., dy**2], [0., dx**2, 0.]]) / (2. * (dx**2 + dy**2))
+        dx, dy = self._spacing
+        self._stencil = np.array ([[0., dx**2, 0.], [dy**2, 0., dy**2], [0., dx**2, 0.]]) / (2. * (dx**2 + dy**2)) * self._dt
 
     def update (self):
         ndimage.convolve (self._z, self._stencil, output=self._temp_z)
@@ -106,7 +119,9 @@ class Model (BMI):
             self.update ()
 
         if dt > 0:
-            ndimage.convolve (self._z, self._stencil * dt, output=self._temp_z)
+            self._stencil *= dt / self._dt
+            self.update ()
+            self._stencil *= self._dt / dt
 
     def finalize (self):
         self._dt = 0
