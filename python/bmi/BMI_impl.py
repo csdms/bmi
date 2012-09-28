@@ -93,16 +93,19 @@ class Model (BMI):
         dx, dy = self._shape
         self._stencil = np.array ([[0., dx**2, 0.], [dy**2, 0., dy**2], [0., dx**2, 0.]]) / (2. * (dx**2 + dy**2))
 
-    def update_until (self, t):
-        n_steps = (t - self.get_current_time ()) / self._dt
-        for i in xrange (int (n_steps)):
-            ndimage.convolve (self._z, self._stencil, output=self._temp_z)
-            self._set_bc (self._temp_z)
-            self._z[:] = self._temp_z
-            self._t += self._dt
+    def update (self):
+        ndimage.convolve (self._z, self._stencil, output=self._temp_z)
+        self._set_bc (self._temp_z)
+        self._z[:] = self._temp_z
 
-        dt = t - self.get_current_time ()
-        if dt>0:
+        self._t += self._dt
+
+    def update_until (self, t):
+        (dt, n_steps) = np.modf (t - self.get_current_time ())
+        for i in xrange (int (n_steps)):
+            self.update ()
+
+        if dt > 0:
             ndimage.convolve (self._z, self._stencil * dt, output=self._temp_z)
 
     def finalize (self):
