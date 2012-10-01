@@ -20,10 +20,14 @@ struct _BMI_Model {
   double **temp_z;
 };
 
-BMI_Model *
-BMI_Initialize (const char *config_file)
+//BMI_Model *
+int
+BMI_Initialize (const char *config_file, BMI_Model ** handle)
 {
   BMI_Model *self = NULL;
+
+  if (!handle)
+    return BMI_FAILURE;
 
   self = malloc (sizeof (BMI_Model));
 
@@ -38,15 +42,14 @@ BMI_Initialize (const char *config_file)
 
     fp = fopen (config_file, "r");
     if (!fp)
-      return NULL;
+      return BMI_FAILURE;
+
     fscanf (fp, "%lf, %lf, %d, %d", &dt, &t_end, &n_x, &n_y);
 
     self->dt = dt;
     self->t_end = t_end;
     self->n_x = n_x;
     self->n_y = n_y;
-    self->dx = 1.;
-    self->dy = 1.;
   }
   else
   { /* Set to default values */
@@ -54,9 +57,10 @@ BMI_Initialize (const char *config_file)
     self->t_end = 10.;
     self->n_x = 10;
     self->n_y = 20;
-    self->dx = 1.;
-    self->dy = 1.;
   }
+
+  self->dx = 1.;
+  self->dy = 1.;
 
   { /* Initialize data */
     int i;
@@ -64,11 +68,18 @@ BMI_Initialize (const char *config_file)
     double top_x = self->n_x - 1;
 
     /* Allocate memory */
-    self->temp_z = (double **)malloc (sizeof (double*) * self->n_y);
     self->z = (double **)malloc (sizeof (double*) * self->n_y);
+    self->temp_z = (double **)malloc (sizeof (double*) * self->n_y);
+
+    if (!self->temp_z || !self->z)
+      return BMI_FAILURE;
 
     self->z[0] = (double *)malloc (sizeof (double) * self->n_x * self->n_y);
     self->temp_z[0] = (double *)malloc (sizeof (double) * self->n_x * self->n_y);
+
+    if (!self->temp_z[0] || !self->z[0])
+      return BMI_FAILURE;
+
     for (i=1; i<self->n_y; i++) {
       self->z[i] = self->z[i-1] + self->n_x;
       self->temp_z[i] = self->temp_z[i-1] + self->n_x;
@@ -89,38 +100,13 @@ BMI_Initialize (const char *config_file)
     memcpy (self->temp_z[0], self->z[0], sizeof (double)*self->n_x*self->n_y);
   }
 
-  return (void *)self;
+  *handle = self;
+
+  return BMI_SUCCESS;
 }
 /* End: BMI_Initialize */
 
-void
-BMI_Update_until (BMI_Model *self, double t)
-{
-  {
-    int n;
-    const int n_steps = (t - BMI_Get_current_time (self)) / BMI_Get_time_step (self);
-
-    for (n=0; n<n_steps; n++) {
-      BMI_Update (self);
-    }
-
-    if (t>BMI_Get_current_time (self)) {
-      double dt = BMI_Get_time_step (self);
-      self->dt = t - BMI_Get_current_time (self); 
-
-      BMI_Update (self);
-
-      self->dt = dt;
-    }
-  }
-
-  fprintf (stderr, "Time is %f\n", BMI_Get_current_time (self));
-
-  return;
-}
-/* End: BMI_Update_until */
-
-void
+int
 BMI_Update (BMI_Model *self)
 {
   {
@@ -142,11 +128,68 @@ BMI_Update (BMI_Model *self)
 
   memcpy (self->z[0], self->temp_z[0], sizeof (double) * self->n_y * self->n_x);
 
-  return;
+  return BMI_SUCCESS;
 }
 /* End: BMI_Update */
 
-void
+int
+BMI_Update_frac (BMI_Model *self, double f)
+{
+  if (f>0) {
+    double dt;
+
+    BMI_Get_time_step (self, &dt);
+
+    self->dt = f * dt;
+
+    BMI_Update (self);
+
+    self->dt = dt;
+  }
+
+  return BMI_SUCCESS;
+}
+/* End: BMI_Update_frac */
+
+int
+BMI_Update_until (BMI_Model *self, double t)
+{
+  {
+    double dt;
+    double now;
+
+    BMI_Get_time_step (self, &dt);
+    BMI_Get_current_time (self, &now);
+
+    {
+      int n;
+      const double n_steps = (t - now) / dt;
+      for (n=0; n<(int)n_steps; n++) {
+        BMI_Update (self);
+      }
+
+      BMI_Update_frac (self, n_steps - (int)n_steps);
+    }
+
+
+    //if (t > BMI_Get_current_time (self)) {
+
+      //double dt = BMI_Get_time_step (self);
+      //self->dt = t - BMI_Get_current_time (self); 
+
+      //BMI_Update (self);
+
+      //self->dt = dt;
+    //}
+  }
+
+  //fprintf (stderr, "Time is %f\n", BMI_Get_current_time (self));
+
+  return BMI_SUCCESS;
+}
+/* End: BMI_Update_until */
+
+int
 BMI_Finalize (BMI_Model *self)
 {
   if (self)
@@ -158,41 +201,57 @@ BMI_Finalize (BMI_Model *self)
     free (self);
   }
 
-  return;
+  return BMI_SUCCESS;
 }
 /* End: BMI_Finalize */
 
-BMI_Var_type
-BMI_Get_var_type (BMI_Model *self, const char *long_var_name)
+int
+BMI_Get_var_type (BMI_Model *self, const char *long_var_name, BMI_Var_type * type)
 {
-  if (strcasecmp (long_var_name, "surface_elevation") == 0)
-    return BMI_VAR_TYPE_DOUBLE;
-  else
-    return BMI_VAR_TYPE_UNKNOWN;
+  if (strcasecmp (long_var_name, "surface_elevation") == 0) {
+    *type = BMI_VAR_TYPE_DOUBLE;
+    return BMI_SUCCESS;
+  }
+  else {
+    *type = BMI_VAR_TYPE_UNKNOWN;
+    return BMI_FAILURE;
+  }
 }
 /* End: BMI_Get_var_type */
 
-const char *
-BMI_Get_var_units (BMI_Model *self, const char *long_var_name)
+int
+BMI_Get_var_units (BMI_Model *self, const char *long_var_name, char * units)
 {
-  if (strcmp (long_var_name, "surface_elevation") == 0)
-    return "meter";
-  else
-    return NULL;
+  if (strcmp (long_var_name, "surface_elevation") == 0) {
+    strncpy (units, "meter", BMI_MAX_UNITS_NAME);
+    return BMI_SUCCESS;
+    //return "meter";
+  }
+  else {
+    units[0] = '\0';
+    return BMI_FAILURE;
+    //return NULL;
+  }
 }
 /* End: BMI_Get_var_units */
 
 int
-BMI_Get_var_rank (BMI_Model *self, const char *long_var_name)
+BMI_Get_var_rank (BMI_Model *self, const char *long_var_name, int * rank)
 {
-  if (strcmp (long_var_name, "surface_elevation") == 0)
-    return 2;
-  else
-    return -1;
+  if (strcmp (long_var_name, "surface_elevation") == 0) {
+    *rank = 2;
+    return BMI_SUCCESS;
+    //return 2;
+  }
+  else {
+    *rank = -1;
+    return BMI_FAILURE;
+    //return -1;
+  }
 }
 /* End: BMI_Get_var_rank */
 
-void
+int
 BMI_Get_grid_shape (BMI_Model *self, const char *long_var_name, int * shape)
 {
   if (strcmp (long_var_name, "surface_elevation") == 0) {
@@ -200,12 +259,12 @@ BMI_Get_grid_shape (BMI_Model *self, const char *long_var_name, int * shape)
     shape[1] = self->n_x;
   }
 
-  return;
+  return BMI_SUCCESS;
 }
 
 /* End: BMI_Get_grid_shape */
 
-void
+int
 BMI_Get_grid_spacing (BMI_Model *self, const char *long_var_name, double * spacing)
 {
   if (strcmp (long_var_name, "surface_elevation") == 0) {
@@ -213,11 +272,11 @@ BMI_Get_grid_spacing (BMI_Model *self, const char *long_var_name, double * spaci
     spacing[1] = self->dx;
   }
 
-  return;
+  return BMI_SUCCESS;
 }
 /* End: BMI_Get_grid_spacing */
 
-void
+int
 BMI_Get_grid_origin (BMI_Model *self, const char *long_var_name, double * origin)
 {
   if (strcmp (long_var_name, "surface_elevation") == 0) {
@@ -225,22 +284,60 @@ BMI_Get_grid_origin (BMI_Model *self, const char *long_var_name, double * origin
     origin[1] = 0.;
   }
 
-  return;
+  return BMI_SUCCESS;
 }
 /* End: BMI_Get_grid_origin */
 
-BMI_Grid_type
-BMI_Get_grid_type (BMI_Model *self, const char *long_var_name)
+//BMI_Grid_type
+int
+BMI_Get_grid_type (BMI_Model *self, const char *long_var_name, BMI_Grid_type * type)
 {
-  if (strcmp (long_var_name, "surface_elevation") == 0)
-    return BMI_GRID_TYPE_UNIFORM;
-  else
-    return BMI_GRID_TYPE_UNKNOWN;
+  if (strcmp (long_var_name, "surface_elevation") == 0) {
+    *type = BMI_GRID_TYPE_UNIFORM;
+    return BMI_SUCCESS;
+    //return BMI_GRID_TYPE_UNIFORM;
+  }
+  else {
+    *type = BMI_GRID_TYPE_UNKNOWN;
+    return BMI_FAILURE;
+    //return BMI_GRID_TYPE_UNKNOWN;
+  }
+  return BMI_SUCCESS;
 }
 /* End: BMI_Get_grid_type */
 
-double *
-BMI_Get_double (BMI_Model *self, const char *long_var_name, double *val)
+int
+BMI_Get_value (BMI_Model *self, const char *long_var_name, void *dest)
+{
+  void *src = NULL;
+
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    src = (void*) self->z[0];
+  }
+
+  memcpy (dest, src, sizeof (double) * self->n_x * self->n_y);
+
+  return BMI_SUCCESS;
+}
+/* End: BMI_Get_value */
+
+int
+BMI_Get_value_ptr (BMI_Model *self, const char *long_var_name, void **dest)
+{
+  void *src = NULL;
+
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    src = (void*) self->z[0];
+  }
+
+  *dest = src;
+
+  return BMI_SUCCESS;
+}
+/* End: BMI_Get_value */
+
+int
+BMI_Get_value_at_indices (BMI_Model *self, const char *long_var_name, void *dest, int * inds, int len)
 {
   double *src = NULL;
 
@@ -248,16 +345,49 @@ BMI_Get_double (BMI_Model *self, const char *long_var_name, double *val)
     src = self->z[0];
   }
 
-  if (val)
-    memcpy (val, src, sizeof (double) * self->n_x * self->n_y);
-  else
-    val = src;
+  { /* Copy the data */
+    int i;
+    double * to = (double*) dest;
+    for (i=0; i<len; i++) {
+      to[i] = src[inds[i]];
+    }
+  }
 
-  return val;
+  return BMI_SUCCESS;
+}
+
+/* End: BMI_Get_double_at_indices */
+int
+BMI_Get_double (BMI_Model *self, const char *long_var_name, double *dest)
+{
+  double *src = NULL;
+
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    src = self->z[0];
+  }
+
+  memcpy (dest, src, sizeof (double) * self->n_x * self->n_y);
+
+  return BMI_SUCCESS;
 }
 /* End: BMI_Get_double */
 
-double *
+int
+BMI_Get_double_ptr (BMI_Model *self, const char *long_var_name, double **dest)
+{
+  double *src = NULL;
+
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    src = self->z[0];
+  }
+
+  *dest = src;
+
+  return BMI_SUCCESS;
+}
+/* End: BMI_Get_double_ptr */
+
+int
 BMI_Get_double_at_indices (BMI_Model *self, const char *long_var_name, double *dest, int * inds, int len)
 {
   double *src = NULL;
@@ -273,22 +403,54 @@ BMI_Get_double_at_indices (BMI_Model *self, const char *long_var_name, double *d
     }
   }
 
-  return dest;
+  return BMI_SUCCESS;
 }
 /* End: BMI_Get_double_at_indices */
 
-void
+int
+BMI_Set_value (BMI_Model *self, const char *long_var_name, void *array)
+{
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    memcpy (self->z[0], array, sizeof (double) * self->n_x * self->n_y);
+  }
+
+  return BMI_SUCCESS;
+}
+/* End: BMI_Set_double */
+
+int
+BMI_Set_value_at_indices (BMI_Model *self, const char *long_var_name, int * inds, int len, void *src)
+{
+  double * to;
+
+  if (strcmp (long_var_name, "surface_elevation")==0) {
+    to = self->z[0];
+  }
+
+  { /* Copy the data */
+    int i;
+    double * from = src;
+    for (i=0; i<len; i++) {
+      to[inds[i]] = from[i];
+    }
+  }
+
+  return BMI_SUCCESS;
+}
+/* End: BMI_Set_value_at_indices */
+
+int
 BMI_Set_double (BMI_Model *self, const char *long_var_name, double *array)
 {
   if (strcmp (long_var_name, "surface_elevation")==0) {
     memcpy (self->z[0], array, sizeof (double) * self->n_x * self->n_y);
   }
 
-  return;
+  return BMI_SUCCESS;
 }
 /* End: BMI_Set_double */
 
-void
+int
 BMI_Set_double_at_indices (BMI_Model *self, const char *long_var_name, int * inds, int len, double *src)
 {
   double * dest;
@@ -304,68 +466,96 @@ BMI_Set_double_at_indices (BMI_Model *self, const char *long_var_name, int * ind
     }
   }
 
-  return;
+  return BMI_SUCCESS;
 }
 /* End: BMI_Set_double_at_indices */
 
-const char *
-BMI_Get_component_name (BMI_Model *self)
+int
+BMI_Get_component_name (BMI_Model *self, char * name)
 {
-  return "Example C model";
+  strncpy (name, "Example C model", BMI_MAX_COMPONENT_NAME);
+  return BMI_SUCCESS;
 }
 /* End: BMI_Get_component_name */
 
-const char *input_var_names[] = {
-  "surface_elevation",
-  NULL
+const char *input_var_names[BMI_INPUT_VAR_NAME_COUNT] = {
+  "surface_elevation"
 };
 
-const char **
-BMI_Get_input_var_names (BMI_Model *self)
+const char *output_var_names[BMI_OUTPUT_VAR_NAME_COUNT] = {
+  "surface_elevation"
+};
+
+int
+BMI_Get_input_var_names (BMI_Model *self, char ** names)
 {
-  return input_var_names;
+  int i;
+  for (i=0; i<BMI_INPUT_VAR_NAME_COUNT; i++) {
+    strncpy (names[i], input_var_names[i], BMI_MAX_VAR_NAME);
+  }
+  return BMI_SUCCESS;
 }
 /* End: BMI_Get_input_var_names */
 
-const char *output_var_names[] = {
-  "surface_elevation",
-  NULL
-};
-
-const char **
-BMI_Get_output_var_names (BMI_Model *self)
+int
+BMI_Get_output_var_names (BMI_Model *self, char ** names)
 {
-  return output_var_names;
+  int i;
+  for (i=0; i<BMI_OUTPUT_VAR_NAME_COUNT; i++) {
+    strncpy (names[i], output_var_names[i], BMI_MAX_VAR_NAME);
+  }
+  return BMI_SUCCESS;
 }
 /* End: BMI_Get_output_var_names */
 
-double
-BMI_Get_start_time (BMI_Model *self) {
-  return 0.;
+//double
+int
+BMI_Get_start_time (BMI_Model *self, double * time) {
+  if (time) {
+    *time = 0.;
+    return BMI_SUCCESS;
+  }
+  else {
+    return BMI_FAILURE;
+  }
+  //return 0.;
 }
 /* End: BMI_Get_start_time */
 
-double
-BMI_Get_end_time (BMI_Model *self) {
-  return self->t_end;
+//double
+int
+BMI_Get_end_time (BMI_Model *self, double * time) {
+  *time = self->t_end;
+  return BMI_SUCCESS;
+  //return self->t_end;
 }
 /* End: BMI_Get_end_time */
 
-double
-BMI_Get_current_time (BMI_Model *self) {
-  return self->t;
+//double
+int
+BMI_Get_current_time (BMI_Model *self, double * time) {
+  *time = self->t;
+  return BMI_SUCCESS;
+  //return self->t;
 }
 /* End: BMI_Get_current_time */
 
-double
-BMI_Get_time_step (BMI_Model *self) {
-  return self->dt;
+//double
+int
+BMI_Get_time_step (BMI_Model *self, double * dt) {
+  *dt = self->dt;
+  return BMI_SUCCESS;
+  //return self->dt;
 }
 /* End: BMI_Get_time_step */
 
-const char *
-BMI_Get_time_units (BMI_Model *self) {
-  return "-";
+//const char *
+int
+BMI_Get_time_units (BMI_Model *self, char * units) {
+  strncpy (units, "-", BMI_MAX_UNITS_NAME);
+  return BMI_SUCCESS;
+
+  //return "-";
 }
 /* End: BMI_Get_time_units */
 

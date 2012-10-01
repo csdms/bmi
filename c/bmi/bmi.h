@@ -41,49 +41,66 @@ typedef enum {
 }
 BMI_Var_type;
 
+#define BMI_SUCCESS (0)
+#define BMI_FAILURE (1)
+
+#define BMI_MAX_UNITS_NAME 2048
+#define BMI_MAX_COMPONENT_NAME 2048
+#define BMI_MAX_VAR_NAME 2048
+
+#define BMI_INPUT_VAR_NAME_COUNT 1
+#define BMI_OUTPUT_VAR_NAME_COUNT 1
 
 typedef struct _BMI_Model BMI_Model;
 
 /* Model Control functions */
-BMI_Model *BMI_Initialize (const char *);
-void BMI_Update (BMI_Model *);
-void BMI_Update_until (BMI_Model *, double);
-void BMI_Finalize (BMI_Model *);
-void BMI_Run_model (BMI_Model *);
+int BMI_Initialize (const char *, BMI_Model**);
+int BMI_Update (BMI_Model *);
+int BMI_Update_until (BMI_Model *, double);
+int BMI_Finalize (BMI_Model *);
+int BMI_Run_model (BMI_Model *);
 
 /* Model information functions */
-const char *BMI_Get_component_name (BMI_Model *);
-const char **BMI_Get_input_var_names (BMI_Model *);
-const char **BMI_Get_output_var_names (BMI_Model *);
+int BMI_Get_component_name (BMI_Model *, char *);
+int BMI_Get_input_var_name_count (BMI_Model, int *);
+int BMI_Get_output_var_name_count (BMI_Model, int *);
+int BMI_Get_input_var_names (BMI_Model *, char **);
+int BMI_Get_output_var_names (BMI_Model *, char **);
 
 /* Variable information functions */
-BMI_Var_type BMI_Get_var_type (BMI_Model *, const char *);
-const char *BMI_Get_var_units (BMI_Model *, const char *);
-int BMI_Get_var_rank (BMI_Model *, const char *);
-double BMI_Get_current_time (BMI_Model *);
-double BMI_Get_start_time (BMI_Model *);
-double BMI_Get_end_time (BMI_Model *);
-const char * BMI_Get_time_units (BMI_Model *);
-double BMI_Get_time_step (BMI_Model *);
+int BMI_Get_var_type (BMI_Model *, const char *, BMI_Var_type *);
+int BMI_Get_var_units (BMI_Model *, const char *, char *);
+int BMI_Get_var_rank (BMI_Model *, const char *, int *);
+int BMI_Get_current_time (BMI_Model *, double *);
+int BMI_Get_start_time (BMI_Model *, double *);
+int BMI_Get_end_time (BMI_Model *, double *);
+int BMI_Get_time_units (BMI_Model *, char *);
+int BMI_Get_time_step (BMI_Model *, double *);
 
 /* Variable getter and setter functions */
-double *BMI_Get_double (BMI_Model *, const char *, double *);
-double *BMI_Get_double_at_indices (BMI_Model *, const char *, double *, int *, int);
+int BMI_Get_double (BMI_Model *, const char *, double *);
+int BMI_Get_double_ptr (BMI_Model *, const char *, double **);
+int BMI_Get_double_at_indices (BMI_Model *, const char *, double *, int *, int);
 
-void BMI_Set_double (BMI_Model *, const char *, double *);
-void BMI_Set_double_at_indices (BMI_Model *, const char *, int *, int, double *);
+int BMI_Set_double (BMI_Model *, const char *, double *);
+int BMI_Set_double_ptr (BMI_Model *, const char *, double **);
+int BMI_Set_double_at_indices (BMI_Model *, const char *, int *, int, double *);
 
 /* Grid information functions */
-void BMI_Get_grid_shape (BMI_Model *, const char *, int *);
-void BMI_Get_grid_spacing (BMI_Model *, const char *, double *);
-void BMI_Get_grid_origin (BMI_Model *, const char *, double *);
+int BMI_Get_grid_shape (BMI_Model *, const char *, int *);
+int BMI_Get_grid_spacing (BMI_Model *, const char *, double *);
+int BMI_Get_grid_origin (BMI_Model *, const char *, double *);
 
-double * BMI_Get_grid_x (BMI_Model *, const char *, int *);
-double * BMI_Get_grid_y (BMI_Model *, const char *, int *);
-double * BMI_Get_grid_z (BMI_Model *, const char *, int *);
+int BMI_Get_grid_x (BMI_Model *, const char *, double *);
+int BMI_Get_grid_y (BMI_Model *, const char *, double *);
+int BMI_Get_grid_z (BMI_Model *, const char *, double *);
 
-int * BMI_Get_grid_connectivity (BMI_Model *, const char *, int *);
-int * BMI_Get_grid_offset (BMI_Model *, const char *, int *);
+int BMI_Get_grid_cell_count (BMI_Model *, const char *, int *);
+int BMI_Get_grid_point_count (BMI_Model *, const char *, int *);
+int BMI_Get_grid_vertex_count (BMI_Model *, const char *, int *);
+
+int BMI_Get_grid_connectivity (BMI_Model *, const char *, int *);
+int BMI_Get_grid_offset (BMI_Model *, const char *, int *);
 
 
 

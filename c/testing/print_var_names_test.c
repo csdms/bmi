@@ -10,18 +10,21 @@ main (void)
 {
   int i;
   const int n_steps = 10;
-  void *self = NULL;
+  BMI_Model *self = NULL;
 
-  self = BMI_Initialize (NULL);
-
-  if (!self)
+  if (BMI_Initialize (NULL, &self)!=0 || !self)
     return EXIT_FAILURE;
 
-  fprintf (stdout, "%s\n", BMI_Get_component_name (self));
+  {
+    char name[BMI_MAX_COMPONENT_NAME];
+    BMI_Get_component_name (self, name);
+    fprintf (stdout, "%s\n", name);
+  }
 
   print_var_names (self);
 
-  BMI_Finalize (self);
+  if (BMI_Finalize (self) != 0)
+    return EXIT_FAILURE;
 
   return EXIT_SUCCESS;
 }
@@ -29,22 +32,29 @@ main (void)
 void
 print_var_names (void *self)
 {
-  const char **var_names = NULL;
-  const char **name;
+  {
+    int i;
+    char *inputs[BMI_INPUT_VAR_NAME_COUNT];
+    char *outputs[BMI_OUTPUT_VAR_NAME_COUNT];
 
-  var_names = BMI_Get_input_var_names (self);
-  fprintf (stdout, "Input var names\n");
-  fprintf (stdout, "===============\n");
-  for (name = var_names; *name; name++)
-    fprintf (stdout, "%s\n", *name);
-  fprintf (stdout, "\n");
+    for (i = 0; i<BMI_INPUT_VAR_NAME_COUNT; i++)
+      inputs[i] = (char*) malloc (sizeof (char) * BMI_MAX_VAR_NAME);
+    for (i = 0; i<BMI_OUTPUT_VAR_NAME_COUNT; i++)
+      outputs[i] = (char*) malloc (sizeof (char) * BMI_MAX_VAR_NAME);
 
-  var_names = BMI_Get_output_var_names (self);
-  fprintf (stdout, "Output var names\n");
-  fprintf (stdout, "================\n");
-  for (name = var_names; *name; name++)
-    fprintf (stdout, "%s\n", *name);
-  fprintf (stdout, "\n");
+    BMI_Get_input_var_names (self, inputs);
+    BMI_Get_output_var_names (self, outputs);
 
-  return;
+    fprintf (stdout, "Input var names\n");
+    fprintf (stdout, "===============\n");
+    for (i = 0; i<BMI_INPUT_VAR_NAME_COUNT; i++)
+      fprintf (stdout, "%s\n", inputs[i]);
+
+    fprintf (stdout, "\n");
+
+    fprintf (stdout, "Output var names\n");
+    fprintf (stdout, "================\n");
+    for (i = 0; i<BMI_OUTPUT_VAR_NAME_COUNT; i++)
+      fprintf (stdout, "%s\n", outputs[i]);
+  }
 }
