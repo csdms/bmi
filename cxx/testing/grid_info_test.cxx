@@ -39,14 +39,14 @@ print_var_info (BMI::Model model, const char *var)
 {
   std::string type = model.get_var_type (std::string (var));
   std::string units = model.get_var_units (std::string (var));
-  int n_dims = 0;
-  int *shape = NULL;
-  double *spacing = NULL;
-  double *origin = NULL;
+  int n_dims = model.get_var_rank (std::string (var));
+  int *shape = new int[n_dims];
+  double *spacing = new double[n_dims];
+  double *origin = new double[n_dims];
 
-  shape = model.get_grid_shape (var, n_dims);
-  spacing = model.get_grid_spacing (var, n_dims);
-  origin = model.get_grid_origin (var, n_dims);
+  model.get_grid_shape (var, shape);
+  model.get_grid_spacing (var, spacing);
+  model.get_grid_origin (var, origin);
 
   fprintf (stdout, "\n");
   fprintf (stdout, "Variable info\n");
@@ -59,9 +59,9 @@ print_var_info (BMI::Model model, const char *var)
   fprintf (stdout, "Resolution: %f x %f\n", spacing[0], spacing[1]);
   fprintf (stdout, "Corner: %f x %f\n", origin[0], origin[1]);
 
-  free (origin);
-  free (spacing);
-  free (shape);
+  delete origin;
+  delete spacing;
+  delete shape;
 
   return;
 }

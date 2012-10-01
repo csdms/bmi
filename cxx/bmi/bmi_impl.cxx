@@ -1,9 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-//#include <float.h>
 
-#include <iostream>
 #include <cstdlib>
 #include <bmi.hxx>
 
@@ -12,7 +9,7 @@ initialize (std::string config_file)
 {
   if (!config_file.empty ())
   { /* Read input file */
-    FILE *fp = NULL;
+    FILE * fp;
 
     double dt = 0.;
     double t_end = 0.;
@@ -22,6 +19,7 @@ initialize (std::string config_file)
     fp = fopen (config_file.c_str (), "r");
     if (!fp)
       return;
+
     fscanf (fp, "%lf, %lf, %d, %d", &dt, &t_end, &n_x, &n_y);
 
     this->dt = dt;
@@ -47,11 +45,11 @@ initialize (std::string config_file)
     double top_x = this->n_x - 1;
 
     /* Allocate memory */
-    this->temp_z = (double **)malloc (sizeof (double*) * this->n_y);
-    this->z = (double **)malloc (sizeof (double*) * this->n_y);
+    this->temp_z = new double*[this->n_y];
+    this->z = new double*[this->n_y];
 
-    this->z[0] = (double *)malloc (sizeof (double) * this->n_x * this->n_y);
-    this->temp_z[0] = (double *)malloc (sizeof (double) * this->n_x * this->n_y);
+    this->z[0] = new double[this->n_x*this->n_y];
+    this->temp_z[0] = new double[this->n_x*this->n_y];
     for (i=1; i<this->n_y; i++) {
       this->z[i] = this->z[i-1] + this->n_x;
       this->temp_z[i] = this->temp_z[i-1] + this->n_x;
@@ -128,10 +126,10 @@ update_until (double t)
 void BMI::Model::
 finalize ()
 {
-  free (this->temp_z[0]);
-  free (this->temp_z);
-  free (this->z[0]);
-  free (this->z);
+  delete this->temp_z[0];
+  delete this->temp_z;
+  delete this->z[0];
+  delete this->z;
 
   return;
 }
@@ -173,63 +171,39 @@ get_var_rank (std::string long_var_name)
 }
 // End: get_var_rank
 
-int * BMI::Model::
-get_grid_shape (std::string long_var_name, int &n_dim)
+void BMI::Model::
+get_grid_shape (std::string long_var_name, int *shape)
 {
-  int * shape = NULL;
-
   if (long_var_name.compare ("surface_elevation")==0) {
-    shape = (int *)malloc (sizeof (int)*2);
-
     shape[0] = this->n_y;
     shape[1] = this->n_x;
-
-    n_dim = 2;
   }
-  else
-    n_dim = 0;
 
-  return shape;
+  return;
 }
 // End: get_grid_shape
 
-double * BMI::Model::
-get_grid_spacing (std::string long_var_name, int &n_dim)
+void BMI::Model::
+get_grid_spacing (std::string long_var_name, double * spacing)
 {
-  double * spacing = NULL;
-
   if (long_var_name.compare ("surface_elevation")==0) {
-    spacing = (double *)malloc (sizeof (double)*2);
-
     spacing[0] = this->dy;
     spacing[1] = this->dx;
-
-    n_dim = 2;
   }
-  else
-    n_dim = 0;
 
-  return spacing;
+  return;
 }
 // End: get_grid_spacing
 
-double * BMI::Model::
-get_grid_origin (std::string long_var_name, int &n_dim)
+void BMI::Model::
+get_grid_origin (std::string long_var_name, double *origin)
 {
-  double * origin = NULL;
-
   if (long_var_name.compare ("surface_elevation")==0) {
-    origin = (double *)malloc (sizeof (double)*2);
-
     origin[0] = 0.;
     origin[1] = 0.;
-
-    n_dim = 2;
   }
-  else
-    n_dim = 0;
 
-  return origin;
+  return;
 }
 // End: get_grid_origin
 
@@ -244,29 +218,134 @@ get_grid_type (std::string long_var_name)
 // End: get_grid_type
 
 double * BMI::Model::
-get_double (std::string long_var_name, int &n_dims)
+get_double (std::string long_var_name, double *dest)
 {
-  double * val = NULL;
+  double * src = NULL;
 
   if (long_var_name.compare ("surface_elevation")==0) {
-    val = this->z[0];
-    n_dims = 2;
+    src = this->z[0];
   }
 
-  return val;
+  if (dest && src)
+    memcpy (dest, src, sizeof (double) * this->n_x * this->n_y);
+  else
+    dest = src;
+
+  return dest;
 }
 // End: get_double
 
-void BMI::Model::
-set_double (std::string long_var_name, double *array)
+double * BMI::Model::
+get_double_at_indices (std::string long_var_name, double *dest, int * inds, int len)
 {
+  double * src = NULL;
+
   if (long_var_name.compare ("surface_elevation")==0) {
-    memcpy (this->z[0], array, sizeof (double) * this->n_x * this->n_y);
+    src = this->z[0];
   }
+
+  if (dest == NULL) {
+    dest = (double*) malloc (sizeof (double)*len);
+  }
+
+  if (src)
+  { /* Copy the data */
+    for (int i=0; i<len; i++) {
+      dest[i] = src[inds[i]];
+    }
+  }
+
+  return dest;
+}
+// End: get_double_at_indices
+
+void * BMI::Model::
+get_value (std::string long_var_name, void *dest)
+{
+  void * src = NULL;
+  int size = 0;
+
+  if (long_var_name.compare ("surface_elevation")==0) {
+    src = (void *)this->z[0];
+    size = sizeof (double) * this->n_x * this->n_y;
+  }
+
+  if (src)
+    memcpy (dest, src, size);
+
+  return dest;
+}
+// End: get_value
+
+void * BMI::Model::
+get_value_ptr (std::string long_var_name)
+{
+  void * src = NULL;
+
+  if (long_var_name.compare ("surface_elevation")==0) {
+    src = (void *)this->z[0];
+  }
+
+  return src;
+}
+// End: get_value_ptr
+
+void * BMI::Model::
+get_value_at_indices (std::string long_var_name, void *dest, int *inds, int len)
+{
+  void * src = NULL;
+
+  if (long_var_name.compare ("surface_elevation")==0) {
+    src = (void *)this->z[0];
+  }
+
+  if (src)
+  { /* Copy the data */
+    double * from = (double *)src;
+    double * to = (double *)dest;
+
+    for (int i=0; i<len; i++) {
+      to[i] = from[inds[i]];
+    }
+  }
+
+  return dest;
+}
+// End: get_value_at_indices
+
+void BMI::Model::
+set_double (std::string long_var_name, double *src)
+{
+  double * dest = NULL;
+
+  if (long_var_name.compare ("surface_elevation")==0) {
+    dest = this->z[0];
+  }
+
+  if (dest)
+    memcpy (dest, src, sizeof (double) * this->n_x * this->n_y);
 
   return;
 }
 // End: set_double
+
+void BMI::Model::
+set_double_at_indices (std::string long_var_name, int * inds, int len, double *src)
+{
+  double * dest = NULL;
+
+  if (long_var_name.compare ("surface_elevation")==0) {
+    dest = this->z[0];
+  }
+
+  if (dest) {
+    for (int i=0; i<len; i++)
+      dest[inds[i]] = src[i];
+  }
+
+  return;
+}
+// End: set_double_at_indices
 
 std::string BMI::Model::
 get_component_name ()

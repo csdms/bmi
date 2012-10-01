@@ -24,7 +24,7 @@ main (void)
       model.update ();
       fprintf (stdout, "Time: %f\n", model.get_current_time ());
     }
-    model.update_until (model.get_current_time () + 1.5);
+    model.update_until (model.get_end_time ());
     fprintf (stdout, "Time: %f\n", model.get_current_time ());
     fprintf (stdout, "Done\n");
   }

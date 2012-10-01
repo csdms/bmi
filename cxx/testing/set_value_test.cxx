@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void print_matrix (double *m, int n_dims, int * shape);
 void print_var_values (BMI::Model model, const char *var_name);
 
 int
@@ -13,38 +14,49 @@ main (void)
   const int n_steps = 10;
   BMI::Model model;
   double *new_vals = NULL;
+  int *shape = NULL;
+  int n_dims = 0;
 
   model.initialize ("");
 
   std::cout << model.get_component_name () << std::endl;
 
-  { /* Get grid information */
-    int n_dims = 0;
-    int *shape = NULL;
-    int len = 0;
-    int i;
+  n_dims = model.get_var_rank ("surface_elevation");
+  shape = new int[n_dims];
+  model.get_grid_shape ("surface_elevation", shape);
 
-    shape = model.get_grid_shape ("surface_elevation", n_dims);
-    len = shape[0] * shape[1];
-
-    new_vals = (double *)malloc (sizeof (double) * len);
-    for (i = 0; i < len; i++)
-      new_vals[i] = -1;
-
-    free (shape);
-  }
+  new_vals = (double*)model.get_value_ptr ("surface_elevation");
 
   fprintf (stdout, "Values before set\n");
   fprintf (stdout, "=================\n");
-  print_var_values (model, "surface_elevation");
+  print_matrix (new_vals, n_dims, shape);
+
+  new_vals[0] = -1;
+
+  { /* Allocate memory */
+    int len = 0;
+
+    len = shape[0] * shape[1];
+
+    new_vals = new double[len];
+    for (int i = 0; i < len; i++)
+      new_vals[i] = -1;
+  }
+
+  model.get_value ("surface_elevation", (void*)new_vals);
+  print_matrix (new_vals, n_dims, shape);
+
+  new_vals[0] = 1.;
 
   model.set_double ("surface_elevation", new_vals);
 
   fprintf (stdout, "Values after set\n");
   fprintf (stdout, "================\n");
-  print_var_values (model, "surface_elevation");
+  print_matrix (new_vals, n_dims, shape);
 
-  free (new_vals);
+
+  delete shape;
+  delete new_vals;
 
   model.finalize ();
 
@@ -52,26 +64,41 @@ main (void)
 }
 
 void
-print_var_values (BMI::Model model, const char *var_name)
+print_matrix (double *m, int n_dims, int * shape)
 {
-  double *var = NULL;
-  int n_dims;
-  int *shape;
   int i, j;
 
-  shape = model.get_grid_shape (var_name, n_dims);
-  var = model.get_double (var_name, n_dims);
-
-  fprintf (stdout, "Variable: %s\n", var_name);
   fprintf (stdout, "Number of dimension: %d\n", n_dims);
   fprintf (stdout, "Shape: %d x %d\n", shape[0], shape[1]);
   fprintf (stdout, "================\n");
 
   for (i = 0; i < shape[0]; i++) {
     for (j = 0; j < shape[1]; j++)
-      fprintf (stdout, "%f ", var[i*shape[1]+j]);
+      fprintf (stdout, "%f ", m[i*shape[1]+j]);
     fprintf (stdout, "\n");
   }
+}
+
+void
+print_var_values (BMI::Model model, const char *var_name)
+{
+  int n_dims = model.get_var_rank (var_name);
+  int *shape = new int[n_dims];
+  double *var = NULL;
+  int i, j;
+
+  model.get_grid_shape (var_name, shape);
+
+  var = new double[shape[0]*shape[1]];
+
+  model.get_double (var_name, var);
+
+  fprintf (stdout, "Variable: %s\n", var_name);
+
+  print_matrix (var, n_dims, shape);
+
+  delete var;
+  delete shape;
 
   return;
 }

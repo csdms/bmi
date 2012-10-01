@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 void print_var_values (BMI::Model model, const char *var_name);
+void print_var_column (BMI::Model model, const char *var_name, int colno);
 
 int
 main (void)
@@ -36,15 +37,54 @@ main (void)
 }
 
 void
+print_var_column (BMI::Model model, const char *name, int colno)
+{
+  const int n_dims = model.get_var_rank (name);
+  int * shape = new int[n_dims];
+
+  model.get_grid_shape (name, shape);
+
+  {
+    //int * inds = new int[shape[0]];
+    //double * col = new double[shape[0]];
+    int * inds = (int*)malloc (sizeof (int)*shape[0]);
+    //double * col = (double*)malloc (sizeof (double)*shape[0]);
+    double * col = NULL;
+
+    inds[0] = colno;
+    for (int i=1; i<shape[0]; i++)
+      inds[i] = inds[i-1] + shape[1];
+
+    col = model.get_double_at_indices (name, NULL, inds, shape[0]);
+
+    fprintf (stdout, "Column %d: ", colno);
+    for (int i=0; i<shape[0]; i++)
+      fprintf (stdout, "%f ", col[i]);
+    fprintf (stdout, "\n");
+
+    free (col);
+    free (inds);
+    //delete col;
+    //delete inds;
+  }
+
+  delete shape;
+
+  return;
+}
+
+void
 print_var_values (BMI::Model model, const char *var_name)
 {
+  int n_dims = model.get_var_rank (var_name);
+  int *shape = new int[n_dims];
   double *var = NULL;
-  int n_dims;
-  int *shape;
   int i, j;
 
-  shape = model.get_grid_shape (var_name, n_dims);
-  var = model.get_double (var_name, n_dims);
+  model.get_grid_shape (var_name, shape);
+
+  //var = new double[shape[0]*shape[1]];
+  var = model.get_double (var_name, NULL);
 
   fprintf (stdout, "Variable: %s\n", var_name);
   fprintf (stdout, "Number of dimension: %d\n", n_dims);
@@ -56,6 +96,12 @@ print_var_values (BMI::Model model, const char *var_name)
       fprintf (stdout, "%f ", var[i*shape[1]+j]);
     fprintf (stdout, "\n");
   }
+
+  print_var_column (model, var_name, 1);
+  print_var_column (model, var_name, shape[1]-2);
+
+  //delete var;
+  delete shape;
 
   return;
 }

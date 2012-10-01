@@ -64,17 +64,21 @@ namespace BMI {
       double get_time_step ();
       std::string get_time_units ();
 
-      double *get_double (std::string, int &);
-      double *get_double_at_indices (std::string, int &, int * indices);
+      double *get_double (std::string, double *);
+      double *get_double_at_indices (std::string, double *, int *, int);
+
+      void *get_value (std::string, void *);
+      void *get_value_ptr (std::string);
+      void *get_value_at_indices (std::string, void *, int *, int);
 
       void set_double (std::string, double *);
-      double *set_double_at_indices (std::string, int &, int * indices, double * array);
+      void set_double_at_indices (std::string, int *, int, double *);
 
       Grid_type get_grid_type (std::string long_var_name);
 
-      int * get_grid_shape (std::string, int &);
-      double * get_grid_spacing (std::string, int &);
-      double * get_grid_origin (std::string, int &);
+      void get_grid_shape (std::string, int *);
+      void get_grid_spacing (std::string, double *);
+      void get_grid_origin (std::string, double *);
 
       double * get_grid_x (std::string, int&);
       double * get_grid_y (std::string, int&);
