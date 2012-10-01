@@ -20,7 +20,6 @@ struct _BMI_Model {
   double **temp_z;
 };
 
-//BMI_Model *
 int
 BMI_Initialize (const char *config_file, BMI_Model ** handle)
 {
@@ -170,20 +169,7 @@ BMI_Update_until (BMI_Model *self, double t)
 
       BMI_Update_frac (self, n_steps - (int)n_steps);
     }
-
-
-    //if (t > BMI_Get_current_time (self)) {
-
-      //double dt = BMI_Get_time_step (self);
-      //self->dt = t - BMI_Get_current_time (self); 
-
-      //BMI_Update (self);
-
-      //self->dt = dt;
-    //}
   }
-
-  //fprintf (stderr, "Time is %f\n", BMI_Get_current_time (self));
 
   return BMI_SUCCESS;
 }
@@ -225,12 +211,10 @@ BMI_Get_var_units (BMI_Model *self, const char *long_var_name, char * units)
   if (strcmp (long_var_name, "surface_elevation") == 0) {
     strncpy (units, "meter", BMI_MAX_UNITS_NAME);
     return BMI_SUCCESS;
-    //return "meter";
   }
   else {
     units[0] = '\0';
     return BMI_FAILURE;
-    //return NULL;
   }
 }
 /* End: BMI_Get_var_units */
@@ -241,12 +225,10 @@ BMI_Get_var_rank (BMI_Model *self, const char *long_var_name, int * rank)
   if (strcmp (long_var_name, "surface_elevation") == 0) {
     *rank = 2;
     return BMI_SUCCESS;
-    //return 2;
   }
   else {
     *rank = -1;
     return BMI_FAILURE;
-    //return -1;
   }
 }
 /* End: BMI_Get_var_rank */
@@ -288,19 +270,16 @@ BMI_Get_grid_origin (BMI_Model *self, const char *long_var_name, double * origin
 }
 /* End: BMI_Get_grid_origin */
 
-//BMI_Grid_type
 int
 BMI_Get_grid_type (BMI_Model *self, const char *long_var_name, BMI_Grid_type * type)
 {
   if (strcmp (long_var_name, "surface_elevation") == 0) {
     *type = BMI_GRID_TYPE_UNIFORM;
     return BMI_SUCCESS;
-    //return BMI_GRID_TYPE_UNIFORM;
   }
   else {
     *type = BMI_GRID_TYPE_UNKNOWN;
     return BMI_FAILURE;
-    //return BMI_GRID_TYPE_UNKNOWN;
   }
   return BMI_SUCCESS;
 }
@@ -482,10 +461,6 @@ const char *input_var_names[BMI_INPUT_VAR_NAME_COUNT] = {
   "surface_elevation"
 };
 
-const char *output_var_names[BMI_OUTPUT_VAR_NAME_COUNT] = {
-  "surface_elevation"
-};
-
 int
 BMI_Get_input_var_names (BMI_Model *self, char ** names)
 {
@@ -496,6 +471,10 @@ BMI_Get_input_var_names (BMI_Model *self, char ** names)
   return BMI_SUCCESS;
 }
 /* End: BMI_Get_input_var_names */
+
+const char *output_var_names[BMI_OUTPUT_VAR_NAME_COUNT] = {
+  "surface_elevation"
+};
 
 int
 BMI_Get_output_var_names (BMI_Model *self, char ** names)
@@ -508,9 +487,9 @@ BMI_Get_output_var_names (BMI_Model *self, char ** names)
 }
 /* End: BMI_Get_output_var_names */
 
-//double
 int
-BMI_Get_start_time (BMI_Model *self, double * time) {
+BMI_Get_start_time (BMI_Model *self, double * time)
+{
   if (time) {
     *time = 0.;
     return BMI_SUCCESS;
@@ -518,44 +497,38 @@ BMI_Get_start_time (BMI_Model *self, double * time) {
   else {
     return BMI_FAILURE;
   }
-  //return 0.;
 }
 /* End: BMI_Get_start_time */
 
-//double
 int
-BMI_Get_end_time (BMI_Model *self, double * time) {
+BMI_Get_end_time (BMI_Model *self, double * time)
+{
   *time = self->t_end;
   return BMI_SUCCESS;
-  //return self->t_end;
 }
 /* End: BMI_Get_end_time */
 
-//double
 int
-BMI_Get_current_time (BMI_Model *self, double * time) {
+BMI_Get_current_time (BMI_Model *self, double * time)
+{
   *time = self->t;
   return BMI_SUCCESS;
-  //return self->t;
 }
 /* End: BMI_Get_current_time */
 
-//double
 int
-BMI_Get_time_step (BMI_Model *self, double * dt) {
+BMI_Get_time_step (BMI_Model *self, double * dt)
+{
   *dt = self->dt;
   return BMI_SUCCESS;
-  //return self->dt;
 }
 /* End: BMI_Get_time_step */
 
-//const char *
 int
-BMI_Get_time_units (BMI_Model *self, char * units) {
+BMI_Get_time_units (BMI_Model *self, char * units)
+{
   strncpy (units, "-", BMI_MAX_UNITS_NAME);
   return BMI_SUCCESS;
-
-  //return "-";
 }
 /* End: BMI_Get_time_units */
 
