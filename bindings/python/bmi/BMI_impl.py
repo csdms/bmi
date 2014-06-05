@@ -53,9 +53,11 @@ True
 """
 
 import numpy as np
-
-from BMI import BMI, BmiGridType
 from scipy import ndimage
+
+from bindings.python.bmi.BMI import BmiGridType
+from bindings.python.bmi import BMI
+
 
 class Model (BMI):
     _var_units = {'surface_elevation': 'meter'}
