@@ -9,10 +9,11 @@ configure_file (${CMAKE_CURRENT_SOURCE_DIR}/bmi.pc.cmake
 
 set (BUILD_SHARED_LIBS ON)
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR} )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include )
 
 set (bmi_lib_SRCS
-  bmi_impl.c)
+  bmi_impl.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/../../include/bmi.h)
 
 add_library (bmi ${bmi_lib_SRCS} )
 

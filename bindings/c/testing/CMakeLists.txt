@@ -12,14 +12,15 @@ add_test (BMI_GRID_INFO grid_info_test)
 set (BUILD_SHARED_LIBS ON)
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../bmi )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../include )
 
 ########### BMI main program ###############
 
-set (bmi_irf_SRCS irf_test.c)
+set (bmi_irf_SRCS irf_test.c )
 set (bmi_var_names_SRCS print_var_names_test.c)
-set (bmi_get_value_SRCS get_value_test.c)
-set (bmi_set_value_SRCS set_value_test.c)
-set (bmi_grid_info_SRCS grid_info_test.c)
+set (bmi_get_value_SRCS get_value_test.c ${CMAKE_CURRENT_SOURCE_DIR}/../../include/bmi.h)
+set (bmi_set_value_SRCS set_value_test.c ${CMAKE_CURRENT_SOURCE_DIR}/../../include/bmi.h)
+set (bmi_grid_info_SRCS grid_info_test.c ${CMAKE_CURRENT_SOURCE_DIR}/../../include/bmi.h)
 
 add_executable(irf_test ${bmi_irf_SRCS})
 add_executable(print_var_names_test ${bmi_var_names_SRCS})
