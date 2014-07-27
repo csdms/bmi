@@ -4,7 +4,7 @@
 #define BMI_API_H
 
 #define BMI_API_VERSION_MAJOR 1
-#define BMI_API_VERSION_MINOR 0
+#define BMI_API_VERSION_MINOR 1
 
 
 #if defined _WIN32
