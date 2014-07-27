@@ -1,25 +1,21 @@
 #include <bmi.h>
+#include <bmi_grid.h>
 
 #include <stdio.h>
 #include <stdlib.h>
 
-void print_var_values (void *self, const char *var_name);
+void print_var_values (const char *var_name);
 
 int
 main (void)
 {
   int i;
   const int n_steps = 10;
-  BMI_Model *self = NULL;
-
-  BMI_Initialize (NULL, &self);
-
-  if (!self)
-    return EXIT_FAILURE;
+  initialize (NULL);
 
   {
-    char name[BMI_MAX_COMPONENT_NAME];
-    BMI_Get_component_name (self, name);
+    char name[BMI_MAX_NAME];
+    get_component_name (name);
     fprintf (stdout, "%s\n", name);
   }
 
@@ -27,33 +23,33 @@ main (void)
   {
     fprintf (stdout, "Values at time %d\n", i);
     fprintf (stdout, "==============\n");
-    print_var_values (self, "surface_elevation");
+    print_var_values ("surface_elevation");
 
-    BMI_Update (self);
+    update (-1);
   }
 
   fprintf (stdout, "Values at time %d\n", i);
   fprintf (stdout, "==============\n");
-  print_var_values (self, "surface_elevation");
+  print_var_values ("surface_elevation");
 
-  BMI_Finalize (self);
+  finalize ();
 
   return EXIT_SUCCESS;
 }
 
 void
-print_var_values (void *self, const char *var_name)
+print_var_values (const char *var_name)
 {
-  double *var = NULL;
+  double *var;
   int len;
   int rank;
   int *shape;
 
-  BMI_Get_var_rank (self, var_name, &rank);
+  get_var_rank (var_name, &rank);
   fprintf (stderr, "rank = %d\n", rank);
   shape = (int*) malloc (sizeof (int) * rank);
 
-  BMI_Get_grid_shape (self, var_name, shape);
+  get_grid_shape (var_name, shape);
   fprintf (stderr, "shape = %d x %d\n", shape[0], shape[1]);
 
   {
@@ -62,9 +58,8 @@ print_var_values (void *self, const char *var_name)
       len *= shape[n];
   }
 
-  var = (double*) malloc (sizeof (double)*len);
-
-  BMI_Get_value (self, var_name, var);
+  /* Get a reference to the variable */
+  get_var (var_name, (void *)&var);
 
   fprintf (stdout, "Variable: %s\n", var_name);
   fprintf (stdout, "================\n");
@@ -78,7 +73,6 @@ print_var_values (void *self, const char *var_name)
     }
   }
 
-  free (var);
   free (shape);
 
   return;

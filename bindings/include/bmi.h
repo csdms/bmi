@@ -1,168 +1,107 @@
-#ifndef BMI_INCLUDED
-#define BMI_INCLUDED
+/* -*- c-file-style: "stroustrup" -*- */
 
-#if defined(__cplusplus)
-extern "C" {
+#ifndef BMI_API_H
+#define BMI_API_H
+
+#define BMI_API_VERSION_MAJOR 1
+#define BMI_API_VERSION_MINOR 0
+
+
+#if defined _WIN32
+#define BMI_API __declspec(dllexport)
+/* Calling convention, stdcall in windows, cdecl in the rest of the world */
+#define CALLCONV __stdcall
+#else
+#define BMI_API
+#define CALLCONV
 #endif
 
-typedef enum
-{
-  CMI_STATUS_CREATED,
-  CMI_STATUS_INITIALIZING,
-  CMI_STATUS_INITIALIZED,
-  CMI_STATUS_UPDATING,
-  CMI_STATUS_UPDATED,
-  CMI_STATUS_FINALIZING,
-  CMI_STATUS_FINALIZED
-}
-CMI_Component_status;
-
-typedef enum {
-  BMI_GRID_TYPE_UNKNOWN = 0,
-  BMI_GRID_TYPE_UNIFORM,
-  BMI_GRID_TYPE_RECTILINEAR,
-  BMI_GRID_TYPE_STRUCTURED,
-  BMI_GRID_TYPE_UNSTRUCTURED,
-  BMI_GRID_TYPE_NUMBER
-}
-BMI_Grid_type;
-
-typedef enum {
-  BMI_VAR_TYPE_UNKNOWN = 0,
-  BMI_VAR_TYPE_CHAR,
-  BMI_VAR_TYPE_UNSIGNED_CHAR,
-  BMI_VAR_TYPE_INT,
-  BMI_VAR_TYPE_LONG,
-  BMI_VAR_TYPE_UNSIGNED_INT,
-  BMI_VAR_TYPE_UNSIGNED_LONG,
-  BMI_VAR_TYPE_FLOAT,
-  BMI_VAR_TYPE_DOUBLE,
-  BMI_VAR_TYPE_NUMBER
-}
-BMI_Var_type;
 
 #define BMI_SUCCESS (0)
 #define BMI_FAILURE (1)
 
-#define BMI_MAX_UNITS_NAME 2048
-#define BMI_MAX_COMPONENT_NAME 2048
-#define BMI_MAX_VAR_NAME 2048
+#define BMI_MAX_NAME 2048
+#define BMI_MAX_RANK 6
+#include <stddef.h>
 
-#define BMI_INPUT_VAR_NAME_COUNT 1
-#define BMI_OUTPUT_VAR_NAME_COUNT 1
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-typedef struct _BMI_Model BMI_Model;
+  /* control functions. These return an error code. */
 
-/* Model Control functions */
-int BMI_Initialize (const char *, BMI_Model**);
-int BMI_Update (BMI_Model *);
-int BMI_Update_until (BMI_Model *, double);
-int BMI_Finalize (BMI_Model *);
-int BMI_Run_model (BMI_Model *);
+  /* Initialize the model */
+  BMI_API int initialize(const char *config_file);
 
-/* Model information functions */
-int BMI_Get_component_name (BMI_Model *, char *);
-int BMI_Get_input_var_name_count (BMI_Model, int *);
-int BMI_Get_output_var_name_count (BMI_Model, int *);
-int BMI_Get_input_var_names (BMI_Model *, char **);
-int BMI_Get_output_var_names (BMI_Model *, char **);
+  /* Update the model with timesep dt (dt==-1 is default) */
+  BMI_API int update(double dt);
 
-/* Variable information functions */
-int BMI_Get_var_type (BMI_Model *, const char *, BMI_Var_type *);
-int BMI_Get_var_units (BMI_Model *, const char *, char *);
-int BMI_Get_var_rank (BMI_Model *, const char *, int *);
-int BMI_Get_current_time (BMI_Model *, double *);
-int BMI_Get_start_time (BMI_Model *, double *);
-int BMI_Get_end_time (BMI_Model *, double *);
-int BMI_Get_time_units (BMI_Model *, char *);
-int BMI_Get_time_step (BMI_Model *, double *);
+  /* Update the model until it reaches time t */
+  BMI_API int update_until(double dt);
 
-/* Variable getter and setter functions */
-int BMI_Get_double (BMI_Model *, const char *, double *);
-int BMI_Get_double_ptr (BMI_Model *, const char *, double **);
-int BMI_Get_double_at_indices (BMI_Model *, const char *, double *, int *, int);
+  /* Finalize the model */
+  BMI_API int finalize();
 
-int BMI_Set_double (BMI_Model *, const char *, double *);
-int BMI_Set_double_ptr (BMI_Model *, const char *, double **);
-int BMI_Set_double_at_indices (BMI_Model *, const char *, int *, int, double *);
+  /* Introspection functions */
+  BMI_API int get_component_name(char *name);
 
-/* Grid information functions */
-int BMI_Get_grid_shape (BMI_Model *, const char *, int *);
-int BMI_Get_grid_spacing (BMI_Model *, const char *, double *);
-int BMI_Get_grid_origin (BMI_Model *, const char *, double *);
+  /* time control functions */
 
-int BMI_Get_grid_x (BMI_Model *, const char *, double *);
-int BMI_Get_grid_y (BMI_Model *, const char *, double *);
-int BMI_Get_grid_z (BMI_Model *, const char *, double *);
+  /* Get the start the time */
+  BMI_API int get_start_time(double *t);
 
-int BMI_Get_grid_cell_count (BMI_Model *, const char *, int *);
-int BMI_Get_grid_point_count (BMI_Model *, const char *, int *);
-int BMI_Get_grid_vertex_count (BMI_Model *, const char *, int *);
+  /* Get the end time */
+  BMI_API int get_end_time(double *t);
 
-int BMI_Get_grid_connectivity (BMI_Model *, const char *, int *);
-int BMI_Get_grid_offset (BMI_Model *, const char *, int *);
+  /* Get the current time  */
+  BMI_API int get_current_time(double *t);
+
+  /* Get the current time step  */
+  BMI_API int get_time_step(double *dt);
+
+  /* variable info */
+
+  /* Get the shape of variable name */
+  BMI_API int get_var_shape(const char *name, int shape[BMI_MAX_RANK]);
+
+  /* Return the rank of variable name */
+  BMI_API int get_var_rank(const char *name, int *rank);
+
+  /* Return the type name of variable */
+  BMI_API int get_var_type(const char *name, char *type);
+
+  /* Return the type name of variable */
+  BMI_API int get_var_type(const char *name, char *type);
+
+  /* Get the number of variables  */
+  BMI_API int get_var_count(int *count);
+
+  /* Get the name of variable index */
+  BMI_API int get_var_name(int index, char *name);
+
+  /* Get the unit of the variable */
+  BMI_API int get_var_units(const char *name, char *units);
+
+  /* Get the variable role (in, inout, out) */
+  BMI_API int get_var_role(const char *name, char *role);
 
 
+  /* Get a pointer pointer - a reference to a multidimensional array */
+  BMI_API int get_var(const char *name, void **ptr);
+
+  /* Set the variable from contiguous memory referenced to by ptr */
+  BMI_API int set_var(const char *name, const void *ptr);
+
+  /* Set a slice of the variable from contiguous memory using start / count multi-dimensional indices */
+  BMI_API int set_var_slice(const char *name, const int *start, const int *count, const void *ptr);
+
+  /* Set a the variable using a vector of indices, indices are assumed to match the c-continguous flattened indices */
+  BMI_API int set_var_at_indices(const char *name, const int *indices, const int count, const void *ptr);
 
 
-
-
-// Assumes arrays start at 0, and have contiguous elements (unit stride).
-double BMI_Get_0d_double (BMI_Model *, const char *);
-double *BMI_Get_1d_double (BMI_Model *, const char *, int [1]);
-double *BMI_Get_2d_double (BMI_Model *, const char *, int [2]);
-double *BMI_Get_3d_double (BMI_Model *, const char *, int [3]);
-double *BMI_Get_1d_double_at_indices (BMI_Model *, const char *, int *,
-    int , double *);
-double *BMI_Get_2d_double_at_indices (BMI_Model *, const char *, int *, int);
-// A more general getter
-//double *BMI_Get_double (BMI_Model *, const char *, int *, int **);
-
-void BMI_Set_0d_double (BMI_Model *, const char *, double);
-void BMI_Set_1d_double (BMI_Model *, const char *, const double *);
-void BMI_Set_2d_double (BMI_Model *, const char *, const double *);
-void BMI_Set_3d_double (BMI_Model *, const char *, const double *);
-void BMI_Set_2d_double_at_indices (BMI_Model *, const char *, int *,
-    const double *, int);
-
-int BMI_Get_0d_int (BMI_Model *, const char *);
-int *BMI_Get_1d_int (BMI_Model *, const char *, int [1]);
-int *BMI_Get_2d_int (BMI_Model *, const char *, int [2]);
-int *BMI_Get_3d_int (BMI_Model *, const char *, int [3]);
-int *BMI_Get_2d_int_at_indices (BMI_Model *, const char *, int *, int);
-
-void BMI_Set_0d_int (BMI_Model *, const char *, int);
-void BMI_Set_1d_int (BMI_Model *, const char *, const int *);
-void BMI_Set_2d_int (BMI_Model *, const char *, const int *);
-void BMI_Set_3d_int (BMI_Model *, const char *, const int *);
-void BMI_Set_2d_int_at_indices (BMI_Model *, const char *, int *,
-    const int *, int);
-
-/*
-int *BMI_Get_grid_dimen (BMI_Model *, const char *, int *);
-double *BMI_Get_grid_res (BMI_Model *, const char *, int *);
-double *BMI_Get_grid_corner (BMI_Model *, const char *, int *);
- */
-
-/*
-  IElementSet get_Element_Set (BMI_Model *handle);
-  IValueSet get_Value_Set (BMI_Model *handle, char *long_var_name, ITimeStamp);
-*/
-
-// Since these are just wrappers for other BMI functions, I don't
-// think they should be included in the interface definition. They
-// could be CMI functions.
-int BMI_Is_scalar (BMI_Model *, const char *);
-int BMI_Is_vector (BMI_Model *, const char *);
-int BMI_Is_grid (BMI_Model *, const char *);
-int BMI_Has_var (BMI_Model *, const char *);
-
-// However, something that indicates if the grid is raster, or
-// uniform rectilinear would be needed.
-int BMI_Is_raster_grid (BMI_Model *, const char *);
-
-#if defined(__cplusplus)
+#ifdef __cplusplus
 }
 #endif
 
 #endif
+

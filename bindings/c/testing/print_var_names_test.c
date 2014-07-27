@@ -2,28 +2,31 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#define INPUT_VAR_NAME_COUNT 1
+#define OUTPUT_VAR_NAME_COUNT 1
 
-void print_var_names (void *self);
+
+void print_var_names ();
 
 int
 main (void)
 {
   int i;
   const int n_steps = 10;
-  BMI_Model *self = NULL;
 
-  if (BMI_Initialize (NULL, &self)!=0 || !self)
+  if (initialize (NULL)!=0 )
     return EXIT_FAILURE;
 
   {
-    char name[BMI_MAX_COMPONENT_NAME];
-    BMI_Get_component_name (self, name);
+    char name[BMI_MAX_NAME];
+    get_component_name (name);
     fprintf (stdout, "%s\n", name);
   }
 
-  print_var_names (self);
+  print_var_names ();
 
-  if (BMI_Finalize (self) != 0)
+  if (finalize () != 0)
     return EXIT_FAILURE;
 
   return EXIT_SUCCESS;
@@ -34,27 +37,30 @@ print_var_names (void *self)
 {
   {
     int i;
-    char *inputs[BMI_INPUT_VAR_NAME_COUNT];
-    char *outputs[BMI_OUTPUT_VAR_NAME_COUNT];
 
-    for (i = 0; i<BMI_INPUT_VAR_NAME_COUNT; i++)
-      inputs[i] = (char*) malloc (sizeof (char) * BMI_MAX_VAR_NAME);
-    for (i = 0; i<BMI_OUTPUT_VAR_NAME_COUNT; i++)
-      outputs[i] = (char*) malloc (sizeof (char) * BMI_MAX_VAR_NAME);
-
-    BMI_Get_input_var_names (self, inputs);
-    BMI_Get_output_var_names (self, outputs);
+    int n;
+    char name[BMI_MAX_NAME];
+    char role[BMI_MAX_NAME];
 
     fprintf (stdout, "Input var names\n");
-    fprintf (stdout, "===============\n");
-    for (i = 0; i<BMI_INPUT_VAR_NAME_COUNT; i++)
-      fprintf (stdout, "%s\n", inputs[i]);
-
+    fprintf (stdout, "================\n");
+    get_var_count(&n);
+    for (i = 0; i < n; i++) {
+      get_var_name(i, name);
+      get_var_role(name, role);
+      if (strstr(role, "in")) {
+        fprintf (stdout, "%s\n", name);
+      }
+    }
     fprintf (stdout, "\n");
 
     fprintf (stdout, "Output var names\n");
     fprintf (stdout, "================\n");
-    for (i = 0; i<BMI_OUTPUT_VAR_NAME_COUNT; i++)
-      fprintf (stdout, "%s\n", outputs[i]);
+    for (i = 0; i < n; i++) {
+      get_var_role(name, role);
+      if (strstr(role, "out")) {
+        fprintf (stdout, "%s\n", name);
+      }
+    }
   }
 }

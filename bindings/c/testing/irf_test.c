@@ -7,22 +7,21 @@
 int
 main (void)
 {
-  BMI_Model *self = NULL;
   int err = BMI_SUCCESS;
 
   {
     fprintf (stdout, "Initializing... ");
 
-    err = BMI_Initialize (NULL, &self);
-    if (err || !self)
+    err = initialize (NULL);
+    if (err)
       return EXIT_FAILURE;
 
     fprintf (stdout, "PASS\n");
   }
 
   {
-    char name[BMI_MAX_COMPONENT_NAME];
-    BMI_Get_component_name (self, name);
+    char name[BMI_MAX_NAME];
+    get_component_name (name);
     fprintf (stdout, "%s\n", name);
   }
 
@@ -34,7 +33,7 @@ main (void)
     for (i = 0; i < n_steps; i++)
     {
       fprintf (stdout, "Running until t = %d... ", i+1);
-      if (BMI_Update (self)==0 && BMI_Get_current_time (self, &time)==0) {
+      if (update (-1)==0 && get_current_time (&time)==0) {
         if (fabs (time-(i+1)) < 1e-6)
           fprintf (stdout, "PASS\n");
         else {
@@ -46,7 +45,7 @@ main (void)
     }
 
     fprintf (stdout, "Running until t = %f... ", 1000.5);
-    if (BMI_Update_until (self, 1000.5)==0 && BMI_Get_current_time (self, &time)==0) {
+    if (update_until (1000.5)==0 && get_current_time (&time)==0) {
         if (fabs (time-1000.5) < 1e-6)
           fprintf (stdout, "PASS\n");
         else {
@@ -59,7 +58,7 @@ main (void)
   }
 
   fprintf (stdout, "Finalizing... ");
-  err = BMI_Finalize (self);
+  err = finalize ();
   if (err)
     return EXIT_FAILURE;
   fprintf (stdout, "PASS\n");
