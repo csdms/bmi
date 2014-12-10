@@ -3,198 +3,111 @@
 #include <string.h>
 #include <float.h>
 
-#include <bmi.h>
+#include "bmi.h"
+#include "bmi_poisson.h"
+#include "poisson.h"
 
-struct _BMI_Model {
-  double dt;
-  double t;
-  double t_end;
 
-  int n_x;
-  int n_y;
+#define BMI_POISSON_INPUT_VAR_NAME_COUNT 1
+#define BMI_POISSON_OUTPUT_VAR_NAME_COUNT 1
 
-  double dx;
-  double dy;
-  double **z;
 
-  double **temp_z;
+const char *output_var_names[BMI_POISSON_OUTPUT_VAR_NAME_COUNT] = {
+  "land_surface__elevation"
 };
 
+
+const char *input_var_names[BMI_POISSON_INPUT_VAR_NAME_COUNT] = {
+  "land_surface__elevation"
+};
+
+
 int
-BMI_Initialize (const char *config_file, BMI_Model ** handle)
+BMI_POISSON_Initialize (const char *file, void ** handle)
 {
-  BMI_Model *self = NULL;
+  PoissonModel * self = NULL;
 
   if (!handle)
     return BMI_FAILURE;
 
-  self = malloc (sizeof (BMI_Model));
-
-  if (config_file)
-  { /* Read input file */
-    FILE *fp = NULL;
-
-    double dt = 0.;
-    double t_end = 1.;
-    int n_x = 0;
-    int n_y = 0;
-
-    fp = fopen (config_file, "r");
-    if (!fp)
-      return BMI_FAILURE;
-
-    fscanf (fp, "%lf, %lf, %d, %d", &dt, &t_end, &n_x, &n_y);
-
-    self->dt = dt;
-    self->t_end = t_end;
-    self->n_x = n_x;
-    self->n_y = n_y;
-  }
+  if (file)
+    self = poisson_from_input_file (file);
   else
-  { /* Set to default values */
-    self->dt = 1.;
-    self->t_end = 10.;
-    self->n_x = 10;
-    self->n_y = 20;
-  }
+    self = poisson_from_default ();
 
-  self->dx = 1.;
-  self->dy = 1.;
-
-  { /* Initialize data */
-    int i;
-    const int len = self->n_x * self->n_y;
-    double top_x = self->n_x - 1;
-
-    /* Allocate memory */
-    self->z = (double **)malloc (sizeof (double*) * self->n_y);
-    self->temp_z = (double **)malloc (sizeof (double*) * self->n_y);
-
-    if (!self->temp_z || !self->z)
-      return BMI_FAILURE;
-
-    self->z[0] = (double *)malloc (sizeof (double) * self->n_x * self->n_y);
-    self->temp_z[0] = (double *)malloc (sizeof (double) * self->n_x * self->n_y);
-
-    if (!self->temp_z[0] || !self->z[0])
-      return BMI_FAILURE;
-
-    for (i=1; i<self->n_y; i++) {
-      self->z[i] = self->z[i-1] + self->n_x;
-      self->temp_z[i] = self->temp_z[i-1] + self->n_x;
-    }
-
-    self->t = 0;
-    for (i = 0; i < len; i++)
-      self->z[0][i] = random ()*1./RAND_MAX * top_x * top_x * .5 - top_x * top_x * .25;
-    for (i = 0; i < self->n_y; i++) {
-      self->z[i][0] = 0.;
-      self->z[i][self->n_x-1] = 0.;
-    }
-    for (i = 0; i < self->n_x; i++) {
-      self->z[0][i] = 0.;
-      self->z[self->n_y-1][i] = top_x*top_x*.25 - (i-top_x*.5) * (i-top_x*.5);
-    }
-    
-    memcpy (self->temp_z[0], self->z[0], sizeof (double)*self->n_x*self->n_y);
-  }
-
-  *handle = self;
+  *handle = (void *) self;
 
   return BMI_SUCCESS;
 }
-/* End: BMI_Initialize */
+
 
 int
-BMI_Update (BMI_Model *self)
+BMI_POISSON_Update (void *self)
 {
-  {
-    int i, j;
-    const double rho = 0.;
-    const double dx2 = self->dx * self->dx;
-    const double dy2 = self->dy * self->dy;
-    const double dx2_dy2_rho = dx2 * dy2 * rho;
-    const double denom = self->dt/(2 * (dx2 + dy2));
-    double **z = self->z;
-
-    for (i=1; i<self->n_y-1; i++)
-      for (j=1; j<self->n_x-1; j++)
-        self->temp_z[i][j] = denom * (dx2 * (z[i-1][j] + z[i+1][j]) +
-                                      dy2 * (z[i][j-1] + z[i][j+1]) -
-                                      dx2_dy2_rho);
-    self->t += self->dt;
-  }
-
-  memcpy (self->z[0], self->temp_z[0], sizeof (double) * self->n_y * self->n_x);
+  poisson_advance_in_time ((PoissonModel *) self);
 
   return BMI_SUCCESS;
 }
-/* End: BMI_Update */
+
 
 int
-BMI_Update_frac (BMI_Model *self, double f)
+BMI_POISSON_Update_frac (void *self, double f)
 {
   if (f>0) {
     double dt;
 
-    BMI_Get_time_step (self, &dt);
+    BMI_POISSON_Get_time_step (self, &dt);
 
-    self->dt = f * dt;
+    ((PoissonModel *)self)->dt = f * dt;
 
-    BMI_Update (self);
+    BMI_POISSON_Update (self);
 
-    self->dt = dt;
+    ((PoissonModel *)self)->dt = dt;
   }
 
   return BMI_SUCCESS;
 }
-/* End: BMI_Update_frac */
+
 
 int
-BMI_Update_until (BMI_Model *self, double t)
+BMI_POISSON_Update_until (void *self, double t)
 {
   {
     double dt;
     double now;
 
-    BMI_Get_time_step (self, &dt);
-    BMI_Get_current_time (self, &now);
+    BMI_POISSON_Get_time_step (self, &dt);
+    BMI_POISSON_Get_current_time (self, &now);
 
     {
       int n;
       const double n_steps = (t - now) / dt;
       for (n=0; n<(int)n_steps; n++) {
-        BMI_Update (self);
+        BMI_POISSON_Update (self);
       }
 
-      BMI_Update_frac (self, n_steps - (int)n_steps);
+      BMI_POISSON_Update_frac (self, n_steps - (int)n_steps);
     }
   }
 
   return BMI_SUCCESS;
 }
-/* End: BMI_Update_until */
+
 
 int
-BMI_Finalize (BMI_Model *self)
+BMI_POISSON_Finalize (void *self)
 {
   if (self)
-  {
-    free (self->temp_z[0]);
-    free (self->temp_z);
-    free (self->z[0]);
-    free (self->z);
-    free (self);
-  }
+    poisson_free (self);
 
   return BMI_SUCCESS;
 }
-/* End: BMI_Finalize */
+
 
 int
-BMI_Get_var_type (BMI_Model *self, const char *long_var_name, BMI_Var_type * type)
+BMI_POISSON_Get_var_type (void *self, const char *name, BMI_Var_type * type)
 {
-  if (strcasecmp (long_var_name, "surface_elevation") == 0) {
+  if (strcmp (name, "land_surface__elevation") == 0) {
     *type = BMI_VAR_TYPE_DOUBLE;
     return BMI_SUCCESS;
   }
@@ -203,12 +116,12 @@ BMI_Get_var_type (BMI_Model *self, const char *long_var_name, BMI_Var_type * typ
     return BMI_FAILURE;
   }
 }
-/* End: BMI_Get_var_type */
+
 
 int
-BMI_Get_var_units (BMI_Model *self, const char *long_var_name, char * units)
+BMI_POISSON_Get_var_units (void *self, const char *name, char * units)
 {
-  if (strcmp (long_var_name, "surface_elevation") == 0) {
+  if (strcmp (name, "land_surface__elevation") == 0) {
     strncpy (units, "meter", BMI_MAX_UNITS_NAME);
     return BMI_SUCCESS;
   }
@@ -217,12 +130,12 @@ BMI_Get_var_units (BMI_Model *self, const char *long_var_name, char * units)
     return BMI_FAILURE;
   }
 }
-/* End: BMI_Get_var_units */
+
 
 int
-BMI_Get_var_rank (BMI_Model *self, const char *long_var_name, int * rank)
+BMI_POISSON_Get_var_rank (void *self, const char *name, int * rank)
 {
-  if (strcmp (long_var_name, "surface_elevation") == 0) {
+  if (strcmp (name, "land_surface__elevation") == 0) {
     *rank = 2;
     return BMI_SUCCESS;
   }
@@ -231,264 +144,261 @@ BMI_Get_var_rank (BMI_Model *self, const char *long_var_name, int * rank)
     return BMI_FAILURE;
   }
 }
-/* End: BMI_Get_var_rank */
+
 
 int
-BMI_Get_grid_shape (BMI_Model *self, const char *long_var_name, int * shape)
+BMI_POISSON_Get_grid_shape (void *self, const char *name, int * shape)
 {
-  if (strcmp (long_var_name, "surface_elevation") == 0) {
-    shape[0] = self->n_y;
-    shape[1] = self->n_x;
+  if (strcmp (name, "land_surface__elevation") == 0) {
+    shape[0] = ((PoissonModel *)self)->shape[0];
+    shape[1] = ((PoissonModel *)self)->shape[1];
   }
 
   return BMI_SUCCESS;
 }
 
-/* End: BMI_Get_grid_shape */
 
 int
-BMI_Get_grid_spacing (BMI_Model *self, const char *long_var_name, double * spacing)
+BMI_POISSON_Get_grid_spacing (void *self, const char *name, double * spacing)
 {
-  if (strcmp (long_var_name, "surface_elevation") == 0) {
-    spacing[0] = self->dy;
-    spacing[1] = self->dx;
+  if (strcmp (name, "land_surface__elevation") == 0) {
+    spacing[0] = ((PoissonModel *)self)->spacing[0];
+    spacing[1] = ((PoissonModel *)self)->spacing[0];
   }
 
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_grid_spacing */
+
 
 int
-BMI_Get_grid_origin (BMI_Model *self, const char *long_var_name, double * origin)
+BMI_POISSON_Get_grid_origin (void *self, const char *name, double * origin)
 {
-  if (strcmp (long_var_name, "surface_elevation") == 0) {
+  if (strcmp (name, "land_surface__elevation") == 0) {
     origin[0] = 0.;
     origin[1] = 0.;
   }
 
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_grid_origin */
+
 
 int
-BMI_Get_grid_type (BMI_Model *self, const char *long_var_name, BMI_Grid_type * type)
+BMI_POISSON_Get_grid_size (void *self, const char *name, int * size)
 {
-  if (strcmp (long_var_name, "surface_elevation") == 0) {
-    *type = BMI_GRID_TYPE_UNIFORM;
-    return BMI_SUCCESS;
+  int status = BMI_FAILURE;
+
+  if (strcmp (name, "land_surface__elevation") == 0) {
+    *size = ((PoissonModel *)self)->shape[0] * ((PoissonModel *)self)->shape[1];
+    status = BMI_SUCCESS;
   }
-  else {
-    *type = BMI_GRID_TYPE_UNKNOWN;
-    return BMI_FAILURE;
+
+  return status;
+}
+
+
+int
+BMI_POISSON_Get_grid_nbytes (void *self, const char *name, int * nbytes)
+{
+  int status = BMI_FAILURE;
+
+  {
+    int size = 0;
+
+    status = BMI_POISSON_Get_grid_size (self, name, &size);
+    if (status == BMI_FAILURE)
+      return status;
+
+    *nbytes = sizeof (double) * size;
+    status = BMI_SUCCESS;
   }
+
+  return status;
+}
+
+
+int
+BMI_POISSON_Get_grid_type (void *self, const char *name, BMI_Grid_type * type)
+{
+  int status = BMI_FAILURE;
+
+  {
+    if (strcmp (name, "land_surface__elevation") == 0) {
+      *type = BMI_GRID_TYPE_UNIFORM;
+      status = BMI_SUCCESS;
+    }
+    else {
+      *type = BMI_GRID_TYPE_UNKNOWN;
+      status = BMI_FAILURE;
+    }
+  }
+
+  return status;
+}
+
+
+int
+BMI_POISSON_Get_value (void *self, const char *name, void *dest)
+{
+  int status = BMI_FAILURE;
+
+  {
+    void *src = NULL;
+    int nbytes = 0;
+
+    status = BMI_POISSON_Get_value_ptr (self, name, &src);
+    if (status == BMI_FAILURE)
+      return status;
+
+    status = BMI_POISSON_Get_grid_nbytes (self, name, &nbytes);
+    if (status == BMI_FAILURE)
+      return status;
+
+    memcpy (dest, src, nbytes);
+  }
+
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_grid_type */
+
 
 int
-BMI_Get_value (BMI_Model *self, const char *long_var_name, void *dest)
+BMI_POISSON_Get_value_ptr (void *self, const char *name, void **dest)
 {
-  void *src = NULL;
+  int status = BMI_FAILURE;
 
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    src = (void*) self->z[0];
+  {
+   void *src = NULL;
+
+    if (strcmp (name, "land_surface__elevation")==0) {
+      src = ((PoissonModel *) self)->z[0];
+    }
+
+    *dest = src;
+
+    if (src)
+      status = BMI_SUCCESS;
   }
 
-  memcpy (dest, src, sizeof (double) * self->n_x * self->n_y);
-
-  return BMI_SUCCESS;
+  return status;
 }
-/* End: BMI_Get_value */
+
 
 int
-BMI_Get_value_ptr (BMI_Model *self, const char *long_var_name, void **dest)
+BMI_POISSON_Get_value_at_indices (void *self, const char *name, void *dest,
+    int * inds, int len)
 {
-  void *src = NULL;
+  int status = BMI_FAILURE;
 
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    src = (void*) self->z[0];
-  }
+  {
+    void *src = NULL;
+    const int itemsize = sizeof(double);
 
-  *dest = src;
+    status = BMI_POISSON_Get_value_ptr (self, name, &src);
+    if (status == BMI_FAILURE)
+      return status;
 
-  return BMI_SUCCESS;
-}
-/* End: BMI_Get_value */
-
-int
-BMI_Get_value_at_indices (BMI_Model *self, const char *long_var_name, void *dest, int * inds, int len)
-{
-  double *src = NULL;
-
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    src = self->z[0];
-  }
-
-  { /* Copy the data */
-    int i;
-    double * to = (double*) dest;
-    for (i=0; i<len; i++) {
-      to[i] = src[inds[i]];
+    {
+      /* Copy the data */
+      int i;
+      int offset;
+      void * ptr;
+      for (i=0, ptr=dest; i<len; i++, ptr+=itemsize) {
+        offset = inds[i] * itemsize;
+        memcpy (ptr, src + offset, itemsize);
+      }
     }
   }
 
   return BMI_SUCCESS;
 }
 
-/* End: BMI_Get_double_at_indices */
-int
-BMI_Get_double (BMI_Model *self, const char *long_var_name, double *dest)
-{
-  double *src = NULL;
 
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    src = self->z[0];
+int
+BMI_POISSON_Set_value (void *self, const char *name, void *array)
+{
+  int status = BMI_FAILURE;
+
+  {
+    void * dest = NULL;
+    int nbytes = 0;
+
+    status = BMI_POISSON_Get_value_ptr (self, name, &dest);
+    if (status == BMI_FAILURE)
+      return status;
+    
+    status = BMI_POISSON_Get_grid_nbytes (self, name, &nbytes);
+    if (status == BMI_FAILURE)
+      return status;
+
+    memcpy (dest, array, nbytes);
+
+    status = BMI_SUCCESS;
   }
 
-  memcpy (dest, src, sizeof (double) * self->n_x * self->n_y);
-
-  return BMI_SUCCESS;
+  return status;
 }
-/* End: BMI_Get_double */
+
 
 int
-BMI_Get_double_ptr (BMI_Model *self, const char *long_var_name, double **dest)
+BMI_POISSON_Set_value_at_indices (void *self, const char *name, int * inds, int len,
+    void *src)
 {
-  double *src = NULL;
+  int status = BMI_FAILURE;
 
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    src = self->z[0];
-  }
+  {
+    void * to = NULL;
+    const int itemsize = sizeof(double);
 
-  *dest = src;
+    status = BMI_POISSON_Get_value_ptr (self, name, &to);
+    if (status == BMI_FAILURE)
+      return status;
 
-  return BMI_SUCCESS;
-}
-/* End: BMI_Get_double_ptr */
-
-int
-BMI_Get_double_at_indices (BMI_Model *self, const char *long_var_name, double *dest, int * inds, int len)
-{
-  double *src = NULL;
-
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    src = self->z[0];
-  }
-
-  { /* Copy the data */
-    int i;
-    for (i=0; i<len; i++) {
-      dest[i] = src[inds[i]];
+    { /* Copy the data */
+      int i;
+      int offset;
+      void * ptr;
+      for (i=0, ptr=src; i<len; i++, ptr+=itemsize) {
+        offset = inds[i] * itemsize;
+        memcpy (to + offset, ptr, itemsize);
+      }
     }
   }
 
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_double_at_indices */
+
 
 int
-BMI_Set_value (BMI_Model *self, const char *long_var_name, void *array)
+BMI_POISSON_Get_component_name (void *self, char * name)
 {
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    memcpy (self->z[0], array, sizeof (double) * self->n_x * self->n_y);
-  }
-
+  strncpy (name, "Poisson 2D", BMI_MAX_COMPONENT_NAME);
   return BMI_SUCCESS;
 }
-/* End: BMI_Set_double */
+
 
 int
-BMI_Set_value_at_indices (BMI_Model *self, const char *long_var_name, int * inds, int len, void *src)
-{
-  double * to;
-
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    to = self->z[0];
-  }
-
-  { /* Copy the data */
-    int i;
-    double * from = src;
-    for (i=0; i<len; i++) {
-      to[inds[i]] = from[i];
-    }
-  }
-
-  return BMI_SUCCESS;
-}
-/* End: BMI_Set_value_at_indices */
-
-int
-BMI_Set_double (BMI_Model *self, const char *long_var_name, double *array)
-{
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    memcpy (self->z[0], array, sizeof (double) * self->n_x * self->n_y);
-  }
-
-  return BMI_SUCCESS;
-}
-/* End: BMI_Set_double */
-
-int
-BMI_Set_double_at_indices (BMI_Model *self, const char *long_var_name, int * inds, int len, double *src)
-{
-  double * dest;
-
-  if (strcmp (long_var_name, "surface_elevation")==0) {
-    dest = self->z[0];
-  }
-
-  { /* Copy the data */
-    int i;
-    for (i=0; i<len; i++) {
-      dest[inds[i]] = src[i];
-    }
-  }
-
-  return BMI_SUCCESS;
-}
-/* End: BMI_Set_double_at_indices */
-
-int
-BMI_Get_component_name (BMI_Model *self, char * name)
-{
-  strncpy (name, "Example C model", BMI_MAX_COMPONENT_NAME);
-  return BMI_SUCCESS;
-}
-/* End: BMI_Get_component_name */
-
-const char *input_var_names[BMI_INPUT_VAR_NAME_COUNT] = {
-  "surface_elevation"
-};
-
-int
-BMI_Get_input_var_names (BMI_Model *self, char ** names)
+BMI_POISSON_Get_input_var_names (void *self, char ** names)
 {
   int i;
-  for (i=0; i<BMI_INPUT_VAR_NAME_COUNT; i++) {
+  for (i=0; i<BMI_POISSON_INPUT_VAR_NAME_COUNT; i++) {
     strncpy (names[i], input_var_names[i], BMI_MAX_VAR_NAME);
   }
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_input_var_names */
 
-const char *output_var_names[BMI_OUTPUT_VAR_NAME_COUNT] = {
-  "surface_elevation"
-};
 
 int
-BMI_Get_output_var_names (BMI_Model *self, char ** names)
+BMI_POISSON_Get_output_var_names (void *self, char ** names)
 {
   int i;
-  for (i=0; i<BMI_OUTPUT_VAR_NAME_COUNT; i++) {
+  for (i=0; i<BMI_POISSON_OUTPUT_VAR_NAME_COUNT; i++) {
     strncpy (names[i], output_var_names[i], BMI_MAX_VAR_NAME);
   }
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_output_var_names */
+
 
 int
-BMI_Get_start_time (BMI_Model *self, double * time)
+BMI_POISSON_Get_start_time (void *self, double * time)
 {
   if (time) {
     *time = 0.;
@@ -498,37 +408,35 @@ BMI_Get_start_time (BMI_Model *self, double * time)
     return BMI_FAILURE;
   }
 }
-/* End: BMI_Get_start_time */
+
 
 int
-BMI_Get_end_time (BMI_Model *self, double * time)
+BMI_POISSON_Get_end_time (void *self, double * time)
 {
-  *time = self->t_end;
+  *time = ((PoissonModel *)self)->t_end;
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_end_time */
+
 
 int
-BMI_Get_current_time (BMI_Model *self, double * time)
+BMI_POISSON_Get_current_time (void *self, double * time)
 {
-  *time = self->t;
+  *time = ((PoissonModel *)self)->t;
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_current_time */
+
 
 int
-BMI_Get_time_step (BMI_Model *self, double * dt)
+BMI_POISSON_Get_time_step (void *self, double * dt)
 {
-  *dt = self->dt;
+  *dt = ((PoissonModel *)self)->dt;
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_time_step */
+
 
 int
-BMI_Get_time_units (BMI_Model *self, char * units)
+BMI_POISSON_Get_time_units (void *self, char * units)
 {
   strncpy (units, "-", BMI_MAX_UNITS_NAME);
   return BMI_SUCCESS;
 }
-/* End: BMI_Get_time_units */
-
