@@ -147,6 +147,40 @@ BMI_POISSON_Get_var_rank (void *self, const char *name, int * rank)
 
 
 int
+BMI_POISSON_Get_var_size (void *self, const char *name, int * size)
+{
+  int status = BMI_FAILURE;
+
+  if (strcmp (name, "land_surface__elevation") == 0) {
+    *size = ((PoissonModel *)self)->shape[0] * ((PoissonModel *)self)->shape[1];
+    status = BMI_SUCCESS;
+  }
+
+  return status;
+}
+
+
+int
+BMI_POISSON_Get_var_nbytes (void *self, const char *name, int * nbytes)
+{
+  int status = BMI_FAILURE;
+
+  {
+    int size = 0;
+
+    status = BMI_POISSON_Get_var_size (self, name, &size);
+    if (status == BMI_FAILURE)
+      return status;
+
+    *nbytes = sizeof (double) * size;
+    status = BMI_SUCCESS;
+  }
+
+  return status;
+}
+
+
+int
 BMI_POISSON_Get_grid_shape (void *self, const char *name, int * shape)
 {
   if (strcmp (name, "land_surface__elevation") == 0) {
@@ -183,40 +217,6 @@ BMI_POISSON_Get_grid_origin (void *self, const char *name, double * origin)
 
 
 int
-BMI_POISSON_Get_grid_size (void *self, const char *name, int * size)
-{
-  int status = BMI_FAILURE;
-
-  if (strcmp (name, "land_surface__elevation") == 0) {
-    *size = ((PoissonModel *)self)->shape[0] * ((PoissonModel *)self)->shape[1];
-    status = BMI_SUCCESS;
-  }
-
-  return status;
-}
-
-
-int
-BMI_POISSON_Get_grid_nbytes (void *self, const char *name, int * nbytes)
-{
-  int status = BMI_FAILURE;
-
-  {
-    int size = 0;
-
-    status = BMI_POISSON_Get_grid_size (self, name, &size);
-    if (status == BMI_FAILURE)
-      return status;
-
-    *nbytes = sizeof (double) * size;
-    status = BMI_SUCCESS;
-  }
-
-  return status;
-}
-
-
-int
 BMI_POISSON_Get_grid_type (void *self, const char *name, BMI_Grid_type * type)
 {
   int status = BMI_FAILURE;
@@ -249,7 +249,7 @@ BMI_POISSON_Get_value (void *self, const char *name, void *dest)
     if (status == BMI_FAILURE)
       return status;
 
-    status = BMI_POISSON_Get_grid_nbytes (self, name, &nbytes);
+    status = BMI_POISSON_Get_var_nbytes (self, name, &nbytes);
     if (status == BMI_FAILURE)
       return status;
 
@@ -325,7 +325,7 @@ BMI_POISSON_Set_value (void *self, const char *name, void *array)
     if (status == BMI_FAILURE)
       return status;
     
-    status = BMI_POISSON_Get_grid_nbytes (self, name, &nbytes);
+    status = BMI_POISSON_Get_var_nbytes (self, name, &nbytes);
     if (status == BMI_FAILURE)
       return status;
 

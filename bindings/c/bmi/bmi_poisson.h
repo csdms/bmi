@@ -24,6 +24,8 @@ int BMI_POISSON_Get_output_var_names (void *, char **);
 int BMI_POISSON_Get_var_type (void *, const char *, BMI_Var_type *);
 int BMI_POISSON_Get_var_units (void *, const char *, char *);
 int BMI_POISSON_Get_var_rank (void *, const char *, int *);
+int BMI_POISSON_Get_var_size (void *, const char *, int *);
+int BMI_POISSON_Get_var_nbytes (void *, const char *, int *);
 int BMI_POISSON_Get_current_time (void *, double *);
 int BMI_POISSON_Get_start_time (void *, double *);
 int BMI_POISSON_Get_end_time (void *, double *);
