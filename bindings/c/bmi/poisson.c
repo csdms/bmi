@@ -118,6 +118,20 @@ initialize_arrays (PoissonModel *self)
 
 
 int
+poisson_free (PoissonModel *self)
+{
+  if (self) {
+    free (self->temp_z[0]);
+    free (self->temp_z);
+    free (self->z[0]);
+    free (self->z);
+    free (self);
+  }
+  return OK;
+}
+
+
+int
 poisson_advance_in_time (PoissonModel * self)
 {
   if (self) {

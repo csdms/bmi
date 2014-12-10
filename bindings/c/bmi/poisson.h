@@ -23,6 +23,8 @@ extern PoissonModel * poisson_from_input_file (const char * filename);
 extern PoissonModel * poisson_from_default (void);
 extern int poisson_advance_in_time (PoissonModel * self);
 extern int poisson_solve_2d (double ** z, int shape[2], double spacing[2], double ** out);
+extern int poisson_free (PoissonModel *self);
+
 
 #if defined(__cplusplus)
 }
