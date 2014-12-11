@@ -1,4 +1,5 @@
-#include <bmi.h>
+#include <poisson/bmi.h>
+#include <poisson/bmi_poisson.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,20 +11,20 @@ main (void)
 {
   int i;
   const int n_steps = 10;
-  BMI_Model *self = NULL;
+  void *self = NULL;
 
-  if (BMI_Initialize (NULL, &self)!=0 || !self)
+  if (BMI_POISSON_Initialize (NULL, &self)!=0 || !self)
     return EXIT_FAILURE;
 
   {
     char name[BMI_MAX_COMPONENT_NAME];
-    BMI_Get_component_name (self, name);
+    BMI_POISSON_Get_component_name (self, name);
     fprintf (stdout, "%s\n", name);
   }
 
   print_var_names (self);
 
-  if (BMI_Finalize (self) != 0)
+  if (BMI_POISSON_Finalize (self) != 0)
     return EXIT_FAILURE;
 
   return EXIT_SUCCESS;
@@ -32,29 +33,53 @@ main (void)
 void
 print_var_names (void *self)
 {
-  {
+  { /* Print the input var names */
+    int n_names;
+    char **names = NULL;
     int i;
-    char *inputs[BMI_INPUT_VAR_NAME_COUNT];
-    char *outputs[BMI_OUTPUT_VAR_NAME_COUNT];
 
-    for (i = 0; i<BMI_INPUT_VAR_NAME_COUNT; i++)
-      inputs[i] = (char*) malloc (sizeof (char) * BMI_MAX_VAR_NAME);
-    for (i = 0; i<BMI_OUTPUT_VAR_NAME_COUNT; i++)
-      outputs[i] = (char*) malloc (sizeof (char) * BMI_MAX_VAR_NAME);
+    BMI_POISSON_Get_input_var_name_count(self, &n_names);
 
-    BMI_Get_input_var_names (self, inputs);
-    BMI_Get_output_var_names (self, outputs);
+    names = (char**) malloc (sizeof(char *) * n_names);
+    for (i=0; i<n_names; i++)
+      names[i] = (char*) malloc (sizeof(char) * BMI_MAX_VAR_NAME);
+
+    BMI_POISSON_Get_input_var_names (self, names);
 
     fprintf (stdout, "Input var names\n");
     fprintf (stdout, "===============\n");
-    for (i = 0; i<BMI_INPUT_VAR_NAME_COUNT; i++)
-      fprintf (stdout, "%s\n", inputs[i]);
+    for (i = 0; i<n_names; i++)
+      fprintf (stdout, "%s\n", names[i]);
 
-    fprintf (stdout, "\n");
+    for (i=0; i<n_names; i++)
+      free (names[i]);
+    free (names);
+
+  }
+
+  fprintf (stdout, "\n");
+
+  { /* Print the output var names */
+    int n_names;
+    char **names = NULL;
+    int i;
+
+    BMI_POISSON_Get_output_var_name_count(self, &n_names);
+
+    names = (char**) malloc (sizeof(char *) * n_names);
+    for (i=0; i<n_names; i++)
+      names[i] = (char*) malloc (sizeof(char) * BMI_MAX_VAR_NAME);
+
+    BMI_POISSON_Get_output_var_names (self, names);
 
     fprintf (stdout, "Output var names\n");
-    fprintf (stdout, "================\n");
-    for (i = 0; i<BMI_OUTPUT_VAR_NAME_COUNT; i++)
-      fprintf (stdout, "%s\n", outputs[i]);
+    fprintf (stdout, "===============\n");
+    for (i = 0; i<n_names; i++)
+      fprintf (stdout, "%s\n", names[i]);
+
+    for (i=0; i<n_names; i++)
+      free (names[i]);
+    free (names);
+
   }
 }
