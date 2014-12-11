@@ -1,0 +1,3 @@
+[submodule "bindings/c"]
+	path = bindings/c
+	url = https://github.com/csdms/bmi-c
