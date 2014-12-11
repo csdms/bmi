@@ -376,6 +376,14 @@ BMI_POISSON_Get_component_name (void *self, char * name)
 
 
 int
+BMI_POISSON_Get_input_var_name_count (void *self, int * count)
+{
+  *count = BMI_POISSON_INPUT_VAR_NAME_COUNT;
+  return BMI_SUCCESS;
+}
+
+
+int
 BMI_POISSON_Get_input_var_names (void *self, char ** names)
 {
   int i;
