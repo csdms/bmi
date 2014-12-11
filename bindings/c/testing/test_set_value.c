@@ -1,4 +1,5 @@
-#include <bmi.h>
+#include <poisson/bmi.h>
+#include <poisson/bmi_poisson.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,18 +11,17 @@ main (void)
 {
   int i;
   const int n_steps = 10;
-  BMI_Model *self = NULL;
+  void *self = NULL;
   double *new_vals = NULL;
   int err = 0;
 
-  //self = BMI_Initialize (NULL);
-  err = BMI_Initialize (NULL, &self);
+  err = BMI_POISSON_Initialize (NULL, &self);
   if (err || !self)
     return EXIT_FAILURE;
 
   {
     char name[BMI_MAX_COMPONENT_NAME];
-    BMI_Get_component_name (self, name);
+    BMI_POISSON_Get_component_name (self, name);
   
     fprintf (stdout, "%s\n", name);
   }
@@ -32,10 +32,10 @@ main (void)
     int len = 0;
     int i;
 
-    BMI_Get_var_rank (self, "surface_elevation", &n_dims);
+    BMI_POISSON_Get_var_rank (self, "land_surface__elevation", &n_dims);
     shape = (int*) malloc (sizeof (int)*n_dims);
 
-    BMI_Get_grid_shape (self, "surface_elevation", shape);
+    BMI_POISSON_Get_grid_shape (self, "land_surface__elevation", shape);
     for (i = 0, len = 1; i < n_dims; i++)
       len *= shape[i];
 
@@ -48,13 +48,13 @@ main (void)
 
   fprintf (stdout, "Values before set\n");
   fprintf (stdout, "=================\n");
-  print_var_values (self, "surface_elevation");
+  print_var_values (self, "land_surface__elevation");
 
-  BMI_Set_double (self, "surface_elevation", new_vals);
+  BMI_POISSON_Set_value (self, "land_surface__elevation", new_vals);
 
   fprintf (stdout, "Values after set\n");
   fprintf (stdout, "================\n");
-  print_var_values (self, "surface_elevation");
+  print_var_values (self, "land_surface__elevation");
 
   {
     int inds[5] = {1, 2, 4, 8, 16};
@@ -62,10 +62,10 @@ main (void)
     double *p;
     int i;
 
-    BMI_Set_double_at_indices (self, "surface_elevation", inds, 5, vals);
-    print_var_values (self, "surface_elevation");
+    BMI_POISSON_Set_value_at_indices (self, "land_surface__elevation", inds, 5, vals);
+    print_var_values (self, "land_surface__elevation");
 
-    BMI_Get_value_ptr (self, "surface_elevation", &p);
+    BMI_POISSON_Get_value_ptr (self, "land_surface__elevation", (void**)(&p));
     for (i=0; i<5; i++) {
       fprintf (stdout, "Checking %d...", inds[i]);
       if (p[inds[i]] == vals[i])
@@ -75,7 +75,7 @@ main (void)
 
   free (new_vals);
 
-  BMI_Finalize (self);
+  BMI_POISSON_Finalize (self);
 
   return EXIT_SUCCESS;
 }
@@ -87,11 +87,11 @@ print_var_values (void *self, const char *var_name)
   int n_dims = 0;
   int *shape = NULL;
 
-  BMI_Get_var_rank (self, var_name, &n_dims);
+  BMI_POISSON_Get_var_rank (self, var_name, &n_dims);
   shape = (int*) malloc (sizeof (int)*n_dims);
 
-  BMI_Get_grid_shape (self, "surface_elevation", shape);
-  BMI_Get_double_ptr (self, var_name, &var);
+  BMI_POISSON_Get_grid_shape (self, "land_surface__elevation", shape);
+  BMI_POISSON_Get_value_ptr (self, var_name, (void**)(&var));
 
   fprintf (stdout, "Variable: %s\n", var_name);
   fprintf (stdout, "Number of dimension: %d\n", n_dims);
