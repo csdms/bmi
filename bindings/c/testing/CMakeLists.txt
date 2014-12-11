@@ -11,7 +11,7 @@ add_test (BMI_GRID_INFO grid_info_test)
 
 set (BUILD_SHARED_LIBS ON)
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../bmi )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/.. )
 
 ########### BMI main program ###############
 
@@ -27,11 +27,11 @@ add_executable(get_value_test ${bmi_get_value_SRCS})
 add_executable(set_value_test ${bmi_set_value_SRCS})
 add_executable(grid_info_test ${bmi_grid_info_SRCS})
 
-target_link_libraries(irf_test bmi)
-target_link_libraries(print_var_names_test bmi)
-target_link_libraries(get_value_test bmi)
-target_link_libraries(set_value_test bmi)
-target_link_libraries(grid_info_test bmi)
+target_link_libraries(irf_test bmi_poisson)
+target_link_libraries(print_var_names_test bmi_poisson)
+target_link_libraries(get_value_test bmi_poisson)
+target_link_libraries(set_value_test bmi_poisson)
+target_link_libraries(grid_info_test bmi_poisson)
 
 #install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/bmi
 #        DESTINATION bin COMPONENT bmi)
