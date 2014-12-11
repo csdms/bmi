@@ -1,0 +1,11 @@
+language: c
+compiler:
+  - gcc
+before_script:
+  - cd bindings
+  - mkdir build
+  - cd build
+  - cmake ..
+
+script:
+  - make && ctest
