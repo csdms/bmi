@@ -5,6 +5,8 @@
 extern "C" {
 #endif
 
+#include "bmi.h"
+
 
 /* Model Control functions */
 int BMI_POISSON_Initialize (const char *, void**);
