@@ -47,7 +47,7 @@ class BmiPoisson(Bmi):
         return str(self.get_value_ptr(var_name).dtype)
 
     def get_var_units(self, var_name):
-        return self.var_units[var_name]
+        return self._var_units[var_name]
 
     def get_var_rank(self, var_name):
         return self.get_value_ptr(var_name).ndim
@@ -88,10 +88,10 @@ class BmiPoisson(Bmi):
         return self.get_value_ptr(var_name).shape
 
     def get_grid_spacing(self, var_name):
-        return self._model.spacing
+        return self._model._spacing
 
     def get_grid_origin (self, var_name):
-        return self._model.origin
+        return self._model._origin
 
     def get_grid_type(self, var_name):
         if self._values.has_key (var_name):
