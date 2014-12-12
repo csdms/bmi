@@ -5,29 +5,28 @@ from __future__ import print_function
 import sys
 import numpy as np
 
-from bmi import MyBMI
+from poisson import BmiPoisson
 
-def print_var_values (bmi, var_name):
-    s = ', '.join ([str (x) for x in bmi.get_value (var_name)])
-    print ('%s' % s)
 
-def run ():
-    bmi = MyBMI ()
+def main():
+    model = BmiPoisson()
 
-    bmi.initialize (None)
+    model.initialize()
 
-    print ('%s' % bmi.get_component_name ())
+    print('%s' % model.get_component_name ())
 
-    for i in range (10):
-        print ('Time %d: ' % i, end='')
-        print_var_values (bmi, 'height_above_sea_floor')
-        bmi.update ()
+    for i in xrange(10):
+        print('Time %d' % i)
+        np.savetxt(sys.stdout, model.get_value('land_surface__elevation'),
+                   fmt='%.3f')
+        model.update()
 
-    print ('Time %d: ' % i, end='')
-    print_var_values (bmi, 'height_above_sea_floor')
+    print('Time %d' % i)
+    np.savetxt(sys.stdout, model.get_value('land_surface__elevation'),
+               fmt='%.3f')
 
-    bmi.finalize ()
+    model.finalize()
+
 
 if __name__ == '__main__':
-    run ()
-
+    main()
