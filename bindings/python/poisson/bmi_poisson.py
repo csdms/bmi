@@ -16,9 +16,14 @@ class BmiPoisson(Bmi):
         self._model = None
         self._values = {}
 
-    def initialize(self, filename):
-        self._model = Poisson.from_file(filename)
-        self._values = {'land_surface__elevation', self._model.z}
+    def initialize(self, filename=None):
+        if filename is not None:
+            self._model = Poisson.from_file(filename)
+        else:
+            self._model = Poisson()
+        self._values = {
+            'land_surface__elevation': self._model.z,
+        }
 
     def update(self):
         self._model.advance_in_time()
@@ -54,7 +59,7 @@ class BmiPoisson(Bmi):
         return self.get_value_ptr(var_name).nbytes
 
     def get_value_ptr(self, var_name):
-        return self._value[var_name]
+        return self._values[var_name]
 
     def get_value(self, var_name):
         return self.get_value_ptr(var_name).copy()
@@ -89,7 +94,7 @@ class BmiPoisson(Bmi):
         return self._model.origin
 
     def get_grid_type(self, var_name):
-        if self._value.has_key (var_name):
+        if self._values.has_key (var_name):
             return BmiGridType.UNIFORM
         else:
             return BmiGridType.UNKNOWN
