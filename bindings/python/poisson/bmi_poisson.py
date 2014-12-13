@@ -37,7 +37,7 @@ class BmiPoisson(Bmi):
         n_steps = (then - self.get_current_time()) / self.get_time_step()
 
         for _ in xrange(int(n_steps)):
-            self._update()
+            self.update()
         self.update_frac(n_steps - int(n_steps))
 
     def finalize(self):
