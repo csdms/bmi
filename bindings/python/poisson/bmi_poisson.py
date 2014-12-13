@@ -107,3 +107,6 @@ class BmiPoisson(Bmi):
 
     def get_current_time (self):
         return self._model.time
+
+    def get_time_step (self):
+        return self._model._dt
