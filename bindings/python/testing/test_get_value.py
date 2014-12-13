@@ -1,32 +1,19 @@
 #!/usr/bin/env python
-
-from __future__ import print_function
-
-import sys
+from nose import assert_true
 import numpy as np
 
 from poisson import BmiPoisson
 
 
-def main():
+def test_get_initial_value():
     model = BmiPoisson()
-
     model.initialize()
 
-    print('%s' % model.get_component_name ())
+    z0 = model.get_value('land_surface__elevation')
+    assert_true(np.all(z0 < 1. & z0 >= 0.))
 
-    for i in xrange(10):
-        print('Time %d' % i)
-        np.savetxt(sys.stdout, model.get_value('land_surface__elevation'),
-                   fmt='%.3f')
+    for _ in xrange(10):
         model.update()
 
-    print('Time %d' % i)
-    np.savetxt(sys.stdout, model.get_value('land_surface__elevation'),
-               fmt='%.3f')
-
-    model.finalize()
-
-
-if __name__ == '__main__':
-    main()
+    z = model.get_value('land_surface__elevation')
+    assert_true(z0 is z)
