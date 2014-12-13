@@ -29,9 +29,10 @@ class BmiPoisson(Bmi):
         self._model.advance_in_time()
 
     def update_frac(self, time_frac):
-        self._model._dt, save_dt = time_frac * dt, dt
+        dt = self.get_time_step()
+        self._model._dt = time_frac * dt
         self.update()
-        self._model._dt = save_dt
+        self._model._dt = dt
 
     def update_until(self, then):
         n_steps = (then - self.get_current_time()) / self.get_time_step()
