@@ -106,4 +106,4 @@ class BmiPoisson(Bmi):
         return np.finfo ('d').max
 
     def get_current_time (self):
-        return self.time
+        return self._model.time
