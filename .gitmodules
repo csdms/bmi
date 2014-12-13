@@ -2,5 +2,5 @@
 	path = bindings/c
 	url = https://github.com/csdms/bmi-c
 [submodule "bindings/bmi-python"]
-	path = bindings/bmi-python
+	path = bindings/python
 	url = https://github.com/csdms/bmi-python
