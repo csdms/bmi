@@ -4,6 +4,6 @@
 [submodule "bindings/bmi-python"]
 	path = bindings/python
 	url = https://github.com/csdms/bmi-python
-[submodule "bindings/bmi-f90"]
+[submodule "bindings/f90"]
 	path = bindings/f90
 	url = https://github.com/csdms/bmi-f90
