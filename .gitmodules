@@ -7,3 +7,6 @@
 [submodule "bindings/f90"]
 	path = bindings/f90
 	url = https://github.com/csdms/bmi-f90
+[submodule "bindings/cxx"]
+	path = bindings/cxx
+	url = https://github.com/csdms/bmi-cxx
