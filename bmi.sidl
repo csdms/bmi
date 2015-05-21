@@ -1,58 +1,51 @@
 package csdms version 0.0 {
   interface bmi {
-    bool initialize(in string config_file);
-    bool update();
-    bool update_until(in double time_interval);
-    bool finalize();
-    bool get_start_time(out double start_time);
-    bool get_current_time(out double current_time);
-    bool get_end_time(out double end_time);
-    bool get_time_units(out string units);
-    bool get_time_step(out double time_step);
+    bool initialize(in string config_file);	            	
+    bool update(in double time_interval);	            	
+    bool finalize();	            	
+            
+    int get_start_time(out double time);
+    int get_current_time(out double time);
+    int get_end_time(out double time);
 
-    bool get_component_name(out string name);
-    bool get_input_item_count(out count);	            	
-    bool get_input_item_list(out array<string> names);
-    bool get_output_item_count(out count);
-    bool get_output_item_list(out array<string> names);
+    int get_component_name(out string name);
+    int get_input_item_count(out int count);
+    int get_output_item_count(out int count);
+    int get_input_var_names(out array<string, 1> names);
+    int get_output_var_names(out array<string, 1> names);
 
-    // Getters
-    bool get_value(in string long_var_name, out array<> values);
-    bool get_value_ptr(in string long_var_name, out rarray<> values);
-    bool get_value_at_indices(in string long_var_name, in array<int> indices,
-      out array<> values);
-
-    // Setters
-    bool set_value(in string long_var_name, in array<> values);
-    bool set_value_at_indices(in string long_var_name, in array<int> indices,
-      in array<> values);
-
-    // Value arrays
-    bool get_var_units(in string name, out string units);
-    bool get_var_type(in string name, out int type);
-    bool get_var_rank(in string name, out int rank);	            	
-    bool get_var_size(in string name, out int size);	            	
-    bool get_var_nbytes(in string name, out int nbytes);	            	
-    bool get_var_itemsize(in string name, out int itemsize);	            	
+    int get_var_type(in string name, out string type);
+    int get_var_units(in string name, out string units);
+    int get_var_nbytes(in string name, out int nbytes);
+    int get_var_itemsize(in string name, out int size);
+    int get_var_grid(in string name, out int grid);
 
     // Grid information
-    bool get_grid_rank(in string long_var_name, out int rank);	            	
+    int get_grid_type(in int grid, out string type);
+    int get_grid_rank(in int grid, out int rank);
+    int get_grid_size(in int grid, out int size);
 
     // Uniform rectilinear
-    bool get_grid_spacing(in string long_var_name,
-      out array<double, 1> spacing);
-    bool get_grid_origin(in string long_var_name,
-      out array<double, 1> origin);
-    bool get_grid_shape(in string long_var_name, out array<int, 1> shape);
+    int get_grid_shape(in int grid, in array<int, 1> shape);
+    int get_grid_spacing(in int grid, in array<double, 1> spacing);
+    int get_grid_origin(in int grid, in array<double, 1> origin);
 
     // Non-uniform rectilinear, curvilinear
-    bool get_grid_x(in string long_var_name, out array<double, 1> x);
-    bool get_grid_y(in string long_var_name, out array<double, 1> y);
-    bool get_grid_z(in string long_var_name, out array<double, 1> z);
+    int get_grid_x(in int grid, in array<double, 1> x);
+    int get_grid_y(in int grid, in array<double, 1> y);
+    int get_grid_z(in int grid, in array<double, 1> z);
 
     // Unstructured
-    bool get_grid_connectivity(in string long_var_name,
-      out array<int, 1> connectivity);
-    bool get_grid_offset(in string long_var_name, out array<int, 1> offset);
+    int get_grid_connectivity(in int grid, in array<int, 1> connectivity);
+    int get_grid_offset(in int grid, in array<int, 1> offset);
+            
+    int get_value(in string name, in array<> dest);
+    int get_value_ptr(in string name, out array<> values);
+    int get_value_at_indices(in string name, in array<> dest,
+        in array<int, 1> inds);
+
+    int set_value(in string name, in array<> values);
+    int set_value_at_indices(in string name, in array<int, 1> inds,
+        in array<> src);
   }
 }
