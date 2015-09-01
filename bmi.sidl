@@ -1,8 +1,8 @@
 package csdms version 0.0 {
   interface bmi {
-    bool initialize(in string config_file);	            	
-    bool update(in double time_interval);	            	
-    bool finalize();	            	
+    int initialize(in string config_file);	            	
+    int update(in double time_interval);	            	
+    int finalize();	            	
             
     int get_start_time(out double time);
     int get_current_time(out double time);
