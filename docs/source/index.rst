@@ -23,7 +23,7 @@ User Guide
 ----------
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
    bmi.control_funcs
    bmi.info_funcs
