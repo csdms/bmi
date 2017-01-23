@@ -42,9 +42,17 @@ User Guide
 References
 ==========
 
+.. [CSDMS] The Community Surface Dynamics Modeling System
+
+   https://csdms.colorado.edu
+
+.. [BmiDocs] BMI documentation
+
+   https://github.com/csdms/bmi
+
 .. [BmiGitHub] BMI description and bindings
 
-  https://github.com/csdms/bmi
+   https://github.com/csdms/bmi
 
 .. [Peckham2013] `Computers & Geosciences article <http://www.sciencedirect.com/science/article/pii/S0098300412001252>`_ that describes BMI
 
