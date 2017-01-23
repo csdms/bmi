@@ -6,6 +6,17 @@
 The Basic Model Interface
 =========================
 
+The Basic Model Interface (BMI) is a library specification to
+simplify the coupling of models.
+
+Motivation
+----------
+
+.. image:: images/bmi_logo.png
+   :scale: 10 %
+   :align: right
+   :alt: The Basic Model Interface
+
 Development of scientific modeling software increasingly requires
 the coupling of multiple, independently developed models.
 Component-based software engineering enables the integration of
@@ -23,14 +34,10 @@ User Guide
 ----------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
-   bmi.control_funcs
-   bmi.info_funcs
-   bmi.time_funcs
-   bmi.var_funcs
-   bmi.getter_setter
-   bmi.grid_funcs
+   bmi.spec
+   csdms
 
 References
 ==========
@@ -39,7 +46,7 @@ References
 
   https://github.com/csdms/bmi
 
-.. [Peckham2013] `Computers & Geosciences article <http://www.sciencedirect.com/science/article/pii/S0098300412001252>`_that describes BMI
+.. [Peckham2013] `Computers & Geosciences article <http://www.sciencedirect.com/science/article/pii/S0098300412001252>`_ that describes BMI
 
   Scott D. Peckham, Eric W.H. Hutton, Boyana Norris, *A component-based
   approach to integrated modeling in the geosciences: The design of
