@@ -11,9 +11,21 @@ updating.
 Initialization
 --------------
 
-.. code::
+.. code-block:: java
 
-    void initialize(in string config_file)
+    /* SIDL */
+    void initialize(in string config_file);
+
+.. code-block:: c
+
+    /* C */
+    int initialize(const char * config_file, void** handle);
+
+.. code-block:: c++
+
+    /* C++ */
+    void Initialize (const char *config_file);
+
 
 The `initialize` function accepts a string argument that gives the
 name (and path) of its "main input file", or *configuration file*.
@@ -31,10 +43,23 @@ model's BMI metadata.
 Time stepping
 -------------
 
-.. code::
+.. code-block:: java
 
-    void update()
-    void update_until(in double time)
+    /* SIDL */
+    void update();
+    void update_until(in double then);
+
+.. code-block:: c
+
+    /* C */
+    int update(void *handle);
+    int update_until(void *handle, double then);
+
+.. code-block:: c++
+
+    /* C++ */
+    void Update(void);
+    void UpdateUntil(double then);
 
 The `update` function advances the model by a single timestep. This
 is the model's own internal timestep (as returned by the BMI
@@ -55,6 +80,21 @@ to reflect that the model was updated to the requested time.
 
 Finalization
 ------------
+
+.. code-block:: java
+
+    /* SIDL */
+    void finalize();
+
+.. code-block:: c
+
+    /* C */
+    int finalize(void *handle);
+
+.. code-block:: c++
+
+    /* C++ */
+    void Finalize(void);
 
 The `finalize` function should perform all tasks that take place
 after exiting the model's time loop.  This typically includes

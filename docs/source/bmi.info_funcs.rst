@@ -10,8 +10,26 @@ Input and output variable names
 
 .. code-block:: java
 
-  array<string> get_input_var_names()
-  array<string> get_output_var_names()
+  /* SIDL */
+  array<string> get_input_var_names();
+  array<string> get_output_var_names();
+
+.. code-block:: c
+
+  /* C */
+  int get_input_var_name_count(void *handle, int *count);
+  int get_output_var_name_count(void *handle, int *count);
+  int get_input_var_names(void *handle, char **names);
+  int get_output_var_names(void *handle, char **names);
+
+.. code-block:: c++
+
+  /* C++ */
+  int GetInputVarNameCount(void);
+  int GetOutputVarNameCount(void);
+  void GetInputVarNames(char * const * const names);
+  void GetOutputVarNames(char * const * const names);
+
 
 `get_input_var_names` returns a string array of the model's
 *input variable* names as, preferably, CSDMS Standard Names.
@@ -24,7 +42,19 @@ Component name
 
 .. code-block:: java
 
+  /* SIDL */
   string get_component_name()
+
+.. code-block:: c
+
+  /* C */
+  int get_component_name(void *handle, char * name);
+
+.. code-block:: c++
+
+  /* C++ */
+  void GetComponentName(char * const name);
+
 
 Return the name of the model as a string. We don't impose any
 restrictions on the model name but it should be unique name

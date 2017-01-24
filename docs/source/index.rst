@@ -48,7 +48,7 @@ References
 
 .. [BmiDocs] BMI documentation
 
-   https://github.com/csdms/bmi
+   http://bmi-spec.readthedocs.io/en/latest/
 
 .. [BmiGitHub] BMI description and bindings
 
@@ -60,12 +60,3 @@ References
   approach to integrated modeling in the geosciences: The design of
   CSDMS*, Computers & Geosciences, Volume 53, April 2013, Pages 3-12,
   ISSN 0098-3004, http://dx.doi.org/10.1016/j.cageo.2012.04.002.
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
