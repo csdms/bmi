@@ -10,3 +10,6 @@
 [submodule "bindings/cxx"]
 	path = bindings/cxx
 	url = https://github.com/csdms/bmi-cxx
+[submodule "bindings/fortran"]
+	path = bindings/fortran
+	url = https://github.com/csdms/bmi-fortran
