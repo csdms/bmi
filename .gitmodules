@@ -13,3 +13,6 @@
 [submodule "bindings/fortran"]
 	path = bindings/fortran
 	url = https://github.com/csdms/bmi-fortran
+[submodule "bindings/java"]
+	path = bindings/java
+	url = https://github.com/csdms/bmi-java
