@@ -11,7 +11,7 @@ make the model *self-describing* and fully *controllable* by a
 modeling framework or application.
 
 By design, the BMI functions are straightforward to implement in
-any language and use only simle (universal) data types. While the
+any language and use only simple (universal) data types. While the
 CSDMS model coupling framework supports C, C++, Fortran, Java,
 and Python, a BMI can described for any language.  CSDMS
 provides example bindings for BMI in each of the above languages.
