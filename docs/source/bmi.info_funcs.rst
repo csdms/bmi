@@ -30,6 +30,14 @@ Input and output variable names
   void GetInputVarNames(char * const * const names);
   void GetOutputVarNames(char * const * const names);
 
+.. code-block:: fortran
+
+   ! Fortran (>=2003)
+   integer function get_input_var_name_count(self, count)
+   integer function get_output_var_name_count(self, count)
+   integer function get_input_var_names(self, names)
+   integer function get_output_var_names(self, names)
+
 
 `get_input_var_names` returns a string array of the model's
 *input variable* names as, preferably, CSDMS Standard Names.
@@ -54,6 +62,11 @@ Component name
 
   /* C++ */
   void GetComponentName(char * const name);
+
+.. code-block:: fortran
+
+   ! Fortran (>=2003)
+   integer function get_component_name(self, name)
 
 
 Return the name of the model as a string. We don't impose any
