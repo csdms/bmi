@@ -7,6 +7,8 @@ package csdms version 0.0 {
     int get_start_time(out double time);
     int get_current_time(out double time);
     int get_end_time(out double time);
+    int get_time_step(out double time_step);
+    int get_time_units(out string units);
 
     int get_component_name(out string name);
     int get_input_item_count(out int count);
