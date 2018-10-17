@@ -29,8 +29,10 @@ Initialization
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   integer function initialize(self, config_file)
-
+   function initialize(self, config_file) result (bmi_status)
+     class (*), intent(out) :: self
+     character (len=*), intent(in) :: config_file
+     integer :: bmi_status
 
 
 The `initialize` function accepts a string argument that gives the
@@ -70,8 +72,15 @@ Time stepping
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   integer function update(self)
-   integer function update_until(self, then)
+   function update(self) result (bmi_status)
+     class (*), intent(inout) :: self
+     integer :: bmi_status
+
+   function update_until(self, then) result (bmi_status)
+     class (*), intent(inout) :: self
+     double precision, intent(in) :: then
+     integer :: bmi_status
+
 
 The `update` function advances the model by a single timestep. This
 is the model's own internal timestep (as returned by the BMI
@@ -111,7 +120,9 @@ Finalization
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   integer function finalize(self)
+   function finalize(self) result (bmi_status)
+     class (*), intent(inout) :: self
+     integer :: bmi_status
 
 The `finalize` function should perform all tasks that take place
 after exiting the model's time loop.  This typically includes

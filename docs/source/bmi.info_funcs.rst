@@ -33,10 +33,17 @@ Input and output variable names
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   integer function get_input_var_name_count(self, count)
-   integer function get_output_var_name_count(self, count)
-   integer function get_input_var_names(self, names)
-   integer function get_output_var_names(self, names)
+   function get_input_var_name_count(self, count) result (bmi_status)
+   function get_output_var_name_count(self, count) result (bmi_status)
+     class (*), intent(in) :: self
+     integer, intent(out) :: count
+     integer :: bmi_status
+
+   function get_input_var_names(self, names) result (bmi_status)
+   function get_output_var_names(self, names) result (bmi_status)
+     class (*), intent(in) :: self
+     character (len=*), pointer, intent(out) :: names(:)
+     integer :: bmi_status
 
 
 `get_input_var_names` returns a string array of the model's
@@ -66,7 +73,10 @@ Component name
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   integer function get_component_name(self, name)
+   function get_component_name(self, name) result (bmi_status)
+     class (*), intent(in) :: self
+     character (len=*), pointer, intent(out) :: name
+     integer :: bmi_status
 
 
 Return the name of the model as a string. We don't impose any
