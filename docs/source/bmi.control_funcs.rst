@@ -29,8 +29,8 @@ Initialization
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   integer function initialize(self, config_file)
-     class (*), intent(out) :: self
+   integer function initialize(this, config_file)
+     class (*), intent(out) :: this
      character (len=*), intent(in) :: config_file
 
 
@@ -71,10 +71,10 @@ Time stepping
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   integer function update(self)
-     class (*), intent(inout) :: self
-   integer function update_until(self, then)
-     class (*), intent(inout) :: self
+   integer function update(this)
+     class (*), intent(inout) :: this
+   integer function update_until(this, then)
+     class (*), intent(inout) :: this
      double precision, intent(in) :: then
 
 
@@ -116,8 +116,8 @@ Finalization
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   integer function finalize(self)
-     class (*), intent(inout) :: self
+   integer function finalize(this)
+     class (*), intent(inout) :: this
 
 The `finalize` function should perform all tasks that take place
 after exiting the model's time loop.  This typically includes

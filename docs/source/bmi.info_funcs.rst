@@ -33,13 +33,13 @@ Input and output variable names
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   integer function get_input_var_name_count(self, count)
-   integer function get_output_var_name_count(self, count)
-     class (*), intent(in) :: self
+   integer function get_input_var_name_count(this, count)
+   integer function get_output_var_name_count(this, count)
+     class (*), intent(in) :: this
      integer, intent(out) :: count
-   integer function get_input_var_names(self, names)
-   integer function get_output_var_names(self, names)
-     class (*), intent(in) :: self
+   integer function get_input_var_names(this, names)
+   integer function get_output_var_names(this, names)
+     class (*), intent(in) :: this
      character (len=*), pointer, intent(out) :: names(:)
 
 
@@ -70,8 +70,8 @@ Component name
 .. code-block:: fortran
 
    ! Fortran (>=2003)
-   intger function get_component_name(self, name)
-     class (*), intent(in) :: self
+   intger function get_component_name(this, name)
+     class (*), intent(in) :: this
      character (len=*), pointer, intent(out) :: name
 
 
