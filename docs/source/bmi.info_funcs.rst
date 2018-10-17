@@ -116,8 +116,9 @@ are:
 * des (Timestep size varies in both space and time.  See below.)
 * none (State variables do not vary in time.)
 
-Note that DES ([http://en.wikipedia.org/wiki/Discrete_event_simulation
-Discrete Event Simulation]) models allow each grid cell to have its
+Note that `Discrete Event Simulation
+<http://en.wikipedia.org/wiki/Discrete_event_simulation>`_
+(DES) models allow each grid cell to have its
 own, adaptive time step.
 
 The "grid_type" attribute can be used by a framework to automatically
