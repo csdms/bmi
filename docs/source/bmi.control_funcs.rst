@@ -26,6 +26,13 @@ Initialization
     /* C++ */
     void Initialize (const char *config_file);
 
+.. code-block:: fortran
+
+   ! Fortran (>=2003)
+   integer function initialize(this, config_file)
+     class (*), intent(out) :: this
+     character (len=*), intent(in) :: config_file
+
 
 The `initialize` function accepts a string argument that gives the
 name (and path) of its "main input file", or *configuration file*.
@@ -61,6 +68,16 @@ Time stepping
     void Update(void);
     void UpdateUntil(double then);
 
+.. code-block:: fortran
+
+   ! Fortran (>=2003)
+   integer function update(this)
+     class (*), intent(inout) :: this
+   integer function update_until(this, then)
+     class (*), intent(inout) :: this
+     double precision, intent(in) :: then
+
+
 The `update` function advances the model by a single timestep. This
 is the model's own internal timestep (as returned by the BMI
 `get_time_step` function) - not the timestep of a controlling application.
@@ -95,6 +112,12 @@ Finalization
 
     /* C++ */
     void Finalize(void);
+
+.. code-block:: fortran
+
+   ! Fortran (>=2003)
+   integer function finalize(this)
+     class (*), intent(inout) :: this
 
 The `finalize` function should perform all tasks that take place
 after exiting the model's time loop.  This typically includes

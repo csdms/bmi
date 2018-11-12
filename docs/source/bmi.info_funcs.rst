@@ -30,6 +30,18 @@ Input and output variable names
   void GetInputVarNames(char * const * const names);
   void GetOutputVarNames(char * const * const names);
 
+.. code-block:: fortran
+
+   ! Fortran (>=2003)
+   integer function get_input_var_name_count(this, count)
+   integer function get_output_var_name_count(this, count)
+     class (*), intent(in) :: this
+     integer, intent(out) :: count
+   integer function get_input_var_names(this, names)
+   integer function get_output_var_names(this, names)
+     class (*), intent(in) :: this
+     character (len=*), pointer, intent(out) :: names(:)
+
 
 `get_input_var_names` returns a string array of the model's
 *input variable* names as, preferably, CSDMS Standard Names.
@@ -54,6 +66,13 @@ Component name
 
   /* C++ */
   void GetComponentName(char * const name);
+
+.. code-block:: fortran
+
+   ! Fortran (>=2003)
+   intger function get_component_name(this, name)
+     class (*), intent(in) :: this
+     character (len=*), pointer, intent(out) :: name
 
 
 Return the name of the model as a string. We don't impose any
@@ -97,8 +116,9 @@ are:
 * des (Timestep size varies in both space and time.  See below.)
 * none (State variables do not vary in time.)
 
-Note that DES ([http://en.wikipedia.org/wiki/Discrete_event_simulation
-Discrete Event Simulation]) models allow each grid cell to have its
+Note that `Discrete Event Simulation
+<http://en.wikipedia.org/wiki/Discrete_event_simulation>`_
+(DES) models allow each grid cell to have its
 own, adaptive time step.
 
 The "grid_type" attribute can be used by a framework to automatically

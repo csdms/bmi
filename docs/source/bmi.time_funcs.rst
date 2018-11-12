@@ -20,6 +20,8 @@ Time units
 
 Return the units of time as reported by the model's BMI (through
 `get_current_time`_, `get_end_time`_, etc.).
+CSDMS recommends using time unit conventions from Unidata's
+`UDUNITS <https://www.unidata.ucar.edu/software/udunits/>`_ package.
 
 Time step
 ---------
