@@ -1,4 +1,4 @@
-package csdms version 0.0 {
+package csdms version 1.0 {
   interface bmi {
     int initialize(in string config_file);	            	
     int update(in double time_interval);	            	
