@@ -7,7 +7,7 @@
   For more information on BMI, including developer documentation, see
       https://csdms.colorado.edu/wiki/BMI_Description
 */
-package csdms version 1.0 {
+package csdms version 1.1 {
   interface bmi {
     int initialize(in string config_file);	            	
     int update(in double time_interval);	            	
@@ -30,6 +30,7 @@ package csdms version 1.0 {
     int get_var_nbytes(in string name, out int nbytes);
     int get_var_itemsize(in string name, out int size);
     int get_var_grid(in string name, out int grid);
+    int get_var_location(in string name, out string location);
 
     // Grid information
     int get_grid_type(in int grid, out string type);
