@@ -1,3 +1,12 @@
+/*
+  The CSDMS Basic Model Interface (BMI)
+
+  This Scientific Interface Definition Language (SIDL) file describes
+  the BMI in a human-readable, language- and platform-independent manner.
+
+  For more information on BMI, including developer documentation, see
+      https://csdms.colorado.edu/wiki/BMI_Description
+*/
 package csdms version 1.0 {
   interface bmi {
     int initialize(in string config_file);	            	
