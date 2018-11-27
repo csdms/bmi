@@ -105,7 +105,7 @@ Uniform rectilinear
 .. code-block:: java
 
     array<float> get_grid_origin(in int id)
-    array<int> get_grid_spacing(in int id)
+    array<float> get_grid_spacing(in int id)
 
 .. image:: images/mesh_uniform_rectilinear.png
    :scale: 20 %
