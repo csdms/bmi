@@ -8,7 +8,7 @@ The Basic Model Interface
 The Basic Model Interface (BMI) is a library specification to
 simplify the coupling of models.
 
-.. image:: docs/source/images/bmi_logo.png
+.. image:: docs/source/images/bmi_logo_small.png
    :scale: 10 %
    :align: right
    :alt: The Basic Model Interface
