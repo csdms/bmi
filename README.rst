@@ -1,4 +1,6 @@
-[![Documentation Status](https://readthedocs.org/projects/bmi-spec/badge/?version=latest)](https://readthedocs.org/projects/bmi-spec/?badge=latest)
+.. image:: https://readthedocs.org/projects/bmi-spec/badge/?version=latest
+        :target: https://bmi-spec.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
 
 The Basic Model Interface
 =========================
