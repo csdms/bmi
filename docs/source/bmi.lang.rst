@@ -10,4 +10,5 @@ in several languages.
    bmi.lang.sidl
    bmi.lang.c
    bmi.lang.cxx
+   bmi.lang.fortran
    bmi.lang.py
