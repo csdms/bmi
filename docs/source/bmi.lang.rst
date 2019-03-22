@@ -1,7 +1,7 @@
 BMI Bindings
 ------------
 
-The following are header files demonstrating how the BMI specification
+The following header files demonstrate how the BMI specification
 is expressed in different languages.
 
 .. toctree::
@@ -12,3 +12,6 @@ is expressed in different languages.
    bmi.lang.cxx
    bmi.lang.py
    bmi.lang.fortran
+
+Download the language file of your choice
+and use it to implement a BMI for a model.

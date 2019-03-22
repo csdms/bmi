@@ -1,9 +1,11 @@
-The CSDMS Model Coupling Framework
-==================================
+.. _cmf:
+
+The CSDMS Modeling Framework
+============================
 
 Any model that provides the BMI functions can be easily converted
-to a CSDMS plug-and-play component within the CSDMS model coupling
-framework.  This conversion/wrapping process can be done
+to a CSDMS plug-and-play component within the CSDMS Modeling
+Framework (CMF).  This conversion/wrapping process can be done
 automatically using the CSDMS Babelizer tool, which generates
 bindings for all of the CSDMS supported languages, so that the
 model becomes a plug-in for within the CSDMS framework.
@@ -15,7 +17,7 @@ use Model Control Functions very similar to those of the BMI,
 so providing them helps get a model ready for *plug-and-play* into
 any framework.
 
-Within the CSDMS framework, a component automatically gains many
+Within the CMF, a component automatically gains many
 new capabilities. This includes the ability to be coupled to
 other models even if their (1) programming language, (2) variable
 names, (3) variable units, (4) time-stepping scheme or (5)
