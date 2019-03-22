@@ -8,13 +8,14 @@
 
 .. include:: bmi.spec.rst
 
---------
-See also
---------
+.. include:: bmi.lang.rst
+
+
+Additional Topics
+-----------------
 
 .. toctree::
    :maxdepth: 2
 
-   bmi.lang
    csdms
    references

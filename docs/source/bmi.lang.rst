@@ -1,8 +1,8 @@
 BMI Bindings
-============
+------------
 
-Following are some examples of how the BMI spec is expressed
-in several languages.
+The following are header files demonstrating how the BMI specification
+is expressed in different languages.
 
 .. toctree::
    :maxdepth: 1

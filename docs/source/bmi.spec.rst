@@ -20,6 +20,12 @@ framework-specific data structures. BMI therefore introduces no
 dependencies into a model and the model can still be used
 in a *stand-alone* manner.
 
+BMI Specification
+=================
+
+Detailed descriptions of the BMI functions
+are grouped by functional category below.
+
 .. toctree::
    :maxdepth: 1
 
