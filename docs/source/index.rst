@@ -1,7 +1,8 @@
-.. bmi documentation master file, created by
-   sphinx-quickstart on Tue Jan  3 13:30:36 2017.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. image:: _static/bmi-logo-header-text.png
+    :align: center
+    :scale: 85%
+    :alt: Basic Model Interface (BMI)
+    :target: https://bmi-spec.readthedocs.org/
 
 =========================
 The Basic Model Interface
