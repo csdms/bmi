@@ -1,8 +1,8 @@
 BMI Bindings
-============
+------------
 
-Following are some examples of how the BMI spec is expressed
-in several languages.
+The following header files demonstrate how the BMI specification
+is expressed in different languages.
 
 .. toctree::
    :maxdepth: 1
@@ -12,3 +12,6 @@ in several languages.
    bmi.lang.cxx
    bmi.lang.py
    bmi.lang.fortran
+
+Download the language file of your choice
+and use it to implement a BMI for a model.
