@@ -1,6 +1,3 @@
-The BMI Spec
-============
-
 In order to simplify conversion of an existing model to a reusable,
 plug-and-play model component, CSDMS has developed a simple
 interface called the *Basic Model Interface* or *BMI* that model
