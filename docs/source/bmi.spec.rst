@@ -45,6 +45,6 @@ are grouped by functional category below.
 ..
    Links
 
-.. _Community Surface Dynamics Modeling System: <https://csdms.colorado.edu>
-.. _CSDMS Python Modeling Toolkit: <https://pymt.readthedocs.io>
-.. _example: <https://github.com/csdms/bmi/tree/master/bindings>
+.. _Community Surface Dynamics Modeling System: https://csdms.colorado.edu
+.. _CSDMS Python Modeling Toolkit: https://pymt.readthedocs.io
+.. _example: https://github.com/csdms/bmi/tree/master/bindings
