@@ -4,6 +4,8 @@
     :alt: Basic Model Interface (BMI)
     :target: https://bmi-spec.readthedocs.org/
 
+.. title:: BMI
+
 .. include:: bmi.spec.rst
 
 --------
