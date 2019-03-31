@@ -49,9 +49,6 @@ package csdms version 0.0 {
     int get_grid_z(in int grid, in array<double, 1> z);
 
     // Unstructured
-    int get_grid_connectivity(in int grid, in array<int, 1> connectivity);
-    int get_grid_offset(in int grid, in array<int, 1> offset);
-
     int get_grid_node_count(in int grid, out int count);
     int get_grid_edge_count(in int grid, out int count);
     int get_grid_face_count(in int grid, out int count);
