@@ -71,7 +71,7 @@ Grid shape
 
 .. code-block:: java
 
-    array<int> get_grid_shape(in int id)
+    int get_grid_shape(in int id, out array<int, 1> shape)
 
 A structured grid of quadrilaterals is one formed by a stacked
 next one-another such that every vertex is surrounded by four
@@ -104,8 +104,8 @@ Uniform rectilinear
 
 .. code-block:: java
 
-    array<float> get_grid_origin(in int id)
-    array<float> get_grid_spacing(in int id)
+    int get_grid_origin(in int id, out array<int, 1> origin)
+    int get_grid_spacing(in int id, out array<int, 1> spacing)
 
 .. image:: images/mesh_uniform_rectilinear.png
    :scale: 20 %
@@ -138,11 +138,11 @@ Rectilinear
 .. code-block:: java
 
     int get_grid_rank(in int id)
-    array<int> get_grid_size(in int id)
-    array<int> get_grid_shape(in int id)
-    array<float> get_grid_x(in int id)
-    array<float> get_grid_y(in int id)
-    array<float> get_grid_z(in int id)
+    int get_grid_size(in int id)
+    int get_grid_shape(in int id, out array<int, 1> shape)
+    int get_grid_x(in int id, out array<int, 1> x)
+    int get_grid_y(in int id, out array<int, 1> y)
+    int get_grid_z(in int id, out array<int, 1> z)
 
 .. image:: images/mesh_rectilinear.png
    :scale: 20 %
@@ -167,11 +167,11 @@ Structured quadrilaterals
 .. code-block:: java
 
     int get_grid_rank(in int id)
-    array<int> get_grid_size(in int id)
-    array<int> get_grid_shape(in int id)
-    array<float> get_grid_x(in int id)
-    array<float> get_grid_y(in int id)
-    array<float> get_grid_z(in int id)
+    int get_grid_size(in int id)
+    int get_grid_shape(in int id, out array<int, 1> shape)
+    int get_grid_x(in int id, out array<int, 1> x)
+    int get_grid_y(in int id, out array<int, 1> y)
+    int get_grid_z(in int id, out array<int, 1> z)
 
 .. image:: images/mesh_structured_quad.png
    :scale: 20 %
@@ -196,12 +196,19 @@ Unstructured
 .. code-block:: java
 
     int get_grid_rank(in int id)
-    array<int> get_grid_size(in int id)
-    array<float> get_grid_x(in int id)
-    array<float> get_grid_y(in int id)
-    array<float> get_grid_z(in int id)
-    array<int> get_grid_connectivity(in int id)
-    array<int> get_grid_offset(in int id)
+
+    int get_grid_x(in int id, out array<int, 1> x)
+    int get_grid_y(in int id, out array<int, 1> y)
+    int get_grid_z(in int id, out array<int, 1> z)
+
+    int get_grid_node_count(in int grid)
+    int get_grid_edge_count(in int grid)
+    int get_grid_face_count(in int grid)
+
+    int get_grid_edge_nodes(in int grid, out array<int, 1> edge_nodes)
+    int get_grid_face_edges(in int grid, out array<int, 1> face_edges)
+    int get_grid_face_nodes(in int grid, out array<int, 1> face_nodes)
+    int get_grid_nodes_per_face(in int grid, out array<int, 1> nodes_per_face)
 
 This is the most general grid type and can be used for any type of grid.
 However, most grids that consist of 4-sided polygons can be represented
