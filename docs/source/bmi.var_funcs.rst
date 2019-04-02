@@ -17,12 +17,16 @@ Variables grids
 .. code-block:: java
 
     int get_var_grid(in string name)
+    string get_var_location(in string name)
 
 Each variable is associated with a grid on which the variable is defined.
 A single model can have one or more grids. `get_var_grid` returns an
 id (as an `int`) to its grid. That id is then passed to the BMI
 :ref:`get_grid` functions to get information about a particular grid
-(x and y coordinates, size, etc.).
+(x and y coordinates, size, etc.). The `get_var_location` function,
+given a variable name, returns a string that indicates on what grid
+element the variable is defined. Valid return values are `"node"`,
+`"edge"`, and `"face"`.
 
 Variable units
 --------------
