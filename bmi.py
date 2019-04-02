@@ -3,7 +3,7 @@ from typing import Tuple
 import numpy as np
 
 
-class Bmi(object):
+class Bmi:
     def initialize(self, config_file: str) -> None:
         """Perform startup tasks for the model.
 
@@ -27,7 +27,7 @@ class Bmi(object):
         """
         ...
 
-    def update(self, time_interval: float) -> None:
+    def update(self) -> None:
         """Advance model state by one time step.
 
         Perform all tasks that take place within one pass through the model's
