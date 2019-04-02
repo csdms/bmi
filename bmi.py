@@ -55,7 +55,7 @@ class Bmi(object):
     def get_time_step(self) -> float:
         ...
 
-    def get_value(self, name: str, dest: np.ndarray) -> None:
+    def get_value(self, name: str, dest: np.ndarray) -> np.ndarray:
         ...
 
     def get_value_ptr(self, name: str) -> np.ndarray:
@@ -63,15 +63,15 @@ class Bmi(object):
 
     def get_value_at_indices(
         self, name: str, dest: np.ndarray, inds: np.ndarray
-    ) -> None:
+    ) -> np.ndarray:
         ...
 
-    def set_value(self, name: str, values: np.ndarray) -> None:
+    def set_value(self, name: str, values: np.ndarray) -> np.ndarray:
         ...
 
     def set_value_at_indices(
         self, name: str, inds: np.ndarray, src: np.ndarray
-    ) -> None:
+    ) -> np.ndarray:
         ...
 
     # Grid information
@@ -85,23 +85,23 @@ class Bmi(object):
         ...
 
     # Uniform rectilinear
-    def get_grid_shape(self, grid: int, shape: np.ndarray) -> None:
+    def get_grid_shape(self, grid: int, shape: np.ndarray) -> np.ndarray:
         ...
 
-    def get_grid_spacing(self, grid: int, spacing: np.ndarray) -> None:
+    def get_grid_spacing(self, grid: int, spacing: np.ndarray) -> np.ndarray:
         ...
 
-    def get_grid_origin(self, grid: int, origin: np.ndarray) -> None:
+    def get_grid_origin(self, grid: int, origin: np.ndarray) -> np.ndarray:
         ...
 
     # Non-uniform rectilinear, curvilinear
-    def get_grid_x(self, grid: int, x: np.ndarray) -> None:
+    def get_grid_x(self, grid: int, x: np.ndarray) -> np.ndarray:
         ...
 
-    def get_grid_y(self, grid: int, y: np.ndarray) -> None:
+    def get_grid_y(self, grid: int, y: np.ndarray) -> np.ndarray:
         ...
 
-    def get_grid_z(self, grid: int, z: np.ndarray) -> None:
+    def get_grid_z(self, grid: int, z: np.ndarray) -> np.ndarray:
         ...
 
     def get_grid_node_count(self, grid: int) -> int:
@@ -113,14 +113,14 @@ class Bmi(object):
     def get_grid_face_count(self, grid: int) -> int:
         ...
 
-    def get_grid_edge_nodes(self, grid: int, edge_nodes: np.ndarray) -> None:
+    def get_grid_edge_nodes(self, grid: int, edge_nodes: np.ndarray) -> np.ndarray:
         ...
 
-    def get_grid_face_edges(self, grid: int, face_edges: np.ndarray) -> None:
+    def get_grid_face_edges(self, grid: int, face_edges: np.ndarray) -> np.ndarray:
         ...
 
-    def get_grid_face_nodes(self, grid: int, face_nodes: np.ndarray) -> None:
+    def get_grid_face_nodes(self, grid: int, face_nodes: np.ndarray) -> np.ndarray:
         ...
 
-    def get_grid_nodes_per_face(self, grid: int, nodes_per_face: np.ndarray) -> None:
+    def get_grid_nodes_per_face(self, grid: int, nodes_per_face: np.ndarray) -> np.ndarray:
         ...
