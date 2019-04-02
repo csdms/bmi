@@ -89,10 +89,6 @@ class Bmi(object):
         -------
         list of str
           The output variables for the model.
-
-        See Also
-        --------
-        get_input_var_names
         """
         ...
 
@@ -108,11 +104,6 @@ class Bmi(object):
         -------
         int
           The grid identifier.
-
-        See Also
-        --------
-        bmi.info.BmiInfo.get_input_var_names : Get *var_name* from this
-            method or from :func:`~bmi.info.BmiInfo.get_output_var_names`.
         """
         ...
 
@@ -217,10 +208,6 @@ class Bmi(object):
         -------
         float
           The current model time.
-
-        See Also
-        --------
-        get_start_time
         """
         ...
 
@@ -243,10 +230,6 @@ class Bmi(object):
         -------
         float
           The maximum model time.
-
-        See Also
-        --------
-        get_start_time
         """
         ...
 
@@ -391,10 +374,6 @@ class Bmi(object):
         -------
         int
           Rank of the grid.
-
-        See Also
-        --------
-        bmi.vars.BmiVars.get_var_grid : Obtain a `grid_id`.
         """
         ...
 
@@ -410,10 +389,6 @@ class Bmi(object):
         -------
         int
           Size of the grid.
-
-        See Also
-        --------
-        bmi.vars.BmiVars.get_var_grid : Obtain a `grid`.
         """
         ...
 
@@ -429,10 +404,6 @@ class Bmi(object):
         -------
         str
           Type of grid as a string.
-
-        See Also
-        --------
-        bmi.vars.BmiVars.get_var_grid : Obtain a `grid`.
         """
         ...
 
@@ -451,10 +422,6 @@ class Bmi(object):
         -------
         ndarray of int
           The input numpy array that holds the grid's shape.
-
-        See Also
-        --------
-        bmi.vars.BmiVars.get_var_grid : Obtain a `grid`.
         """
         ...
 
@@ -472,10 +439,6 @@ class Bmi(object):
         -------
         ndarray of float
             The input numpy array that holds the grid's spacing.
-
-        See Also
-        --------
-        bmi.vars.BmiVars.get_var_grid : Obtain a `grid`.
         """
         ...
 
@@ -495,10 +458,6 @@ class Bmi(object):
         ndarray of float
             The input numpy array that holds the coordinates of the grid's
             lower-left corner.
-
-        See Also
-        --------
-        bmi.vars.BmiVars.get_var_grid : Obtain a `grid`.
         """
         ...
 
