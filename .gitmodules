@@ -16,3 +16,6 @@
 [submodule "bindings/python"]
 	path = bindings/python
 	url = https://github.com/csdms/bmi-python
+[submodule "examples/python"]
+	path = examples/python
+	url = https://github.com/csdms/bmi-example-python
