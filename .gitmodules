@@ -1,9 +1,6 @@
 [submodule "bindings/c"]
 	path = bindings/c
 	url = https://github.com/csdms/bmi-c
-[submodule "bindings/bmi-python"]
-	path = bindings/python
-	url = https://github.com/csdms/bmi-python
 [submodule "bindings/f90"]
 	path = bindings/f90
 	url = https://github.com/csdms/bmi-f90
@@ -16,3 +13,9 @@
 [submodule "bindings/java"]
 	path = bindings/java
 	url = https://github.com/csdms/bmi-java
+[submodule "bindings/python"]
+	path = bindings/python
+	url = https://github.com/csdms/bmi-python
+[submodule "examples/python"]
+	path = examples/python
+	url = https://github.com/csdms/bmi-example-python
