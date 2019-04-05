@@ -13,3 +13,6 @@
 [submodule "bindings/java"]
 	path = bindings/java
 	url = https://github.com/csdms/bmi-java
+[submodule "bindings/python"]
+	path = bindings/python
+	url = https://github.com/csdms/bmi-python
