@@ -19,3 +19,6 @@
 [submodule "examples/python"]
 	path = examples/python
 	url = https://github.com/csdms/bmi-example-python
+[submodule "examples/fortran"]
+	path = examples/fortran
+	url = https://github.com/csdms/bmi-example-fortran
