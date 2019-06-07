@@ -19,3 +19,11 @@ Additional Topics
 
    csdms
    references
+
+Project Information
+===================
+
+.. toctree::
+   :maxdepth: 2
+
+   contributing
