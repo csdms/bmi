@@ -12,7 +12,7 @@
 
 
 Additional Topics
------------------
+=================
 
 .. toctree::
    :maxdepth: 2
