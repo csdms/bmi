@@ -27,3 +27,4 @@ Project Information
    :maxdepth: 2
 
    contributing
+   conduct
