@@ -49,3 +49,7 @@ http://www.sciencedirect.com/science/article/pii/S0098300412001252
 The most current development version is always available from our git repository:
 
 http://github.com/csdms/bmi
+
+Please note that this project is released with a
+`Contributor Code of Conduct <./CODE-OF-CONDUCT.md>`_.
+By participating in this project you agree to abide by its terms.
