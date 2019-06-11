@@ -26,5 +26,6 @@ Project Information
 .. toctree::
    :maxdepth: 1
 
+   citation
    contributing
    conduct
