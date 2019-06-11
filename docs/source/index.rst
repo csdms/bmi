@@ -29,3 +29,4 @@ Project Information
    citation
    contributing
    conduct
+   credits
