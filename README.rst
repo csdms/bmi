@@ -5,7 +5,7 @@
 The Basic Model Interface
 =========================
 
-Documentation: https://bmi-spec.readthedocs.io
+Documentation: https://bmi.readthedocs.io
 
 License: MIT
 
