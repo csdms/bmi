@@ -12,10 +12,21 @@
 
 
 Additional Topics
------------------
+=================
 
 .. toctree::
    :maxdepth: 2
 
    csdms
    references
+
+Project Information
+===================
+
+.. toctree::
+   :maxdepth: 1
+
+   citation
+   contributing
+   conduct
+   credits
