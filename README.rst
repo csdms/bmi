@@ -1,25 +1,43 @@
-.. image:: https://readthedocs.org/projects/bmi-spec/badge/?version=latest
-        :target: https://bmi-spec.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
+.. role:: raw-html-m2r(raw)
+   :format: html
 
-The Basic Model Interface
-=========================
 
-Documentation: https://bmi.readthedocs.io
+.. raw:: html
 
-License: MIT
+   <p align="center">
+      <a href='https://bmi.readthedocs.org/'>
+         <img src='https://github.com/csdms/bmi/raw/master/docs/source/_static/bmi-logo-header-text.png'/>
+      </a>
+   </p>
 
-Summary: The Basic Model Interface (BMI) is a library specification to
-simplify the coupling of models.
+.. raw:: html
 
-.. image:: docs/source/images/bmi_logo_small.png
-   :scale: 10 %
-   :align: right
-   :alt: The Basic Model Interface
+   <h2 align="center">The Basic Model Interface</h2>
 
+
+
+.. raw:: html
+
+   <p align="center">
+
+   <a href='https://bmi.readthedocs.io/en/latest/?badge=latest'>
+     <img src='https://readthedocs.org/projects/bmi/badge/?version=latest' alt='Documentation Status'></a>
+   <a href="https://opensource.org/licenses/MIT">
+     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+
+   </p>
+
+   <p align="center">
+
+   The Basic Model Interface (BMI) is a library specification to
+   simplify the coupling of models.
+
+   </p>
 
 In order to simplify conversion of an existing model to a reusable,
-plug-and-play model component, CSDMS has developed a simple
+plug-and-play model component, the
+`Community Surface Dynamics Modeling System <https://csdms.colorado.edu>`_
+(CSDMS) has developed a simple
 interface called the *Basic Model Interface* or *BMI* that model
 developers are asked to implement.  Recall that in this
 context an *interface* is a named set of functions with prescribed
@@ -41,8 +59,7 @@ dependencies into a model and the model can still be used
 in a *stand-alone* manner.
 
 The most current development version is always available from our git repository:
-
-http://github.com/csdms/bmi
+http://github.com/csdms/bmi.
 
 Please note that this project is released with a
 `Contributor Code of Conduct <./CODE-OF-CONDUCT.rst>`_.
