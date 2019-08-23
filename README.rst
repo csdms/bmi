@@ -47,8 +47,8 @@ modeling framework or application.
 
 By design, the BMI functions are straightforward to implement in
 any language and use only simple (universal) data types. While the
-CSDMS model coupling framework supports C, C++, Fortran, Java,
-and Python, a BMI can described for any language.  CSDMS
+CSDMS model coupling framework supports `C`_, `C++`_, `Fortran`_,
+`Java`_, and `Python`_, a BMI can described for any language.  CSDMS
 provides example bindings for BMI in each of the above languages.
 
 Also by design, the BMI functions are *noninvasive*.  This means
@@ -64,3 +64,12 @@ http://github.com/csdms/bmi.
 Please note that this project is released with a
 `Contributor Code of Conduct <./CODE-OF-CONDUCT.rst>`_.
 By participating in this project you agree to abide by its terms.
+
+..
+   Links
+
+.. _C: https://github.com/csdms/bmi-c
+.. _C++: https://github.com/csdms/bmi-cxx
+.. _Fortran: https://github.com/csdms/bmi-fortran
+.. _Java: https://github.com/csdms/bmi-java
+.. _Python: https://github.com/csdms/bmi-python
