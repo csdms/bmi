@@ -2,7 +2,7 @@
 References
 ==========
 
-Community Surface Dynamics Modeling System (CSDMS):
+Community Surface Dynamics Modeling System (CSDMS)
 
   Syvitski, James P; Hutton, Eric; Piper, Mark; Overeem, Irina;
     Kettner, Albert; Peckham, Scott (2014): "Plug and play component
@@ -12,7 +12,7 @@ Community Surface Dynamics Modeling System (CSDMS):
     San Diego, CA,
     USA. http://www.iemss.org/society/index.php/iemss-2014-proceedings.
 
-Basic Model Interface (BMI):
+Basic Model Interface (BMI)
 
   Peckham, Scott D; Hutton, Eric WH; Norris, Boyana (2013): "A
     component-based approach to integrated modeling in the
@@ -20,7 +20,12 @@ Basic Model Interface (BMI):
     **53**: 3-12, ISSN 0098-3004,
     http://dx.doi.org/10.1016/j.cageo.2012.04.002.
 
-Scientific Interface Definition Language (SIDL):
+Scientific Interface Definition Language (SIDL)
+
+  Dahlgren, Tamara; Ebner, Dietmar; Epperly, Thomas; Kumfert, Gary;
+    Leek, James; Prantl, Adrian (): "Babel User's Guide: Part I
+    Foundation: SIDL Basics".
+    https://computing.llnl.gov/projects/babel-high-performance-language-interoperability/docs/users_guide/index008.html (retrieved 2019-10-09).
 
   Epperly, Thomas GW; Kumfert, Gary; Dahlgren, Tamara; Ebner, Dietmar;
     Leek, Jim; Prantl, Adrian; Kohn, Scott (2011): "High-performance
