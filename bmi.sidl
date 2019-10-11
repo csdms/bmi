@@ -1,22 +1,22 @@
-package csdms version 0.0 {
+package csdms version 1.3b0 {
   interface bmi {
-    int initialize(in string config_file);	            	
-    int update(in double time_interval);	            	
-    int finalize();	            	
-            
+    int initialize(in string config_file);
+    int update();
+    int update_until(in double then);
+    int finalize();
+
     int get_component_name(out string name);
     int get_input_item_count(out int count);
     int get_output_item_count(out int count);
     int get_input_var_names(out array<string, 1> names);
     int get_output_var_names(out array<string, 1> names);
 
-    int get_var_grid(in string name, out int grid_id);
+    int get_var_grid(in string name, out int grid);
     int get_var_type(in string name, out string type);
     int get_var_units(in string name, out string units);
     int get_var_itemsize(in string name, out int size);
     int get_var_nbytes(in string name, out int nbytes);
     int get_var_location(in string name, out string location);
-    int get_var_grid(in string name, out int grid);
 
     int get_current_time(out double time);
     int get_start_time(out double time);
