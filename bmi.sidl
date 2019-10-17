@@ -25,11 +25,11 @@ package csdms version 2.0b0 {
     int get_time_step(out double time_step);
 
     int get_value(in string name, in array<> dest);
-    int get_value_ptr(in string name, out array<> values);
+    int get_value_ptr(in string name, out array<> dest_ptr);
     int get_value_at_indices(in string name, in array<> dest,
         in array<int, 1> inds);
 
-    int set_value(in string name, in array<> values);
+    int set_value(in string name, in array<> src);
     int set_value_at_indices(in string name, in array<int, 1> inds,
         in array<> src);
 
