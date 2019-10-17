@@ -2,7 +2,7 @@ package csdms version 2.0b0 {
   interface bmi {
     int initialize(in string config_file);
     int update();
-    int update_until(in double then);
+    int update_until(in double time);
     int finalize();
 
     int get_component_name(out string name);
