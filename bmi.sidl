@@ -1,16 +1,23 @@
+//
+// The Basic Model Interface (BMI)
+//
 package csdms version 2.0b0 {
   interface bmi {
+
+    // Initialize, run, finalize (IRF)
     int initialize(in string config_file);
     int update();
     int update_until(in double time);
     int finalize();
 
+    // Exchange items
     int get_component_name(out string name);
     int get_input_item_count(out int count);
     int get_output_item_count(out int count);
     int get_input_var_names(out array<string, 1> names);
     int get_output_var_names(out array<string, 1> names);
 
+    // Variable information
     int get_var_grid(in string name, out int grid);
     int get_var_type(in string name, out string type);
     int get_var_units(in string name, out string units);
@@ -18,17 +25,20 @@ package csdms version 2.0b0 {
     int get_var_nbytes(in string name, out int nbytes);
     int get_var_location(in string name, out string location);
 
+    // Time information
     int get_current_time(out double time);
     int get_start_time(out double time);
     int get_end_time(out double time);
     int get_time_units(out string units);
     int get_time_step(out double time_step);
 
+    // Getters
     int get_value(in string name, in array<> dest);
     int get_value_ptr(in string name, out array<> dest_ptr);
     int get_value_at_indices(in string name, in array<> dest,
         in array<int, 1> inds);
 
+    // Setters
     int set_value(in string name, in array<> src);
     int set_value_at_indices(in string name, in array<int, 1> inds,
         in array<> src);
@@ -52,7 +62,6 @@ package csdms version 2.0b0 {
     int get_grid_node_count(in int grid, out int count);
     int get_grid_edge_count(in int grid, out int count);
     int get_grid_face_count(in int grid, out int count);
-
     int get_grid_edge_nodes(in int grid, out array<int, 1> edge_nodes);
     int get_grid_face_edges(in int grid, out array<int, 1> face_edges);
     int get_grid_face_nodes(in int grid, out array<int, 1> face_nodes);
