@@ -156,7 +156,7 @@ required.
 *rows*) that gives the y-coordinate for each row.
 
 ``get_grid_x`` provides an array (whose length is the number of
-*columns*) that gives the y-coordinate for each column.
+*columns*) that gives the x-coordinate for each column.
 
 
 .. _structured_quad:
