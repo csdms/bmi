@@ -113,8 +113,8 @@ Uniform rectilinear
 A uniform rectilinear (or Cartesian grid) is a special case of
 a grid of quadrilaterals such that the elements have equal width
 in each dimension. That is, for a 2D grid, elements have a
-constant width of ``dx`` in the *x-direction` and ``dy`` in the
-*y-direction`. The case of ``dx == dy`` is oftentimes called
+constant width of ``dx`` in the *x-direction* and ``dy`` in the
+*y-direction*. The case of ``dx == dy`` is oftentimes called
 as *raster grid*.
 
 To completely define points of a uniform rectilinear grid,
@@ -156,7 +156,7 @@ required.
 *rows*) that gives the y-coordinate for each row.
 
 ``get_grid_x`` provides an array (whose length is the number of
-*columns*) that gives the y-coordinate for each column.
+*columns*) that gives the x-coordinate for each column.
 
 
 .. _structured_quad:
