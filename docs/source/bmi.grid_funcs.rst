@@ -183,10 +183,10 @@ more general case, ``get_grid_x`` and ``get_grid_y`` are
 repurposed to provide this information.
 
 ``get_grid_y`` returns an array (whose length is the number
-of total nodes) of x-coordinates.
+of total nodes) of y-coordinates.
 
 ``get_grid_x`` returns an array (whose length is the number
-of total nodes) of y-coordinates.
+of total nodes) of x-coordinates.
 
 .. _unstructured_mesh:
 
