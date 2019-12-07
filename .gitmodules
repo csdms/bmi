@@ -16,3 +16,9 @@
 [submodule "examples/fortran"]
 	path = examples/fortran
 	url = https://github.com/csdms/bmi-example-fortran
+[submodule "examples/c"]
+	path = examples/c
+	url = https://github.com/csdms/bmi-example-c
+[submodule "examples/cxx"]
+	path = examples/cxx
+	url = https://github.com/csdms/bmi-example-cxx
