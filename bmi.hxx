@@ -1,1 +1,0 @@
-bindings/cxx/bmi.hxx
