@@ -59,7 +59,7 @@ and Python -- are derived from this SIDL file.
 Links to the bindings and a working example
 for each language are listed in the table below.
 
-.. table:: BMI language bindings and examples
+.. table::
    :align: center
    :widths: 10, 10, 10
 
