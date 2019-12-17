@@ -12,6 +12,7 @@ Contributors
 ------------
 
 * Richard Barnes
+* Julian Hofer
 * Eric Hutton
 * Boyana Norris
 * Scott Peckham
