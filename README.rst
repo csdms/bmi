@@ -29,42 +29,44 @@
 
    <p align="center">
 
-   The Basic Model Interface (BMI) is a library specification to
-   simplify the coupling of models.
+   The Basic Model Interface (BMI) is a standardized set of functions
+   that allows coupling of models to models and models to data.
 
    </p>
 
-To simplify the transformation of an existing model
-into a reusable, plug-and-play component,
-the `Community Surface Dynamics Modeling System`_ (CSDMS)
-has developed an interface -- the *Basic Model Interface (BMI)* -- that
-a developer can implement for a model.
-Recall that in this context an *interface* is a named set of functions
-with prescribed names, argument types, and return types.
-The BMI functions make a model *self-describing* and fully *controllable*
+The *Basic Model Interface* (BMI) is a library specification
+created by the `Community Surface Dynamics Modeling System`_ (CSDMS)
+to facilitate the conversion of a model or dataset
+into a reusable, plug-and-play component.
+Recall that, in this context, an interface is a named set of functions
+with prescribed arguments and return values.
+The BMI functions make a model self-describing and fully controllable
 by a modeling framework or application.
 By design, the BMI functions are straightforward to implement in
 any language, using only simple data types from standard language libraries.
-Also by design, the BMI functions are *noninvasive*.
+Also by design, the BMI functions are noninvasive.
 This means that a model's BMI does not make calls to other
 components or tools and is not modified to use any
 framework-specific data structures. A BMI, therefore, introduces no
 dependencies into a model, meaning the model can still be used
-in a *stand-alone* manner.
+in a stand-alone manner.
 
-The BMI is expressed in the file `bmi.sidl <./bmi.sidl>`_
-using the `Scientific Interface Definition Language`_ (SIDL).
-BMIs for four languages -- C, C++, Fortran (77, 90/95, 03, 08),
+The BMI is expressed
+in the `Scientific Interface Definition Language`_ (SIDL)
+in the file `bmi.sidl <./bmi.sidl>`_.
+BMI specifications for four languages -- C, C++,
+Fortran (77, 90/95, 2003, 2008),
 and Python -- are derived from this SIDL file.
-Links to the bindings and a working example
-for each language are listed in the table below.
+For each language,
+links to the specifications and an example implementation
+are listed in the table below.
 
 .. table::
    :align: center
-   :widths: 10, 10, 10
+   :widths: 10, 10, 15
 
    ========  ==============  ======================
-   Language  Binding         Example
+   Language  Specification   Example implementation
    ========  ==============  ======================
    C         `bmi-c`_        `bmi-example-c`_
    C++       `bmi-cxx`_      `bmi-example-cxx`_
@@ -72,10 +74,9 @@ for each language are listed in the table below.
    Python    `bmi-python`_   `bmi-example-python`_
    ========  ==============  ======================
 
-
-Detailed instructions for building the bindings and examples
+Detailed instructions for building the specifications and examples
 are given at each link above.
-The bindings can be installed through `conda`.
+The specifications can also be installed through `conda`.
 
 .. code-block:: bash
 
@@ -84,17 +85,17 @@ The bindings can be installed through `conda`.
    $ conda install -c conda-forge bmi-fortran
    $ conda install -c conda-forge bmipy
 
-While CSDMS currently supports the four languages
-listed in the table above,
-a BMI can be described for any language,
-and contributions are welcomed.
+While CSDMS currently supports the four languages listed above,
+a BMI can be written for any language.
+BMI is a community-driven standard;
+`contributions <CONTRIBUTING.rst>`_
+that follow the `contributor code of conduct <./CODE-OF-CONDUCT.rst>`_
+are welcomed,
+and are `acknowledged <./AUTHORS.rst>`_.
+BMI is open source software released under the `MIT License <./LICENSE>`_.
 
-Please note that this project is released with a
-`Contributor Code of Conduct <./CODE-OF-CONDUCT.rst>`_.
-By participating in this project you agree to abide by its terms.
-
-The Community Surface Dynamics Modeling System
-is supported by the National Science Foundation.
+*The Community Surface Dynamics Modeling System
+is supported by the National Science Foundation.*
 
 
 .. Links
