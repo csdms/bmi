@@ -15,21 +15,30 @@ framework-specific data structures. A BMI, therefore, introduces no
 dependencies into a model, so the model can still be used
 in a stand-alone manner.
 
-BMI Specification
-=================
 
-Detailed descriptions of the BMI functions
-are grouped by functional category below.
+The Basic Model Interface
+=========================
 
-.. toctree::
-   :maxdepth: 1
+A detailed description of each BMI function,
+grouped by functional category,
+is given below.
 
-   bmi.control_funcs
-   bmi.info_funcs
-   bmi.time_funcs
-   bmi.var_funcs
-   bmi.getter_setter
-   bmi.grid_funcs
+.. todo::
+
+   Make a list of sections to take the place of the toc.
+
+.. todo::
+
+   Match the section headings with the comment headings used in the
+   SIDL file.
+
+.. include:: bmi.control_funcs.rst
+.. include:: bmi.info_funcs.rst
+.. include:: bmi.var_funcs.rst
+.. include:: bmi.time_funcs.rst
+.. include:: bmi.getter_setter.rst
+.. include:: bmi.grid_funcs.rst
+
 
 ..
    Links
