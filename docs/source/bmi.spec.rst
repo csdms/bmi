@@ -6,6 +6,9 @@ A model exposing a BMI can be integrated into
 the `CSDMS Python Modeling Toolkit`_ (*pymt*)
 and used within Python.
 
+..
+   Isn't "implementing the BMI" better than "exposing a BMI"? There is only one BMI, just many implementations.
+
 Recall that, in this context,
 an *interface* is a named set of functions with prescribed
 function names, argument types and return types.  The BMI functions
@@ -18,6 +21,9 @@ any language and use only simple, universal, data types. While the
 supports C, C++, Fortran, Java,
 and Python, a BMI can be written for any language.  CSDMS
 provides `example`_ BMI bindings in each of the above languages.
+
+..
+   There is only one BMI: "a BMI can be written" -> "an implementation of the BMI can be written".
 
 Also by design, the BMI functions are *noninvasive*.  This means
 that a BMI-compliant model does not make any calls to other

@@ -74,10 +74,15 @@ Component name
      class (*), intent(in) :: this
      character (len=*), pointer, intent(out) :: name
 
+..
+   "integer"
 
 Return the name of the model as a string. We don't impose any
 restrictions on the model name but it should be unique name
 so as not to clash with other components.
+
+..
+   "it should be unique name" -> "it should be a unique name"
 
 Model attributes
 ----------------
@@ -85,6 +90,9 @@ Model attributes
 .. code-block:: java
 
   string get_attribute(in string att_name)
+
+..
+   Use "String" instead of "string" so that your syntax highlighter catches it?
 
 .. note:: `get_attribute` is part of BMI++
 
