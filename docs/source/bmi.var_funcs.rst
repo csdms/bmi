@@ -9,6 +9,9 @@ information, a framework can apply type or unit conversion when
 necessary.
 
 
+..
+   I'm not sure what you mean by "called a framework" here. I think you can just say "These BMI functions are a framework to obtain information..." unless I don't understand.
+
 .. _get_var_grid:
 
 Variables grids
@@ -18,6 +21,9 @@ Variables grids
 
     int get_var_grid(in string name)
     string get_var_location(in string name)
+
+..
+   Use "String" instead of "string" so that your syntax highlighter catches it?
 
 Each variable is associated with a grid on which the variable is defined.
 A single model can have one or more grids. `get_var_grid` returns an
@@ -34,6 +40,9 @@ Variable units
 .. code-block:: java
 
   string get_var_units(in string name)
+
+..
+   Use "String" instead of "string" so that your syntax highlighter catches it?
 
 Standard unit names, in lower case, should be used, such as `meters`
 or `seconds`. Standard abbreviations, like `m` for meters, are
@@ -53,6 +62,9 @@ Variable data type
   int get_var_itemsize(in string name)
   int get_var_nbytes(in string name)
 
+..
+   Use "String" instead of "string" so that your syntax highlighter catches it?
+
 These functions provide information about the size of the data as
 it's stored in memory. `get_var_type` returns the data type of the
 variable as it's stored by the model. The data type is returned as
@@ -63,7 +75,12 @@ attribute (`int32`, `float`, etc.).
 variable. For example if data for a variable are stored as 64-bit
 integers, `get_var_itemsize` would return 8.
 
+..
+   "For example, if data..."
+
 `get_var_nbytes` return the total amount of memory used to store
 the entire array of data for a variable. That is, the number
 of items multiplied by the size of each item.
 
+..
+   A function name would be singular? So "`get_var_nbytes` returns"?

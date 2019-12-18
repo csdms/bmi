@@ -13,6 +13,9 @@ set of grid functions. By calling a model's :ref:`get_var_grid`
 function, an application is able to determine which methods will
 be implemented for a particular grid.
 
+..
+   Confused by "An application that calls a BMI". Isn't there only one BMI? Maybe "calls a BMI implementation"?
+
 
 Grid Type
 ---------
@@ -20,6 +23,9 @@ Grid Type
 .. code-block:: java
 
   string get_grid_type(in int id)
+
+..
+   Use "String" instead of "string" so that your syntax highlighter catches it?
 
 The type of grid as a string. Valid return values are:
 
@@ -46,6 +52,9 @@ of ``get_grid_x``, ``get_grid_y``, etc. are implemented.
 
 ``get_grid_rank`` returns the rank of a particular grid. ``0``
 for scalar, ``1`` for 1D, etc.
+
+..
+   "A grid's rank determines the length of the return value of many of the following grid functions."
 
 Grid size
 ---------
@@ -78,6 +87,9 @@ next one-another such that every vertex is surrounded by four
 quadrilaterals. A special case of such a grid is
 :ref:`uniform_rectilinear` where rectangles are stacked next
 to one another row-by-row.
+
+..
+   I don't understand the first sentence of the paragraph above. Is it: "A structured grid of quadrilaterals is a grid formed by stacking quadrilaterals next to each other so that every vertex is surrounded by four quadrilaterals."?
 
 For all quadrilateral grids, the ``get_grid_shape`` function
 is necessary to provide the number of rows and columns (for
@@ -117,6 +129,9 @@ constant width of ``dx`` in the *x-direction* and ``dy`` in the
 *y-direction*. The case of ``dx == dy`` is oftentimes called
 as *raster grid*.
 
+..
+   I don't see anything wrong in your syntax above, but the readthedocs page shows some of your formatting in the last two lines of the above paragraph. Maybe docs are old compared to the source.
+
 To completely define points of a uniform rectilinear grid,
 one needs only three pieces of information. Namely, the
 number of elements in each dimension (:ref:`get_grid_shape`),
@@ -151,6 +166,9 @@ A rectilinear grid is simply a uniform rectilinear grid whose spacing
 in a single dimension varies (as shown in the above image). In this
 case, an array of coordinates for each row and column (for 2D) is
 required.
+
+..
+   I object to "whose" referring to a uniform rectilinear grid, above, below, and in the next section.
 
 ``get_grid_y`` provides an array (whose length is the number of
 *rows*) that gives the y-coordinate for each row.
@@ -219,8 +237,14 @@ This includes any grid of triangles (e.g.
 and a
 `Voronoi tesselation <http://en.wikipedia.org/wiki/Voronoi_tessellation>`_.
 
+..
+   Missing end parenthesis and mixed pluralization in list, i.e., Delaunay triangles and *a* Voronoi tesselation.
+
 Note that a grid of
 `equilateral triangles <http://en.wikipedia.org/wiki/Triangle_tiling>`_,
 while is most certainly *structured*, would need to be represented
 as an unstructured grid.  The same is true for a grid of
 `hexagons <http://en.wikipedia.org/wiki/Hexagonal_tiling>`_.
+
+..
+   "while is most certainly" -> "while they are most certainly"

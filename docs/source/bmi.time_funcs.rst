@@ -9,6 +9,9 @@ Time functions
   double get_current_time()
   double get_end_time()
 
+..
+   Use "String" instead of "string" so that your syntax highlighter catches it?
+
 Time units
 ----------
 
@@ -18,10 +21,16 @@ Time units
 
   string get_time_units()
 
+..
+   Use "String" instead of "string" so that your syntax highlighter catches it?
+
 Return the units of time as reported by the model's BMI (through
 `get_current_time`_, `get_end_time`_, etc.).
 CSDMS recommends using time unit conventions from Unidata's
 `UDUNITS <https://www.unidata.ucar.edu/software/udunits/>`_ package.
+
+..
+   Is there anything simple to add about the time units? If you go to that page, it takes a lot of clicks/time to get to acceptable time units. Can you easily list the common ones?
 
 Time step
 ---------
