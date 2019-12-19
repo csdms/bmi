@@ -79,7 +79,15 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = []
+exclude_patterns = [
+    'bmi.spec.rst',
+    'bmi.control_funcs.rst',
+    'bmi.info_funcs.rst',
+    'bmi.var_funcs.rst',
+    'bmi.time_funcs.rst',
+    'bmi.getter_setter.rst',
+    'bmi.grid_funcs.rst',
+]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
