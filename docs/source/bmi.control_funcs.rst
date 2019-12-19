@@ -43,15 +43,13 @@ formatted.
 
 .. _update:
 
-*update* and *update_until*
-...........................
+*update*
+........
 
 .. code-block:: java
 
     /* SIDL */
     int update();
-    int update_until(in double time);
-
 
 The `update` function advances the model by a single time step. This
 is the model's own internal time step (as returned by the BMI
@@ -63,6 +61,22 @@ loop. This typically involves incrementing all of the model's state
 variables.  If the model's state variables don't change in time,
 then they can be computed by the :ref:`initialize` function and this
 function can just return without doing anything.
+
+**Implementation notes**
+
+* In C and Fortran, an integer status code indicating success or failure
+  is returned. In C++ and Python, an exception is raised on failure.
+
+
+.. _update_until:
+
+*update_until*
+..............
+
+.. code-block:: java
+
+    /* SIDL */
+    int update_until(in double time);
 
 The `update_until` function updates the model to a particular time,
 as provided by its *time* argument.
