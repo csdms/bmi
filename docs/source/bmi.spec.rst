@@ -25,12 +25,10 @@ is given below.
 
 .. todo::
 
-   Make a list of sections to take the place of the toc.
-
-.. todo::
-
-   Match the section headings with the comment headings used in the
-   SIDL file.
+   Make a summary table of all functions. This can be easily
+   gleaned from the SIDL file, but a table could also list a one-line
+   description of each function. Each function name is linked to its
+   corresponing heading below (thereby replacing the TOC).
 
 .. include:: bmi.control_funcs.rst
 .. include:: bmi.info_funcs.rst
@@ -39,8 +37,9 @@ is given below.
 .. include:: bmi.getter_setter.rst
 .. include:: bmi.grid_funcs.rst
 
-
 ..
    Links
 
 .. _Community Surface Dynamics Modeling System: https://csdms.colorado.edu
+.. _UDUNITS: http://www.unidata.ucar.edu/software/udunits/
+.. _The Units Database: https://www.unidata.ucar.edu/software/udunits/udunits-current/doc/udunits/udunits2.html#Database

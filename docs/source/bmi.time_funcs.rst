@@ -27,7 +27,7 @@ Time functions
 Return the units of time as reported by the model's BMI (through
 `get_current_time`_, `get_end_time`_, etc.).
 CSDMS recommends using time unit conventions from Unidata's
-`UDUNITS <https://www.unidata.ucar.edu/software/udunits/>`_ package.
+`UDUNITS`_ package.
 
 ..
    Is there anything simple to add about the time units? If you go to that page, it takes a lot of clicks/time to get to acceptable time units. Can you easily list the common ones?
