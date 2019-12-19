@@ -1,5 +1,5 @@
 Time functions
-==============
+--------------
 
 .. code-block:: java
 
@@ -12,10 +12,10 @@ Time functions
 ..
    Use "String" instead of "string" so that your syntax highlighter catches it?
 
-Time units
-----------
-
 .. _get_time_units:
+
+*get_time_units*
+................
 
 .. code-block:: java
 
@@ -32,24 +32,41 @@ CSDMS recommends using time unit conventions from Unidata's
 ..
    Is there anything simple to add about the time units? If you go to that page, it takes a lot of clicks/time to get to acceptable time units. Can you easily list the common ones?
 
-Time step
----------
-
 .. _get_time_step:
+
+*get_time_step*
+...............
 
 .. code-block:: java
 
   double get_time_step()
 
-Time
-----
 
 .. _get_current_time:
+
+*get_current_time*
+..................
+
+.. code-block:: java
+
+  double get_current_time()
+
+
 .. _get_start_time:
-.. _get_end_time:
+
+*get_start_time*
+................
 
 .. code-block:: java
 
   double get_start_time()
-  double get_current_time()
+
+
+.. _get_end_time:
+
+*get_end_time*
+................
+
+.. code-block:: java
+
   double get_end_time()

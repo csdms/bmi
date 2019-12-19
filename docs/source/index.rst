@@ -18,6 +18,7 @@ Additional Topics
    :maxdepth: 2
 
    csdms
+   glossary
    references
 
 Project Information
