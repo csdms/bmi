@@ -45,8 +45,7 @@ A glossary of terms used with BMI.
    conda environment
 
       A :term:`conda` sub-installation that isolates a group of
-      packages from the main conda installation. See also
-      :doc:`conda-environments`.
+      packages from the main conda installation.
 
    configuration file
 
@@ -60,6 +59,12 @@ A glossary of terms used with BMI.
    data
 
       Information held by an :term:`object`.
+
+   exchange items
+
+      Variables that a model with a BMI produces and consumes.
+      Exchange items are public, not internal variables in the
+      model. Exchange items should be :term:`Standard Names`.
 
    import
 
