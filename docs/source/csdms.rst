@@ -10,6 +10,9 @@ automatically using the CSDMS Babelizer tool, which generates
 bindings for all of the CSDMS supported languages, so that the
 model becomes a plug-in for within the CSDMS framework.
 
+..
+   "becomes a plug-in for"? I don't understand.
+
 Any model that provides the BMI functions should also be
 straightforward to ingest as a component into other component-based
 modeling frameworks.  For example, all model coupling frameworks
