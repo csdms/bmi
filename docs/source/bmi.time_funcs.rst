@@ -1,46 +1,8 @@
 Time functions
 --------------
 
-.. code-block:: java
-
-  double get_time_step()
-  string get_time_units()
-  double get_start_time()
-  double get_current_time()
-  double get_end_time()
-
-..
-   Use "String" instead of "string" so that your syntax highlighter catches it?
-
-.. _get_time_units:
-
-*get_time_units*
-................
-
-.. code-block:: java
-
-  string get_time_units()
-
-..
-   Use "String" instead of "string" so that your syntax highlighter catches it?
-
-Return the units of time as reported by the model's BMI (through
-`get_current_time`_, `get_end_time`_, etc.).
-CSDMS recommends using time unit conventions from Unidata's
-`UDUNITS`_ package.
-
-..
-   Is there anything simple to add about the time units? If you go to that page, it takes a lot of clicks/time to get to acceptable time units. Can you easily list the common ones?
-
-.. _get_time_step:
-
-*get_time_step*
-...............
-
-.. code-block:: java
-
-  double get_time_step()
-
+These simple diagnostic functions provide information on model time.
+Model time is always expressed as a floating point value.
 
 .. _get_current_time:
 
@@ -49,8 +11,14 @@ CSDMS recommends using time unit conventions from Unidata's
 
 .. code-block:: java
 
-  double get_current_time()
+   int get_current_time(out double time);
 
+The current model time.
+
+**Implementation notes**
+
+* In C++ and Python, the argument is omitted and the time is returned
+  from the function.
 
 .. _get_start_time:
 
@@ -59,7 +27,15 @@ CSDMS recommends using time unit conventions from Unidata's
 
 .. code-block:: java
 
-  double get_start_time()
+   int get_start_time(out double time);
+
+The start time of the  model.
+
+**Implementation notes**
+
+* The start time in BMI is typically defined to be 0.0.
+* In C++ and Python, the argument is omitted and the time is returned
+  from the function.
 
 
 .. _get_end_time:
@@ -69,4 +45,56 @@ CSDMS recommends using time unit conventions from Unidata's
 
 .. code-block:: java
 
-  double get_end_time()
+   int get_end_time(out double time);
+
+The end time of the  model.
+
+**Implementation notes**
+
+* If the model doesn't define an end time, a large number (e.g.,
+  1.0e6) is typically chosen.
+* In C++ and Python, the argument is omitted and the time is returned
+  from the function.
+
+
+.. _get_time_units:
+
+*get_time_units*
+................
+
+.. code-block:: java
+
+   int get_time_units(out string units);
+
+Get the units of time as reported by the model's BMI (through
+:ref:`get_current_time`, :ref:`get_end_time`, etc.).
+It's recommended to use `time unit conventions`_ from Unidata's
+`UDUNITS`_ package; e.g., `s`, `min`, `h`, `d`.
+
+**Implementation notes**
+
+* Avoid using `years` as a unit, if possible, since a year is
+  difficult to define precisely.
+* In C++ and Python, the argument is omitted and the units are returned
+  from the function.
+
+
+.. _get_time_step:
+
+*get_time_step*
+...............
+
+.. code-block:: java
+
+   int get_time_step(out double time_step);
+
+Get the time step used in the model.
+The time step is always expressed as a floating point value.
+
+**Implementation notes**
+
+* A time step is typically a positive value. However, if the model
+  permits it, a negative value can be used (running the model
+  backward).
+* In C++ and Python, the argument is omitted and the time step is returned
+  from the function.
