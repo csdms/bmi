@@ -93,7 +93,7 @@ Standard Names do not have to be used within the model.
   function in a vector, a standard container in the language.
 * In Python, the argument is omitted and the names are returned from the
   function in a tuple, a standard container in the language.
-
+* A model may have no input variables.
 
 .. _get_output_var_names:
 
@@ -123,3 +123,4 @@ Standard Names do not have to be used within the model.
   function in a vector, a standard container in the language.
 * In Python, the argument is omitted and the names are returned from the
   function in a tuple, a standard container in the language.
+* A model may have no output variables.

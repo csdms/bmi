@@ -1,7 +1,7 @@
-.. _get_grid:
+.. _model_grids:
 
-Model Grids
-===========
+Model grids
+-----------
 
 Different models often use different computational grids.  An
 application that calls a BMI needs a complete and standardized
@@ -17,8 +17,20 @@ be implemented for a particular grid.
    Confused by "An application that calls a BMI". Isn't there only one BMI? Maybe "calls a BMI implementation"?
 
 
-Grid Type
----------
+.. todo:
+
+   List available grid types in this header section.
+
+An identifier from the :ref:`get_var_grid` function
+is needed for input to all of the fucntions in this section.
+
+A model can have one or more grids.
+
+
+.. _get_grid_type:
+
+*get_grid_type*
+...............
 
 .. code-block:: java
 
@@ -37,8 +49,8 @@ The type of grid as a string. Valid return values are:
 
 .. _get_grid_rank:
 
-Grid rank
----------
+*get_grid_rank*
+...............
 
 .. code-block:: java
 
@@ -56,8 +68,11 @@ for scalar, ``1`` for 1D, etc.
 ..
    "A grid's rank determines the length of the return value of many of the following grid functions."
 
-Grid size
----------
+
+.. _get_grid_size:
+
+*get_grid_size*
+...............
 
 .. code-block:: java
 
@@ -76,7 +91,7 @@ Structured grids of quadrilaterals
 .. _get_grid_shape:
 
 Grid shape
-^^^^^^^^^^
+..........
 
 .. code-block:: java
 

@@ -48,7 +48,7 @@ Also by design, the BMI functions are noninvasive.
 This means that a model's BMI does not make calls to other
 components or tools and is not modified to use any
 framework-specific data structures. A BMI, therefore, introduces no
-dependencies into a model, meaning the model can still be used
+dependencies into a model, so the model can still be used
 in a stand-alone manner.
 
 The BMI is expressed
@@ -58,7 +58,7 @@ BMI specifications for four languages -- C, C++,
 Fortran (77, 90/95, 2003, 2008),
 and Python -- are derived from this SIDL file.
 For each language,
-links to the specifications and an example implementation
+links to the specification and an example implementation
 are listed in the table below.
 
 .. table::
