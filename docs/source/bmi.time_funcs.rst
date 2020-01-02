@@ -13,6 +13,7 @@ Model time is always expressed as a floating point value.
 
 .. code-block:: java
 
+   /* SIDL */
    int get_current_time(out double time);
 
 The current model time.
@@ -29,6 +30,7 @@ The current model time.
 
 .. code-block:: java
 
+   /* SIDL */
    int get_start_time(out double time);
 
 The start time of the  model.
@@ -47,6 +49,7 @@ The start time of the  model.
 
 .. code-block:: java
 
+   /* SIDL */
    int get_end_time(out double time);
 
 The end time of the  model.
@@ -66,6 +69,7 @@ The end time of the  model.
 
 .. code-block:: java
 
+   /* SIDL */
    int get_time_units(out string units);
 
 Get the units of time as reported by the model's BMI (through
@@ -88,6 +92,7 @@ It's recommended to use `time unit conventions`_ from Unidata's
 
 .. code-block:: java
 
+   /* SIDL */
    int get_time_step(out double time_step);
 
 Get the time step used in the model.

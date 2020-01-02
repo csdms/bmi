@@ -19,6 +19,7 @@ type or unit conversions can be applied when necessary.
 
 .. code-block:: java
 
+   /* SIDL */
    int get_var_grid(in string name, out int grid);
 
 Each input and output variable is defined on a grid.
@@ -44,6 +45,7 @@ A model can have one or more grids.
 
 .. code-block:: java
 
+   /* SIDL */
    int get_var_type(in string name, out string type);
 
 The `get_var_type` function provides the data type of the
@@ -64,6 +66,7 @@ used by the `dtype`_ attribute; e.g., `int32`, `float`, etc.
 
 .. code-block:: java
 
+   /* SIDL */
    int get_var_units(in string name, out string units);
 
 Get the units of the given variable.
@@ -92,7 +95,8 @@ full description of valid unit names and a list of supported units.
 
 .. code-block:: java
 
-    int get_var_itemsize(in string name, out int size);
+   /* SIDL */
+   int get_var_itemsize(in string name, out int size);
 
 The `get_var_itemsize` function provides the size, in bytes,
 of a single element of the variable.
@@ -112,8 +116,8 @@ For example, if data for a variable are stored as 64-bit integers,
 
 .. code-block:: java
 
-    int get_var_nbytes(in string name, out int nbytes);
-
+   /* SIDL */
+   int get_var_nbytes(in string name, out int nbytes);
 
 The `get_var_nbytes` function provides the total amount of memory used to store
 a variable; i.e., the number of items multiplied by the size of each item.
@@ -131,7 +135,8 @@ a variable; i.e., the number of items multiplied by the size of each item.
 
 .. code-block:: java
 
-    int get_var_location(in string name, out string location);
+   /* SIDL */
+   int get_var_location(in string name, out string location);
 
 The `get_var_location` function,
 given a variable name, returns a string that indicates on what grid
