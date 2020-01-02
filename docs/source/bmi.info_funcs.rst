@@ -1,3 +1,5 @@
+.. _info_funcs:
+
 Model information functions
 ---------------------------
 

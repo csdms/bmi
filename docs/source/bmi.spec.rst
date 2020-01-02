@@ -21,11 +21,23 @@ in a stand-alone manner.
 The Basic Model Interface
 =========================
 
-The table below lists the BMI functions with a brief description.
-Following the table is a detailed description of each BMI function,
-grouped by functional category,
+The functions that comprise the Basic Model Interface
+can be grouped into functional categories:
 
-.. table:: Summary of BMI functions
+* :ref:`control_funcs`
+* :ref:`info_funcs`
+* :ref:`var_funcs`
+* :ref:`time_funcs`
+* :ref:`getter_setter_funcs`
+* :ref:`grid_funcs`
+
+Table 1 below lists the individual BMI functions,
+along with a brief description.
+Following the table is a detailed description of each function
+grouped by functional category.
+
+
+.. table:: **Table 1:** Summary of BMI functions.
    :align: center
    :widths: 30, 70
 

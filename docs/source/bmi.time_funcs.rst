@@ -1,3 +1,5 @@
+.. _time_funcs:
+
 Time functions
 --------------
 

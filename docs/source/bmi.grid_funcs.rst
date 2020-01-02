@@ -1,4 +1,4 @@
-.. _model_grids:
+.. _grid_funcs:
 
 Model grids
 -----------
@@ -17,9 +17,10 @@ be implemented for a particular grid.
    Confused by "An application that calls a BMI". Isn't there only one BMI? Maybe "calls a BMI implementation"?
 
 
-.. todo:
+.. todo::
 
    List available grid types in this header section.
+
 
 An identifier from the :ref:`get_var_grid` function
 is needed for input to all of the fucntions in this section.
@@ -90,8 +91,8 @@ Structured grids of quadrilaterals
 
 .. _get_grid_shape:
 
-Grid shape
-..........
+*get_grid_shape*
+................
 
 .. code-block:: java
 
@@ -263,3 +264,76 @@ as an unstructured grid.  The same is true for a grid of
 
 ..
    "while is most certainly" -> "while they are most certainly"
+
+
+.. _get_grid_spacing:
+
+*get_grid_spacing*
+..................
+
+
+.. _get_grid_origin:
+
+*get_grid_origin*
+.................
+
+
+.. _get_grid_x:
+
+*get_grid_x*
+............
+
+
+.. _get_grid_y:
+
+*get_grid_y*
+............
+
+
+.. _get_grid_z:
+
+*get_grid_z*
+............
+
+
+.. _get_grid_node_count:
+
+*get_grid_node_count*
+.....................
+
+
+.. _get_grid_edge_count:
+
+*get_grid_edge_count*
+.....................
+
+
+.. _get_grid_face_count:
+
+*get_grid_face_count*
+.....................
+
+
+.. _get_grid_edge_nodes:
+
+*get_grid_edge_nodes*
+.....................
+
+
+.. _get_grid_face_edges:
+
+*get_grid_face_edges*
+.....................
+
+
+.. _get_grid_face_nodes:
+
+*get_grid_face_nodes*
+.....................
+
+
+.. _get_grid_nodes_per_face:
+
+*get_grid_nodes_per_face*
+.........................
+

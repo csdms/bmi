@@ -1,3 +1,5 @@
+.. _control_funcs:
+
 Model control functions
 -----------------------
 

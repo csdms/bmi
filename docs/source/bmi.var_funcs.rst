@@ -1,3 +1,5 @@
+.. _var_funcs:
+
 Variable information functions
 ------------------------------
 
@@ -20,10 +22,10 @@ type or unit conversions can be applied when necessary.
    int get_var_grid(in string name, out int grid);
 
 Each input and output variable is defined on a grid.
-(Available grid types are listed in the :ref:`model_grids` section.)
+(Available grid types are listed in the :ref:`grid_funcs` section.)
 The `get_var_grid` function provides the identifier (an integer) for this grid.
 The identifier can be passed to the BMI
-:ref:`grid information <model_grids>` functions
+:ref:`grid information <grid_funcs>` functions
 to get the details of a particular grid;
 e.g., *x*- and *y*-coordinates, size, type, etc.
 A model can have one or more grids.

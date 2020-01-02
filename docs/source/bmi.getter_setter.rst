@@ -1,3 +1,5 @@
+.. _getter_setter_funcs:
+
 Variable getter and setter functions
 ------------------------------------
 
@@ -54,7 +56,7 @@ The `get_value_ptr` function takes a variable name and returns a reference
 to a variable.
 Unlike the buffer returned from :ref:`get_value`,
 the reference always points to the current values of the variable,
-even if the model's state changes.
+even if the model's state has changed.
 
 **Implementation notes**
 
