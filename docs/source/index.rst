@@ -8,7 +8,6 @@
 
 .. include:: bmi.spec.rst
 .. include:: implementation-comments.rst
-.. include:: bmi.lang.rst
 
 
 Additional Topics

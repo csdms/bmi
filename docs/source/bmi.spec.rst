@@ -16,14 +16,14 @@ dependencies into a model, so the model can still be used
 in a stand-alone manner.
 
 While a BMI can be written for any language,
-CSDMS currently supports the BMI in four languages:
+CSDMS currently supports four languages:
 C, C++, Fortran, and Python.
 The specification for each language is listed here:
 
- * `bmi-c`_
- * `bmi-cxx`_
- * `bmi-fortran`_
- * `bmi-python`_
+ * `bmi.h`_, from `bmi-c`_
+ * `bmi.hxx`_, from `bmi-cxx`_
+ * `bmi.f90`_, from `bmi-fortran`_
+ * `bmi.py`_, from `bmi-python`_
 
 Each language specification also has a corresponding example
 in which the BMI is implemented:
@@ -40,7 +40,7 @@ The Basic Model Interface
 =========================
 
 The functions that comprise the Basic Model Interface
-can be grouped into functional categories:
+can be grouped into categories:
 
 * :ref:`control_funcs`
 * :ref:`info_funcs`
@@ -118,6 +118,10 @@ grouped by functional category.
    Links
 
 .. _Community Surface Dynamics Modeling System: https://csdms.colorado.edu
+.. _bmi.h: https://github.com/csdms/bmi-c/blob/master/bmi.h
+.. _bmi.hxx: https://github.com/csdms/bmi-cxx/blob/master/bmi.hxx
+.. _bmi.f90: https://github.com/csdms/bmi-fortran/blob/master/bmi.f90
+.. _bmi.py: https://github.com/csdms/bmi-python/blob/master/bmipy/bmi.py
 .. _bmi-c: https://github.com/csdms/bmi-c
 .. _bmi-cxx: https://github.com/csdms/bmi-cxx
 .. _bmi-fortran: https://github.com/csdms/bmi-fortran
