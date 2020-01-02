@@ -15,7 +15,25 @@ framework-specific data structures. A BMI, therefore, introduces no
 dependencies into a model, so the model can still be used
 in a stand-alone manner.
 
-.. include:: implementation-comments.rst
+While a BMI can be written for any language,
+CSDMS currently supports the BMI in four languages:
+C, C++, Fortran, and Python.
+The specification for each language is listed here:
+
+ * `bmi-c`_
+ * `bmi-cxx`_
+ * `bmi-fortran`_
+ * `bmi-python`_
+
+Each language specification also has a corresponding example
+in which the BMI is implemented:
+
+ * `bmi-example-c`_
+ * `bmi-example-cxx`_
+ * `bmi-example-fortran`_
+ * `bmi-example-python`_
+
+A complete description of the BMI is given next.
 
 
 The Basic Model Interface
@@ -31,9 +49,10 @@ can be grouped into functional categories:
 * :ref:`getter_setter_funcs`
 * :ref:`grid_funcs`
 
-Table 1 below lists the individual BMI functions,
+Table 1 lists the individual BMI functions
 along with a brief description.
-Following the table is a detailed description of each function
+Following the table is a detailed description of each function,
+including the function prototype in SIDL,
 grouped by functional category.
 
 
@@ -99,6 +118,14 @@ grouped by functional category.
    Links
 
 .. _Community Surface Dynamics Modeling System: https://csdms.colorado.edu
+.. _bmi-c: https://github.com/csdms/bmi-c
+.. _bmi-cxx: https://github.com/csdms/bmi-cxx
+.. _bmi-fortran: https://github.com/csdms/bmi-fortran
+.. _bmi-python: https://github.com/csdms/bmi-python
+.. _bmi-example-c: https://github.com/csdms/bmi-example-c
+.. _bmi-example-cxx: https://github.com/csdms/bmi-example-cxx
+.. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
+.. _bmi-example-python: https://github.com/csdms/bmi-example-python
 .. _UDUNITS: http://www.unidata.ucar.edu/software/udunits/
 .. _The Units Database: https://www.unidata.ucar.edu/software/udunits/udunits-current/doc/udunits/udunits2.html#Database
 .. _time unit conventions: https://www.unidata.ucar.edu/software/udunits/udunits-current/udunits/udunits2-accepted.xml
