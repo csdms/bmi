@@ -1,3 +1,5 @@
+.. _implementation_comments:
+
 Comments on implementing a BMI
 ==============================
 
