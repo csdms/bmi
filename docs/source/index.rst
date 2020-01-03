@@ -7,7 +7,6 @@
 .. title:: BMI
 
 .. include:: bmi.spec.rst
-.. include:: implementation-comments.rst
 
 
 Additional Topics
@@ -16,6 +15,7 @@ Additional Topics
 .. toctree::
    :maxdepth: 2
 
+   bmi.implementation
    csdms
    glossary
    references

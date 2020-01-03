@@ -1,7 +1,7 @@
-.. _implementation_comments:
+.. _implementation:
 
-Comments on implementing a BMI
-==============================
+BMI best practices
+==================
 
 .. todo::
 
