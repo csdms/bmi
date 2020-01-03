@@ -36,6 +36,8 @@ in which the BMI is implemented:
 A complete description of the BMI is given next.
 
 
+.. _basic_model_interface:
+
 The Basic Model Interface
 =========================
 

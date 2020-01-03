@@ -42,6 +42,8 @@ formatted.
 * In C and Fortran, an integer status code indicating success or failure
   is returned. In C++ and Python, an exception is raised on failure.
 
+[:ref:`control_funcs` | :ref:`basic_model_interface`]
+
 
 .. _update:
 
@@ -69,6 +71,8 @@ function can just return without doing anything.
 * In C and Fortran, an integer status code indicating success or failure
   is returned. In C++ and Python, an exception is raised on failure.
 
+[:ref:`control_funcs` | :ref:`basic_model_interface`]
+
 
 .. _update_until:
 
@@ -95,6 +99,8 @@ to reflect that the model was updated to the requested time.
 * In C and Fortran, an integer status code indicating success or failure
   is returned. In C++ and Python, an exception is raised on failure.
 
+[:ref:`control_funcs` | :ref:`basic_model_interface`]
+
 
 .. _finalize:
 
@@ -115,3 +121,5 @@ deallocating memory, closing files and printing reports.
 
 * In C and Fortran, an integer status code indicating success or failure
   is returned. In C++ and Python, an exception is raised on failure.
+
+[:ref:`control_funcs` | :ref:`basic_model_interface`]
