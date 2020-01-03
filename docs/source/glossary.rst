@@ -60,11 +60,28 @@ A glossary of terms used with BMI.
 
       Information held by an :term:`object`.
 
-   exchange items
+   exchange item
 
-      Variables that a model with a BMI produces and consumes.
+      A variable that a model with a BMI produces or consumes.
       Exchange items are public, not internal variables in the
-      model. Exchange items should be :term:`Standard Names`.
+      model. Exchange items should use :term:`Standard Names`.
+
+   grid
+
+      A representation of a larger spatial domain by smaller discrete
+      cells. See :ref:`model_grids` and :ref:`references`.
+
+   grid identifier
+
+      A unique object that labels (identifies) a model grid. Grid
+      identifiers are integers, starting at zero. Often abbreviated
+      "grid id". They're obtained through the :ref:`get_var_grid`
+      function.
+
+   grid node
+
+      Location on a grid where variable values are calculated. See
+      :ref:`model_grids` and :ref:`references`.
 
    import
 
@@ -115,6 +132,11 @@ A glossary of terms used with BMI.
       A variable that is a concrete example of a
       :term:`class`. Objects have :term:`data` and
       :term:`methods<method>` that act upon those data.
+
+   rank
+
+      The number of dimensions of a model grid. A scalar has rank 0, a
+      vector has rank 1, a rectilinear grid has rank 2, etc.
 
    Standard Names
 

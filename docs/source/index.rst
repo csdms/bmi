@@ -16,6 +16,7 @@ Additional Topics
    :maxdepth: 2
 
    bmi.implementation
+   model_grids
    csdms
    glossary
    references
