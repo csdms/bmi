@@ -49,6 +49,7 @@ is given in the :ref:`model_grids` section.
 
 **Implementation notes**
 
+* This function is needed for every :ref:`grid type <model_grids>`.
 * In C++ and Python, the *type* argument is omitted and the grid
   type name is returned from the function.
 
@@ -73,6 +74,7 @@ of :ref:`get_grid_x`, :ref:`get_grid_y`, etc. are implemented.
 
 **Implementation notes**
 
+* This function is needed for every :ref:`grid type <model_grids>`.
 * In C++ and Python, the *rank* argument is omitted and the grid
   rank is returned from the function.
 
@@ -88,7 +90,7 @@ of :ref:`get_grid_x`, :ref:`get_grid_y`, etc. are implemented.
    int get_grid_size(in int grid, out int size);
 
 Given a :term:`grid identifier`,
-get the total number of elements (or :term:`nodes <grid node>`)
+get the total number of elements (or :term:`nodes <node>`)
 of that grid as an integer.
 
 The grid size is used for, among other things, the
@@ -98,6 +100,7 @@ for :ref:`unstructured <unstructured_grids>` and
 
 **Implementation notes**
 
+* This function is needed for every :ref:`grid type <model_grids>`.
 * In C++ and Python, the *size* argument is omitted and the grid
   size is returned from the function.
 
@@ -125,14 +128,17 @@ of ``[ny, nx]``, or ``[3,4]``.
 If there were a third dimension, the length of the *z*-dimension, ``nz``,
 would be listed first.
 
-Also note that the grid shape is the number of :term:`nodes <grid node>`
+Also note that the grid shape is the number of :term:`nodes <node>`
 in the coordinate directions and not the number of cells or elements.
 It is possible for grid values to be associated with the nodes or with
 the cells.
 
 **Implementation notes**
 
+* This function is used for describing all :ref:`structured grids
+  <structured_grids>`.
 * In Python, the *shape* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
 
 
 .. _get_grid_spacing:
@@ -145,7 +151,7 @@ the cells.
    /* SIDL */
    int get_grid_spacing(in int grid, in array<double, 1> spacing);
 
-Get the distance between the :term:`nodes <grid node>` of the model grid.
+Get the distance between the :term:`nodes <node>` of the model grid.
 
 The :ref:`get_grid_spacing` function provides the width of each cell in
 the number of dimensions as returned by :ref:`get_grid_rank`.
@@ -156,7 +162,10 @@ the spacing between rows is followed by spacing between columns, ``[dy, dx]``.
 
 **Implementation notes**
 
+* This function is used for describing :ref:`uniform rectilinear
+  <uniform_rectilinear>` grids.
 * In Python, the *spacing* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
 
 
 .. _get_grid_origin:
@@ -181,7 +190,10 @@ the origin is given in the column dimension, followed by the row dimension,
 
 **Implementation notes**
 
+* This function is used for describing :ref:`uniform rectilinear
+  <uniform_rectilinear>` grids.
 * In Python, the *origin* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
 
 
 .. _get_grid_x:
@@ -194,7 +206,21 @@ the origin is given in the column dimension, followed by the row dimension,
    /* SIDL */
    int get_grid_x(in int grid, in array<double, 1> x);
 
-Get coordinates of grid nodes in the *x*-direction.
+Get the locations of the grid :term:`nodes <node>` in the first
+coordinate direction.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+See :ref:`model_grids` for more information.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *x* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
 
 .. _get_grid_y:
 
@@ -206,7 +232,20 @@ Get coordinates of grid nodes in the *x*-direction.
    /* SIDL */
    int get_grid_y(in int grid, in array<double, 1> y);
 
-Get coordinates of grid nodes in the *y*-direction.
+Get the locations of the grid :term:`nodes <node>` in the second
+coordinate direction.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+See :ref:`model_grids` for more information.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *y* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
 
 
 .. _get_grid_z:
@@ -219,7 +258,20 @@ Get coordinates of grid nodes in the *y*-direction.
    /* SIDL */
    int get_grid_z(in int grid, in array<double, 1> z);
 
-Get coordinates of grid nodes in the *z*-direction.
+Get the locations of the grid :term:`nodes <node>` in the third
+coordinate direction.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+See :ref:`model_grids` for more information.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *z* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
 
 
 .. _get_grid_node_count:
@@ -232,7 +284,15 @@ Get coordinates of grid nodes in the *z*-direction.
    /* SIDL */
    int get_grid_node_count(in int grid, out int count);
 
-Get the number of :term:`nodes <grid node>` in the grid.
+Get the number of :term:`nodes <node>` in the grid.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In C++ and Python, the *count* argument is omitted and the node
+  count is returned from the function.
+
 
 .. _get_grid_edge_count:
 
@@ -244,7 +304,14 @@ Get the number of :term:`nodes <grid node>` in the grid.
    /* SIDL */
    int get_grid_edge_count(in int grid, out int count);
 
-Get the number of edges in the grid.
+Get the number of :term:`edges <edge>` in the grid.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In C++ and Python, the *count* argument is omitted and the edge
+  count is returned from the function.
 
 
 .. _get_grid_face_count:
@@ -257,7 +324,14 @@ Get the number of edges in the grid.
    /* SIDL */
    int get_grid_face_count(in int grid, out int count);
 
-Get the number of faces in the grid.
+Get the number of :term:`faces <face>` in the grid.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In C++ and Python, the *count* argument is omitted and the face
+  count is returned from the function.
 
 
 .. _get_grid_edge_nodes:
@@ -275,6 +349,13 @@ Get the edge-node connectivity.
 For each edge, connectivity is given as node at edge tail, followed by
 node at edge head.
 
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In Python, the *edge_nodes* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
 
 .. _get_grid_face_edges:
 
@@ -287,6 +368,13 @@ node at edge head.
    int get_grid_face_edges(in int grid, out array<int, 1> face_edges);
 
 Get the face-edge connectivity.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In Python, the *face_edges* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
 
 
 .. _get_grid_face_nodes:
@@ -304,6 +392,13 @@ Get the face-node connectivity.
 For each face, the nodes (listed in a counter-clockwise direction)
 that form the boundary of the face.
 
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In Python, the *face_nodes* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
 
 .. _get_grid_nodes_per_face:
 
@@ -316,3 +411,10 @@ that form the boundary of the face.
    int get_grid_nodes_per_face(in int grid, out array<int, 1> nodes_per_face);
 
 Get the number of nodes for each face.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In Python, the *nodes_per_face* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.

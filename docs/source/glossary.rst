@@ -60,16 +60,28 @@ A glossary of terms used with BMI.
 
       Information held by an :term:`object`.
 
+   edge
+
+      A line or curve bounded by two :term:`nodes <node>`.
+
    exchange item
 
       A variable that a model with a BMI produces or consumes.
       Exchange items are public, not internal variables in the
       model. Exchange items should use :term:`Standard Names`.
 
+   face
+
+      A plane or surface enclosed by a set of :term:`edges <edge>`. In
+      a 2D horizontal application one may consider the word "polygon",
+      but in the hierarchy of elements the term "face" is most common.
+      See also :term:`node`.
+
    grid
 
       A representation of a larger spatial domain by smaller discrete
-      cells. See :ref:`model_grids` and :ref:`references`.
+      cells. See :ref:`model_grids` and :ref:`references`, as well as
+      terms :term:`node`, :term:`edge`, and :term:`face`.
 
    grid identifier
 
@@ -80,8 +92,7 @@ A glossary of terms used with BMI.
 
    grid node
 
-      Location on a grid where variable values are calculated. See
-      :ref:`model_grids` and :ref:`references`.
+      See :term:`node`.
 
    import
 
@@ -121,6 +132,12 @@ A glossary of terms used with BMI.
    module
 
       A file (with the ``.py`` extension) that contains Python code.
+
+   node
+
+      A point that has a coordinate pair or triplet: the most basic
+      element of a grid. Variable values are typically calculated at
+      nodes. See also :term:`face` and :term:`edge`.
 
    NumPy
 
