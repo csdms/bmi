@@ -18,22 +18,24 @@ in a stand-alone manner.
 While a BMI can be written for any language,
 CSDMS currently supports four languages:
 C, C++, Fortran, and Python.
-The specification for each language is listed here:
+The specification for each language is given in Table 1,
+along with a corresponding example
+in which the BMI is implemented.
 
- * C: `bmi.h`_ (from `bmi-c`_)
- * C++: `bmi.hxx`_ (from `bmi-cxx`_)
- * Fortran: `bmi.f90`_ (from `bmi-fortran`_)
- * Python: `bmi.py`_ (from `bmi-python`_)
+.. table:: **Table 1:** BMI language specifications.
+   :align: center
+   :widths: 20, 25, 25, 30
 
-Each language specification also has a corresponding example
-in which the BMI is implemented:
+   ========  =============  ==============  ======================
+   Language  Specification  Repository      Example
+   ========  =============  ==============  ======================
+   C         `bmi.h`_       `bmi-c`_        `bmi-example-c`_
+   C++       `bmi.hxx`_     `bmi-cxx`_      `bmi-example-cxx`_
+   Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_ 
+   Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
+   ========  =============  ==============  ======================
 
- * `bmi-example-c`_
- * `bmi-example-cxx`_
- * `bmi-example-fortran`_
- * `bmi-example-python`_
-
-A complete description of the BMI is given next.
+A complete description of the functions that make up the BMI is given next.
 
 
 .. _basic_model_interface:
@@ -51,14 +53,13 @@ can be grouped into categories:
 * :ref:`getter_setter_funcs`
 * :ref:`grid_funcs`
 
-Table 1 lists the individual BMI functions
+Table 2 lists the individual BMI functions
 along with a brief description.
 Following the table is a detailed description of each function,
 including the function prototype in SIDL,
 grouped by functional category.
 
-
-.. table:: **Table 1:** Summary of BMI functions.
+.. table:: **Table 2:** Summary of BMI functions.
    :align: center
    :widths: 30, 70
 
