@@ -34,7 +34,7 @@ computational grid is different.  It also gains:
 
 
 CSDMS Standard Names
-====================
+--------------------
 
 Note that the *name* parameter in many of the BMI functions
 refers to a standardized variable name from the
@@ -54,8 +54,8 @@ output variables.
   model's internal names.
 
 
-Model Metadata
-==============
+Model metadata
+--------------
 
 For a model to be incorporated into the CSDMS framework, some additional
 metadata is required. This metadata describes such things as:

@@ -142,9 +142,9 @@ The `get_var_location` function,
 given a variable name, returns a string that indicates on what grid
 element the variable is defined. Valid return values are:
 
-* `"node"`
-* `"edge"`
-* `"face"`
+* ``node``
+* ``edge``
+* ``face``
 
 **Implementation notes**
 

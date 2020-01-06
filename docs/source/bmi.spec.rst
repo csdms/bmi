@@ -20,10 +20,10 @@ CSDMS currently supports four languages:
 C, C++, Fortran, and Python.
 The specification for each language is listed here:
 
- * `bmi.h`_, from `bmi-c`_
- * `bmi.hxx`_, from `bmi-cxx`_
- * `bmi.f90`_, from `bmi-fortran`_
- * `bmi.py`_, from `bmi-python`_
+ * C: `bmi.h`_ (from `bmi-c`_)
+ * C++: `bmi.hxx`_ (from `bmi-cxx`_)
+ * Fortran: `bmi.f90`_ (from `bmi-fortran`_)
+ * Python: `bmi.py`_ (from `bmi-python`_)
 
 Each language specification also has a corresponding example
 in which the BMI is implemented:
