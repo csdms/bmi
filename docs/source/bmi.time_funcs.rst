@@ -23,6 +23,9 @@ The current model time.
 * In C++ and Python, the argument is omitted and the time is returned
   from the function.
 
+[:ref:`time_funcs` | :ref:`basic_model_interface`]
+
+
 .. _get_start_time:
 
 *get_start_time*
@@ -40,6 +43,8 @@ The start time of the  model.
 * The start time in BMI is typically defined to be 0.0.
 * In C++ and Python, the argument is omitted and the time is returned
   from the function.
+
+[:ref:`time_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_end_time:
@@ -60,6 +65,8 @@ The end time of the  model.
   1.0e6) is typically chosen.
 * In C++ and Python, the argument is omitted and the time is returned
   from the function.
+
+[:ref:`time_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_time_units:
@@ -84,6 +91,8 @@ It's recommended to use `time unit conventions`_ from Unidata's
 * In C++ and Python, the argument is omitted and the units are returned
   from the function.
 
+[:ref:`time_funcs` | :ref:`basic_model_interface`]
+
 
 .. _get_time_step:
 
@@ -105,3 +114,5 @@ The time step is always expressed as a floating point value.
   backward).
 * In C++ and Python, the argument is omitted and the time step is returned
   from the function.
+
+[:ref:`time_funcs` | :ref:`basic_model_interface`]

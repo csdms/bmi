@@ -37,6 +37,8 @@ A model can have one or more grids.
 * In C++ and Python, the *grid* argument is omitted and the grid
   identifier is returned from the function.
 
+[:ref:`var_funcs` | :ref:`basic_model_interface`]
+
 
 .. _get_var_type:
 
@@ -57,6 +59,8 @@ used by the `dtype`_ attribute; e.g., `int32`, `float`, etc.
 
 * In C++ and Python, the *type* argument is omitted and the variable
   type name is returned from the function.
+
+[:ref:`var_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_var_units:
@@ -87,6 +91,8 @@ full description of valid unit names and a list of supported units.
 * In C++ and Python, the *units* argument is omitted and the variable
   units name is returned from the function.
 
+[:ref:`var_funcs` | :ref:`basic_model_interface`]
+
 
 .. _get_var_itemsize:
 
@@ -108,6 +114,8 @@ For example, if data for a variable are stored as 64-bit integers,
 * In C++ and Python, the *size* argument is omitted and the item size
   is returned from the function.
 
+[:ref:`var_funcs` | :ref:`basic_model_interface`]
+
 
 .. _get_var_nbytes:
 
@@ -126,6 +134,8 @@ a variable; i.e., the number of items multiplied by the size of each item.
 
 * In C++ and Python, the *nbytes* argument is omitted and the total
   amount of memory used by the variable is returned from the function.
+
+[:ref:`var_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_var_location:
@@ -150,6 +160,8 @@ element the variable is defined. Valid return values are:
 
 * In C++ and Python, the *location* argument is omitted and the location
   is returned from the function.
+
+[:ref:`var_funcs` | :ref:`basic_model_interface`]
 
 
 .. Links

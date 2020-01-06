@@ -28,6 +28,8 @@ but it should be unique to prevent conflicts with other components.
   In C++ and Python, this argument is omitted, and a string -- a basic type
   in these languages -- is returned from the function.
 
+[:ref:`info_funcs` | :ref:`basic_model_interface`]
+
 
 .. _get_input_item_count:
 
@@ -47,6 +49,8 @@ implementing a BMI.
 * In C++ and Python, the argument is omitted and the count is returned
   from the function.
 
+[:ref:`info_funcs` | :ref:`basic_model_interface`]
+
 
 .. _get_output_item_count:
 
@@ -65,6 +69,8 @@ implementing a BMI.
 
 * In C++ and Python, the argument is omittedq and the count is
   returned from the function.
+
+[:ref:`info_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_input_var_names:
@@ -97,6 +103,9 @@ Standard Names do not have to be used within the model.
   function in a tuple, a standard container in the language.
 * A model may have no input variables.
 
+[:ref:`info_funcs` | :ref:`basic_model_interface`]
+
+
 .. _get_output_var_names:
 
 *get_output_var_names*
@@ -126,3 +135,5 @@ Standard Names do not have to be used within the model.
 * In Python, the argument is omitted and the names are returned from the
   function in a tuple, a standard container in the language.
 * A model may have no output variables.
+
+[:ref:`info_funcs` | :ref:`basic_model_interface`]
