@@ -155,6 +155,12 @@ A glossary of terms used with BMI.
       The number of dimensions of a model grid. A scalar has rank 0, a
       vector has rank 1, a rectilinear grid has rank 2, etc.
 
+   refactor
+
+      The act of modifying the internals of a program without changing
+      the external behaviors of the program. Refactoring is often done
+      to clean up code and improve its performance.
+
    Standard Names
 
       A semantic mediation technology developed at CSDMS for precisely
