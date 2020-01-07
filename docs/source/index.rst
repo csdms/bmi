@@ -2,7 +2,7 @@
     :align: center
     :scale: 85%
     :alt: Basic Model Interface (BMI)
-    :target: https://bmi-spec.readthedocs.org/
+    :target: https://bmi.readthedocs.io/
 
 .. title:: BMI
 
