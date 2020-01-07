@@ -1,4 +1,5 @@
-==========
+.. _references:
+
 References
 ==========
 
@@ -23,7 +24,7 @@ Basic Model Interface (BMI)
 Scientific Interface Definition Language (SIDL)
 
   Dahlgren, Tamara; Ebner, Dietmar; Epperly, Thomas; Kumfert, Gary;
-    Leek, James; Prantl, Adrian (): "Babel User's Guide: Part I
+    Leek, James; Prantl, Adrian (2012): "Babel User's Guide: Part I
     Foundation: SIDL Basics".
     https://computing.llnl.gov/projects/babel-high-performance-language-interoperability/docs/users_guide/index008.html (retrieved 2019-10-09).
 
@@ -33,3 +34,11 @@ Scientific Interface Definition Language (SIDL)
     Babel". *The International Journal of High Performance Computing
     Applications*. **26** (3): 260–274.
     http://dx.doi.org/10.1177/1094342011414036
+
+Model grids
+
+  Hoffmann, Klaus A; Chiang, Steve T (2000): Computational Fluid
+    Dynamics Volume I. Third edition. *Engineering Education System*.
+
+  Slingerland, Rudy; Kump, Lee (2011): Mathematical Modeling of
+    Earth's Dynamical Systems: A Primer. *Princeton University Press*.

@@ -29,38 +29,84 @@
 
    <p align="center">
 
-   The Basic Model Interface (BMI) is a library specification to
-   simplify the coupling of models.
+   The Basic Model Interface (BMI) is a standardized set of functions
+   that allows coupling of models to models and models to data.
 
    </p>
 
-In order to simplify conversion of an existing model to a reusable,
-plug-and-play model component, the
-`Community Surface Dynamics Modeling System <https://csdms.colorado.edu>`_
-(CSDMS) has developed a simple
-interface called the *Basic Model Interface* or *BMI* that model
-developers are asked to implement.  Recall that in this
-context an *interface* is a named set of functions with prescribed
-function names, argument types and return types.  The BMI functions
-make the model *self-describing* and fully *controllable* by a
-modeling framework or application.
-
+The *Basic Model Interface* (BMI) is a library specification
+created by the `Community Surface Dynamics Modeling System`_ (CSDMS)
+to facilitate the conversion of a model or dataset
+into a reusable, plug-and-play component.
+Recall that, in this context, an interface is a named set of functions
+with prescribed arguments and return values.
+The BMI functions make a model self-describing and fully controllable
+by a modeling framework or application.
 By design, the BMI functions are straightforward to implement in
-any language and use only simple (universal) data types. While the
-CSDMS model coupling framework supports C, C++, Fortran, Java,
-and Python, a BMI can described for any language.  CSDMS
-provides example bindings for BMI in each of the above languages.
-
-Also by design, the BMI functions are *noninvasive*.  This means
-that a BMI-compliant model does not make any calls to other
+any language, using only simple data types from standard language libraries.
+Also by design, the BMI functions are noninvasive.
+This means that a model's BMI does not make calls to other
 components or tools and is not modified to use any
-framework-specific data structures. BMI therefore introduces no
-dependencies into a model and the model can still be used
-in a *stand-alone* manner.
+framework-specific data structures. A BMI, therefore, introduces no
+dependencies into a model, so the model can still be used
+in a stand-alone manner.
 
-The most current development version is always available from our git repository:
-http://github.com/csdms/bmi.
+The BMI is expressed
+in the `Scientific Interface Definition Language`_ (SIDL)
+in the file `bmi.sidl <./bmi.sidl>`_.
+BMI specifications for four languages -- C, C++,
+Fortran (77, 90/95, 2003, 2008),
+and Python -- are derived from this SIDL file.
+For each language,
+links to the specification and an example implementation
+are listed in the table below.
 
-Please note that this project is released with a
-`Contributor Code of Conduct <./CODE-OF-CONDUCT.rst>`_.
-By participating in this project you agree to abide by its terms.
+.. table::
+   :align: center
+   :widths: 10, 10, 15
+
+   ========  ==============  ======================
+   Language  Specification   Example implementation
+   ========  ==============  ======================
+   C         `bmi-c`_        `bmi-example-c`_
+   C++       `bmi-cxx`_      `bmi-example-cxx`_
+   Fortran   `bmi-fortran`_  `bmi-example-fortran`_
+   Python    `bmi-python`_   `bmi-example-python`_
+   ========  ==============  ======================
+
+Detailed instructions for building the specifications and examples
+are given at each link above.
+The specifications can also be installed through `conda`.
+
+.. code-block:: bash
+
+   $ conda install -c conda-forge bmi-c
+   $ conda install -c conda-forge bmi-cxx
+   $ conda install -c conda-forge bmi-fortran
+   $ conda install -c conda-forge bmipy
+
+While CSDMS currently supports the four languages listed above,
+a BMI can be written for any language.
+BMI is a community-driven standard;
+`contributions <CONTRIBUTING.rst>`_
+that follow the `contributor code of conduct <./CODE-OF-CONDUCT.rst>`_
+are welcomed,
+and are `acknowledged <./AUTHORS.rst>`_.
+BMI is open source software released under the `MIT License <./LICENSE>`_.
+
+*The Community Surface Dynamics Modeling System
+is supported by the National Science Foundation.*
+
+
+.. Links
+
+.. _Community Surface Dynamics Modeling System: https://csdms.colorado.edu
+.. _Scientific Interface Definition Language: http://dx.doi.org/10.1177/1094342011414036
+.. _bmi-c: https://github.com/csdms/bmi-c
+.. _bmi-cxx: https://github.com/csdms/bmi-cxx
+.. _bmi-fortran: https://github.com/csdms/bmi-fortran
+.. _bmi-python: https://github.com/csdms/bmi-python
+.. _bmi-example-c: https://github.com/csdms/bmi-example-c
+.. _bmi-example-cxx: https://github.com/csdms/bmi-example-cxx
+.. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
+.. _bmi-example-python: https://github.com/csdms/bmi-example-python

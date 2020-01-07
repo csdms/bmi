@@ -1,1 +1,0 @@
-bindings/c/bmi.h

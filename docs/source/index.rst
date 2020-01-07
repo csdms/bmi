@@ -2,13 +2,11 @@
     :align: center
     :scale: 85%
     :alt: Basic Model Interface (BMI)
-    :target: https://bmi-spec.readthedocs.org/
+    :target: https://bmi.readthedocs.io/
 
 .. title:: BMI
 
 .. include:: bmi.spec.rst
-
-.. include:: bmi.lang.rst
 
 
 Additional Topics
@@ -17,7 +15,10 @@ Additional Topics
 .. toctree::
    :maxdepth: 2
 
+   bmi.implementation
+   model_grids
    csdms
+   glossary
    references
 
 Project Information

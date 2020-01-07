@@ -10,6 +10,9 @@ automatically using the CSDMS Babelizer tool, which generates
 bindings for all of the CSDMS supported languages, so that the
 model becomes a plug-in for within the CSDMS framework.
 
+..
+   "becomes a plug-in for"? I don't understand.
+
 Any model that provides the BMI functions should also be
 straightforward to ingest as a component into other component-based
 modeling frameworks.  For example, all model coupling frameworks
@@ -31,7 +34,7 @@ computational grid is different.  It also gains:
 
 
 CSDMS Standard Names
-====================
+--------------------
 
 Note that the *name* parameter in many of the BMI functions
 refers to a standardized variable name from the
@@ -51,8 +54,8 @@ output variables.
   model's internal names.
 
 
-Model Metadata
-==============
+Model metadata
+--------------
 
 For a model to be incorporated into the CSDMS framework, some additional
 metadata is required. This metadata describes such things as:

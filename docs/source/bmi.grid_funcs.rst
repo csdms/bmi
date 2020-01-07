@@ -1,226 +1,452 @@
-.. _get_grid:
+.. _grid_funcs:
 
-Model Grids
-===========
+Model grid functions
+--------------------
 
-Different models often use different computational grids.  An
-application that calls a BMI needs a complete and standardized
-description of a model's grid in order to automatically accommodate
-differences between model grids (via regridding) when coupled
-models share data.  Currently, BMI supports four different grid types.
-Depending on the grid type, the model will implement a different
-set of grid functions. By calling a model's :ref:`get_var_grid`
-function, an application is able to determine which methods will
-be implemented for a particular grid.
+The functions in this section describe :ref:`model grids <model_grids>`. 
+In the BMI,
+every :term:`exchange item` is defined on a grid,
+and is referenced by a :term:`grid identifier`
+returned from the :ref:`get_var_grid` function.
+This identifier is a required input to the functions listed below.
+
+A model can have multiple grids.
+For example,
+consider modeling the diffusion of temperature over a flat plate.
+One grid could be a uniform rectilinear grid on which
+temperature is defined.
+A second grid could be a scalar,
+on which a constant thermal diffusivity is defined.
+
+Not all grid functions are used by each type of grid.
+However, all BMI grid functions must be implemented.
+(See :ref:`model_grids` and :ref:`implementation`.)
 
 
-Grid Type
----------
+.. _get_grid_type:
+
+*get_grid_type*
+...............
 
 .. code-block:: java
 
-  string get_grid_type(in int id)
+   /* SIDL */
+   int get_grid_type(in int grid, out string type);
 
-The type of grid as a string. Valid return values are:
+Given a :term:`grid identifier`, get the type of that grid as a string.
+Valid grid types are:
 
-* ``uniform_rectilinear``
-* ``rectilinear``
-* ``structured_quadrilateral``
+* ``scalar``
+* ``points``
+* ``vector``
 * ``unstructured``
+* ``structured_quadrilateral``
+* ``rectilinear``
+* ``uniform_rectilinear``
+
+A detailed description of the grid types supported in BMI
+is given in the :ref:`model_grids` section.
+
+**Implementation notes**
+
+* This function is needed for every :ref:`grid type <model_grids>`.
+* In C++ and Python, the *type* argument is omitted and the grid
+  type name is returned from the function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_grid_rank:
 
-Grid rank
----------
+*get_grid_rank*
+...............
 
 .. code-block:: java
 
-    int get_grid_rank(in int id)
+   /* SIDL */
+   int get_grid_rank(in int grid, out int rank);
 
-The number of dimension in the grid is its *rank*. A grid's rank
-determines the length of many of the following grid functions.
-For instance, :ref:`get_grid_shape` will return an array that is
-of length *rank*. In a similar way, a grid's rank determines which
-of ``get_grid_x``, ``get_grid_y``, etc. are implemented.
+Given a :term:`grid identifier`, get the :term:`rank` of that grid as an integer.
 
-``get_grid_rank`` returns the rank of a particular grid. ``0``
-for scalar, ``1`` for 1D, etc.
+A grid's rank determines the length of the return value
+of many of the following grid functions.
+For instance, :ref:`get_grid_shape` returns an array of length *rank*.
+Similarly, a grid's rank determines which
+of :ref:`get_grid_x`, :ref:`get_grid_y`, etc. are implemented.
 
-Grid size
----------
+**Implementation notes**
+
+* This function is needed for every :ref:`grid type <model_grids>`.
+* In C++ and Python, the *rank* argument is omitted and the grid
+  rank is returned from the function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_size:
+
+*get_grid_size*
+...............
 
 .. code-block:: java
 
-    int get_grid_size(in int id)
+   /* SIDL */
+   int get_grid_size(in int grid, out int size);
 
-``get_grid_size`` returns the size of a grid as the number of
-elements. This is used for, among other things, to give the
-length of arrays returned by ``get_grid_x`` and ``get_grid_y``
-for :ref:`unstructured <unstructured_mesh>` and
-:ref:`structured quad grids <structured_quad>`.
+Given a :term:`grid identifier`,
+get the total number of elements (or :term:`nodes <node>`)
+of that grid as an integer.
 
+The grid size is used for, among other things, the
+length of arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`
+for :ref:`unstructured <unstructured_grids>` and
+:ref:`structured quad <structured_quad>` grids.
 
-Structured grids of quadrilaterals
-----------------------------------
+**Implementation notes**
+
+* This function is needed for every :ref:`grid type <model_grids>`.
+* In C++ and Python, the *size* argument is omitted and the grid
+  size is returned from the function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
 
 .. _get_grid_shape:
 
-Grid shape
-^^^^^^^^^^
+*get_grid_shape*
+................
 
 .. code-block:: java
 
-    int get_grid_shape(in int id, out array<int, 1> shape)
+   /* SIDL */
+   int get_grid_shape(in int grid, in array<int, 1> shape);
 
-A structured grid of quadrilaterals is one formed by a stacked
-next one-another such that every vertex is surrounded by four
-quadrilaterals. A special case of such a grid is
-:ref:`uniform_rectilinear` where rectangles are stacked next
-to one another row-by-row.
+Get the dimensions of the model grid.
 
-For all quadrilateral grids, the ``get_grid_shape`` function
-is necessary to provide the number of rows and columns (for
-a 2D grid). Note that this function (as well as the other
-grid functions) returns information about each dimension
-ordered with "ij" indexing (as opposed to "xy"). For example,
-the ``get_grid_shape`` function for the uniform rectilinear
-grid shown below would return the array ``[4, 5]``. If there
-were a third dimension, the length of the *z-dimension*
+Note that this function (as well as the other grid functions)
+returns information ordered with "ij" indexing (as opposed to "xy").
+For example,
+consider a two-dimensional rectilinear grid
+with four columns (``nx = 4``)
+and three rows (``ny = 3``).
+The :ref:`get_grid_shape` function would return a shape
+of ``[ny, nx]``, or ``[3,4]``.
+If there were a third dimension, the length of the *z*-dimension, ``nz``,
 would be listed first.
 
-.. note::
+Also note that the grid shape is the number of :term:`nodes <node>`
+in the coordinate directions and not the number of cells or elements.
+It is possible for grid values to be associated with the nodes or with
+the cells.
 
-  Note that the grid shape is the number of *nodes* in the
-  coordinate directions and not the number of cells or
-  elements.  It is possible for grid values to be
-  associated with the nodes or with the cells.
+**Implementation notes**
 
+* This function is used for describing all :ref:`structured grids
+  <structured_grids>`.
+* In Python, the *shape* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
 
-.. _uniform_rectilinear:
-
-Uniform rectilinear
-^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: java
-
-    int get_grid_origin(in int id, out array<int, 1> origin)
-    int get_grid_spacing(in int id, out array<int, 1> spacing)
-
-.. image:: images/mesh_uniform_rectilinear.png
-   :scale: 20 %
-
-A uniform rectilinear (or Cartesian grid) is a special case of
-a grid of quadrilaterals such that the elements have equal width
-in each dimension. That is, for a 2D grid, elements have a
-constant width of ``dx`` in the *x-direction* and ``dy`` in the
-*y-direction*. The case of ``dx == dy`` is oftentimes called
-as *raster grid*.
-
-To completely define points of a uniform rectilinear grid,
-one needs only three pieces of information. Namely, the
-number of elements in each dimension (:ref:`get_grid_shape`),
-the width of each element (in each dimension) and the location
-of the corner of the grid.
-
-``get_grid_spacing`` provides the width of each element in
-the number of dimension as returned by :ref:`get_grid_rank`.
-The spacing is *ij-indexing* order. That is spacing in rows
-followed by spacing in columns.
-
-``get_grid_origin`` provides the location of the lower-left
-corner of the grid (also in *ij-indexing* order).
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
-Rectilinear
-^^^^^^^^^^^
+.. _get_grid_spacing:
+
+*get_grid_spacing*
+..................
 
 .. code-block:: java
 
-    int get_grid_rank(in int id)
-    int get_grid_size(in int id)
-    int get_grid_shape(in int id, out array<int, 1> shape)
-    int get_grid_x(in int id, out array<int, 1> x)
-    int get_grid_y(in int id, out array<int, 1> y)
-    int get_grid_z(in int id, out array<int, 1> z)
+   /* SIDL */
+   int get_grid_spacing(in int grid, in array<double, 1> spacing);
 
-.. image:: images/mesh_rectilinear.png
-   :scale: 20 %
+Get the distance between the :term:`nodes <node>` of the model grid.
 
-A rectilinear grid is simply a uniform rectilinear grid whose spacing
-in a single dimension varies (as shown in the above image). In this
-case, an array of coordinates for each row and column (for 2D) is
-required.
+The :ref:`get_grid_spacing` function provides the width of each cell in
+the number of dimensions as returned by :ref:`get_grid_rank`.
+As with :ref:`get_grid_shape`,
+the spacing is given in "ij" indexing* order;
+e.g., for a two-dimensional grid,
+the spacing between rows is followed by spacing between columns, ``[dy, dx]``.
 
-``get_grid_y`` provides an array (whose length is the number of
-*rows*) that gives the y-coordinate for each row.
+**Implementation notes**
 
-``get_grid_x`` provides an array (whose length is the number of
-*columns*) that gives the x-coordinate for each column.
+* This function is used for describing :ref:`uniform rectilinear
+  <uniform_rectilinear>` grids.
+* In Python, the *spacing* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
-.. _structured_quad:
+.. _get_grid_origin:
 
-Structured quadrilaterals
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: java
-
-    int get_grid_rank(in int id)
-    int get_grid_size(in int id)
-    int get_grid_shape(in int id, out array<int, 1> shape)
-    int get_grid_x(in int id, out array<int, 1> x)
-    int get_grid_y(in int id, out array<int, 1> y)
-    int get_grid_z(in int id, out array<int, 1> z)
-
-.. image:: images/mesh_structured_quad.png
-   :scale: 20 %
-
-The most general structured quadrilateral grid is one whose
-rows (and columns) do not share a common coordinate. In this
-case, coordinates are required for each grid element. For this
-more general case, ``get_grid_x`` and ``get_grid_y`` are
-repurposed to provide this information.
-
-``get_grid_y`` returns an array (whose length is the number
-of total nodes) of y-coordinates.
-
-``get_grid_x`` returns an array (whose length is the number
-of total nodes) of x-coordinates.
-
-.. _unstructured_mesh:
-
-Unstructured
-------------
+*get_grid_origin*
+.................
 
 .. code-block:: java
 
-    int get_grid_rank(in int id)
+   /* SIDL */
+   int get_grid_origin(in int grid, in array<double, 1> origin);
 
-    int get_grid_x(in int id, out array<int, 1> x)
-    int get_grid_y(in int id, out array<int, 1> y)
-    int get_grid_z(in int id, out array<int, 1> z)
+Get the coordinates of the lower-left corner of the model grid.
 
-    int get_grid_node_count(in int grid)
-    int get_grid_edge_count(in int grid)
-    int get_grid_face_count(in int grid)
+The *origin* parameter is a one-dimensional array of the size
+returned by :ref:`get_grid_rank`.
+As with :ref:`get_grid_shape`,
+the origin is given in "ij" indexing* order;
+e.g., for a two-dimensional grid,
+the origin is given in the column dimension, followed by the row dimension,
+``[y0, x0]``.
 
-    int get_grid_edge_nodes(in int grid, out array<int, 1> edge_nodes)
-    int get_grid_face_edges(in int grid, out array<int, 1> face_edges)
-    int get_grid_face_nodes(in int grid, out array<int, 1> face_nodes)
-    int get_grid_nodes_per_face(in int grid, out array<int, 1> nodes_per_face)
+**Implementation notes**
 
-This is the most general grid type and can be used for any type of grid.
-However, most grids that consist of 4-sided polygons can be represented
-using one of the other grid types.  This grid type must be used if
-the grid consists of any elements or *cells* that do not have four sides.
-This includes any grid of triangles (e.g.
-`Delaunay triangles <http://en.wikipedia.org/wiki/Delaunay_triangulation>`_
-and a
-`Voronoi tesselation <http://en.wikipedia.org/wiki/Voronoi_tessellation>`_.
+* This function is used for describing :ref:`uniform rectilinear
+  <uniform_rectilinear>` grids.
+* In Python, the *origin* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
 
-Note that a grid of
-`equilateral triangles <http://en.wikipedia.org/wiki/Triangle_tiling>`_,
-while is most certainly *structured*, would need to be represented
-as an unstructured grid.  The same is true for a grid of
-`hexagons <http://en.wikipedia.org/wiki/Hexagonal_tiling>`_.
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_x:
+
+*get_grid_x*
+............
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_x(in int grid, in array<double, 1> x);
+
+Get the locations of the grid :term:`nodes <node>` in the first
+coordinate direction.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+See :ref:`model_grids` for more information.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *x* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_y:
+
+*get_grid_y*
+............
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_y(in int grid, in array<double, 1> y);
+
+Get the locations of the grid :term:`nodes <node>` in the second
+coordinate direction.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+See :ref:`model_grids` for more information.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *y* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_z:
+
+*get_grid_z*
+............
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_z(in int grid, in array<double, 1> z);
+
+Get the locations of the grid :term:`nodes <node>` in the third
+coordinate direction.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+See :ref:`model_grids` for more information.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *z* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_node_count:
+
+*get_grid_node_count*
+.....................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_node_count(in int grid, out int count);
+
+Get the number of :term:`nodes <node>` in the grid.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In C++ and Python, the *count* argument is omitted and the node
+  count is returned from the function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_edge_count:
+
+*get_grid_edge_count*
+.....................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_edge_count(in int grid, out int count);
+
+Get the number of :term:`edges <edge>` in the grid.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In C++ and Python, the *count* argument is omitted and the edge
+  count is returned from the function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_face_count:
+
+*get_grid_face_count*
+.....................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_face_count(in int grid, out int count);
+
+Get the number of :term:`faces <face>` in the grid.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In C++ and Python, the *count* argument is omitted and the face
+  count is returned from the function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_edge_nodes:
+
+*get_grid_edge_nodes*
+.....................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_edge_nodes(in int grid, out array<int, 1> edge_nodes);
+
+Get the edge-node connectivity.
+
+For each edge, connectivity is given as node at edge tail, followed by
+node at edge head.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In Python, the *edge_nodes* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_face_edges:
+
+*get_grid_face_edges*
+.....................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_face_edges(in int grid, out array<int, 1> face_edges);
+
+Get the face-edge connectivity.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In Python, the *face_edges* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_face_nodes:
+
+*get_grid_face_nodes*
+.....................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_face_nodes(in int grid, out array<int, 1> face_nodes);
+
+Get the face-node connectivity.
+
+For each face, the nodes (listed in a counter-clockwise direction)
+that form the boundary of the face.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In Python, the *face_nodes* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_nodes_per_face:
+
+*get_grid_nodes_per_face*
+.........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_nodes_per_face(in int grid, out array<int, 1> nodes_per_face);
+
+Get the number of nodes for each face.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In Python, the *nodes_per_face* argument is a :term:`numpy <NumPy>` array.
+* In C++, this is a void function.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
