@@ -1,5 +1,5 @@
 ---
-title: "The Basic Model Interface"
+title: "The Basic Model Interface, v2.0"
 tags:
   - C
   - C++
@@ -14,9 +14,14 @@ authors:
   - name: Mark Piper
     orcid: 0000-0001-6418-277X
     affiliation: 1
+  - name: Greg Tucker
+    orcid: 0000-0003-0364-5800
+    affiliation: 1, 2
 affiliations:
   - name: Community Surface Dynamics Modeling System, University of Colorado Boulder
     index: 1
+  - name: Cooperative Institute for Research in Environmental Sciences, University of Colorado Boulder
+    index: 2
 date: 10 January 2020
 bibliography: paper.bib
 
@@ -25,9 +30,9 @@ bibliography: paper.bib
 # Summary
 
 Component modeling,
-where a new model is created by coupling the inputs and outputs
+in which a new model is created by coupling the inputs and outputs
 of existing process models,
-is a research technique gaining adoption in Earth-surface process modeling.
+is a research technique gaining adoption in Earth-surface process research.
 For example,
 `@ratliff:2018`
 show that a river model transporting sediment
@@ -36,7 +41,7 @@ which distributes the sediment.
 
 The *Basic Model Interface* (BMI)
 provides a standard set of functions
-for querying, modifying, and running a model.
+for querying, modifying, and running a model or tool.
 Equipping a model with a BMI
 allows the model to be coupled with other models that expose a BMI.
 The BMI concept was introduced by `@peckham:2013`
