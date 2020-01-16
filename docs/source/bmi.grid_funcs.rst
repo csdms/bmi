@@ -49,7 +49,6 @@ is given in the :ref:`model_grids` section.
 
 **Implementation notes**
 
-* This function is needed for every :ref:`grid type <model_grids>`.
 * In C++ and Python, the *type* argument is omitted and the grid
   type name is returned from the function.
 
@@ -66,7 +65,8 @@ is given in the :ref:`model_grids` section.
    /* SIDL */
    int get_grid_rank(in int grid, out int rank);
 
-Given a :term:`grid identifier`, get the :term:`rank` of that grid as an integer.
+Given a :term:`grid identifier`, get the :term:`rank` (the number of
+dimensions) of that grid as an integer.
 
 A grid's rank determines the length of the return value
 of many of the following grid functions.

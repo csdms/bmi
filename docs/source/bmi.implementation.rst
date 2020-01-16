@@ -34,6 +34,11 @@ here are some tips to help when writing a BMI for a model.
   responsibility to ensure that array information is
   flattened/redimensionalized in the correct order.
 
+* Recall that models can have mulitple grids. This can be particularly
+  useful for defining :term:`exchange items <exchange item>` that
+  don't vary over the model domain; e.g., a diffusivity -- just define
+  the variable on a separate :ref:`scalar grid <unstructured_grids>`.
+
 * Avoid using global variables, if possible. This isn't strictly a BMI
   requirement, but if a model only uses local variables, its BMI will
   be self-contained. This may allow multiple instances of the model to

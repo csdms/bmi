@@ -27,8 +27,8 @@ state variable can be changed or check the new data for validity.
    int get_value(in string name, in array<> dest);
 
 The `get_value` function takes a variable name and copies values into a
-provided buffer.
-The type and size of the buffer depend on the variable,
+provided array parameter.
+The type and size of the array parameter depend on the variable,
 and can be determined through
 :ref:`get_var_type`, :ref:`get_var_nbytes`, etc.
 Recall that arrays are always flattened in BMI,
@@ -39,7 +39,7 @@ even if the model uses dimensional variables.
 * The *dest* argument must be defined and allocated before calling
   `get_value`. Whatever values it contains are overwritten in the call
   to `get_value`.
-* In Python, the buffer is a :term:`numpy` array.
+* In Python, the array parameter is a :term:`numpy` array.
 * In C++, `get_value` is a void function.
 * Depending on how a model is written, a variable may not be
   accessible until after the call to :ref:`initialize`. Likewise, the
@@ -59,7 +59,7 @@ even if the model uses dimensional variables.
 
 The `get_value_ptr` function takes a variable name and returns a reference
 to a variable.
-Unlike the buffer returned from :ref:`get_value`,
+Unlike the array parameter returned from :ref:`get_value`,
 the reference always points to the current values of the variable,
 even if the model's state has changed.
 

@@ -43,6 +43,7 @@ but it should be unique to prevent conflicts with other components.
 
 The number of variables the model can use from other models
 implementing a BMI.
+Also the number of variables that can be set with :ref:`set_value`.
 
 **Implementation notes**
 
@@ -64,6 +65,7 @@ implementing a BMI.
 
 The number of variables the model can provide other models
 implementing a BMI.
+Also the number of variables that can be retrieved with :ref:`get_value`.
 
 **Implementation notes**
 
@@ -101,7 +103,7 @@ Standard Names do not have to be used within the model.
   function in a vector, a standard container in the language.
 * In Python, the argument is omitted and the names are returned from the
   function in a tuple, a standard container in the language.
-* A model may have no input variables.
+* A model might have no input variables.
 
 [:ref:`info_funcs` | :ref:`basic_model_interface`]
 

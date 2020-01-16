@@ -33,10 +33,10 @@ its length would be listed first.
 
 .. note::
 
-  The grid shape is the number of :term:`nodes <node>` in the
-  coordinate directions, not the number of cells or
-  elements. It is possible for grid values to be
-  associated with the nodes or with the cells.
+  The grid shape is the number of rows and columns of :term:`nodes
+  <node>`, as opposed to other types of element (such as cells or
+  faces). It is possible for grid values to be associated with the
+  nodes or with the cells.
 
 
 .. _uniform_rectilinear:
