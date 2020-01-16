@@ -25,6 +25,18 @@ here are some tips to help when writing a BMI for a model.
   the BMI specifies are the names of the functions, their arguments,
   and their return values.
 
+* :term:`Standard Names` are not required for naming a model's
+  :term:`exchange items <exchange item>`. However, the use of
+  standardized names makes it easier for a framework (or a human) to
+  match input and output variables between models.
+
+* Don't change the variable names you currently use within your model
+  to :term:`Standard Names`. Standard Names are too long and
+  cumbersome to be used within a model code. Instead, you find a
+  `matching`_ Standard Name for each variable in your model and then
+  write your BMI functions to accept the Standard Names and map them
+  to your model's internal names.
+
 * Constructs and features that are natural for the language should be
   used when implementing a BMI. BMI strives to be developer-friendly.
 
@@ -78,3 +90,4 @@ here are some tips to help when writing a BMI for a model.
 .. _C++: https://github.com/csdms/bmi-example-cxx
 .. _Fortran: https://github.com/csdms/bmi-example-fortran
 .. _Python: https://github.com/csdms/bmi-example-python
+.. _matching: https://github.com/csdms/standard_names_registry
