@@ -160,6 +160,9 @@ element the variable is defined. Valid return values are:
 
 * In C++ and Python, the *location* argument is omitted and the location
   is returned from the function.
+* If the given variable is a scalar (i.e., defined on a :ref:`scalar
+  grid <unstructured_grids>`), the return from this function is
+  ignored.
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 

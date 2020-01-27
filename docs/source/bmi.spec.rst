@@ -59,6 +59,9 @@ Following the table is a detailed description of each function,
 including the function prototype in SIDL,
 grouped by functional category.
 
+Be sure to check out the collected wisdom of our :ref:`best practices
+document <implementation>` for tips on implementing a BMI.
+
 .. table:: **Table 2:** Summary of BMI functions.
    :align: center
    :widths: 30, 70
