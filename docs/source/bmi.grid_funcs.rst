@@ -366,12 +366,13 @@ Get the number of :term:`faces <face>` in the grid.
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_edge_nodes(in int grid, out array<int, 1> edge_nodes);
+   int get_grid_edge_nodes(in int grid, in array<int, 1> edge_nodes);
 
 Get the edge-node connectivity.
 
 For each edge, connectivity is given as node at edge tail, followed by
-node at edge head.
+node at edge head. The total length of the array is 
+2 * :ref:`get_grid_edge_count`.
 
 **Implementation notes**
 
@@ -391,7 +392,7 @@ node at edge head.
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_face_edges(in int grid, out array<int, 1> face_edges);
+   int get_grid_face_edges(in int grid, in array<int, 1> face_edges);
 
 Get the face-edge connectivity.
 
@@ -413,12 +414,14 @@ Get the face-edge connectivity.
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_face_nodes(in int grid, out array<int, 1> face_nodes);
+   int get_grid_face_nodes(in int grid, in array<int, 1> face_nodes);
 
 Get the face-node connectivity.
 
 For each face, the nodes (listed in a counter-clockwise direction)
 that form the boundary of the face.
+For a grid of quadrilaterals, 
+the total length of the array is 4 * :ref:`get_grid_face_count`.
 
 **Implementation notes**
 
@@ -438,9 +441,11 @@ that form the boundary of the face.
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_nodes_per_face(in int grid, out array<int, 1> nodes_per_face);
+   int get_grid_nodes_per_face(in int grid, in array<int, 1> nodes_per_face);
 
 Get the number of nodes for each face.
+
+The number of edges per face is equal to the number of nodes per face.
 
 **Implementation notes**
 
