@@ -1,5 +1,5 @@
 ---
-title: "The Basic Model Interface, v2.0"
+title: "The Basic Model Interface 2.0"
 tags:
   - C
   - C++
