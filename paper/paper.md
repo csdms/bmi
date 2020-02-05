@@ -31,7 +31,7 @@ bibliography: paper.bib
 
 Component modeling,
 in which a new model is created by coupling the inputs and outputs
-of existing process models,
+of existing numerical models,
 is a research technique gaining adoption in Earth-surface process research.
 For example,
 `@ratliff:2018`
@@ -39,6 +39,9 @@ show that a river model transporting sediment
 can feed a delta model,
 which distributes the sediment.
 
+In software engineering,
+an interface is a named set of functions
+with prescribed arguments and return values.
 The *Basic Model Interface* (BMI)
 provides a standard set of functions
 for querying, modifying, and running a model or tool.
