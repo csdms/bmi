@@ -22,6 +22,8 @@ The specification for each language is given in Table 1,
 along with a corresponding example
 in which the BMI is implemented.
 
+.. _specs_and_examples:
+
 .. table:: **Table 1:** BMI language specifications.
    :align: center
    :widths: 20, 25, 25, 30

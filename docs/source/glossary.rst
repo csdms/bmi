@@ -166,3 +166,8 @@ A glossary of terms used with BMI.
       A semantic mediation technology developed at CSDMS for precisely
       matching variable names between models. For more information,
       see https://csdms.colorado.edu/wiki/CSDMS_Standard_Names.
+
+   unit test
+
+      A program that isolates and runs a section (a unit) of source
+      code to ensure that it produces an expected result.

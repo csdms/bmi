@@ -15,6 +15,7 @@ Additional Topics
 .. toctree::
    :maxdepth: 2
 
+   bmi.steps_to
    bmi.implementation
    model_grids
    csdms
