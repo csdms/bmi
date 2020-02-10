@@ -16,12 +16,16 @@ A glossary of terms used with BMI.
       computing and a package manager. See
       https://www.anaconda.com/distribution for more information.
 
-   Basic Model Interface (BMI)
+   Basic Model Interface
 
       A set a functions that are used to interact with and control a
       model. See https://bmi.readthedocs.io for more information.
 
-   Community Surface Dynamics Modeling System (CSDMS)
+   BMI
+
+      See :term:`Basic Model Interface`.
+
+   Community Surface Dynamics Modeling System
 
       CSDMS is an NSF-funded program that seeks to transform the
       science and practice of earth-surface dynamics modeling. For
@@ -55,6 +59,10 @@ A glossary of terms used with BMI.
    coupling
 
       See :term:`model coupling`.
+
+   CSDMS
+
+      See :term:`Community Surface Dynamics Modeling System`.
 
    data
 
@@ -160,6 +168,15 @@ A glossary of terms used with BMI.
       The act of modifying the internals of a program without changing
       the external behaviors of the program. Refactoring is often done
       to clean up code and improve its performance.
+
+   Scientific Interface Definition Language
+
+      A specification language for describing software interfaces to
+      scientific model codes. See :ref:`references`.
+
+   SIDL
+
+      See :term:`Scientific Interface Definition Language`.
 
    Standard Names
 
