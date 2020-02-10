@@ -38,10 +38,10 @@ in which the BMI is implemented.
    ========  =============  ==============  ======================
 
 If you haven't written a BMI before,
-one place to start is our :ref:`getting started <steps_to_bmi>` guide.
+one place to start is our :ref:`getting started <getting_started>` guide.
 Afterward,
 check out the collected wisdom of our :ref:`best practices
-<implementation>` document for helpful tips on implementing a BMI.
+<best_practices>` document for helpful tips on implementing a BMI.
 
 A complete description of the functions that make up the BMI is given next.
 

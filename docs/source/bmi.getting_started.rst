@@ -1,4 +1,4 @@
-.. _steps_to_bmi:
+.. _getting_started:
 
 How to get started
 ==================
@@ -36,7 +36,7 @@ whereas codes that are more monolithic tend to require a lot more
 refactoring (but that is probably worthwhile anyway for the sake of
 the quality and sustainability of the code!).
 Each case is a bit different.
-Be sure to check out our :ref:`BMI best practices <implementation>` document
+Be sure to check out our :ref:`BMI best practices <best_practices>` document
 for tips.
 We encourage you to contact us with questions by posting an
 issue on the `CSDMS Help Desk`_.
