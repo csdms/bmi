@@ -34,8 +34,11 @@ to divide them into separate functions. Our experience is that codes
 that are already modular usually need little or no modification,
 whereas codes that are more monolithic tend to require a lot more
 refactoring (but that is probably worthwhile anyway for the sake of
-the quality and sustainability of the code!). Each case is a bit
-different. We encourage you to contact us with questions by posting an
+the quality and sustainability of the code!).
+Each case is a bit different.
+Be sure to check out our :ref:`BMI best practices <implementation>` document
+for tips.
+We encourage you to contact us with questions by posting an
 issue on the `CSDMS Help Desk`_.
 
 4. Test it out. Try writing a program or script that initializes your

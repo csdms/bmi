@@ -37,6 +37,12 @@ in which the BMI is implemented.
    Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
    ========  =============  ==============  ======================
 
+If you haven't written a BMI before,
+one place to start is our :ref:`getting started <steps_to_bmi>` guide.
+Afterward,
+check out the collected wisdom of our :ref:`best practices
+<implementation>` document for helpful tips on implementing a BMI.
+
 A complete description of the functions that make up the BMI is given next.
 
 
@@ -60,9 +66,6 @@ along with a brief description.
 Following the table is a detailed description of each function,
 including the function prototype in SIDL,
 grouped by functional category.
-
-Be sure to check out the collected wisdom of our :ref:`best practices
-document <implementation>` for tips on implementing a BMI.
 
 .. table:: **Table 2:** Summary of BMI functions.
    :align: center
