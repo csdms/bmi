@@ -37,11 +37,13 @@ in which the BMI is implemented.
    Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
    ========  =============  ==============  ======================
 
-If you haven't written a BMI before,
-one place to start is our :ref:`getting started <getting_started>` guide.
-Afterward,
-check out the collected wisdom of our :ref:`best practices
-<best_practices>` document for helpful tips on implementing a BMI.
+Along with the examples,
+two documents may be particularly helpful when writing a BMI:
+
+* :ref:`Getting Started Guide <getting_started>` --- a place to start
+  if you haven't written a BMI before
+* :ref:`BMI Best Practices <best_practices>` --- our collected wisdom on
+  implementing a BMI
 
 A complete description of the functions that make up the BMI is given next.
 
