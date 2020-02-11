@@ -19,6 +19,7 @@ Contributors
 * Scott Peckham
 * Mark Piper
 * Mike Taves
+* Greg Tucker
 
 If you have contributed to the BMI package and your name is missing,
 please send an email to the coordinators, or open a pull request

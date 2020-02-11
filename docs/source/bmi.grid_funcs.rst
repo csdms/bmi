@@ -20,7 +20,7 @@ on which a constant thermal diffusivity is defined.
 
 Not all grid functions are used by each type of grid.
 However, all BMI grid functions must be implemented.
-(See :ref:`model_grids` and :ref:`implementation`.)
+(See :ref:`model_grids` and :ref:`best_practices`.)
 
 
 .. _get_grid_type:

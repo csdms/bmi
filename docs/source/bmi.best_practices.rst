@@ -1,4 +1,4 @@
-.. _implementation:
+.. _best_practices:
 
 BMI best practices
 ==================

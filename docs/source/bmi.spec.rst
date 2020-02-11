@@ -22,6 +22,8 @@ The specification for each language is given in Table 1,
 along with a corresponding example
 in which the BMI is implemented.
 
+.. _specs_and_examples:
+
 .. table:: **Table 1:** BMI language specifications.
    :align: center
    :widths: 20, 25, 25, 30
@@ -34,6 +36,14 @@ in which the BMI is implemented.
    Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_ 
    Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
    ========  =============  ==============  ======================
+
+Along with the examples,
+two documents may be particularly helpful when writing a BMI:
+
+* :ref:`Getting Started Guide <getting_started>` --- a place to start
+  if you haven't written a BMI before
+* :ref:`BMI Best Practices <best_practices>` --- our collected wisdom on
+  implementing a BMI
 
 A complete description of the functions that make up the BMI is given next.
 
@@ -56,11 +66,8 @@ can be grouped into categories:
 Table 2 lists the individual BMI functions
 along with a brief description.
 Following the table is a detailed description of each function,
-including the function prototype in SIDL,
+including the function prototype in :term:`SIDL`,
 grouped by functional category.
-
-Be sure to check out the collected wisdom of our :ref:`best practices
-document <implementation>` for tips on implementing a BMI.
 
 .. table:: **Table 2:** Summary of BMI functions.
    :align: center

@@ -15,7 +15,8 @@ Additional Topics
 .. toctree::
    :maxdepth: 2
 
-   bmi.implementation
+   bmi.getting_started
+   bmi.best_practices
    model_grids
    csdms
    glossary
