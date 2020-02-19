@@ -134,6 +134,9 @@ Structured quadrilateral grids use the following BMI functions:
 Unstructured grids
 ------------------
 
+.. image:: images/mesh_unstructured.png
+   :scale: 25 %
+
 This category includes the *unstructured* type,
 as well as the special cases
 *scalar*, *points*, and *vector*.
@@ -166,6 +169,79 @@ Unstructured grids use the following BMI functions:
 * :ref:`get_grid_face_edges`
 * :ref:`get_grid_face_nodes`
 * :ref:`get_grid_nodes_per_face`
+
+For a demonstration of how these BMI functions work,
+let's use the unstructured grid in the annotated figure above.
+
+The grid is two-dimensional,
+so the :ref:`get_grid_rank` function returns 2.
+
+The :term:`nodes <node>` of the grid, labeled in the figure in red,
+are given by coordinates
+
+.. code-block:: python
+
+   x = [0, 1, 2, 1, 3, 4]
+   y = [3, 1, 2, 4, 0, 3]
+
+These will be the outputs of the :ref:`get_grid_x` and 
+:ref:`get_grid_y` functions, respectively.
+The nodes are indexed, so 
+node 0 is at *(x, y) = (0, 3)*,
+node 1 is at *(x, y) = (1, 1)*, etc.
+
+As with the grid nodes,
+the grid :term:`edges <edge>` and :term:`faces <face>` are indexed.
+In the figure,
+the edges are depicted in blue italics,
+while the faces are boldfaced. 
+The outputs from :ref:`get_grid_node_count`, :ref:`get_grid_edge_count`,
+and :ref:`get_grid_face_count` are:
+
+.. code-block:: python
+
+   node_count = 6
+   edge_count = 8
+   face_count = 3
+
+Note that the number of nodes is the length of the *x* and *y* vectors above.
+
+The :ref:`get_grid_nodes_per_face` function returns a vector
+of length `face_count`.
+The first two faces are quadrilaterals,
+while the third is a triangle, so
+
+.. code-block:: python
+
+   nodes_per_face = [4, 4, 3]
+
+The :ref:`get_grid_edge_nodes` function returns a vector
+of length `2*edge_count`.
+The vector is formed, pairwise,
+by the node index at the tail of the edge,
+followed by the node index at the head of the edge.
+For the grid in the figure, this is
+
+.. code-block:: python
+
+   edge_nodes = [0, 1, 1, 2, 2, 3, 3, 0, 1, 4, 4, 5, 5, 2, 5, 3]
+
+The :ref:`get_grid_face_edges` function returns a vector
+of length `sum(nodes_per_face)`.
+The vector is formed from the edge indices as displayed in the figure:
+
+.. code-block:: python
+
+   face_edges = [0, 1, 2, 3, 4, 5, 6, 1, 6, 7, 2]
+
+Likewise, the :ref:`get_grid_face_nodes` function returns a vector
+of length `sum(nodes_per_face)`.
+The vector is formed from the node indices as displayed in the figure:
+
+.. code-block:: python
+
+   face_nodes = [0, 1, 2, 3, 1, 4, 5, 2, 2, 5, 3]
+
 
 
 .. Links
