@@ -9,6 +9,7 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 
 
+# Pairs of grid points; the output from get_grid_x and get_grid_y
 x = [0, 1, 2, 1, 3, 4]
 y = [3, 1, 2, 4, 0, 3]
 
@@ -32,7 +33,7 @@ path_data = [
     (Path.CLOSEPOLY, (x[2], y[2])),
 ]
 codes, verts = zip(*path_data)
-path = mpath.Path(verts, codes)
+path = Path(verts, codes)
 patch = mpatches.PathPatch(path, facecolor='gray', alpha=0.25)
 ax.add_patch(patch)
 
@@ -40,24 +41,24 @@ ax.add_patch(patch)
 vx, vy = zip(*path.vertices)
 line, = ax.plot(vx, vy, 'go-')
 
-# Nodes
-offset = 0.25
 plt.text(4.1, 1.75, 'nodes', color='r', fontsize=12, va='center')
 plt.text(4.1, 1.5, 'edges', color='g', fontsize=12, va='center')
 plt.text(4.1, 1.25, 'faces', color='b', fontsize=12, va='center')
+
+# Nodes
 for i in range(len(x)-2):
-    plt.text(x[i]-offset, y[i], str(i), color='r', fontsize=12)
+    plt.text(x[i]-0.2, y[i], str(i), color='r', fontsize=12)
 plt.text(x[4]+0.1, y[4], '4', color='r', fontsize=12)
 plt.text(x[5], y[5]+0.1, '5', color='r', fontsize=12)
 
 # Edges
 plt.text(0.5*(x[0]+x[1])+0.05, 0.5*(y[0]+y[1]), '0', color='g', fontsize=12)
-plt.text(0.5*(x[1]+x[2])-0.2, 0.5*(y[1]+y[2]), '1', color='g', fontsize=12)
+plt.text(0.5*(x[1]+x[2])-0.15, 0.5*(y[1]+y[2]), '1', color='g', fontsize=12)
 plt.text(0.5*(x[2]+x[3])+0.05, 0.5*(y[2]+y[3]), '2', color='g', fontsize=12)
-plt.text(0.5*(x[3]+x[0]), 0.5*(y[3]+y[0])-0.2, '3', color='g', fontsize=12)
+plt.text(0.5*(x[3]+x[0]), 0.5*(y[3]+y[0])-0.15, '3', color='g', fontsize=12)
 plt.text(0.5*(x[1]+x[4]), 0.5*(y[1]+y[4])+0.05, '4', color='g', fontsize=12)
-plt.text(0.5*(x[4]+x[5])-0.2, 0.5*(y[4]+y[5]), '5', color='g', fontsize=12)
-plt.text(0.5*(x[5]+x[2]), 0.5*(y[5]+y[2])-0.2, '6', color='g', fontsize=12)
+plt.text(0.5*(x[4]+x[5])-0.15, 0.5*(y[4]+y[5]), '5', color='g', fontsize=12)
+plt.text(0.5*(x[5]+x[2]), 0.5*(y[5]+y[2])-0.15, '6', color='g', fontsize=12)
 plt.text(0.5*(x[5]+x[3]), 0.5*(y[5]+y[3])+0.05, '7', color='g', fontsize=12)
 
 # Faces
