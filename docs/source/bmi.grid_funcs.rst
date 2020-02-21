@@ -396,6 +396,9 @@ node at edge head. The total length of the array is
 
 Get the face-edge connectivity.
 
+The length of the array returned is the sum of the values of
+:ref:`get_grid_nodes_per_face`.
+
 **Implementation notes**
 
 * This function is used for describing :ref:`unstructured
@@ -422,6 +425,9 @@ For each face, the nodes (listed in a counter-clockwise direction)
 that form the boundary of the face.
 For a grid of quadrilaterals, 
 the total length of the array is 4 * :ref:`get_grid_face_count`.
+More generally,
+the length of the array is the sum of the values of
+:ref:`get_grid_nodes_per_face`.
 
 **Implementation notes**
 
@@ -445,6 +451,7 @@ the total length of the array is 4 * :ref:`get_grid_face_count`.
 
 Get the number of nodes for each face.
 
+The returned array has a length of :ref:`get_grid_face_count`.
 The number of edges per face is equal to the number of nodes per face.
 
 **Implementation notes**
