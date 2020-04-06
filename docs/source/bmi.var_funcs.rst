@@ -52,8 +52,10 @@ A model can have one or more grids.
 
 The `get_var_type` function provides the data type of the
 variable as it's stored in memory by the model.
-The data type is returned as a string following the :term:`numpy` convention
-used by the `dtype`_ attribute; e.g., `int32`, `float`, etc.
+The data type is returned as a string.
+Use of native language type names is encouraged;
+e.g., in C, use `int`, `float`, and `double`,
+while in Fortran, use `integer`, `real`, and `double precision`.
 
 **Implementation notes**
 
