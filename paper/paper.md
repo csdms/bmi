@@ -1,5 +1,5 @@
 ---
-title: "The Basic Model Interface 2.0"
+title: "The Basic Model Interface 2.0: A standard interface for coupling numerical models and data in the geosciences"
 tags:
   - C
   - C++
