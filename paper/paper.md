@@ -1,5 +1,5 @@
 ---
-title: "The Basic Model Interface 2.0: A standard interface for coupling numerical models and data in the geosciences"
+title: "The Basic Model Interface 2.0: A standard interface for coupling numerical models in the geosciences"
 tags:
   - C
   - C++
@@ -38,7 +38,7 @@ For example,
 show that a river model transporting sediment
 can feed a delta model, which distributes the sediment,
 while `@hoch:2019` show that coupling hydrologic and hydrodynamic models
-may sharpen inundation estimate in flood modeling.
+may sharpen inundation estimates in flood modeling.
 
 In software engineering,
 an interface is a named set of functions
@@ -73,7 +73,7 @@ and an example implementation are listed in Table 1 below.
 
 **Table 1:**
 Repositories containing BMI language specifications and examples.
-Prefix the CSDMS GitHub organization (https://github.com/csdms) to the
+Prefix the CSDMS GitHub organization (https://github.com/csdms/) to the
 repository name to obtain the full repository URL.
 
 | Language | Specification | Example implementation |
@@ -98,7 +98,8 @@ are given within each repository.
 While CSDMS currently supports the four languages listed in Table 1,
 a BMI can be created for any language.
 BMI is a community-driven standard;
-contributions that follow the contributor code of conduct are welcomed,
+contributions that follow the contributor code of conduct
+listed in the main BMI repository are welcomed,
 and are acknowledged in the repository and the documentation.
 
 # Acknowledgements
