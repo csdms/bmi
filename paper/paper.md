@@ -36,8 +36,9 @@ is a research technique gaining adoption in Earth-surface process research.
 For example,
 `@ratliff:2018`
 show that a river model transporting sediment
-can feed a delta model,
-which distributes the sediment.
+can feed a delta model, which distributes the sediment,
+while `@hoch:2019` show that coupling hydrologic and hydrodynamic models
+may sharpen inundation estimate in flood modeling.
 
 In software engineering,
 an interface is a named set of functions
