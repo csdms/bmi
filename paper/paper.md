@@ -5,23 +5,26 @@ tags:
   - C++
   - Fortran
   - Python
+  - geosciences
   - modeling
   - interface
 authors:
-  - name: Eric Hutton
+  - name: Eric W.H. Hutton
     orcid: 0000-0002-5864-6459
     affiliation: 1
-  - name: Mark Piper
+  - name: Mark D. Piper
     orcid: 0000-0001-6418-277X
     affiliation: 1
-  - name: Greg Tucker
+  - name: Gregory E. Tucker
     orcid: 0000-0003-0364-5800
-    affiliation: 1, 2
+    affiliation: 1, 2, 3
 affiliations:
   - name: Community Surface Dynamics Modeling System, University of Colorado Boulder
     index: 1
-  - name: Cooperative Institute for Research in Environmental Sciences, University of Colorado Boulder
+  - name: Cooperative Institute for Research in Environmental Sciences (CIRES), University of Colorado Boulder
     index: 2
+  - name: Department of Geological Sciences, University of Colorado Boulder
+    index: 3
 date: 10 January 2020
 bibliography: paper.bib
 
