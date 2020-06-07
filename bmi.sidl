@@ -62,9 +62,9 @@ package csdms version 2.0 {
     int get_grid_node_count(in int grid, out int count);
     int get_grid_edge_count(in int grid, out int count);
     int get_grid_face_count(in int grid, out int count);
-    int get_grid_edge_nodes(in int grid, out array<int, 1> edge_nodes);
-    int get_grid_face_edges(in int grid, out array<int, 1> face_edges);
-    int get_grid_face_nodes(in int grid, out array<int, 1> face_nodes);
-    int get_grid_nodes_per_face(in int grid, out array<int, 1> nodes_per_face);
+    int get_grid_edge_nodes(in int grid, in array<int, 1> edge_nodes);
+    int get_grid_face_edges(in int grid, in array<int, 1> face_edges);
+    int get_grid_face_nodes(in int grid, in array<int, 1> face_nodes);
+    int get_grid_nodes_per_face(in int grid, in array<int, 1> nodes_per_face);
   }
 }

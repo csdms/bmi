@@ -1,4 +1,4 @@
-.. _implementation:
+.. _best_practices:
 
 BMI best practices
 ==================
@@ -25,6 +25,18 @@ here are some tips to help when writing a BMI for a model.
   the BMI specifies are the names of the functions, their arguments,
   and their return values.
 
+* :term:`Standard Names` are not required for naming a model's
+  :term:`exchange items <exchange item>`. However, the use of
+  standardized names makes it easier for a framework (or a human) to
+  match input and output variables between models.
+
+* Don't change the variable names you currently use within your model
+  to :term:`Standard Names`. Standard Names are too long and
+  cumbersome to be used within a model code. Instead, you find a
+  `matching`_ Standard Name for each variable in your model and then
+  write your BMI functions to accept the Standard Names and map them
+  to your model's internal names.
+
 * Constructs and features that are natural for the language should be
   used when implementing a BMI. BMI strives to be developer-friendly.
 
@@ -33,6 +45,11 @@ here are some tips to help when writing a BMI for a model.
   coupling models written in different languages. It's the developer's
   responsibility to ensure that array information is
   flattened/redimensionalized in the correct order.
+
+* Recall that models can have mulitple grids. This can be particularly
+  useful for defining :term:`exchange items <exchange item>` that
+  don't vary over the model domain; e.g., a diffusivity -- just define
+  the variable on a separate :ref:`scalar grid <unstructured_grids>`.
 
 * Avoid using global variables, if possible. This isn't strictly a BMI
   requirement, but if a model only uses local variables, its BMI will
@@ -73,3 +90,4 @@ here are some tips to help when writing a BMI for a model.
 .. _C++: https://github.com/csdms/bmi-example-cxx
 .. _Fortran: https://github.com/csdms/bmi-example-fortran
 .. _Python: https://github.com/csdms/bmi-example-python
+.. _matching: https://github.com/csdms/standard_names_registry

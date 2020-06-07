@@ -1,19 +1,34 @@
-The *Basic Model Interface* (BMI) is a library specification
-created by the `Community Surface Dynamics Modeling System`_ (CSDMS)
-to facilitate the conversion of a model or dataset
-into a reusable, plug-and-play component.
-Recall that, in this context, an interface is a named set of functions
-with prescribed arguments and return values.
-The BMI functions make a model self-describing and fully controllable
-by a modeling framework or application.
-By design, the BMI functions are straightforward to implement in
-any language, using only simple data types from standard language libraries.
-Also by design, the BMI functions are noninvasive.
-This means that a model's BMI does not make calls to other
-components or tools and is not modified to use any
-framework-specific data structures. A BMI, therefore, introduces no
-dependencies into a model, so the model can still be used
-in a stand-alone manner.
+When you climb in the driver's seat of an unfamiliar car,
+you are nonetheless presented with a familiar sight.
+Whatever the make or model may be,
+we take it for granted that the vehicle will provide
+a steering wheel, brake pedal, and speedometer,
+alongside the various other controls and readouts
+that are common to essentially all cars and trucks on the planet.
+Although we don't usually think of it this way,
+drivers across the globe benefit from a standard interface:
+a set of control mechanisms and information displays
+that have essentially the same design regardless of whether the vehicle
+is a tiny electric two-seater or a giant stretch limousine.
+This standard interface makes the job of operating a vehicle much easier
+than it would be if each one presented a radically different interface.
+Imagine a world where switching from a sports car to a pickup truck
+required months of study and practice!
+Similarly, railroads benefit from a standard for coupling rail cars together.
+The result: trains can be assembled from combinations of all sorts
+of different rail cars, built by different companies,
+in different places, and with different purposes.
+
+We believe that numerical models,
+and the sub-components that make up those models,
+should offer a similar kind of standardization.
+To this end,
+the `Community Surface Dynamics Modeling System`_ (CSDMS)
+has developed the *Basic Model Interface* (BMI):
+a set of standard control and query functions that,
+when added to a model code,
+make that model both easier to learn
+and easier to couple with other software elements.
 
 While a BMI can be written for any language,
 CSDMS currently supports four languages:
@@ -21,6 +36,8 @@ C, C++, Fortran, and Python.
 The specification for each language is given in Table 1,
 along with a corresponding example
 in which the BMI is implemented.
+
+.. _specs_and_examples:
 
 .. table:: **Table 1:** BMI language specifications.
    :align: center
@@ -34,6 +51,14 @@ in which the BMI is implemented.
    Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_ 
    Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
    ========  =============  ==============  ======================
+
+Along with the examples,
+two documents may be particularly helpful when writing a BMI:
+
+* :ref:`Getting Started Guide <getting_started>` --- a place to start
+  if you haven't written a BMI before
+* :ref:`BMI Best Practices <best_practices>` --- our collected wisdom on
+  implementing a BMI
 
 A complete description of the functions that make up the BMI is given next.
 
@@ -56,7 +81,7 @@ can be grouped into categories:
 Table 2 lists the individual BMI functions
 along with a brief description.
 Following the table is a detailed description of each function,
-including the function prototype in SIDL,
+including the function prototype in :term:`SIDL`,
 grouped by functional category.
 
 .. table:: **Table 2:** Summary of BMI functions.

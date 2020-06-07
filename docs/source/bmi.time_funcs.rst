@@ -61,8 +61,9 @@ The end time of the  model.
 
 **Implementation notes**
 
-* If the model doesn't define an end time, a large number (e.g.,
-  1.0e6) is typically chosen.
+* If the model doesn't define an end time, a large number (e.g., the
+  largest floating point number supported on a platform) is typically
+  chosen.
 * In C++ and Python, the argument is omitted and the time is returned
   from the function.
 
@@ -87,7 +88,8 @@ It's recommended to use `time unit conventions`_ from Unidata's
 **Implementation notes**
 
 * Avoid using `years` as a unit, if possible, since a year is
-  difficult to define precisely.
+  difficult to define precisely. UDUNITS defines a year as 365.2422
+  days or 31556926 seconds.
 * In C++ and Python, the argument is omitted and the units are returned
   from the function.
 

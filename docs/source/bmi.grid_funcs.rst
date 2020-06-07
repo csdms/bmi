@@ -20,7 +20,7 @@ on which a constant thermal diffusivity is defined.
 
 Not all grid functions are used by each type of grid.
 However, all BMI grid functions must be implemented.
-(See :ref:`model_grids` and :ref:`implementation`.)
+(See :ref:`model_grids` and :ref:`best_practices`.)
 
 
 .. _get_grid_type:
@@ -49,7 +49,6 @@ is given in the :ref:`model_grids` section.
 
 **Implementation notes**
 
-* This function is needed for every :ref:`grid type <model_grids>`.
 * In C++ and Python, the *type* argument is omitted and the grid
   type name is returned from the function.
 
@@ -66,7 +65,8 @@ is given in the :ref:`model_grids` section.
    /* SIDL */
    int get_grid_rank(in int grid, out int rank);
 
-Given a :term:`grid identifier`, get the :term:`rank` of that grid as an integer.
+Given a :term:`grid identifier`, get the :term:`rank` (the number of
+dimensions) of that grid as an integer.
 
 A grid's rank determines the length of the return value
 of many of the following grid functions.
@@ -366,12 +366,13 @@ Get the number of :term:`faces <face>` in the grid.
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_edge_nodes(in int grid, out array<int, 1> edge_nodes);
+   int get_grid_edge_nodes(in int grid, in array<int, 1> edge_nodes);
 
 Get the edge-node connectivity.
 
 For each edge, connectivity is given as node at edge tail, followed by
-node at edge head.
+node at edge head. The total length of the array is 
+2 * :ref:`get_grid_edge_count`.
 
 **Implementation notes**
 
@@ -391,9 +392,12 @@ node at edge head.
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_face_edges(in int grid, out array<int, 1> face_edges);
+   int get_grid_face_edges(in int grid, in array<int, 1> face_edges);
 
 Get the face-edge connectivity.
+
+The length of the array returned is the sum of the values of
+:ref:`get_grid_nodes_per_face`.
 
 **Implementation notes**
 
@@ -413,12 +417,17 @@ Get the face-edge connectivity.
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_face_nodes(in int grid, out array<int, 1> face_nodes);
+   int get_grid_face_nodes(in int grid, in array<int, 1> face_nodes);
 
 Get the face-node connectivity.
 
 For each face, the nodes (listed in a counter-clockwise direction)
 that form the boundary of the face.
+For a grid of quadrilaterals, 
+the total length of the array is 4 * :ref:`get_grid_face_count`.
+More generally,
+the length of the array is the sum of the values of
+:ref:`get_grid_nodes_per_face`.
 
 **Implementation notes**
 
@@ -438,9 +447,12 @@ that form the boundary of the face.
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_nodes_per_face(in int grid, out array<int, 1> nodes_per_face);
+   int get_grid_nodes_per_face(in int grid, in array<int, 1> nodes_per_face);
 
 Get the number of nodes for each face.
+
+The returned array has a length of :ref:`get_grid_face_count`.
+The number of edges per face is equal to the number of nodes per face.
 
 **Implementation notes**
 
