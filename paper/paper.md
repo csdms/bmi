@@ -37,10 +37,10 @@ in which a new model is created by coupling the inputs and outputs
 of existing numerical models,
 is a research technique gaining adoption in Earth-surface process research.
 For example,
-`@ratliff:2018`
+@ratliff:2018
 show that a river model transporting sediment
 can feed a delta model, which distributes the sediment,
-while `@hoch:2019` show that coupling hydrologic and hydrodynamic models
+while @hoch:2019 show that coupling hydrologic and hydrodynamic models
 may sharpen inundation estimates in flood modeling.
 
 In software engineering,
@@ -51,7 +51,7 @@ provides a standard set of functions
 for querying, modifying, and running a model or tool.
 Equipping a model with a BMI
 allows the model to be coupled with other models that expose a BMI.
-The BMI concept was introduced by `@peckham:2013`
+The BMI concept was introduced by @peckham:2013
 as a foundational technology for the proposed
 [Community Surface Dynamics Modeling System](https://csdms.colorado.edu)
 (CSDMS)
@@ -67,7 +67,7 @@ to be straightforward to implement in any programming language,
 using only simple data types from standard language libraries.
 To generalize across languages,
 the BMI is expressed in the Scientific Interface Definition Language
-`[@epperly:2012]`.
+[@epperly:2012].
 BMI specifications for four languages---C, C++, Fortran, and Python---have
 been derived from the SIDL specification.
 For each language,
