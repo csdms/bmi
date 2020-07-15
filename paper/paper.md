@@ -98,9 +98,9 @@ Detailed instructions for building the language specification and example
 are given within each repository.
 
 **Table 1:**
-*Repositories containing BMI language specifications and examples.
+Repositories containing BMI language specifications and examples.
 Prefix the CSDMS GitHub organization (https://github.com/csdms/) to the
-repository name to obtain the full repository URL.*
+repository name to obtain the full repository URL.
 
 | Language | Specification | Example implementation |
 | -------- | ------------- | ---------------------- |
