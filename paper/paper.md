@@ -94,11 +94,13 @@ been derived from the SIDL specification.
 For each language,
 links to the GitHub repositories supplying the specification
 and an example implementation are listed in Table 1 below.
+Detailed instructions for building the language specification and example
+are given within each repository.
 
 **Table 1:**
-Repositories containing BMI language specifications and examples.
+*Repositories containing BMI language specifications and examples.
 Prefix the CSDMS GitHub organization (https://github.com/csdms/) to the
-repository name to obtain the full repository URL.
+repository name to obtain the full repository URL.*
 
 | Language | Specification | Example implementation |
 | -------- | ------------- | ---------------------- |
@@ -115,9 +117,6 @@ repository name to obtain the full repository URL.
 [bmi-example-cxx]: https://github.com/csdms/bmi-example-cxx
 [bmi-example-fortran]: https://github.com/csdms/bmi-example-fortran
 [bmi-example-python]: https://github.com/csdms/bmi-example-python
-
-Detailed instructions for building the language specification and example
-are given within each repository.
 
 While CSDMS currently supports the four languages listed in Table 1,
 a BMI can be created for any language.
