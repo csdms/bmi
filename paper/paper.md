@@ -33,13 +33,13 @@ bibliography: paper.bib
 # Summary
 
 Component modeling is a research technique
-where a new model is constructed by coupling the inputs and outputs
+where new modela are constructed by coupling the inputs and outputs
 of existing models.
 Component modeling traces its roots
 to component-based software engineering,
 where a software system is constructed from a number
 of independent, reusable software components,
-each encapsulating a unit of functionality,
+each encapsulating a unit of functionality
 and exposing inputs and outputs through an interface.
 A tangible analogy is a bicycle.
 A bicycle is a system of reusable, replaceable components.
@@ -49,20 +49,20 @@ then swap it out again in the summer.
 
 While there is a longer history of component modeling
 in fields such as climate modeling,
-with the Earth System Modeling Framework [@collins:2005],
+with, for example, the Earth System Modeling Framework [@collins:2005],
 component modeling is relatively new
 to the earth surface processes community.
 Some recent examples include
 @ratliff:2018, who show that a river model transporting sediment
-can feed a delta model, which distributes the sediment,
-and @hoch:2019, who show that coupling hydrologic and hydrodynamic models
+can feed a delta model, which distributes the sediment;
+as well as @hoch:2019, who show that coupling hydrologic and hydrodynamic models
 may sharpen inundation estimates in flood modeling.
 
 In component-based software engineering,
 components communicate through interfaces,
 which are named sets of functions
 with prescribed arguments and return values.
-The bicycle analogy above benefits from an standard interface
+The bicycle analogy above benefits from a standard interface
 for tire diameter and width.
 Likewise,
 component modeling can benefit from an interface
