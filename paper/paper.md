@@ -33,8 +33,8 @@ bibliography: paper.bib
 # Summary
 
 Component modeling is a research technique
-where new modela are constructed by coupling the inputs and outputs
-of existing models.
+in which new models are constructed by coupling the inputs and outputs
+of simpler existing models. 
 Component modeling traces its roots
 to component-based software engineering,
 where a software system is constructed from a number
