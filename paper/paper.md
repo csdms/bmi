@@ -54,14 +54,13 @@ component modeling is relatively new
 to the earth surface processes community.
 Some recent examples include
 @ratliff:2018, who show that a river model transporting sediment
-can feed a delta model, which distributes the sediment;
-as well as @hoch:2019, who show that coupling hydrologic and hydrodynamic models
+can feed a delta model that distributes the sediment,
+and @hoch:2019, who show that coupling hydrologic and hydrodynamic models
 may sharpen inundation estimates in flood modeling.
 
 In component-based software engineering,
-components communicate through interfaces,
-which are named sets of functions
-with prescribed arguments and return values.
+components communicate through interfaces:
+named sets of functions with prescribed arguments and return values.
 The bicycle analogy above benefits from a standard interface
 for tire diameter and width.
 Likewise,
