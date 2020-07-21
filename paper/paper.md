@@ -32,23 +32,43 @@ bibliography: paper.bib
 
 # Summary
 
-Component modeling,
-in which a new model is created by coupling the inputs and outputs
-of existing numerical models,
-is a research technique gaining adoption in Earth-surface process research.
-For example,
-@ratliff:2018
-show that a river model transporting sediment
-can feed a delta model, which distributes the sediment,
-while @hoch:2019 show that coupling hydrologic and hydrodynamic models
+Component modeling is a research technique
+in which new models are constructed by coupling the inputs and outputs
+of simpler existing models. 
+Component modeling traces its roots
+to component-based software engineering,
+where a software system is constructed from a number
+of independent, reusable software components,
+each encapsulating a unit of functionality
+and exposing inputs and outputs through an interface.
+A tangible analogy is a bicycle.
+A bicycle is a system of reusable, replaceable components.
+Tires are one of the components.
+You can easily swap in a studded tire for icy winter streets,
+then swap it out again in the summer.
+
+While there is a longer history of component modeling
+in fields such as climate modeling,
+with, for example, the Earth System Modeling Framework [@collins:2005],
+component modeling is relatively new
+to the earth surface processes community.
+Some recent examples include
+@ratliff:2018, who show that a river model transporting sediment
+can feed a delta model that distributes the sediment,
+and @hoch:2019, who show that coupling hydrologic and hydrodynamic models
 may sharpen inundation estimates in flood modeling.
 
-In software engineering,
-an interface is a named set of functions
-with prescribed arguments and return values.
+In component-based software engineering,
+components communicate through interfaces:
+named sets of functions with prescribed arguments and return values.
+The bicycle analogy above benefits from a standard interface
+for tire diameter and width.
+Likewise,
+component modeling can benefit from an interface
+for describing the inputs, outputs, and behaviors of a model.
 The *Basic Model Interface* (BMI)
 provides a standard set of functions
-for querying, modifying, and running a model or tool.
+for querying, modifying, and running a model.
 Equipping a model with a BMI
 allows the model to be coupled with other models that expose a BMI.
 The BMI concept was introduced by @peckham:2013
@@ -73,6 +93,10 @@ been derived from the SIDL specification.
 For each language,
 links to the GitHub repositories supplying the specification
 and an example implementation are listed in Table 1 below.
+Detailed instructions for building the language specification and example
+are given within each repository.
+
+\  
 
 **Table 1:**
 Repositories containing BMI language specifications and examples.
@@ -94,9 +118,6 @@ repository name to obtain the full repository URL.
 [bmi-example-cxx]: https://github.com/csdms/bmi-example-cxx
 [bmi-example-fortran]: https://github.com/csdms/bmi-example-fortran
 [bmi-example-python]: https://github.com/csdms/bmi-example-python
-
-Detailed instructions for building the language specification and example
-are given within each repository.
 
 While CSDMS currently supports the four languages listed in Table 1,
 a BMI can be created for any language.
