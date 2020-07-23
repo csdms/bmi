@@ -19,11 +19,11 @@ authors:
     orcid: 0000-0003-0364-5800
     affiliation: 1, 2, 3
 affiliations:
-  - name: Community Surface Dynamics Modeling System, University of Colorado Boulder
+  - name: Community Surface Dynamics Modeling System, University of Colorado Boulder, USA
     index: 1
-  - name: Cooperative Institute for Research in Environmental Sciences (CIRES), University of Colorado Boulder
+  - name: Cooperative Institute for Research in Environmental Sciences (CIRES), University of Colorado Boulder, USA
     index: 2
-  - name: Department of Geological Sciences, University of Colorado Boulder
+  - name: Department of Geological Sciences, University of Colorado Boulder, USA
     index: 3
 date: 10 January 2020
 bibliography: paper.bib
