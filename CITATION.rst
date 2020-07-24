@@ -10,16 +10,16 @@ Hutton, E.W.H., Piper, M.D., and Tucker, G.E., 2020. The Basic Model Interface 2
 
 BibTeX entries:
 
-.. code-block::
+::
 
   @article{peckham2013component,
-    title={A component-based approach to integrated modeling in the geosciences: The design of CSDMS},
-    author={Peckham, Scott D and Hutton, Eric WH and Norris, Boyana},
-    journal={Computers \& Geosciences},
-    volume={53},
-    pages={3--12},
-    year={2013},
-    publisher={Elsevier}
+   title={A component-based approach to integrated modeling in the geosciences: The design of CSDMS},
+   author={Peckham, Scott D and Hutton, Eric WH and Norris, Boyana},
+   journal={Computers \& Geosciences},
+   volume={53},
+   pages={3--12},
+   year={2013},
+   publisher={Elsevier}
   }
 
   @article{hutton2020basic,
