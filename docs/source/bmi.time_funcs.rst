@@ -83,13 +83,16 @@ The end time of the  model.
 Get the units of time as reported by the model's BMI (through
 :ref:`get_current_time`, :ref:`get_end_time`, etc.).
 It's recommended to use `time unit conventions`_ from Unidata's
-`UDUNITS`_ package; e.g., `s`, `min`, `h`, `d`.
+`UDUNITS`_ package; e.g., ``"s"``, ``"min"``, ``"h"``, ``"d"``.
 
 **Implementation notes**
 
-* Avoid using `years` as a unit, if possible, since a year is
+* Avoid using ``"years"`` as a unit, if possible, since a year is
   difficult to define precisely. UDUNITS defines a year as 365.2422
   days or 31556926 seconds.
+* Dimensionless quantities should use ``""`` or ``"1"`` as the unit.
+* Models that don't vary with time, or don't have time units should
+  use ``"none"``.
 * In C++ and Python, the argument is omitted and the units are returned
   from the function.
 
