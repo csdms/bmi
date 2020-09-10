@@ -76,13 +76,13 @@ while in Fortran, use `integer`, `real`, and `double precision`.
    int get_var_units(in string name, out string units);
 
 Get the units of the given variable.
-Standard unit names, in lower case, should be used, such as `meters`
-or `seconds`.
-Standard abbreviations, such as `m` for meters, are
+Standard unit names, in lower case, should be used,
+such as ``"meters"`` or ``"seconds"``.
+Standard abbreviations, such as ``"m"`` for meters, are
 also supported. For variables with compound units, each unit name
 is separated by a single space, with exponents other than 1 placed
-immediately after the name, as in `m s-1` for velocity, `W m-2` for
-an energy flux, or `km2` for an area.
+immediately after the name, as in ``"m s-1"`` for velocity,
+``"W m-2"`` for an energy flux, or ``"km2"`` for an area.
 The abbreviations used in the BMI are derived from
 Unidata's `UDUNITS`_ package.
 See, for example, `The Units Database`_ for a
@@ -90,6 +90,8 @@ full description of valid unit names and a list of supported units.
 
 **Implementation notes**
 
+* Dimensionless quantities should use ``""`` or ``"1"`` as the unit.
+* Variables without units should use ``"none"``.
 * In C++ and Python, the *units* argument is omitted and the variable
   units name is returned from the function.
 
