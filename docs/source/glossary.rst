@@ -64,6 +64,12 @@ A glossary of terms used with BMI.
 
       See :term:`Community Surface Dynamics Modeling System`.
 
+   CSDMS Workbench
+
+      An integrated system of software tools, technologies, and
+      standards for building and coupling models. See
+      https://csdms.colorado.edu/wiki/Workbench for more information.
+
    data
 
       Information held by an :term:`object`.
