@@ -97,6 +97,9 @@ that follow the `contributor code of conduct <./CODE-OF-CONDUCT.rst>`_
 are welcomed,
 and are `acknowledged <./AUTHORS.rst>`_.
 BMI is open source software released under the `MIT License <./LICENSE>`_.
+BMI is an element of the `CSDMS Workbench`_,
+an integrated system of software tools, technologies, and standards
+for building and coupling models.
 
 *The Community Surface Dynamics Modeling System
 is supported by the National Science Foundation.*
@@ -114,3 +117,4 @@ is supported by the National Science Foundation.*
 .. _bmi-example-cxx: https://github.com/csdms/bmi-example-cxx
 .. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
 .. _bmi-example-python: https://github.com/csdms/bmi-example-python
+.. _CSDMS Workbench: https://csdms.colorado.edu/wiki/Workbench

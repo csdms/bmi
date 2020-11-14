@@ -22,6 +22,10 @@ Additional Topics
    glossary
    references
 
+BMI is an element of the `CSDMS Workbench`_,
+an integrated system of software tools, technologies, and standards
+for building and coupling models.
+
 Help
 ====
 
@@ -46,4 +50,5 @@ Project Information
 
 .. Links:
 
+.. _CSDMS Workbench: https://csdms.colorado.edu/wiki/Workbench
 .. _CSDMS Help Desk: https://github.com/csdms/help-desk
