@@ -21,6 +21,11 @@ Basic Model Interface (BMI)
     **53**: 3-12, ISSN 0098-3004,
     http://dx.doi.org/10.1016/j.cageo.2012.04.002.
 
+  Hutton, Eric WH; Piper, Mark D; Tucker, Gregory E (2020): "The Basic
+    Model Interface 2.0: A standard interface for coupling numerical
+    models in the geosciences", *Journal of Open Source Software*,
+    **5(51)**, 2317, https://doi.org/10.21105/joss.02317.
+
 Scientific Interface Definition Language (SIDL)
 
   Dahlgren, Tamara; Ebner, Dietmar; Epperly, Thomas; Kumfert, Gary;
