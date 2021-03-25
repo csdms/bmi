@@ -170,14 +170,16 @@ html_sidebars = {
     "index": [
         "sidebarintro.html",
         "links.html",
-        "sourcelink.html",
         "searchbox.html",
+        "localtoc.html",
+        "sourcelink.html",
     ],
     "**": [
         "sidebarintro.html",
         "links.html",
-        "sourcelink.html",
         "searchbox.html",
+        "localtoc.html",
+        "sourcelink.html",
     ]
 }
 
