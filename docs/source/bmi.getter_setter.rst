@@ -44,6 +44,8 @@ even if the model uses dimensional variables.
 * Depending on how a model is written, a variable may not be
   accessible until after the call to :ref:`initialize`. Likewise, the
   variable may not be accessible after calling :ref:`finalize`.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
@@ -69,6 +71,8 @@ even if the model's state has changed.
 * In C++, the *dest_ptr* argument is omitted, and the reference is
   returned through the function.
 * In Python, a :term:`numpy` array is returned.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
@@ -126,6 +130,8 @@ even if the model uses dimensional variables.
 * Depending on how a model is written, a variable may not be
   accessible until after the call to :ref:`initialize`. Likewise, the
   variable may not be accessible after calling :ref:`finalize`.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 

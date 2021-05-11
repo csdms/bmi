@@ -36,6 +36,8 @@ A model can have one or more grids.
 * Grid identifiers start at 0.
 * In C++ and Python, the *grid* argument is omitted and the grid
   identifier is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or
+  failure (nonzero) is returned.
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 
@@ -61,6 +63,8 @@ while in Fortran, use `integer`, `real`, and `double precision`.
 
 * In C++ and Python, the *type* argument is omitted and the variable
   type name is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 
@@ -94,6 +98,8 @@ full description of valid unit names and a list of supported units.
 * Variables without units should use ``"none"``.
 * In C++ and Python, the *units* argument is omitted and the variable
   units name is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 
@@ -117,6 +123,8 @@ For example, if data for a variable are stored as 64-bit integers,
 
 * In C++ and Python, the *size* argument is omitted and the item size
   is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 
@@ -138,6 +146,8 @@ a variable; i.e., the number of items multiplied by the size of each item.
 
 * In C++ and Python, the *nbytes* argument is omitted and the total
   amount of memory used by the variable is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 
@@ -164,9 +174,10 @@ element the variable is defined. Valid return values are:
 
 * In C++ and Python, the *location* argument is omitted and the location
   is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 * If the given variable is a scalar (i.e., defined on a :ref:`scalar
-  grid <unstructured_grids>`), the return from this function is
-  ignored.
+  grid <unstructured_grids>`), the location from this function is ignored.
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 

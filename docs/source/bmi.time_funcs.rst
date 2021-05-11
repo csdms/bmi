@@ -22,6 +22,8 @@ The current model time.
 
 * In C++ and Python, the argument is omitted and the time is returned
   from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`time_funcs` | :ref:`basic_model_interface`]
 
@@ -43,6 +45,8 @@ The start time of the  model.
 * The start time in BMI is typically defined to be 0.0.
 * In C++ and Python, the argument is omitted and the time is returned
   from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`time_funcs` | :ref:`basic_model_interface`]
 
@@ -66,6 +70,8 @@ The end time of the  model.
   chosen.
 * In C++ and Python, the argument is omitted and the time is returned
   from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`time_funcs` | :ref:`basic_model_interface`]
 
@@ -95,6 +101,8 @@ It's recommended to use `time unit conventions`_ from Unidata's
   use ``"none"``.
 * In C++ and Python, the argument is omitted and the units are returned
   from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`time_funcs` | :ref:`basic_model_interface`]
 
@@ -119,5 +127,7 @@ The time step is always expressed as a floating point value.
   backward).
 * In C++ and Python, the argument is omitted and the time step is returned
   from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`time_funcs` | :ref:`basic_model_interface`]

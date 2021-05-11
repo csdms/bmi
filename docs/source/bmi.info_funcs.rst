@@ -24,8 +24,9 @@ but it should be unique to prevent conflicts with other components.
 
 **Implementation notes**
 
-* In C and Fortran, the *name* argument is a a character array.
-  In C++ and Python, this argument is omitted, and a string -- a basic type
+* In C and Fortran, the *name* argument is a a character array, and an integer
+  status code indicating success (zero) or failure (nonzero) is returned.
+* In C++ and Python, this argument is omitted, and a string -- a basic type
   in these languages -- is returned from the function.
 
 [:ref:`info_funcs` | :ref:`basic_model_interface`]
@@ -49,6 +50,8 @@ Also the number of variables that can be set with :ref:`set_value`.
 
 * In C++ and Python, the argument is omitted and the count is returned
   from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`info_funcs` | :ref:`basic_model_interface`]
 
@@ -69,8 +72,10 @@ Also the number of variables that can be retrieved with :ref:`get_value`.
 
 **Implementation notes**
 
-* In C++ and Python, the argument is omittedq and the count is
+* In C++ and Python, the argument is omitted and the count is
   returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`info_funcs` | :ref:`basic_model_interface`]
 
@@ -98,7 +103,8 @@ Standard Names do not have to be used within the model.
 **Implementation notes**
 
 * In C and Fortran, the names are passed back as an array of character
-  pointers (because the variable names could have differing lengths).
+  pointers (because the variable names could have differing lengths), and an
+  integer status code indicating success (zero) or failure (nonzero) is returned.
 * In C++, the argument is omitted and the names are returned from the
   function in a vector, a standard container in the language.
 * In Python, the argument is omitted and the names are returned from the
@@ -131,7 +137,8 @@ Standard Names do not have to be used within the model.
 **Implementation notes**
 
 * In C and Fortran, the names are passed back as an array of character
-  pointers (because the variable names could have differing lengths).
+  pointers (because the variable names could have differing lengths), and an
+  integer status code indicating success (zero) or failure (nonzero) is returned.
 * In C++, the argument is omitted and the names are returned from the
   function in a vector, a standard container in the language.
 * In Python, the argument is omitted and the names are returned from the
