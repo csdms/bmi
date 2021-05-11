@@ -39,7 +39,7 @@ formatted.
 * In C and Fortran, the *config_file* argument is passed as
   a character array, whereas in C++ and Python, it's passed as
   a string -- a basic type in these languages.
-* In C and Fortran, an integer status code indicating success or failure
+* In C and Fortran, an integer status code indicating success (zero) or failure (nonzero)
   is returned. In C++ and Python, an exception is raised on failure.
 
 [:ref:`control_funcs` | :ref:`basic_model_interface`]
@@ -68,7 +68,7 @@ function can just return without doing anything.
 
 **Implementation notes**
 
-* In C and Fortran, an integer status code indicating success or failure
+* In C and Fortran, an integer status code indicating success (zero) or failure (nonzero)
   is returned. In C++ and Python, an exception is raised on failure.
 
 [:ref:`control_funcs` | :ref:`basic_model_interface`]
@@ -96,7 +96,7 @@ to reflect that the model was updated to the requested time.
 **Implementation notes**
 
 * Time is always a double-precision value.
-* In C and Fortran, an integer status code indicating success or failure
+* In C and Fortran, an integer status code indicating success (zero) or failure (nonzero)
   is returned. In C++ and Python, an exception is raised on failure.
 
 [:ref:`control_funcs` | :ref:`basic_model_interface`]
@@ -119,7 +119,7 @@ deallocating memory, closing files and printing reports.
 
 **Implementation notes**
 
-* In C and Fortran, an integer status code indicating success or failure
+* In C and Fortran, an integer status code indicating success (zero) or failure (nonzero)
   is returned. In C++ and Python, an exception is raised on failure.
 
 [:ref:`control_funcs` | :ref:`basic_model_interface`]

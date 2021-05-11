@@ -80,6 +80,8 @@ here are some tips to help when writing a BMI for a model.
   they wrap a very simple model, they give useful insights into how a
   BMI can be implemented in each language.
 
+* Return codes (C and Fortran) and exceptions (C++ and Python) can help with
+  debugging a BMI, and can provide useful information to a user.
 
 .. Links:
 
