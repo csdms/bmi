@@ -31,8 +31,8 @@ make that model both easier to learn
 and easier to couple with other software elements.
 
 While a BMI can be written for any language,
-CSDMS currently supports four languages:
-C, C++, Fortran, and Python.
+CSDMS currently supports five languages:
+C, C++, Fortran, Java, and Python.
 The specification for each language is given in Table 1,
 along with a corresponding example
 in which the BMI is implemented.
@@ -49,6 +49,7 @@ in which the BMI is implemented.
    C         `bmi.h`_       `bmi-c`_        `bmi-example-c`_
    C++       `bmi.hxx`_     `bmi-cxx`_      `bmi-example-cxx`_
    Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_ 
+   Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_ 
    Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
    ========  =============  ==============  ======================
 
@@ -149,15 +150,20 @@ grouped by functional category.
 .. _bmi.h: https://github.com/csdms/bmi-c/blob/master/bmi.h
 .. _bmi.hxx: https://github.com/csdms/bmi-cxx/blob/master/bmi.hxx
 .. _bmi.f90: https://github.com/csdms/bmi-fortran/blob/master/bmi.f90
+.. _bmi.java: https://github.com/csdms/bmi-java/blob/master/src/main/java/edu/colorado/csdms/bmi/BMI.java
 .. _bmi.py: https://github.com/csdms/bmi-python/blob/master/bmipy/bmi.py
 .. _bmi-c: https://github.com/csdms/bmi-c
 .. _bmi-cxx: https://github.com/csdms/bmi-cxx
 .. _bmi-fortran: https://github.com/csdms/bmi-fortran
+.. _bmi-java: https://github.com/csdms/bmi-java
 .. _bmi-python: https://github.com/csdms/bmi-python
 .. _bmi-example-c: https://github.com/csdms/bmi-example-c
 .. _bmi-example-cxx: https://github.com/csdms/bmi-example-cxx
 .. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
+.. _bmi-example-java: https://github.com/csdms/bmi-example-java
 .. _bmi-example-python: https://github.com/csdms/bmi-example-python
 .. _UDUNITS: http://www.unidata.ucar.edu/software/udunits/
 .. _The Units Database: https://www.unidata.ucar.edu/software/udunits/udunits-current/doc/udunits/udunits2.html#Database
 .. _time unit conventions: https://www.unidata.ucar.edu/software/udunits/udunits-current/udunits/udunits2-accepted.xml
+.. _primitive types: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
+.. _wrapper classes: https://docs.oracle.com/javase/tutorial/java/data/numberclasses.html
