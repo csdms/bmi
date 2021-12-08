@@ -30,10 +30,10 @@ here are some tips to help when writing a BMI for a model.
   standardized names makes it easier for a framework (or a human) to
   match input and output variables between models.
 
-* Don't change the variable names you currently use within your model
-  to :term:`Standard Names`. Standard Names are too long and
-  cumbersome to be used within a model code. Instead, you find a
-  `matching`_ Standard Name for each variable in your model and then
+* Don't change the variable names for exchange items 
+  you currently use within your model
+  to :term:`Standard Names`. Instead, find a
+  `matching`_ Standard Name for each of these variable and then
   write your BMI functions to accept the Standard Names and map them
   to your model's internal names.
 
@@ -76,11 +76,11 @@ here are some tips to help when writing a BMI for a model.
   typically the responsibility of the model. This helps keep the BMI
   middleware layer thin.
 
-* Be sure to check out the examples: `C`_, `C++`_, `Fortran`_, `Python`_. Although
-  they wrap a very simple model, they give useful insights into how a
+* Be sure to check out the examples: `C`_, `C++`_, `Fortran`_, `Java`_, `Python`_.
+  Although they wrap a very simple model, they give useful insights into how a
   BMI can be implemented in each language.
 
-* Return codes (C and Fortran) and exceptions (C++ and Python) can help with
+* Return codes (C and Fortran) and exceptions (C++, Java, and Python) can help with
   debugging a BMI, and can provide useful information to a user.
 
 .. Links:
@@ -91,5 +91,6 @@ here are some tips to help when writing a BMI for a model.
 .. _C: https://github.com/csdms/bmi-example-c
 .. _C++: https://github.com/csdms/bmi-example-cxx
 .. _Fortran: https://github.com/csdms/bmi-example-fortran
+.. _Java: https://github.com/csdms/bmi-example-java
 .. _Python: https://github.com/csdms/bmi-example-python
 .. _matching: https://github.com/csdms/standard_names_registry
