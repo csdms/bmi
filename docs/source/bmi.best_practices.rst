@@ -33,7 +33,7 @@ here are some tips to help when writing a BMI for a model.
 * Don't change the variable names for exchange items 
   you currently use within your model
   to :term:`Standard Names`. Instead, find a
-  `matching`_ Standard Name for each of these variable and then
+  `matching`_ Standard Name for each variable and then
   write your BMI functions to accept the Standard Names and map them
   to your model's internal names.
 
