@@ -34,7 +34,7 @@ A model can have one or more grids.
 **Implementation notes**
 
 * Grid identifiers start at 0.
-* In C++ and Python, the *grid* argument is omitted and the grid
+* In C++, Java, and Python, the *grid* argument is omitted and the grid
   identifier is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or
   failure (nonzero) is returned.
@@ -61,10 +61,12 @@ while in Fortran, use `integer`, `real`, and `double precision`.
 
 **Implementation notes**
 
-* In C++ and Python, the *type* argument is omitted and the variable
-  type name is returned from the function.
+* In C++, Java, and Python, the *type* argument is omitted and the variable
+  type name is returned from the function as a string.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* In Java, only `primitive types`_ (e.g., ``int``, ``double``), not
+  `wrapper classes`_ (e.g., ``Integer``, ``Double``), are supported.
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 
@@ -96,8 +98,8 @@ full description of valid unit names and a list of supported units.
 
 * Dimensionless quantities should use ``""`` or ``"1"`` as the unit.
 * Variables without units should use ``"none"``.
-* In C++ and Python, the *units* argument is omitted and the variable
-  units name is returned from the function.
+* In C++, Java, and Python, the *units* argument is omitted and the variable
+  units name is returned from the function as a string.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -121,7 +123,7 @@ For example, if data for a variable are stored as 64-bit integers,
 
 **Implementation notes**
 
-* In C++ and Python, the *size* argument is omitted and the item size
+* In C++, Java, and Python, the *size* argument is omitted and the item size
   is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -144,7 +146,7 @@ a variable; i.e., the number of items multiplied by the size of each item.
 
 **Implementation notes**
 
-* In C++ and Python, the *nbytes* argument is omitted and the total
+* In C++, Java, and Python, the *nbytes* argument is omitted and the total
   amount of memory used by the variable is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -172,7 +174,7 @@ element the variable is defined. Valid return values are:
 
 **Implementation notes**
 
-* In C++ and Python, the *location* argument is omitted and the location
+* In C++, Java, and Python, the *location* argument is omitted and the location
   is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.

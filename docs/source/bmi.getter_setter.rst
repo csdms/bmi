@@ -7,12 +7,12 @@ These functions are used to access and modify the variables
 that a model exposes through its BMI
 (see :ref:`get_input_var_names` and :ref:`get_output_var_names`).
 
-A *getter* is a function called to get a variable from your model's *state*.
+A *getter* is a function called to get a variable from a model's *state*.
 A model's state variables typically change with each time step,
 so getters are called to get current values.
 
 A *setter* is a function called to change/overwrite a variable in
-your model's state. A setter may impose restrictions on how a
+a model's state. A setter may impose restrictions on how a
 state variable can be changed or check the new data for validity. 
 
 
@@ -40,7 +40,9 @@ even if the model uses dimensional variables.
   `get_value`. Whatever values it contains are overwritten in the call
   to `get_value`.
 * In Python, the array parameter is a :term:`numpy` array.
-* In C++, `get_value` is a void function.
+* In Java, only `primitive types`_ (e.g., ``int``, ``double``), not
+  `wrapper classes`_ (e.g., ``Integer``, ``Double``), are supported.
+* In C++ and Java, `get_value` is a void function.
 * Depending on how a model is written, a variable may not be
   accessible until after the call to :ref:`initialize`. Likewise, the
   variable may not be accessible after calling :ref:`finalize`.
@@ -68,8 +70,9 @@ even if the model's state has changed.
 **Implementation notes**
 
 * The reference points to a flattened array.
-* In C++, the *dest_ptr* argument is omitted, and the reference is
+* In C++ and Java, the *dest_ptr* argument is omitted, and the reference is
   returned through the function.
+* In Java, this function can only be used with one-dimensional arrays.
 * In Python, a :term:`numpy` array is returned.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -126,7 +129,9 @@ even if the model uses dimensional variables.
 **Implementation notes**
 
 * In Python, *src* is a :term:`numpy` array.
-* In C++, `set_value` is a void function.
+* In Java, only `primitive types`_ (e.g., ``int``, ``double``), not
+  `wrapper classes`_ (e.g., ``Integer``, ``Double``), are supported.
+* In C++ and Java, `set_value` is a void function.
 * Depending on how a model is written, a variable may not be
   accessible until after the call to :ref:`initialize`. Likewise, the
   variable may not be accessible after calling :ref:`finalize`.

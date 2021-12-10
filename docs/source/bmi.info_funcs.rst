@@ -26,7 +26,7 @@ but it should be unique to prevent conflicts with other components.
 
 * In C and Fortran, the *name* argument is a a character array, and an integer
   status code indicating success (zero) or failure (nonzero) is returned.
-* In C++ and Python, this argument is omitted, and a string -- a basic type
+* In C++, Java, and Python, this argument is omitted, and a string -- a basic type
   in these languages -- is returned from the function.
 
 [:ref:`info_funcs` | :ref:`basic_model_interface`]
@@ -48,7 +48,7 @@ Also the number of variables that can be set with :ref:`set_value`.
 
 **Implementation notes**
 
-* In C++ and Python, the argument is omitted and the count is returned
+* In C++, Java, and Python, the argument is omitted and the count is returned
   from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -72,7 +72,7 @@ Also the number of variables that can be retrieved with :ref:`get_value`.
 
 **Implementation notes**
 
-* In C++ and Python, the argument is omitted and the count is
+* In C++, Java, and Python, the argument is omitted and the count is
   returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -107,6 +107,8 @@ Standard Names do not have to be used within the model.
   integer status code indicating success (zero) or failure (nonzero) is returned.
 * In C++, the argument is omitted and the names are returned from the
   function in a vector, a standard container in the language.
+* In Java, the argument is omitted and the names are returned from the
+  function in a string array, a standard container in the language.
 * In Python, the argument is omitted and the names are returned from the
   function in a tuple, a standard container in the language.
 * A model might have no input variables.
@@ -141,6 +143,8 @@ Standard Names do not have to be used within the model.
   integer status code indicating success (zero) or failure (nonzero) is returned.
 * In C++, the argument is omitted and the names are returned from the
   function in a vector, a standard container in the language.
+* In Java, the argument is omitted and the names are returned from the
+  function in a string array, a standard container in the language.
 * In Python, the argument is omitted and the names are returned from the
   function in a tuple, a standard container in the language.
 * A model may have no output variables.
