@@ -80,6 +80,9 @@ are listed in the table below.
 
 Detailed instructions for building the specifications and examples
 are given at each link above.
+Alternatively, the specifications can be installed through conda
+(C, C++, Fortran, Python) or Maven (Java).
+See the links above for details.
 
 While CSDMS currently supports the languages listed above,
 a BMI can be written for any language.
