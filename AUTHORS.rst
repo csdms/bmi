@@ -15,6 +15,7 @@ Contributors
 * Michael Galloy
 * Julian Hofer
 * Eric Hutton
+* Allen Lee
 * Eric Morway
 * Boyana Norris
 * Scott Peckham
