@@ -36,18 +36,19 @@ package csdms version 2.1-beta {
     int get_value(in string name, in array<> dest);
     int get_value_ptr(in string name, out array<> dest_ptr);
     int get_value_at_indices(in string name, in array<> dest,
-        in array<int, 1> inds);
+      in array<int, 1> inds);
 
     // Setters
     int set_value(in string name, in array<> src);
     int set_value_at_indices(in string name, in array<int, 1> inds,
-        in array<> src);
+      in array<> src);
 
     // Grid information
     int get_grid_rank(in int grid, out int rank);
     int get_grid_size(in int grid, out int size);
     int get_grid_type(in int grid, out string type);
-    int get_grid_units(in int grid, in string name, out string units);
+    int get_grid_node_coordinate_units(in int grid, in string name,
+      out string units);
 
     // Uniform rectilinear
     int get_grid_shape(in int grid, in array<int, 1> shape);

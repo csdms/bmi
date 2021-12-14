@@ -117,6 +117,44 @@ for :ref:`unstructured <unstructured_grids>` and
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
+.. _get_grid_node_coordinate_units:
+
+*get_grid_node_coordinate_units*
+.................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_node_coordinate_units(in int grid, in string name, out string units);
+
+Given a :term:`grid identifier`
+and a node coordinate name---currently ``"x"``, ``"y"``, or ``"z"``---get
+the units of the node coordinate.
+
+Standard unit names in lower case,
+such as ``"meters"`` or ``"millibars"``,
+should be used.
+Standard abbreviations,
+such as ``"m"`` or ``"mb"``, are also supported.
+The abbreviations used in the BMI are derived from
+Unidata's `UDUNITS`_ package.
+See, for example, `The Units Database`_ for a
+full description of valid unit names and a list of supported units.
+
+**Implementation notes**
+
+* This function is used for describing all :ref:`grid types <model_grids>`.
+* Dimensionless quantities (such as sigma coordinates)
+  should use ``""`` or ``"1"`` as the unit.
+* Grids without units should use ``"none"``.
+* In C++, Java, and Python, the *units* argument is omitted and the grid
+  units name is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
 .. _get_grid_shape:
 
 *get_grid_shape*
@@ -214,44 +252,6 @@ the origin is given in the column dimension, followed by the row dimension,
   <uniform_rectilinear>` grids.
 * In Python, the *origin* argument is a :term:`numpy <NumPy>` array.
 * In C++ and Java, this is a void function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
-  (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
-
-.. _get_grid_units:
-
-*get_grid_units*
-.................
-
-.. code-block:: java
-
-   /* SIDL */
-   int get_grid_units(in int grid, in string name, out string units);
-
-Given a :term:`grid identifier`
-and a dimension name---currently ``"x"``, ``"y"``, or ``"z"``---get
-the units of the grid dimension.
-
-Standard unit names in lower case,
-such as ``"meters"`` or ``"millibars"``,
-should be used.
-Standard abbreviations,
-such as ``"m"`` or ``"mb"``, are also supported.
-The abbreviations used in the BMI are derived from
-Unidata's `UDUNITS`_ package.
-See, for example, `The Units Database`_ for a
-full description of valid unit names and a list of supported units.
-
-**Implementation notes**
-
-* This function is used for describing all :ref:`grid types <model_grids>`.
-* Dimensionless quantities (such as sigma coordinates)
-  should use ``""`` or ``"1"`` as the unit.
-* Grids without units should use ``"none"``.
-* In C++ and Python, the *units* argument is omitted and the grid
-  units name is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
