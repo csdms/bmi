@@ -1,17 +1,17 @@
 .. _pymt:
 
-The Python Modeling Toolkit (*pymt*)
-====================================
+BMI-based tools: *babelizer* and *pymt*
+=======================================
 
-Any model that provides the BMI functions can be converted
+A model that provides the BMI functions can be converted
 to a plug-and-play component 
 that runs in the CSDMS `Python Modeling Toolkit`_ (*pymt*).
 This conversion process can be done
-automatically with the CSDMS Babelizer tool, which generates
-a Python package from any of the CSDMS supported languages
-(currently C, C++, Fortran, and Python).
-Some additional metadata is also required,
-describes such things as:
+automatically with the CSDMS `Babelizer`_, which generates
+a Python package from models written in
+C, C++, Fortran, and Python.
+Some additional metadata is required,
+describing such things as:
 
 *  the model author(s), license, description, web page, etc.
 *  how the model is built and how it can be linked
@@ -20,8 +20,8 @@ describes such things as:
 
 Within *pymt*, a component automatically gains many
 new capabilities. This includes the ability to be coupled to
-other models even if their (1) programming language, (2) variable
-names, (3) variable units, (4) time-stepping scheme or (5)
+other models even if their programming language, variable
+names, variable units, time-stepping scheme or
 computational grid is different.  It also gains:
 
 * the ability to write output variables to standardized NetCDF
@@ -40,4 +40,5 @@ We'd be happy (and excited) to help!
 .. Links:
 
 .. _Python Modeling Toolkit: https://pymt.readthedocs.io
+.. _Babelizer: https://babelizer.readthedocs.io
 .. _CSDMS Help Desk: https://github.com/csdms/help-desk

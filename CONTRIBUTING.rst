@@ -27,13 +27,13 @@ Fix Bugs
 ~~~~~~~~
 
 Look through the GitHub issues for bugs. Anything tagged with "bug" and "help
-wanted" is open to whoever wants to implement it.
+wanted" is open to whomever wants to implement it.
 
 Implement Features
 ~~~~~~~~~~~~~~~~~~
 
 Look through the GitHub issues for features. Anything tagged with "enhancement"
-and "help wanted" is open to whoever wants to implement it.
+and "help wanted" is open to whomever wants to implement it.
 
 Write Documentation
 ~~~~~~~~~~~~~~~~~~~
@@ -61,23 +61,24 @@ Get Started!
 Ready to contribute? Here's how to set up BMI for local development.
 
 1. Fork the BMI repo on GitHub.
-1. Clone your fork locally::
+
+2. Clone your fork locally::
 
     $ git clone git@github.com:your_name_here/bmi.git
 
-1. Create a branch for local development::
+3. Create a branch for local development::
 
     $ git checkout -b name-of-your-bugfix-or-feature
 
    Now you can make your changes locally.
 
-1. Commit your changes and push your branch to GitHub::
+4. Commit your changes and push your branch to GitHub::
 
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 
-1. Submit a pull request through the GitHub website.
+5. Submit a pull request through the GitHub website.
 
 Pull Request Guidelines
 -----------------------

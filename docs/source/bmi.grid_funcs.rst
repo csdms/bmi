@@ -49,8 +49,8 @@ is given in the :ref:`model_grids` section.
 
 **Implementation notes**
 
-* In C++ and Python, the *type* argument is omitted and the grid
-  type name is returned from the function.
+* In C++, Java, and Python, the *type* argument is omitted and the grid
+  type name is returned from the function as a string.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -79,7 +79,7 @@ of :ref:`get_grid_x`, :ref:`get_grid_y`, etc. are implemented.
 **Implementation notes**
 
 * This function is needed for every :ref:`grid type <model_grids>`.
-* In C++ and Python, the *rank* argument is omitted and the grid
+* In C++, Java, and Python, the *rank* argument is omitted and the grid
   rank is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -109,7 +109,7 @@ for :ref:`unstructured <unstructured_grids>` and
 **Implementation notes**
 
 * This function is needed for every :ref:`grid type <model_grids>`.
-* In C++ and Python, the *size* argument is omitted and the grid
+* In C++, Java, and Python, the *size* argument is omitted and the grid
   size is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -150,7 +150,7 @@ the cells.
 * This function is used for describing all :ref:`structured grids
   <structured_grids>`.
 * In Python, the *shape* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -181,7 +181,7 @@ the spacing between rows is followed by spacing between columns, ``[dy, dx]``.
 * This function is used for describing :ref:`uniform rectilinear
   <uniform_rectilinear>` grids.
 * In Python, the *spacing* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -213,7 +213,7 @@ the origin is given in the column dimension, followed by the row dimension,
 * This function is used for describing :ref:`uniform rectilinear
   <uniform_rectilinear>` grids.
 * In Python, the *origin* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -281,7 +281,7 @@ See :ref:`model_grids` for more information.
   :ref:`structured quadrilateral <structured_quad>`,
   and all :ref:`unstructured <unstructured_grids>` grids.
 * In Python, the *x* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -311,7 +311,7 @@ See :ref:`model_grids` for more information.
   :ref:`structured quadrilateral <structured_quad>`,
   and all :ref:`unstructured <unstructured_grids>` grids.
 * In Python, the *y* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -341,7 +341,7 @@ See :ref:`model_grids` for more information.
   :ref:`structured quadrilateral <structured_quad>`,
   and all :ref:`unstructured <unstructured_grids>` grids.
 * In Python, the *z* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -364,7 +364,7 @@ Get the number of :term:`nodes <node>` in the grid.
 
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
-* In C++ and Python, the *count* argument is omitted and the node
+* In C++, Java, and Python, the *count* argument is omitted and the node
   count is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -388,7 +388,7 @@ Get the number of :term:`edges <edge>` in the grid.
 
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
-* In C++ and Python, the *count* argument is omitted and the edge
+* In C++, Java, and Python, the *count* argument is omitted and the edge
   count is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -412,7 +412,7 @@ Get the number of :term:`faces <face>` in the grid.
 
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
-* In C++ and Python, the *count* argument is omitted and the face
+* In C++, Java, and Python, the *count* argument is omitted and the face
   count is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -441,7 +441,7 @@ node at edge head. The total length of the array is
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
 * In Python, the *edge_nodes* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -468,7 +468,7 @@ The length of the array returned is the sum of the values of
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
 * In Python, the *face_edges* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -500,7 +500,7 @@ the length of the array is the sum of the values of
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
 * In Python, the *face_nodes* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
@@ -527,7 +527,7 @@ The number of edges per face is equal to the number of nodes per face.
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
 * In Python, the *nodes_per_face* argument is a :term:`numpy <NumPy>` array.
-* In C++, this is a void function.
+* In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
