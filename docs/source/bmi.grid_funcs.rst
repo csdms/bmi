@@ -120,7 +120,7 @@ for :ref:`unstructured <unstructured_grids>` and
 .. _get_grid_node_coordinate_units:
 
 *get_grid_node_coordinate_units*
-.................
+................................
 
 .. code-block:: java
 
