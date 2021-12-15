@@ -117,19 +117,19 @@ for :ref:`unstructured <unstructured_grids>` and
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
-.. _get_grid_node_coordinate_units:
+.. _get_grid_coordinate_units:
 
-*get_grid_node_coordinate_units*
-................................
+*get_grid_coordinate_units*
+...........................
 
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_node_coordinate_units(in int grid, in string name, out string units);
+   int get_grid_coordinate_units(in int grid, in string name, out string units);
 
 Given a :term:`grid identifier`
-and a node coordinate name---currently ``"x"``, ``"y"``, or ``"z"``---get
-the units of the node coordinate.
+and a grid coordinate name---currently ``"x"``, ``"y"``, or ``"z"``---get
+the units of the coordinate.
 
 Standard unit names in lower case,
 such as ``"meters"`` or ``"millibars"``,

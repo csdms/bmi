@@ -47,7 +47,7 @@ package csdms version 2.1-beta {
     int get_grid_rank(in int grid, out int rank);
     int get_grid_size(in int grid, out int size);
     int get_grid_type(in int grid, out string type);
-    int get_grid_node_coordinate_units(in int grid, in string name,
+    int get_grid_coordinate_units(in int grid, in string name,
       out string units);
 
     // Uniform rectilinear
