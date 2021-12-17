@@ -25,6 +25,6 @@ Contributors
 * Ben van Werkhoven
 * Martijn Visser
 
-If you have contributed to the BMI package and your name is missing,
+If you have contributed to the BMI project and your name is missing,
 please send an email to the coordinators, or open a pull request
 for this page in the `BMI repository <https://github.com/csdms/bmi>`_.
