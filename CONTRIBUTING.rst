@@ -55,7 +55,7 @@ comments on your PR to help you improve its implementation, documentation, and
 style. Every single developer working on the project has their code reviewed,
 and we've come to see it as friendly conversation from which we all learn and
 the overall code quality benefits. Therefore, please don't let the review
-discourage you from contributing: its only aim is to improve the quality of
+discourage you from contributing: its only aim is to improve the quality of the
 project, not to criticize (we are, after all, very grateful for the time you're
 donating!).
 
@@ -74,7 +74,7 @@ Summary
 Once all parties have weighed in and there has been adequate discussion, the PR
 moves to a summary period. A team member will move for the discussion
 phase to end and for the summary period to begin, which will end with a
-recommendation for the RPC (merge, close, or, postpone). Team members making
+recommendation for the RFC (merge, close, or, postpone). Team members making
 this motion should use their best judgment that adequate discussion has taken
 place and that the consequences of the proposed change have been adequately
 addressed.
@@ -109,7 +109,7 @@ decision-making policy which assumes general consent if no responses are posted
 within a defined period.
 
 For the BMI project, a PR tagged for resolution through lazy consensus can be
-merged if no comments are posted within one week.
+merged if no comments are posted within about a week.
 
 -------------------
 Reporting a problem
