@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'bmi'
-copyright = u'2020, Community Surface Dynamics Modeling System'
+copyright = u'2021, Community Surface Dynamics Modeling System'
 author = u'Community Surface Dynamics Modeling System'
 
 # The version info for the project you're documenting, acts as replacement for
