@@ -26,8 +26,9 @@ BMI is an element of the `CSDMS Workbench`_,
 an integrated system of software tools, technologies, and standards
 for building and coupling models.
 
+
 Help
-====
+----
 
 Adding a BMI to a model can be a daunting task.
 If you'd like assistance,
@@ -37,7 +38,7 @@ Feel free to contact us through the `CSDMS Help Desk`_.
 
 
 Project Information
-===================
+-------------------
 
 .. toctree::
    :maxdepth: 1
@@ -46,6 +47,9 @@ Project Information
    contributing
    conduct
    credits
+   Governance <governance>
+   council
+   partners
 
 
 .. Links:
