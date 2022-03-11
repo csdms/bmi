@@ -135,7 +135,6 @@ The length of the array is given by :ref:`get_grid_rank`.
 **Implementation notes**
 
 * This function is used for describing all :ref:`grid types <model_grids>`.
-* Grids without coordinates (e.g., ``scalar`` or ``none``) should use ``"none"``.
 * In C and Fortran, the names are passed back as an array of character pointers
   (because the coordinate names could have differing lengths), and an integer
   status code indicating success (zero) or failure (nonzero) is returned.
@@ -145,6 +144,8 @@ The length of the array is given by :ref:`get_grid_rank`.
   in a string array, a standard container in the language.
 * In Python, the argument is omitted and the names are returned from the
   function in a tuple, a standard container in the language.
+* Some grids may not have coordinates (e.g., grids of type ``scalar`` or
+  ``none``).
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
