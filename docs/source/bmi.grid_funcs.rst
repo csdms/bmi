@@ -117,6 +117,38 @@ for :ref:`unstructured <unstructured_grids>` and
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
+.. _get_grid_coordinate_names:
+
+*get_grid_coordinate_names*
+...........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_coordinate_names(in int grid, out array<string, 1> names);
+
+Given a :term:`grid identifier`,
+get an array of the names of the coordinates defined for the grid;
+e.g., ``["x", "y", "z"]``.
+The length of the array is given by :ref:`get_grid_rank`.
+
+**Implementation notes**
+
+* This function is used for describing all :ref:`grid types <model_grids>`.
+* Grids without coordinates (e.g., ``scalar`` or ``none``) should use ``"none"``.
+* In C and Fortran, the names are passed back as an array of character pointers
+  (because the coordinate names could have differing lengths), and an integer
+  status code indicating success (zero) or failure (nonzero) is returned.
+* In C++, the argument is omitted and the names are returned from the function
+  in a vector, a standard container in the language.
+* In Java, the argument is omitted and the names are returned from the function
+  in a string array, a standard container in the language.
+* In Python, the argument is omitted and the names are returned from the
+  function in a tuple, a standard container in the language.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
 .. _get_grid_coordinate_units:
 
 *get_grid_coordinate_units*

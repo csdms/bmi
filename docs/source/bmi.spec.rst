@@ -120,6 +120,7 @@ grouped by functional category.
    :ref:`get_grid_rank`             Get the number of dimensions of a computational grid.
    :ref:`get_grid_size`             Get the total number of elements of a computational grid.
    :ref:`get_grid_type`             Get the grid type as a string.
+   :ref:`get_grid_coordinate_names` Get the name of each node coordinate of a grid.
    :ref:`get_grid_coordinate_units` Get the units of each node coordinate of a grid.
    :ref:`get_grid_shape`            Get the dimensions of a computational grid.
    :ref:`get_grid_spacing`          Get the spacing between grid nodes.

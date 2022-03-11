@@ -64,6 +64,7 @@ Uniform rectilinear grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
 * :ref:`get_grid_size`
+* :ref:`get_grid_coordinate_names`
 * :ref:`get_grid_coordinate_units`
 * :ref:`get_grid_shape`
 * :ref:`get_grid_spacing`
@@ -94,6 +95,7 @@ Rectilinear grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
 * :ref:`get_grid_size`
+* :ref:`get_grid_coordinate_names`
 * :ref:`get_grid_coordinate_units`
 * :ref:`get_grid_shape`
 * :ref:`get_grid_x`
@@ -125,6 +127,7 @@ Structured quadrilateral grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
 * :ref:`get_grid_size`
+* :ref:`get_grid_coordinate_names`
 * :ref:`get_grid_coordinate_units`
 * :ref:`get_grid_shape`
 * :ref:`get_grid_x`
@@ -162,6 +165,7 @@ BMI uses the `ugrid conventions`_ to define unstructured grids.
 Unstructured grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
+* :ref:`get_grid_coordinate_names`
 * :ref:`get_grid_coordinate_units`
 * :ref:`get_grid_x`
 * :ref:`get_grid_y`
