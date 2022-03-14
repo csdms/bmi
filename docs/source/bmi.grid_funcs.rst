@@ -249,6 +249,7 @@ The length of the array is given by :ref:`get_grid_rank`.
   function in a tuple, a standard container in the language.
 * Some grids may not have coordinates (e.g., grids of type ``scalar`` or
   ``none``).
+* This function was introduced in BMI 2.1.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -287,6 +288,7 @@ full description of valid unit names and a list of supported units.
   units name is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* This function was introduced in BMI 2.1.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
