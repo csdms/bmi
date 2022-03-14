@@ -234,7 +234,7 @@ Get the locations of the grid :term:`nodes <node>` in the first
 coordinate direction.
 
 The length of the resulting one-dimensional array depends on the grid type.
-(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+(It will use a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
 See :ref:`model_grids` for more information.
 
 **Implementation notes**
@@ -264,7 +264,7 @@ Get the locations of the grid :term:`nodes <node>` in the second
 coordinate direction.
 
 The length of the resulting one-dimensional array depends on the grid type.
-(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+(It will use a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
 See :ref:`model_grids` for more information.
 
 **Implementation notes**
@@ -294,7 +294,7 @@ Get the locations of the grid :term:`nodes <node>` in the third
 coordinate direction.
 
 The length of the resulting one-dimensional array depends on the grid type.
-(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+(It will use a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
 See :ref:`model_grids` for more information.
 
 **Implementation notes**
