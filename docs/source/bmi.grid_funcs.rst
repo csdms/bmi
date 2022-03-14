@@ -265,8 +265,8 @@ The length of the array is given by :ref:`get_grid_rank`.
    int get_grid_coordinate_units(in int grid, in string name, out string units);
 
 Given a :term:`grid identifier`
-and a grid coordinate name---currently ``"x"``, ``"y"``, or ``"z"``---get
-the units of the coordinate.
+and a coordinate name returned from :ref:`get_grid_coordinate_names`,
+get the units of the coordinate.
 
 Standard unit names in lower case,
 such as ``"meters"`` or ``"millibars"``,
