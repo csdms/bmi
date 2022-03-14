@@ -291,21 +291,24 @@ the origin is given in the column dimension, followed by the row dimension,
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
-.. _get_grid_x:
+.. _get_grid_coordinate:
 
-*get_grid_x*
-............
+*get_grid_coordinate*
+.....................
 
 .. code-block:: java
 
    /* SIDL */
-   int get_grid_x(in int grid, in array<double, 1> x);
+   int get_grid_coordinate(in int grid, in string name, in array<double, 1> coordinates);
 
-Get the locations of the grid :term:`nodes <node>` in the first
+Given a :term:`grid identifier`
+and a coordinate name returned from :ref:`get_grid_coordinate_names`,
+get the locations of the grid :term:`nodes <node>` in a single
 coordinate direction.
 
-The length of the resulting one-dimensional array depends on the grid type.
-(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
+The length of the one-dimensional array of coordinates depends on the grid type
+and the individual coordinate.
+(It will be a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
 See :ref:`model_grids` for more information.
 
 **Implementation notes**
@@ -313,70 +316,12 @@ See :ref:`model_grids` for more information.
 * This function is used for describing :ref:`rectilinear <rectilinear>`,
   :ref:`structured quadrilateral <structured_quad>`,
   and all :ref:`unstructured <unstructured_grids>` grids.
-* In Python, the *x* argument is a :term:`numpy <NumPy>` array.
+* In Python, the *coordinates* argument is a :term:`numpy <NumPy>` array.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
-
-.. _get_grid_y:
-
-*get_grid_y*
-............
-
-.. code-block:: java
-
-   /* SIDL */
-   int get_grid_y(in int grid, in array<double, 1> y);
-
-Get the locations of the grid :term:`nodes <node>` in the second
-coordinate direction.
-
-The length of the resulting one-dimensional array depends on the grid type.
-(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
-See :ref:`model_grids` for more information.
-
-**Implementation notes**
-
-* This function is used for describing :ref:`rectilinear <rectilinear>`,
-  :ref:`structured quadrilateral <structured_quad>`,
-  and all :ref:`unstructured <unstructured_grids>` grids.
-* In Python, the *y* argument is a :term:`numpy <NumPy>` array.
-* In C++ and Java, this is a void function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
-  (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
-
-.. _get_grid_z:
-
-*get_grid_z*
-............
-
-.. code-block:: java
-
-   /* SIDL */
-   int get_grid_z(in int grid, in array<double, 1> z);
-
-Get the locations of the grid :term:`nodes <node>` in the third
-coordinate direction.
-
-The length of the resulting one-dimensional array depends on the grid type.
-(It will have either :ref:`get_grid_rank` or :ref:`get_grid_size` elements.)
-See :ref:`model_grids` for more information.
-
-**Implementation notes**
-
-* This function is used for describing :ref:`rectilinear <rectilinear>`,
-  :ref:`structured quadrilateral <structured_quad>`,
-  and all :ref:`unstructured <unstructured_grids>` grids.
-* In Python, the *z* argument is a :term:`numpy <NumPy>` array.
-* In C++ and Java, this is a void function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
-  (nonzero) is returned.
+* This function was introduced in BMI 2.1. It replaces the deprecated
+  *get_grid_x*, *get_grid_y*, and *get_grid_z* functions.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
