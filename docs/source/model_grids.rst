@@ -44,15 +44,19 @@ its length would be listed first.
 Uniform rectilinear
 ^^^^^^^^^^^^^^^^^^^
 
-.. image:: images/mesh_uniform_rectilinear.png
+.. _fig-uniform-rectilinear:
+.. figure:: images/mesh_uniform_rectilinear.png
    :scale: 20 %
+   :alt: Example uniform rectilinear grid,
+
+   An example of a rank 2 uniform rectilinear grid.
 
 A uniform rectilinear grid is a special case of structured quadrilateral grid
 where the elements have equal width in each dimension.
 That is, for a two-dimensional grid, elements have a constant width
 of ``dx`` in the *x*-direction and ``dy`` in the *y*-direction.
-The case of ``dx == dy`` is oftentimes called
-a *raster* or *Catesian grid*.
+The special case of ``dx == dy`` (as in :numref:`fig-uniform-rectilinear`)
+is often called a *raster* or *Cartesian grid*.
 
 To completely specify a uniform rectilinear grid,
 only three pieces of information are needed:
@@ -64,11 +68,11 @@ Uniform rectilinear grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
 * :ref:`get_grid_size`
-* :ref:`get_grid_coordinate_names`
-* :ref:`get_grid_coordinate_units`
 * :ref:`get_grid_shape`
 * :ref:`get_grid_spacing`
 * :ref:`get_grid_origin`
+* :ref:`get_grid_coordinate_names`
+* :ref:`get_grid_coordinate_units`
 
 
 .. _rectilinear:
@@ -76,11 +80,15 @@ Uniform rectilinear grids use the following BMI functions:
 Rectilinear
 ^^^^^^^^^^^
 
-.. image:: images/mesh_rectilinear.png
+.. _fig-rectilinear:
+.. figure:: images/mesh_rectilinear.png
    :scale: 20 %
+   :alt: Example rectilinear grid,
+
+   An example of a rank 2 rectilinear grid.
 
 In a rectilinear grid, the spacing between nodes in each dimension varies,
-as depicted above.
+as depicted in :numref:`fig-rectilinear`.
 Therefore,
 an array of coordinates for each row and column
 (for the two-dimensional case) is required.
@@ -95,12 +103,10 @@ Rectilinear grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
 * :ref:`get_grid_size`
+* :ref:`get_grid_shape`
 * :ref:`get_grid_coordinate_names`
 * :ref:`get_grid_coordinate_units`
-* :ref:`get_grid_shape`
-* :ref:`get_grid_x`
-* :ref:`get_grid_y`
-* :ref:`get_grid_z`
+* :ref:`get_grid_coordinate`
 
 
 .. _structured_quad:
@@ -108,12 +114,17 @@ Rectilinear grids use the following BMI functions:
 Structured quadrilateral
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: images/mesh_structured_quad.png
+.. _fig-structured-quad:
+.. figure:: images/mesh_structured_quad.png
    :scale: 20 %
+   :alt: Example structured quadrilateral grid,
+
+   An example of a rank 2 structured quadrilateral grid.
 
 The most general structured quadrilateral grid is one where
-the rows (and columns) do not share a common coordinate. In this
-case, coordinates are required for each grid node. For this
+the rows (and columns) do not share a common coordinate
+(:numref:`fig-structured-quad`).
+In this case, coordinates are required for each grid node. For this
 more general case, :ref:`get_grid_x` and :ref:`get_grid_y` are
 repurposed to provide this information.
 
@@ -140,8 +151,12 @@ Structured quadrilateral grids use the following BMI functions:
 Unstructured grids
 ------------------
 
-.. image:: images/mesh_unstructured.png
+.. _fig-unstructured:
+.. figure:: images/mesh_unstructured.png
    :scale: 25 %
+   :alt: Example unstructured grid,
+
+   An example of a rank 2 unstructured grid.
 
 This category includes the *unstructured* type,
 as well as the special cases
@@ -179,7 +194,7 @@ Unstructured grids use the following BMI functions:
 * :ref:`get_grid_nodes_per_face`
 
 For a demonstration of how these BMI functions work,
-let's use the unstructured grid in the annotated figure above.
+let's use the unstructured grid in :numref:`fig-unstructured` above.
 
 The grid is two-dimensional,
 so the :ref:`get_grid_rank` function returns 2.
