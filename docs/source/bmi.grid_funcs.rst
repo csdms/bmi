@@ -117,77 +117,6 @@ for :ref:`unstructured <unstructured_grids>` and
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
-.. _get_grid_coordinate_names:
-
-*get_grid_coordinate_names*
-...........................
-
-.. code-block:: java
-
-   /* SIDL */
-   int get_grid_coordinate_names(in int grid, out array<string, 1> names);
-
-Given a :term:`grid identifier`,
-get an array of the names of the coordinates defined for the grid;
-e.g., ``["x", "y", "z"]``.
-The length of the array is given by :ref:`get_grid_rank`.
-
-**Implementation notes**
-
-* This function is used for describing all :ref:`grid types <model_grids>`.
-* In C and Fortran, the names are passed back as an array of character pointers
-  (because the coordinate names could have differing lengths), and an integer
-  status code indicating success (zero) or failure (nonzero) is returned.
-* In C++, the argument is omitted and the names are returned from the function
-  in a vector, a standard container in the language.
-* In Java, the argument is omitted and the names are returned from the function
-  in a string array, a standard container in the language.
-* In Python, the argument is omitted and the names are returned from the
-  function in a tuple, a standard container in the language.
-* Some grids may not have coordinates (e.g., grids of type ``scalar`` or
-  ``none``).
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
-
-.. _get_grid_coordinate_units:
-
-*get_grid_coordinate_units*
-...........................
-
-.. code-block:: java
-
-   /* SIDL */
-   int get_grid_coordinate_units(in int grid, in string name, out string units);
-
-Given a :term:`grid identifier`
-and a grid coordinate name---currently ``"x"``, ``"y"``, or ``"z"``---get
-the units of the coordinate.
-
-Standard unit names in lower case,
-such as ``"meters"`` or ``"millibars"``,
-should be used.
-Standard abbreviations,
-such as ``"m"`` or ``"mb"``, are also supported.
-The abbreviations used in the BMI are derived from
-Unidata's `UDUNITS`_ package.
-See, for example, `The Units Database`_ for a
-full description of valid unit names and a list of supported units.
-
-**Implementation notes**
-
-* This function is used for describing all :ref:`grid types <model_grids>`.
-* Dimensionless quantities (such as sigma coordinates)
-  should use ``""`` or ``"1"`` as the unit.
-* Grids without units should use ``"none"``.
-* In C++, Java, and Python, the *units* argument is omitted and the grid
-  units name is returned from the function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
-  (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
-
 .. _get_grid_shape:
 
 *get_grid_shape*
@@ -285,6 +214,77 @@ the origin is given in the column dimension, followed by the row dimension,
   <uniform_rectilinear>` grids.
 * In Python, the *origin* argument is a :term:`numpy <NumPy>` array.
 * In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_coordinate_names:
+
+*get_grid_coordinate_names*
+...........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_coordinate_names(in int grid, out array<string, 1> names);
+
+Given a :term:`grid identifier`,
+get an array of the names of the coordinates defined for the grid;
+e.g., ``["x", "y", "z"]``.
+The length of the array is given by :ref:`get_grid_rank`.
+
+**Implementation notes**
+
+* This function is used for describing all :ref:`grid types <model_grids>`.
+* In C and Fortran, the names are passed back as an array of character pointers
+  (because the coordinate names could have differing lengths), and an integer
+  status code indicating success (zero) or failure (nonzero) is returned.
+* In C++, the argument is omitted and the names are returned from the function
+  in a vector, a standard container in the language.
+* In Java, the argument is omitted and the names are returned from the function
+  in a string array, a standard container in the language.
+* In Python, the argument is omitted and the names are returned from the
+  function in a tuple, a standard container in the language.
+* Some grids may not have coordinates (e.g., grids of type ``scalar`` or
+  ``none``).
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_coordinate_units:
+
+*get_grid_coordinate_units*
+...........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_coordinate_units(in int grid, in string name, out string units);
+
+Given a :term:`grid identifier`
+and a grid coordinate name---currently ``"x"``, ``"y"``, or ``"z"``---get
+the units of the coordinate.
+
+Standard unit names in lower case,
+such as ``"meters"`` or ``"millibars"``,
+should be used.
+Standard abbreviations,
+such as ``"m"`` or ``"mb"``, are also supported.
+The abbreviations used in the BMI are derived from
+Unidata's `UDUNITS`_ package.
+See, for example, `The Units Database`_ for a
+full description of valid unit names and a list of supported units.
+
+**Implementation notes**
+
+* This function is used for describing all :ref:`grid types <model_grids>`.
+* Dimensionless quantities (such as sigma coordinates)
+  should use ``""`` or ``"1"`` as the unit.
+* Grids without units should use ``"none"``.
+* In C++, Java, and Python, the *units* argument is omitted and the grid
+  units name is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
