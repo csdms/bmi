@@ -231,8 +231,10 @@ the origin is given in the column dimension, followed by the row dimension,
    int get_grid_coordinate_names(in int grid, out array<string, 1> names);
 
 Given a :term:`grid identifier`,
-get an array of the names of the coordinates defined for the grid;
-e.g., ``["x", "y", "z"]``.
+get an array of the coordinate names defined for the grid;
+e.g., ``["x", "y", "z"]``,
+or ``["x1", "x2", "x3"]``,
+or ``["lon", "lat", "hgt"]``, etc.
 The length of the array is given by :ref:`get_grid_rank`.
 
 **Implementation notes**
@@ -309,7 +311,7 @@ get the locations of the grid :term:`nodes <node>` in a single
 coordinate direction.
 
 The length of the one-dimensional array of coordinates depends on the grid type
-and the individual coordinate.
+and the coordinate.
 (It will be a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
 See :ref:`model_grids` for more information.
 
