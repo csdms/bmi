@@ -174,27 +174,24 @@ as well as the special cases
 This is the most general grid type.
 It can be used for any type of grid.
 This grid type must be used if the grid consists of cells
-that are not quadrilaterals;
-this includes any grid of triangles (e.g. `Delaunay triangles`_
+that are not quadrilaterals,
+including any grid of triangles (e.g. `Delaunay triangles`_
 and `Voronoi tesselations`_).
 
 .. note::
 
-   A grid of `equilateral triangles`_, while they are most certainly
-   *structured*, would need to be represented as an unstructured grid.
+   A grid of `equilateral triangles`_, while they are *structured*,
+   would need to be represented as an unstructured grid.
    The same is true for a grid of `hexagons`_.
 
-
-BMI uses the `ugrid conventions`_ to define unstructured grids.
+BMI uses the `UGRID Conventions`_ to define unstructured grids.
 
 Unstructured grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
 * :ref:`get_grid_coordinate_names`
 * :ref:`get_grid_coordinate_units`
-* :ref:`get_grid_x`
-* :ref:`get_grid_y`
-* :ref:`get_grid_z`
+* :ref:`get_grid_coordinate`
 * :ref:`get_grid_node_count`
 * :ref:`get_grid_edge_count`
 * :ref:`get_grid_face_count`
@@ -217,8 +214,7 @@ are given by coordinates
    x = [0, 1, 2, 1, 3, 4]
    y = [3, 1, 2, 4, 0, 3]
 
-These will be the outputs of the :ref:`get_grid_x` and 
-:ref:`get_grid_y` functions, respectively.
+These coordinates are found through the :ref:`get_grid_coordinate` function.
 The nodes are indexed, so 
 node 0 is at *(x, y) = (0, 3)*,
 node 1 is at *(x, y) = (1, 1)*, etc.
