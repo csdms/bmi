@@ -84,10 +84,10 @@ an array of coordinates for each row and column
 (for the two-dimensional case) is required.
 
 The :ref:`get_grid_y` function provides an array (whose length is the number of
-*rows*) that gives the *y*-coordinate for each row.
+*rows*, obtained from :ref:`get_grid_shape`) that gives the *y*-coordinate for each row.
 
 The :ref:`get_grid_x` function provides an array (whose length is the number of
-*columns*) that gives the *x*-coordinate for each column.
+*columns*, obtained from :ref:`get_grid_shape`) that gives the *x*-coordinate for each column.
 
 Rectilinear grids use the following BMI functions:
 
