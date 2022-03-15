@@ -26,7 +26,7 @@ In the BMI,
 dimensional information is ordered with "ij" indexing
 (as opposed to "xy").
 For example,
-for the uniform rectilinear grid shown below,
+for the uniform rectilinear grid shown in :numref:`fig-uniform-rectilinear` below,
 the :ref:`get_grid_shape` function would return the array ``[4, 5]``.
 If there was a third dimension,
 its length would be listed first.
@@ -93,12 +93,6 @@ Therefore,
 an array of coordinates for each row and column
 (for the two-dimensional case) is required.
 
-The :ref:`get_grid_y` function provides an array (whose length is the number of
-*rows*) that gives the *y*-coordinate for each row.
-
-The :ref:`get_grid_x` function provides an array (whose length is the number of
-*columns*) that gives the *x*-coordinate for each column.
-
 Rectilinear grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
@@ -107,6 +101,18 @@ Rectilinear grids use the following BMI functions:
 * :ref:`get_grid_coordinate_names`
 * :ref:`get_grid_coordinate_units`
 * :ref:`get_grid_coordinate`
+
+In :numref:`fig-rectilinear`,
+if :ref:`get_grid_coordinate_names` returns ``["x","y"]``
+for the names of the dimensions,
+then:
+
+* given ``"y"``, the :ref:`get_grid_coordinate` function provides an array,
+  whose length is the number of *rows*,
+  that gives the *y*-coordinate for each row;
+* given ``"x"``, the :ref:`get_grid_coordinate` function provides an array,
+  whose length is the number of *columns*,
+  that gives the *x*-coordinate for each column.
 
 
 .. _structured_quad:
