@@ -71,10 +71,10 @@ Given a :term:`grid identifier`, get the :term:`rank` (the number of
 dimensions) of that grid as an integer.
 
 A grid's rank determines the length of the return value
-of many of the following grid functions.
-For instance, :ref:`get_grid_shape` returns an array of length *rank*.
-Similarly, a grid's rank determines which
-of :ref:`get_grid_x`, :ref:`get_grid_y`, etc. are implemented.
+of several grid functions.
+For example,
+both :ref:`get_grid_shape` and :ref:`get_grid_coordinate_names`
+return an array of length *rank*.
 
 **Implementation notes**
 
@@ -102,7 +102,7 @@ get the total number of elements (or :term:`nodes <node>`)
 of that grid as an integer.
 
 The grid size is used for, among other things, the
-length of arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`
+length of arrays returned by :ref:`get_grid_coordinate`
 for :ref:`unstructured <unstructured_grids>` and
 :ref:`structured quad <structured_quad>` grids.
 
