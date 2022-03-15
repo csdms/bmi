@@ -127,29 +127,33 @@ Structured quadrilateral
 
    An example of a rank 2 structured quadrilateral grid.
 
-The most general structured quadrilateral grid is one where
-the rows (and columns) do not share a common coordinate
+The most general structured grid is one where
+the rows and columns of nodes do not share a common coordinate
 (:numref:`fig-structured-quad`).
-In this case, coordinates are required for each grid node. For this
-more general case, :ref:`get_grid_x` and :ref:`get_grid_y` are
-repurposed to provide this information.
-
-The :ref:`get_grid_y` function returns an array (whose length is the number
-of total nodes returned by :ref:`get_grid_size`) of *y*-coordinates.
-
-The :ref:`get_grid_x` function returns an array (whose length is the number
-of total nodes returned by :ref:`get_grid_size`) of *x*-coordinates.
+In this case,
+coordinates are required for each grid node, 
+and :ref:`get_grid_coordinate` is repurposed to provide this information:
 
 Structured quadrilateral grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
 * :ref:`get_grid_size`
+* :ref:`get_grid_shape`
 * :ref:`get_grid_coordinate_names`
 * :ref:`get_grid_coordinate_units`
-* :ref:`get_grid_shape`
-* :ref:`get_grid_x`
-* :ref:`get_grid_y`
-* :ref:`get_grid_z`
+* :ref:`get_grid_coordinate`
+
+In :numref:`fig-structured-quad`,
+if :ref:`get_grid_coordinate_names` returns ``["x","y"]``
+for the names of the dimensions,
+then:
+
+* given ``"y"``, the :ref:`get_grid_coordinate` function returns an array,
+  whose length is the total number of nodes from :ref:`get_grid_size`,
+  of *y*-coordinates.
+* given ``"x"``, the :ref:`get_grid_coordinate` function returns an array,
+  whose length is the total number of nodes from :ref:`get_grid_size`,
+  of *x*-coordinates.
 
 
 .. _unstructured_grids:
