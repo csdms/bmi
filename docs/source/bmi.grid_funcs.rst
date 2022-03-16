@@ -514,3 +514,33 @@ The number of edges per face is equal to the number of nodes per face.
   (nonzero) is returned.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_crs:
+
+*get_grid_crs*
+...............
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_crs(in int grid, out string crs);
+
+Given a :term:`grid identifier`,
+get the `coordinate reference system`_ (CRS) of that grid as a string.
+
+Note that the BMI doesn't specify which standard to use
+for the output of this function---that's left to the implementation.
+We can, however, make recommendations;
+e.g., OGC `Well-Known Text`_ (WKT), `PROJ`_, or `EPSG`_.
+
+**Implementation notes**
+
+* In C++, Java, and Python, the *crs* argument is omitted and the CRS
+  is returned from the function as a string.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* A return string of ``""`` or ``"none"`` (but not the UDUNITS ``"1"``, which
+  could be taken as an `EPSG code`_) indicates no projection information.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]

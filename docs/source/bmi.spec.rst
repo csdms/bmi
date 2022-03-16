@@ -133,6 +133,7 @@ grouped by functional category.
    :ref:`get_grid_face_edges`       Get the face-edge connectivity.
    :ref:`get_grid_face_nodes`       Get the face-node connectivity.
    :ref:`get_grid_nodes_per_face`   Get the number of nodes for each face.
+   :ref:`get_grid_crs`              Get coordinate reference system (CRS) information for a grid.
    ================================ =========================================
 
 .. include:: bmi.control_funcs.rst
@@ -167,3 +168,8 @@ grouped by functional category.
 .. _time unit conventions: https://www.unidata.ucar.edu/software/udunits/udunits-current/udunits/udunits2-accepted.xml
 .. _primitive types: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
 .. _wrapper classes: https://docs.oracle.com/javase/tutorial/java/data/numberclasses.html
+.. _coordinate reference system: https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/
+.. _Well-Known Text: https://www.ogc.org/standards/wkt-crs
+.. _PROJ: https://proj.org/
+.. _EPSG: https://epsg.org/
+.. _EPSG code: https://spatialreference.org/ref/epsg/
