@@ -534,6 +534,47 @@ for the output of this function---that's left to the implementation.
 We can, however, make recommendations;
 e.g., OGC `Well-Known Text`_ (WKT), `PROJ`_, or `EPSG`_.
 
+As a small example,
+if you have data in a projected CRS,
+say, UTM zone 13 North with the WGS84 datum,
+you could use `spatialreference.org`_ to find information about this projection
+(`EPSG:32613 <https://www.spatialreference.org/ref/epsg/wgs-84-utm-zone-13n/>`_)
+and return it from :ref:`get_grid_crs`
+as (for example) a PROJ string:
+
+.. code-block::
+
+  +proj=utm +zone=13 +ellps=WGS84 +datum=WGS84 +units=m +no_defs 
+
+or as WKT:
+
+.. code-block::
+
+ PROJCS["WGS 84 / UTM zone 13N",
+    GEOGCS["WGS 84",
+        DATUM["WGS_1984",
+            SPHEROID["WGS 84",6378137,298.257223563,
+                AUTHORITY["EPSG","7030"]],
+            AUTHORITY["EPSG","6326"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.01745329251994328,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4326"]],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",0],
+    PARAMETER["central_meridian",-105],
+    PARAMETER["scale_factor",0.9996],
+    PARAMETER["false_easting",500000],
+    PARAMETER["false_northing",0],
+    AUTHORITY["EPSG","32613"],
+    AXIS["Easting",EAST],
+    AXIS["Northing",NORTH]]
+
+as you prefer.
+
 **Implementation notes**
 
 * In C++, Java, and Python, the *crs* argument is omitted and the CRS

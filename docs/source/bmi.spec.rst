@@ -172,4 +172,5 @@ grouped by functional category.
 .. _Well-Known Text: https://www.ogc.org/standards/wkt-crs
 .. _PROJ: https://proj.org/
 .. _EPSG: https://epsg.org/
+.. _spatialreference.org: https://www.spatialreference.org/
 .. _EPSG code: https://spatialreference.org/ref/epsg/
