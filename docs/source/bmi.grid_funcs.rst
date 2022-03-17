@@ -542,15 +542,15 @@ you could use `spatialreference.org`_ to find information about this projection
 and return it from :ref:`get_grid_crs`
 as (for example) a PROJ string:
 
-.. code-block::
+.. code-block:: none
 
   +proj=utm +zone=13 +ellps=WGS84 +datum=WGS84 +units=m +no_defs 
 
 or as WKT:
 
-.. code-block::
+.. code-block:: none
 
- PROJCS["WGS 84 / UTM zone 13N",
+  PROJCS["WGS 84 / UTM zone 13N",
     GEOGCS["WGS 84",
         DATUM["WGS_1984",
             SPHEROID["WGS 84",6378137,298.257223563,
