@@ -527,14 +527,14 @@ The number of edges per face is equal to the number of nodes per face.
    int get_grid_crs(in int grid, out string crs);
 
 Given a :term:`grid identifier`,
-get the `coordinate reference system`_ (CRS) of that grid as a string.
+get `coordinate reference system`_ (CRS) information for the grid as a string.
 
 Note that the BMI doesn't specify which standard to use
 for the output of this function---that's left to the implementation.
 We can, however, make recommendations;
 e.g., OGC `Well-Known Text`_ (WKT), `PROJ`_, or `EPSG`_.
 
-As a small example,
+A small example:
 if you have data in a projected CRS,
 say, UTM zone 13 North with the WGS84 datum,
 you could use `spatialreference.org`_ to find information about this projection
