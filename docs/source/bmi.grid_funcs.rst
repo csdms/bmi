@@ -230,10 +230,8 @@ the origin is given in the column dimension, followed by the row dimension,
    /* SIDL */
    int get_grid_x(in int grid, in array<double, 1> x);
 
-.. note::
-
-  This function is deprecated in BMI v2.1.
-  Please see :ref:`get_grid_coordinate` instead.
+.. deprecated:: 2.1
+   Use :ref:`get_grid_coordinate` instead.
 
 Get the locations of the grid :term:`nodes <node>` in the first
 coordinate direction.
@@ -265,10 +263,8 @@ See :ref:`model_grids` for more information.
    /* SIDL */
    int get_grid_y(in int grid, in array<double, 1> y);
 
-.. note::
-
-  This function is deprecated in BMI v2.1.
-  Please see :ref:`get_grid_coordinate` instead.
+.. deprecated:: 2.1
+   Use :ref:`get_grid_coordinate` instead.
 
 Get the locations of the grid :term:`nodes <node>` in the second
 coordinate direction.
@@ -300,10 +296,8 @@ See :ref:`model_grids` for more information.
    /* SIDL */
    int get_grid_z(in int grid, in array<double, 1> z);
 
-.. note::
-
-  This function is deprecated in BMI v2.1.
-  Please see :ref:`get_grid_coordinate` instead.
+.. deprecated:: 2.1
+   Use :ref:`get_grid_coordinate` instead.
 
 Get the locations of the grid :term:`nodes <node>` in the third
 coordinate direction.
