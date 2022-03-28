@@ -123,6 +123,9 @@ grouped by functional category.
    :ref:`get_grid_shape`            Get the dimensions of a computational grid.
    :ref:`get_grid_spacing`          Get the spacing between grid nodes.
    :ref:`get_grid_origin`           Get the origin of a grid.
+   :ref:`get_grid_x`                Get the locations of a grid's nodes in dimension 1. (Deprecated, see :ref:`get_grid_coordinate`.)
+   :ref:`get_grid_y`                Get the locations of a grid's nodes in dimension 2. (Deprecated, see :ref:`get_grid_coordinate`.)
+   :ref:`get_grid_z`                Get the locations of a grid's nodes in dimension 3. (Deprecated, see :ref:`get_grid_coordinate`.)
    :ref:`get_grid_coordinate_names` Get the name of each node coordinate of a grid.
    :ref:`get_grid_coordinate_units` Get the units of each node coordinate of a grid.
    :ref:`get_grid_coordinate`       Get the location of each node of a single grid coordinate.

@@ -220,6 +220,111 @@ the origin is given in the column dimension, followed by the row dimension,
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
+.. _get_grid_x:
+
+*get_grid_x*
+............
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_x(in int grid, in array<double, 1> x);
+
+.. note::
+
+  This function is deprecated in BMI v2.1.
+  Please see :ref:`get_grid_coordinate` instead.
+
+Get the locations of the grid :term:`nodes <node>` in the first
+coordinate direction.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will use a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
+See :ref:`model_grids` for more information.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *x* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_y:
+
+*get_grid_y*
+............
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_y(in int grid, in array<double, 1> y);
+
+.. note::
+
+  This function is deprecated in BMI v2.1.
+  Please see :ref:`get_grid_coordinate` instead.
+
+Get the locations of the grid :term:`nodes <node>` in the second
+coordinate direction.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will use a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
+See :ref:`model_grids` for more information.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *y* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_z:
+
+*get_grid_z*
+............
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_z(in int grid, in array<double, 1> z);
+
+.. note::
+
+  This function is deprecated in BMI v2.1.
+  Please see :ref:`get_grid_coordinate` instead.
+
+Get the locations of the grid :term:`nodes <node>` in the third
+coordinate direction.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will use a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
+See :ref:`model_grids` for more information.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *z* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
 .. _get_grid_coordinate_names:
 
 *get_grid_coordinate_names*
