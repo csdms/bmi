@@ -329,6 +329,8 @@ See :ref:`model_grids` for more information.
    /* SIDL */
    int get_grid_coordinate_names(in int grid, out array<string, 1> names);
 
+.. versionadded:: 2.1
+
 Given a :term:`grid identifier`,
 get an array of the coordinate names defined for the grid;
 e.g., ``["x", "y", "z"]``,
@@ -350,7 +352,6 @@ The length of the array is given by :ref:`get_grid_rank`.
   function in a tuple, a standard container in the language.
 * Some grids may not have coordinates (e.g., grids of type ``scalar`` or
   ``none``).
-* This function was introduced in BMI 2.1.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -364,6 +365,8 @@ The length of the array is given by :ref:`get_grid_rank`.
 
    /* SIDL */
    int get_grid_coordinate_units(in int grid, in string name, out string units);
+
+.. versionadded:: 2.1
 
 Given a :term:`grid identifier`
 and a coordinate name returned from :ref:`get_grid_coordinate_names`,
@@ -389,7 +392,6 @@ full description of valid unit names and a list of supported units.
   units name is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-* This function was introduced in BMI 2.1.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -404,6 +406,8 @@ full description of valid unit names and a list of supported units.
    /* SIDL */
    int get_grid_coordinate(in int grid, in string name, in array<double, 1> coordinates);
 
+.. versionadded:: 2.1
+
 Given a :term:`grid identifier`
 and a coordinate name returned from :ref:`get_grid_coordinate_names`,
 get the locations of the grid :term:`nodes <node>` in a single
@@ -414,6 +418,9 @@ and the coordinate.
 (It will be a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
 See :ref:`model_grids` for more information.
 
+This function replaces the deprecated *get_grid_x*, *get_grid_y*, and
+*get_grid_z* functions.
+
 **Implementation notes**
 
 * This function is used for describing :ref:`rectilinear <rectilinear>`,
@@ -423,8 +430,6 @@ See :ref:`model_grids` for more information.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-* This function was introduced in BMI 2.1. It replaces the deprecated
-  *get_grid_x*, *get_grid_y*, and *get_grid_z* functions.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -624,6 +629,8 @@ The number of edges per face is equal to the number of nodes per face.
 
    /* SIDL */
    int get_grid_crs(in int grid, out string crs);
+
+.. versionadded:: 2.1
 
 Given a :term:`grid identifier`,
 get `coordinate reference system`_ (CRS) information for the grid as a string.
