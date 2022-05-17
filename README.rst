@@ -96,6 +96,21 @@ BMI is an element of the `CSDMS Workbench`_,
 an integrated system of software tools, technologies, and standards
 for building and coupling models.
 
+BMI Design Principles
+=====================
+
+* Easy to implement. Preference goes to the implementer over the end user.
+* Self describing.
+* Common tasks are left up to a framework.
+* Popeye Principle (“I am what I am”). BMI libraries just report about themselves.
+* Language agnostic
+* NOT intended to accommodate every model and use case.
+* Intended for model coupling but not necessarily model-to-model coupling.
+* A model can be a numerical software model but could also be a dataset.
+* Does not inject itself into a model.
+* Minimal but can be open to *extensions*.
+
+
 *The Community Surface Dynamics Modeling System
 is supported by the National Science Foundation.*
 
