@@ -97,6 +97,7 @@ grouped by functional category.
    :ref:`update_until`             Advance model state until the given time.
    :ref:`finalize`                 Perform tear-down tasks for the model.
    :ref:`get_component_name`       Name of the model.
+   :ref:`get_bmi_version`          Version number of the BMI version implemented.
    :ref:`get_input_item_count`     Count of a model's input variables.
    :ref:`get_output_item_count`    Count of a model's output variables.
    :ref:`get_input_var_names`      List of a model's input variables.

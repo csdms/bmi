@@ -31,6 +31,28 @@ but it should be unique to prevent conflicts with other components.
 
 [:ref:`info_funcs` | :ref:`basic_model_interface`]
 
+.. _get_bmi_version:
+
+*get_bmi_version*
+....................
+
+.. code-block:: java
+
+  /* SIDL */
+  int get_bmi_version(out string version);
+
+This function version of BMI implemented as a string.
+This should always be higher than 2.0 since this function was introduced in BMI 2.1
+
+**Implementation notes**
+
+* In C and Fortran, the *version* argument is a a character array, and an integer
+  status code indicating success (zero) or failure (nonzero) is returned.
+* In C++, Java, and Python, this argument is omitted, and a string -- a basic type
+  in these languages -- is returned from the function.
+
+[:ref:`info_funcs` | :ref:`basic_model_interface`]
+
 
 .. _get_input_item_count:
 

@@ -1,9 +1,12 @@
 //
 // The Basic Model Interface (BMI)
 //
-package csdms version 2.0 {
+package csdms version 2.1 {
   interface bmi {
 
+    // Metadata on model and BMI
+    int get_bmi_version(out string version);    
+	
     // Initialize, run, finalize (IRF)
     int initialize(in string config_file);
     int update();
