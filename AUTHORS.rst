@@ -14,6 +14,7 @@ Contributors
 * Richard Barnes
 * Michael Galloy
 * Julian Hofer
+* Rolf Hut
 * Eric Hutton
 * Allen Lee
 * Eric Morway
@@ -24,7 +25,6 @@ Contributors
 * Greg Tucker
 * Ben van Werkhoven
 * Martijn Visser
-* Rolf Hut
 
 If you have contributed to the BMI project and your name is missing,
 please send an email to the coordinators, or open a pull request
