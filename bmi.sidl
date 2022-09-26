@@ -1,7 +1,7 @@
 //
 // The Basic Model Interface (BMI)
 //
-package csdms version 2.0 {
+package csdms version 2.1 {
   interface bmi {
 
     // Initialize, run, finalize (IRF)
@@ -37,11 +37,15 @@ package csdms version 2.0 {
     int get_value_ptr(in string name, out array<> dest_ptr);
     int get_value_at_indices(in string name, in array<> dest,
         in array<int, 1> inds);
+    int get_state(out string state);
+    int get_state_ptr(out array<> dest_ptr);
 
     // Setters
     int set_value(in string name, in array<> src);
     int set_value_at_indices(in string name, in array<int, 1> inds,
         in array<> src);
+    int set_state(in string state);
+    int set_state_ptr(in array<> src);
 
     // Grid information
     int get_grid_rank(in int grid, out int rank);

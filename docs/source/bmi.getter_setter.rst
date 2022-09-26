@@ -79,7 +79,6 @@ even if the model's state has changed.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
-
 .. _get_value_at_indices:
 
 *get_value_at_indices*
@@ -105,6 +104,31 @@ Additionally,
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
+.. _get_state:
+
+*get_state*
+...........
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_state(out string);
+
+The `get_state` function collects all information that forms the
+state of the model and presents that as a single string. The formatting
+of the output string is wholly upon the modeller. Best practices include
+formatting as NETCDF or JSON.
+
+**Implementation notes**
+
+* In C++ and Java, `get_state` is a void function.
+* Depending on how a model is written, the state may not be
+  accessible until after the call to :ref:`initialize`. Likewise, the
+  state may not be accessible after calling :ref:`finalize`.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+
+[:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
 .. _set_value:
 

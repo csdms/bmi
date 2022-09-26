@@ -115,8 +115,12 @@ grouped by functional category.
    :ref:`get_value`                Get a copy of values of a given variable.
    :ref:`get_value_ptr`            Get a reference to the values of a given variable.
    :ref:`get_value_at_indices`     Get variable values at specific locations.
+   :ref:`get_state`                Get all the variables that together form the state of the model.
+   :ref:`get_state_pr`             Get a reference to the value of the state.
    :ref:`set_value`                Set the values of a given variable.
    :ref:`set_value_at_indices`     Set the values of a variable at specific locations.
+   :ref:`set_state`                Set all the variables that together form the state of the model.
+   :ref:`set_state_pr`             Set the state by providing a reference.
    :ref:`get_grid_rank`            Get the number of dimensions of a computational grid.
    :ref:`get_grid_size`            Get the total number of elements of a computational grid.
    :ref:`get_grid_type`            Get the grid type as a string.
