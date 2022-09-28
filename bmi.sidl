@@ -4,16 +4,16 @@
 package csdms version 2.1 {
   interface bmi {
 
-    // Metadata on model and BMI
+    // Model and BMI metadata
     int get_bmi_version(out string version);    
 	
-    // Initialize, run, finalize (IRF)
+    // Model control: initialize, run, finalize (IRF)
     int initialize(in string config_file);
     int update();
     int update_until(in double time);
     int finalize();
 
-    // Exchange items
+    // Model information
     int get_component_name(out string name);
     int get_input_item_count(out int count);
     int get_output_item_count(out int count);
