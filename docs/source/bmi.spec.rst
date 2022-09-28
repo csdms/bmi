@@ -72,6 +72,7 @@ The Basic Model Interface
 The functions that comprise the Basic Model Interface
 can be grouped into categories:
 
+* :ref:`metadata_funcs`
 * :ref:`control_funcs`
 * :ref:`info_funcs`
 * :ref:`var_funcs`
@@ -92,12 +93,12 @@ grouped by functional category.
    ==============================  =========================================
    Function                        Description 
    ==============================  =========================================
+   :ref:`get_bmi_version`          Version of the BMI implemented.
    :ref:`initialize`               Perform startup tasks for the model.
    :ref:`update`                   Advance model state by one time step.
    :ref:`update_until`             Advance model state until the given time.
    :ref:`finalize`                 Perform tear-down tasks for the model.
    :ref:`get_component_name`       Name of the model.
-   :ref:`get_bmi_version`          Version number of the BMI version implemented.
    :ref:`get_input_item_count`     Count of a model's input variables.
    :ref:`get_output_item_count`    Count of a model's output variables.
    :ref:`get_input_var_names`      List of a model's input variables.
@@ -136,6 +137,7 @@ grouped by functional category.
    :ref:`get_grid_nodes_per_face`  Get the number of nodes for each face.
    ==============================  =========================================
 
+.. include:: bmi.metadata_funcs.rst
 .. include:: bmi.control_funcs.rst
 .. include:: bmi.info_funcs.rst
 .. include:: bmi.var_funcs.rst
