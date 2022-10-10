@@ -14,6 +14,7 @@ Contributors
 * Richard Barnes
 * Michael Galloy
 * Julian Hofer
+* Rolf Hut
 * Eric Hutton
 * Allen Lee
 * Eric Morway
