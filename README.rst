@@ -84,6 +84,14 @@ Alternatively, the specifications can be installed through conda
 (C, C++, Fortran, Python) or Maven (Java).
 See the links above for details.
 
+The default branch of this repository
+reflects the current state of development for the BMI.
+When implementing a BMI,
+please use the latest release listed in the right sidebar;
+currently this is `Basic Model Interface 2.0`_.
+For more information on implementing a BMI,
+see the `documentation`_.
+
 While CSDMS currently supports the languages listed above,
 a BMI can be written for any language.
 BMI is a community-driven standard;
@@ -114,4 +122,6 @@ is supported by the National Science Foundation.*
 .. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
 .. _bmi-example-java: https://github.com/csdms/bmi-example-java
 .. _bmi-example-python: https://github.com/csdms/bmi-example-python
+.. _Basic Model Interface 2.0: https://github.com/csdms/bmi/releases/tag/v2.0
+.. _documentation: https://bmi.readthedocs.io
 .. _CSDMS Workbench: https://csdms.colorado.edu/wiki/Workbench
