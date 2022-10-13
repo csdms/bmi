@@ -122,7 +122,7 @@ is supported by the National Science Foundation.*
 .. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
 .. _bmi-example-java: https://github.com/csdms/bmi-example-java
 .. _bmi-example-python: https://github.com/csdms/bmi-example-python
-.. _latest_release: https://github.com/csdms/bmi/releases
+.. _latest release: https://github.com/csdms/bmi/releases
 .. _Basic Model Interface 2.0: https://github.com/csdms/bmi/releases/tag/v2.0
 .. _documentation: https://bmi.readthedocs.io
 .. _CSDMS Workbench: https://csdms.colorado.edu/wiki/Workbench
