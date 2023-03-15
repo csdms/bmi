@@ -87,6 +87,7 @@ exclude_patterns = [
     'bmi.time_funcs.rst',
     'bmi.getter_setter.rst',
     'bmi.grid_funcs.rst',
+    'bmi.metadata_funcs.rst',
 ]
 
 # The reST default role (used for this markup: `text`) to use for all
