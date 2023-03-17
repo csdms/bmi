@@ -47,7 +47,7 @@ in which the BMI is implemented.
 
 .. _specs_and_examples:
 
-.. table:: **Table 1:** BMI language specifications.
+.. table:: **Table 1:** BMI languages.
    :align: center
    :widths: 20, 25, 25, 30
 
@@ -60,6 +60,21 @@ in which the BMI is implemented.
    Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_ 
    Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
    ========  =============  ==============  ======================
+
+BMI is a community standard.
+Table 2 lists community-contributed language specifications and examples
+for two languages, Javascript and Julia.
+
+.. table:: **Table 2:** Community-contributed BMI languages.
+   :align: center
+   :widths: 20, 25, 25, 30
+
+   ==========  =============  ============  =====================
+   Language    Specification  Repository    Example
+   ==========  =============  ============  =====================
+   Javascript  `bmi.js`_      `bmi-js`_     `bmi-example-js`_ 
+   Julia       `bmi.jl`_      `bmi-julia`_  `bmi-example-julia`_
+   ==========  =============  ============  =====================
 
 Along with the examples,
 two documents may be particularly helpful when writing a BMI:
@@ -125,15 +140,21 @@ Project Information
 .. _bmi.f90: https://github.com/csdms/bmi-fortran/blob/master/bmi.f90
 .. _bmi.java: https://github.com/csdms/bmi-java/blob/master/src/main/java/edu/colorado/csdms/bmi/BMI.java
 .. _bmi.py: https://github.com/csdms/bmi-python/blob/master/bmipy/bmi.py
+.. _bmi.js: https://github.com/uihilab/BMI-JS/blob/main/bmijs/bmi.js
+.. _bmi.jl: https://github.com/Deltares/BasicModelInterface.jl/blob/master/src/BasicModelInterface.jl
 .. _bmi-c: https://github.com/csdms/bmi-c
 .. _bmi-cxx: https://github.com/csdms/bmi-cxx
 .. _bmi-fortran: https://github.com/csdms/bmi-fortran
 .. _bmi-java: https://github.com/csdms/bmi-java
 .. _bmi-python: https://github.com/csdms/bmi-python
+.. _bmi-js: https://github.com/uihilab/bmi-js
+.. _bmi-julia: https://github.com/Deltares/BasicModelInterface.jl
 .. _bmi-example-c: https://github.com/csdms/bmi-example-c
 .. _bmi-example-cxx: https://github.com/csdms/bmi-example-cxx
 .. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
 .. _bmi-example-java: https://github.com/csdms/bmi-example-java
 .. _bmi-example-python: https://github.com/csdms/bmi-example-python
+.. _bmi-example-js: https://github.com/uihilab/bmi-example-js
+.. _bmi-example-julia: https://github.com/csdms/bmi-example-julia
 .. _CSDMS Workbench: https://csdms.colorado.edu/wiki/Workbench
 .. _CSDMS Help Desk: https://github.com/csdms/help-desk

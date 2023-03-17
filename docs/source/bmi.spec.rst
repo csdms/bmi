@@ -13,13 +13,13 @@ can be grouped into categories:
 * :ref:`getter_setter_funcs`
 * :ref:`grid_funcs`
 
-Table 2 lists the individual BMI functions
+Table 3 lists the individual BMI functions
 along with a brief description.
 Following the table is a detailed description of each function,
 including the function prototype in :term:`SIDL`,
 grouped by functional category.
 
-.. table:: **Table 2:** Summary of BMI functions.
+.. table:: **Table 3:** Summary of BMI functions.
    :align: center
    :widths: 30, 70
 
