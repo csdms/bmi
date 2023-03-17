@@ -38,16 +38,16 @@
 
    </p>
 
-The *Basic Model Interface* (BMI) is a library specification
-created by the `Community Surface Dynamics Modeling System`_ (CSDMS)
-to facilitate the conversion of a model or dataset
-into a reusable, plug-and-play component.
-Recall that in this context an interface is a named set of functions
-with prescribed arguments and return values.
-The BMI functions make a model self-describing and fully controllable
+The *Basic Model Interface* (BMI),
+developed by the `Community Surface Dynamics Modeling System`_ (CSDMS),
+is a standardized set of control and query functions that,
+when added to a software element such as a model or a dataset,
+makes that software easier to couple with other software that also exposes a BMI.
+
+A BMI makes a model self-describing and fully controllable
 by a modeling framework or application.
 By design, the BMI functions are straightforward to implement in
-any language, using only basic data types from standard language libraries.
+any language, using basic data types from standard language libraries.
 Also by design, the BMI functions are noninvasive.
 This means that a model's BMI does not make calls to other
 components or tools and is not modified to use any
@@ -56,10 +56,11 @@ dependencies into a model, so the model can still be used
 in a stand-alone manner.
 
 The BMI is expressed
-in the `Scientific Interface Definition Language`_ (SIDL)
-in the file `bmi.sidl <./bmi.sidl>`_.
-BMI specifications for five languages -- C, C++, Fortran, Java,
-and Python -- are derived from this SIDL file.
+in the `Scientific Interface Definition Language`_ (SIDL).
+From `bmi.sidl <./bmi.sidl>`_,
+CSDMS has derived BMI specifications
+for five languages--C, C++, Fortran, Java,
+and Python.
 For each language,
 links to the specification and an example implementation
 are listed in the table below.
