@@ -86,12 +86,36 @@ Alternatively, the specifications can be installed through conda
 See the links above for details.
 
 While CSDMS currently supports the languages listed above,
-a BMI can be written for any language.
+a BMI specification can be written for any language.
 BMI is a community-driven standard;
 `contributions <CONTRIBUTING.rst>`_
 that follow the `contributor code of conduct <./CODE-OF-CONDUCT.rst>`_
 are welcomed,
 and are `acknowledged <./AUTHORS.rst>`_.
+
+The table below lists community-contributed
+language specifications and examples
+for two languages, Javascript and Julia.
+
+.. table::
+   :align: center
+   :widths: 10, 10, 15
+
+   ==========  =============  ======================
+   Language    Specification  Example implementation
+   ==========  =============  ======================
+   Javascript  `bmi-js`_      `bmi-example-js`_
+   Julia       `bmi-julia`_   `bmi-example-julia`_
+   ==========  =============  ======================
+
+The default branch of this repository
+reflects the current state of development for the BMI.
+When implementing a BMI,
+please use the `latest release`_ listed in the right sidebar;
+currently this is `Basic Model Interface 2.0`_.
+For more information on implementing a BMI,
+see the `documentation`_.
+
 BMI is open source software released under the `MIT License <./LICENSE>`_.
 BMI is an element of the `CSDMS Workbench`_,
 an integrated system of software tools, technologies, and standards
@@ -110,9 +134,16 @@ is supported by the National Science Foundation.*
 .. _bmi-fortran: https://github.com/csdms/bmi-fortran
 .. _bmi-java: https://github.com/csdms/bmi-java
 .. _bmi-python: https://github.com/csdms/bmi-python
+.. _bmi-js: https://github.com/uihilab/bmi-js
+.. _bmi-julia: https://github.com/Deltares/BasicModelInterface.jl
 .. _bmi-example-c: https://github.com/csdms/bmi-example-c
 .. _bmi-example-cxx: https://github.com/csdms/bmi-example-cxx
 .. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
 .. _bmi-example-java: https://github.com/csdms/bmi-example-java
 .. _bmi-example-python: https://github.com/csdms/bmi-example-python
+.. _bmi-example-js: https://github.com/uihilab/bmi-example-js
+.. _bmi-example-julia: https://github.com/csdms/bmi-example-julia
+.. _latest release: https://github.com/csdms/bmi/releases
+.. _Basic Model Interface 2.0: https://github.com/csdms/bmi/releases/tag/v2.0
+.. _documentation: https://bmi.readthedocs.io
 .. _CSDMS Workbench: https://csdms.colorado.edu/wiki/Workbench
