@@ -6,7 +6,7 @@
 
    <p align="center">
       <a href='https://bmi.readthedocs.org/'>
-         <img src='https://github.com/csdms/bmi/raw/master/docs/source/_static/bmi-logo-header-text.png'/>
+         <img src='https://github.com/csdms/bmi/raw/develop/docs/source/_static/bmi-logo-header-text.png'/>
       </a>
    </p>
 
