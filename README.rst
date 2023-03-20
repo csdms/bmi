@@ -65,7 +65,7 @@ For each language,
 links to the specification and an example implementation
 are listed in the table below.
 
-.. table::
+.. table:: BMI languages
    :align: center
    :widths: 10, 10, 15
 
@@ -97,7 +97,7 @@ The table below lists community-contributed
 language specifications and examples
 for two languages, Javascript and Julia.
 
-.. table::
+.. table:: Community-contributed BMI languages
    :align: center
    :widths: 10, 10, 15
 
