@@ -71,10 +71,10 @@ Given a :term:`grid identifier`, get the :term:`rank` (the number of
 dimensions) of that grid as an integer.
 
 A grid's rank determines the length of the return value
-of many of the following grid functions.
-For instance, :ref:`get_grid_shape` returns an array of length *rank*.
-Similarly, a grid's rank determines which
-of :ref:`get_grid_x`, :ref:`get_grid_y`, etc. are implemented.
+of several grid functions.
+For example,
+both :ref:`get_grid_shape` and :ref:`get_grid_coordinate_names`
+return an array of length *rank*.
 
 **Implementation notes**
 
@@ -102,7 +102,7 @@ get the total number of elements (or :term:`nodes <node>`)
 of that grid as an integer.
 
 The grid size is used for, among other things, the
-length of arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`
+length of arrays returned by :ref:`get_grid_coordinate`
 for :ref:`unstructured <unstructured_grids>` and
 :ref:`structured quad <structured_quad>` grids.
 
@@ -230,6 +230,9 @@ the origin is given in the column dimension, followed by the row dimension,
    /* SIDL */
    int get_grid_x(in int grid, in array<double, 1> x);
 
+.. deprecated:: 2.1
+   Use :ref:`get_grid_coordinate` instead.
+
 Get the locations of the grid :term:`nodes <node>` in the first
 coordinate direction.
 
@@ -259,6 +262,9 @@ See :ref:`model_grids` for more information.
 
    /* SIDL */
    int get_grid_y(in int grid, in array<double, 1> y);
+
+.. deprecated:: 2.1
+   Use :ref:`get_grid_coordinate` instead.
 
 Get the locations of the grid :term:`nodes <node>` in the second
 coordinate direction.
@@ -290,6 +296,9 @@ See :ref:`model_grids` for more information.
    /* SIDL */
    int get_grid_z(in int grid, in array<double, 1> z);
 
+.. deprecated:: 2.1
+   Use :ref:`get_grid_coordinate` instead.
+
 Get the locations of the grid :term:`nodes <node>` in the third
 coordinate direction.
 
@@ -303,6 +312,121 @@ See :ref:`model_grids` for more information.
   :ref:`structured quadrilateral <structured_quad>`,
   and all :ref:`unstructured <unstructured_grids>` grids.
 * In Python, the *z* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_coordinate_names:
+
+*get_grid_coordinate_names*
+...........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_coordinate_names(in int grid, out array<string, 1> names);
+
+.. versionadded:: 2.1
+
+Given a :term:`grid identifier`,
+get an array of the coordinate names defined for the grid;
+e.g., ``["x", "y", "z"]``,
+or ``["x1", "x2", "x3"]``,
+or ``["lon", "lat", "hgt"]``, etc.
+The length of the array is given by :ref:`get_grid_rank`.
+
+**Implementation notes**
+
+* This function is used for describing all :ref:`grid types <model_grids>`.
+* In C and Fortran, the names are passed back as an array of character pointers
+  (because the coordinate names could have differing lengths), and an integer
+  status code indicating success (zero) or failure (nonzero) is returned.
+* In C++, the argument is omitted and the names are returned from the function
+  in a vector, a standard container in the language.
+* In Java, the argument is omitted and the names are returned from the function
+  in a string array, a standard container in the language.
+* In Python, the argument is omitted and the names are returned from the
+  function in a tuple, a standard container in the language.
+* Some grids may not have coordinates (e.g., grids of type ``scalar`` or
+  ``none``).
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_coordinate_units:
+
+*get_grid_coordinate_units*
+...........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_coordinate_units(in int grid, in string name, out string units);
+
+.. versionadded:: 2.1
+
+Given a :term:`grid identifier`
+and a coordinate name returned from :ref:`get_grid_coordinate_names`,
+get the units of the coordinate.
+
+Standard unit names in lower case,
+such as ``"meters"`` or ``"millibars"``,
+should be used.
+Standard abbreviations,
+such as ``"m"`` or ``"mb"``, are also supported.
+The abbreviations used in the BMI are derived from
+Unidata's `UDUNITS`_ package.
+See, for example, `The Units Database`_ for a
+full description of valid unit names and a list of supported units.
+
+**Implementation notes**
+
+* This function is used for describing all :ref:`grid types <model_grids>`.
+* Dimensionless quantities (such as sigma coordinates)
+  should use ``""`` or ``"1"`` as the unit.
+* Grids without units should use ``"none"``.
+* In C++, Java, and Python, the *units* argument is omitted and the grid
+  units name is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_coordinate:
+
+*get_grid_coordinate*
+.....................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_coordinate(in int grid, in string name, in array<double, 1> coordinates);
+
+.. versionadded:: 2.1
+
+Given a :term:`grid identifier`
+and a coordinate name returned from :ref:`get_grid_coordinate_names`,
+get the locations of the grid :term:`nodes <node>` in a single
+coordinate direction.
+
+The length of the one-dimensional array of coordinates depends on the grid type
+and the coordinate.
+(It will be a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
+See :ref:`model_grids` for more information.
+
+This function replaces the deprecated *get_grid_x*, *get_grid_y*, and
+*get_grid_z* functions.
+
+**Implementation notes**
+
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *coordinates* argument is a :term:`numpy <NumPy>` array.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
@@ -492,5 +616,78 @@ The number of edges per face is equal to the number of nodes per face.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_crs:
+
+*get_grid_crs*
+...............
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_crs(in int grid, out string crs);
+
+.. versionadded:: 2.1
+
+Given a :term:`grid identifier`,
+get `coordinate reference system`_ (CRS) information for the grid as a string.
+
+Note that the BMI doesn't specify which standard to use
+for the output of this function---that's left to the implementation.
+We can, however, make recommendations;
+e.g., OGC `Well-Known Text`_ (WKT), `PROJ`_, or `EPSG`_.
+
+A small example:
+if you have data in a projected CRS,
+say, UTM zone 13 North with the WGS84 datum,
+you could use `spatialreference.org`_ to find information about this projection
+(`EPSG:32613 <https://www.spatialreference.org/ref/epsg/wgs-84-utm-zone-13n/>`_)
+and return it from :ref:`get_grid_crs`
+as (for example) a PROJ string:
+
+.. code-block:: none
+
+  +proj=utm +zone=13 +ellps=WGS84 +datum=WGS84 +units=m +no_defs 
+
+or as WKT:
+
+.. code-block:: none
+
+  PROJCS["WGS 84 / UTM zone 13N",
+    GEOGCS["WGS 84",
+        DATUM["WGS_1984",
+            SPHEROID["WGS 84",6378137,298.257223563,
+                AUTHORITY["EPSG","7030"]],
+            AUTHORITY["EPSG","6326"]],
+        PRIMEM["Greenwich",0,
+            AUTHORITY["EPSG","8901"]],
+        UNIT["degree",0.01745329251994328,
+            AUTHORITY["EPSG","9122"]],
+        AUTHORITY["EPSG","4326"]],
+    UNIT["metre",1,
+        AUTHORITY["EPSG","9001"]],
+    PROJECTION["Transverse_Mercator"],
+    PARAMETER["latitude_of_origin",0],
+    PARAMETER["central_meridian",-105],
+    PARAMETER["scale_factor",0.9996],
+    PARAMETER["false_easting",500000],
+    PARAMETER["false_northing",0],
+    AUTHORITY["EPSG","32613"],
+    AXIS["Easting",EAST],
+    AXIS["Northing",NORTH]]
+
+as you prefer.
+
+**Implementation notes**
+
+* In C++, Java, and Python, the *crs* argument is omitted and the CRS
+  is returned from the function as a string.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* A return string of ``""`` or ``"none"`` (but not the UDUNITS ``"1"``, which
+  could be taken as an `EPSG code`_) indicates no projection information.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]

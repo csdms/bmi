@@ -11,7 +11,7 @@ here are some tips to help when writing a BMI for a model.
 
 * All functions in the BMI must be implemented. For example, even if a
   model operates on a :ref:`uniform rectilinear <uniform_rectilinear>`
-  grid, a :ref:`get_grid_x` function has to be written. This function
+  grid, a :ref:`get_grid_coordinate` function has to be written. This function
   can be empty and simply return the ``BMI_FAILURE`` status code or
   raise a ``NotImplemented`` exception, depending on the language.
 

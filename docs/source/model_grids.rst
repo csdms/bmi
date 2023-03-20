@@ -26,7 +26,7 @@ In the BMI,
 dimensional information is ordered with "ij" indexing
 (as opposed to "xy").
 For example,
-for the uniform rectilinear grid shown below,
+for the uniform rectilinear grid shown in :numref:`fig-uniform-rectilinear` below,
 the :ref:`get_grid_shape` function would return the array ``[4, 5]``.
 If there was a third dimension,
 its length would be listed first.
@@ -44,15 +44,19 @@ its length would be listed first.
 Uniform rectilinear
 ^^^^^^^^^^^^^^^^^^^
 
-.. image:: images/mesh_uniform_rectilinear.png
+.. _fig-uniform-rectilinear:
+.. figure:: images/mesh_uniform_rectilinear.png
    :scale: 20 %
+   :alt: Example uniform rectilinear grid,
+
+   An example of a rank 2 uniform rectilinear grid.
 
 A uniform rectilinear grid is a special case of structured quadrilateral grid
 where the elements have equal width in each dimension.
 That is, for a two-dimensional grid, elements have a constant width
 of ``dx`` in the *x*-direction and ``dy`` in the *y*-direction.
-The case of ``dx == dy`` is oftentimes called
-a *raster* or *Catesian grid*.
+The special case of ``dx == dy`` (as in :numref:`fig-uniform-rectilinear`)
+is often called a *raster* or *Cartesian grid*.
 
 To completely specify a uniform rectilinear grid,
 only three pieces of information are needed:
@@ -67,6 +71,8 @@ Uniform rectilinear grids use the following BMI functions:
 * :ref:`get_grid_shape`
 * :ref:`get_grid_spacing`
 * :ref:`get_grid_origin`
+* :ref:`get_grid_coordinate_names`
+* :ref:`get_grid_coordinate_units`
 
 
 .. _rectilinear:
@@ -74,29 +80,39 @@ Uniform rectilinear grids use the following BMI functions:
 Rectilinear
 ^^^^^^^^^^^
 
-.. image:: images/mesh_rectilinear.png
+.. _fig-rectilinear:
+.. figure:: images/mesh_rectilinear.png
    :scale: 20 %
+   :alt: Example rectilinear grid,
+
+   An example of a rank 2 rectilinear grid.
 
 In a rectilinear grid, the spacing between nodes in each dimension varies,
-as depicted above.
+as depicted in :numref:`fig-rectilinear`.
 Therefore,
 an array of coordinates for each row and column
 (for the two-dimensional case) is required.
-
-The :ref:`get_grid_y` function provides an array (whose length is the number of
-*rows*, obtained from :ref:`get_grid_shape`) that gives the *y*-coordinate for each row.
-
-The :ref:`get_grid_x` function provides an array (whose length is the number of
-*columns*, obtained from :ref:`get_grid_shape`) that gives the *x*-coordinate for each column.
 
 Rectilinear grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
 * :ref:`get_grid_size`
 * :ref:`get_grid_shape`
-* :ref:`get_grid_x`
-* :ref:`get_grid_y`
-* :ref:`get_grid_z`
+* :ref:`get_grid_coordinate_names`
+* :ref:`get_grid_coordinate_units`
+* :ref:`get_grid_coordinate`
+
+In :numref:`fig-rectilinear`,
+if :ref:`get_grid_coordinate_names` returns ``["x","y"]``
+for the names of the dimensions,
+then:
+
+* given ``"y"``, the :ref:`get_grid_coordinate` function provides an array,
+  whose length is the number of *rows*,
+  that gives the *y*-coordinate for each row;
+* given ``"x"``, the :ref:`get_grid_coordinate` function provides an array,
+  whose length is the number of *columns*,
+  that gives the *x*-coordinate for each column.
 
 
 .. _structured_quad:
@@ -104,29 +120,40 @@ Rectilinear grids use the following BMI functions:
 Structured quadrilateral
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: images/mesh_structured_quad.png
+.. _fig-structured-quad:
+.. figure:: images/mesh_structured_quad.png
    :scale: 20 %
+   :alt: Example structured quadrilateral grid,
 
-The most general structured quadrilateral grid is one where
-the rows (and columns) do not share a common coordinate. In this
-case, coordinates are required for each grid node. For this
-more general case, :ref:`get_grid_x` and :ref:`get_grid_y` are
-repurposed to provide this information.
+   An example of a rank 2 structured quadrilateral grid.
 
-The :ref:`get_grid_y` function returns an array (whose length is the number
-of total nodes returned by :ref:`get_grid_size`) of *y*-coordinates.
-
-The :ref:`get_grid_x` function returns an array (whose length is the number
-of total nodes returned by :ref:`get_grid_size`) of *x*-coordinates.
+The most general structured grid is one where
+the rows and columns of nodes do not share a common coordinate
+(:numref:`fig-structured-quad`).
+In this case,
+coordinates are required for each grid node, 
+and :ref:`get_grid_coordinate` is repurposed to provide this information:
 
 Structured quadrilateral grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
 * :ref:`get_grid_size`
 * :ref:`get_grid_shape`
-* :ref:`get_grid_x`
-* :ref:`get_grid_y`
-* :ref:`get_grid_z`
+* :ref:`get_grid_coordinate_names`
+* :ref:`get_grid_coordinate_units`
+* :ref:`get_grid_coordinate`
+
+In :numref:`fig-structured-quad`,
+if :ref:`get_grid_coordinate_names` returns ``["x","y"]``
+for the names of the dimensions,
+then:
+
+* given ``"y"``, the :ref:`get_grid_coordinate` function returns an array,
+  whose length is the total number of nodes from :ref:`get_grid_size`,
+  of *y*-coordinates.
+* given ``"x"``, the :ref:`get_grid_coordinate` function returns an array,
+  whose length is the total number of nodes from :ref:`get_grid_size`,
+  of *x*-coordinates.
 
 
 .. _unstructured_grids:
@@ -134,8 +161,12 @@ Structured quadrilateral grids use the following BMI functions:
 Unstructured grids
 ------------------
 
-.. image:: images/mesh_unstructured.png
+.. _fig-unstructured:
+.. figure:: images/mesh_unstructured.png
    :scale: 25 %
+   :alt: Example unstructured grid,
+
+   An example of a rank 2 unstructured grid.
 
 This category includes the *unstructured* type,
 as well as the special cases
@@ -143,25 +174,24 @@ as well as the special cases
 This is the most general grid type.
 It can be used for any type of grid.
 This grid type must be used if the grid consists of cells
-that are not quadrilaterals;
-this includes any grid of triangles (e.g. `Delaunay triangles`_
+that are not quadrilaterals,
+including any grid of triangles (e.g. `Delaunay triangles`_
 and `Voronoi tesselations`_).
 
 .. note::
 
-   A grid of `equilateral triangles`_, while they are most certainly
-   *structured*, would need to be represented as an unstructured grid.
+   A grid of `equilateral triangles`_, while they are *structured*,
+   would need to be represented as an unstructured grid.
    The same is true for a grid of `hexagons`_.
 
-
-BMI uses the `ugrid conventions`_ to define unstructured grids.
+BMI uses the `UGRID Conventions`_ to define unstructured grids.
 
 Unstructured grids use the following BMI functions:
 
 * :ref:`get_grid_rank`
-* :ref:`get_grid_x`
-* :ref:`get_grid_y`
-* :ref:`get_grid_z`
+* :ref:`get_grid_coordinate_names`
+* :ref:`get_grid_coordinate_units`
+* :ref:`get_grid_coordinate`
 * :ref:`get_grid_node_count`
 * :ref:`get_grid_edge_count`
 * :ref:`get_grid_face_count`
@@ -171,7 +201,7 @@ Unstructured grids use the following BMI functions:
 * :ref:`get_grid_nodes_per_face`
 
 For a demonstration of how these BMI functions work,
-let's use the unstructured grid in the annotated figure above.
+let's use the unstructured grid in :numref:`fig-unstructured` above.
 
 The grid is two-dimensional,
 so the :ref:`get_grid_rank` function returns 2.
@@ -184,8 +214,7 @@ are given by coordinates
    x = [0, 1, 2, 1, 3, 4]
    y = [3, 1, 2, 4, 0, 3]
 
-These will be the outputs of the :ref:`get_grid_x` and 
-:ref:`get_grid_y` functions, respectively.
+These coordinates are found through the :ref:`get_grid_coordinate` function.
 The nodes are indexed, so 
 node 0 is at *(x, y) = (0, 3)*,
 node 1 is at *(x, y) = (1, 1)*, etc.

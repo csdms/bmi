@@ -90,52 +90,56 @@ grouped by functional category.
    :align: center
    :widths: 30, 70
 
-   ==============================  =========================================
-   Function                        Description 
-   ==============================  =========================================
-   :ref:`get_bmi_version`          Version of the BMI implemented.
-   :ref:`initialize`               Perform startup tasks for the model.
-   :ref:`update`                   Advance model state by one time step.
-   :ref:`update_until`             Advance model state until the given time.
-   :ref:`finalize`                 Perform tear-down tasks for the model.
-   :ref:`get_component_name`       Name of the model.
-   :ref:`get_input_item_count`     Count of a model's input variables.
-   :ref:`get_output_item_count`    Count of a model's output variables.
-   :ref:`get_input_var_names`      List of a model's input variables.
-   :ref:`get_output_var_names`     List of a model's output variables.
-   :ref:`get_var_grid`             Get the grid identifier for a variable.
-   :ref:`get_var_type`             Get the data type of a variable.
-   :ref:`get_var_units`            Get the units of a variable.
-   :ref:`get_var_itemsize`         Get the size (in bytes) of one element of a variable.
-   :ref:`get_var_nbytes`           Get the total size (in bytes) of a variable.
-   :ref:`get_var_location`         Get the grid element type of a variable.
-   :ref:`get_current_time`         Current time of the model.
-   :ref:`get_start_time`           Start time of the model.
-   :ref:`get_end_time`             End time of the model.
-   :ref:`get_time_units`           Time units used in the model.
-   :ref:`get_time_step`            Time step used in the model.
-   :ref:`get_value`                Get a copy of values of a given variable.
-   :ref:`get_value_ptr`            Get a reference to the values of a given variable.
-   :ref:`get_value_at_indices`     Get variable values at specific locations.
-   :ref:`set_value`                Set the values of a given variable.
-   :ref:`set_value_at_indices`     Set the values of a variable at specific locations.
-   :ref:`get_grid_rank`            Get the number of dimensions of a computational grid.
-   :ref:`get_grid_size`            Get the total number of elements of a computational grid.
-   :ref:`get_grid_type`            Get the grid type as a string.
-   :ref:`get_grid_shape`           Get the dimensions of a computational grid.
-   :ref:`get_grid_spacing`         Get the spacing between grid nodes.
-   :ref:`get_grid_origin`          Get the origin of a grid.
-   :ref:`get_grid_x`               Get the locations of a grid's nodes in dimension 1.
-   :ref:`get_grid_y`               Get the locations of a grid's nodes in dimension 2.
-   :ref:`get_grid_z`               Get the locations of a grid's nodes in dimension 3.
-   :ref:`get_grid_node_count`      Get the number of nodes in the grid.
-   :ref:`get_grid_edge_count`      Get the number of edges in the grid.
-   :ref:`get_grid_face_count`      Get the number of faces in the grid.
-   :ref:`get_grid_edge_nodes`      Get the edge-node connectivity.
-   :ref:`get_grid_face_edges`      Get the face-edge connectivity.
-   :ref:`get_grid_face_nodes`      Get the face-node connectivity.
-   :ref:`get_grid_nodes_per_face`  Get the number of nodes for each face.
-   ==============================  =========================================
+   ================================ =========================================
+   Function                         Description 
+   ================================ =========================================
+   :ref:`get_bmi_version`           Version of the BMI implemented.
+   :ref:`initialize`                Perform startup tasks for the model.
+   :ref:`update`                    Advance model state by one time step.
+   :ref:`update_until`              Advance model state until the given time.
+   :ref:`finalize`                  Perform tear-down tasks for the model.
+   :ref:`get_component_name`        Name of the model.
+   :ref:`get_input_item_count`      Count of a model's input variables.
+   :ref:`get_output_item_count`     Count of a model's output variables.
+   :ref:`get_input_var_names`       List of a model's input variables.
+   :ref:`get_output_var_names`      List of a model's output variables.
+   :ref:`get_var_grid`              Get the grid identifier for a variable.
+   :ref:`get_var_type`              Get the data type of a variable.
+   :ref:`get_var_units`             Get the units of a variable.
+   :ref:`get_var_itemsize`          Get the size (in bytes) of one element of a variable.
+   :ref:`get_var_nbytes`            Get the total size (in bytes) of a variable.
+   :ref:`get_var_location`          Get the grid element type of a variable.
+   :ref:`get_current_time`          Current time of the model.
+   :ref:`get_start_time`            Start time of the model.
+   :ref:`get_end_time`              End time of the model.
+   :ref:`get_time_units`            Time units used in the model.
+   :ref:`get_time_step`             Time step used in the model.
+   :ref:`get_value`                 Get a copy of values of a given variable.
+   :ref:`get_value_ptr`             Get a reference to the values of a given variable.
+   :ref:`get_value_at_indices`      Get variable values at specific locations.
+   :ref:`set_value`                 Set the values of a given variable.
+   :ref:`set_value_at_indices`      Set the values of a variable at specific locations.
+   :ref:`get_grid_rank`             Get the number of dimensions of a computational grid.
+   :ref:`get_grid_size`             Get the total number of elements of a computational grid.
+   :ref:`get_grid_type`             Get the grid type as a string.
+   :ref:`get_grid_shape`            Get the dimensions of a computational grid.
+   :ref:`get_grid_spacing`          Get the spacing between grid nodes.
+   :ref:`get_grid_origin`           Get the origin of a grid.
+   :ref:`get_grid_x`                Get the locations of a grid's nodes in dimension 1. (Deprecated, see :ref:`get_grid_coordinate`.)
+   :ref:`get_grid_y`                Get the locations of a grid's nodes in dimension 2. (Deprecated, see :ref:`get_grid_coordinate`.)
+   :ref:`get_grid_z`                Get the locations of a grid's nodes in dimension 3. (Deprecated, see :ref:`get_grid_coordinate`.)
+   :ref:`get_grid_coordinate_names` Get the name of each node coordinate of a grid.
+   :ref:`get_grid_coordinate_units` Get the units of each node coordinate of a grid.
+   :ref:`get_grid_coordinate`       Get the location of each node of a single grid coordinate.
+   :ref:`get_grid_node_count`       Get the number of nodes in the grid.
+   :ref:`get_grid_edge_count`       Get the number of edges in the grid.
+   :ref:`get_grid_face_count`       Get the number of faces in the grid.
+   :ref:`get_grid_edge_nodes`       Get the edge-node connectivity.
+   :ref:`get_grid_face_edges`       Get the face-edge connectivity.
+   :ref:`get_grid_face_nodes`       Get the face-node connectivity.
+   :ref:`get_grid_nodes_per_face`   Get the number of nodes for each face.
+   :ref:`get_grid_crs`              Get coordinate reference system (CRS) information for a grid.
+   ================================ =========================================
 
 .. include:: bmi.metadata_funcs.rst
 .. include:: bmi.control_funcs.rst
@@ -170,3 +174,9 @@ grouped by functional category.
 .. _time unit conventions: https://www.unidata.ucar.edu/software/udunits/udunits-current/udunits/udunits2-accepted.xml
 .. _primitive types: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
 .. _wrapper classes: https://docs.oracle.com/javase/tutorial/java/data/numberclasses.html
+.. _coordinate reference system: https://www.earthdatascience.org/courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/
+.. _Well-Known Text: https://www.ogc.org/standards/wkt-crs
+.. _PROJ: https://proj.org/
+.. _EPSG: https://epsg.org/
+.. _spatialreference.org: https://www.spatialreference.org/
+.. _EPSG code: https://spatialreference.org/ref/epsg/
