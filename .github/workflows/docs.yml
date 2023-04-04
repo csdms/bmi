@@ -36,5 +36,8 @@ jobs:
           - name: Install dependencies
             run: pip install nox
 
+          - name: Check for lint
+            run: nox -s lint
+
           - name: Build documentation
             run: nox -s build-docs
