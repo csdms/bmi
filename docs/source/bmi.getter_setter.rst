@@ -13,7 +13,7 @@ so getters are called to get current values.
 
 A *setter* is a function called to change/overwrite a variable in
 a model's state. A setter may impose restrictions on how a
-state variable can be changed or check the new data for validity. 
+state variable can be changed or check the new data for validity.
 
 
 .. _get_value:
