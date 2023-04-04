@@ -7,6 +7,13 @@ import nox
 ROOT = pathlib.Path(__file__).parent
 
 
+@nox.session
+def lint(session: nox.Session) -> None:
+    """Look for lint."""
+    session.install("pre-commit")
+    session.run("pre-commit", "run", "--all-files")
+
+
 @nox.session(name="build-docs")
 def build_docs(session: nox.Session) -> None:
     """Build the docs."""
