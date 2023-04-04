@@ -69,7 +69,7 @@ release = '2.0'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = "en"
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -87,6 +87,7 @@ exclude_patterns = [
     'bmi.time_funcs.rst',
     'bmi.getter_setter.rst',
     'bmi.grid_funcs.rst',
+    'bmi.metadata_funcs.rst',
 ]
 
 # The reST default role (used for this markup: `text`) to use for all
