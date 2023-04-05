@@ -5,8 +5,8 @@ package csdms version 2.1-dev.0 {
   interface bmi {
 
     // Model and BMI metadata
-    int get_bmi_version(out string version);    
-	
+    int get_bmi_version(out string version);
+
     // Model control: initialize, run, finalize (IRF)
     int initialize(in string config_file);
     int update();
