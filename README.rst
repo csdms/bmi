@@ -24,8 +24,8 @@
      <img src='https://zenodo.org/badge/DOI/10.5281/zenodo.3955010.svg' alt='DOI'></a>
    <a href="https://doi.org/10.21105/joss.02317">
      <img src="https://joss.theoj.org/papers/10.21105/joss.02317/status.svg" alt="JOSS article"></a>
-   <a href='https://bmi.readthedocs.io/en/latest/?badge=latest'>
-     <img src='https://readthedocs.org/projects/bmi/badge/?version=latest' alt='Documentation Status'></a>
+   <a href='https://bmi.readthedocs.io/en/stable'>
+     <img src='https://readthedocs.org/projects/bmi/badge/?version=stable' alt='Documentation Status'></a>
    <a href="https://opensource.org/licenses/MIT">
      <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
 
