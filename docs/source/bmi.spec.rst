@@ -48,8 +48,8 @@ in which the BMI is implemented.
    ========  =============  ==============  ======================
    C         `bmi.h`_       `bmi-c`_        `bmi-example-c`_
    C++       `bmi.hxx`_     `bmi-cxx`_      `bmi-example-cxx`_
-   Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_ 
-   Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_ 
+   Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_
+   Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_
    Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
    ========  =============  ==============  ======================
 
@@ -91,7 +91,7 @@ grouped by functional category.
    :widths: 30, 70
 
    ==============================  =========================================
-   Function                        Description 
+   Function                        Description
    ==============================  =========================================
    :ref:`get_bmi_version`          Version of the BMI implemented.
    :ref:`initialize`               Perform startup tasks for the model.

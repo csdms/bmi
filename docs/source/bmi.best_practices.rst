@@ -30,7 +30,7 @@ here are some tips to help when writing a BMI for a model.
   standardized names makes it easier for a framework (or a human) to
   match input and output variables between models.
 
-* Don't change the variable names for exchange items 
+* Don't change the variable names for exchange items
   you currently use within your model
   to :term:`Standard Names`. Instead, find a
   `matching`_ Standard Name for each variable and then
