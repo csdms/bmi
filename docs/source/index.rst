@@ -56,8 +56,8 @@ in which the BMI is implemented.
    ========  =============  ==============  ======================
    C         `bmi.h`_       `bmi-c`_        `bmi-example-c`_
    C++       `bmi.hxx`_     `bmi-cxx`_      `bmi-example-cxx`_
-   Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_ 
-   Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_ 
+   Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_
+   Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_
    Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
    ========  =============  ==============  ======================
 
@@ -72,7 +72,7 @@ for two languages, Javascript and Julia.
    ==========  =============  ============  =====================
    Language    Specification  Repository    Example
    ==========  =============  ============  =====================
-   Javascript  `bmi.js`_      `bmi-js`_     `bmi-example-js`_ 
+   Javascript  `bmi.js`_      `bmi-js`_     `bmi-example-js`_
    Julia       `bmi.jl`_      `bmi-julia`_  `bmi-example-julia`_
    ==========  =============  ============  =====================
 
