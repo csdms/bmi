@@ -38,16 +38,16 @@
 
    </p>
 
-The *Basic Model Interface* (BMI) is a library specification
-created by the `Community Surface Dynamics Modeling System`_ (CSDMS)
-to facilitate the conversion of a model or dataset
-into a reusable, plug-and-play component.
-Recall that in this context an interface is a named set of functions
-with prescribed arguments and return values.
-The BMI functions make a model self-describing and fully controllable
+The *Basic Model Interface* (BMI),
+developed by the `Community Surface Dynamics Modeling System`_ (CSDMS),
+is a standardized set of control and query functions that,
+when added to a software element such as a model or a dataset,
+makes that software easier to couple with other software that also exposes a BMI.
+
+A BMI makes a model self-describing and fully controllable
 by a modeling framework or application.
 By design, the BMI functions are straightforward to implement in
-any language, using only basic data types from standard language libraries.
+any language, using basic data types from standard language libraries.
 Also by design, the BMI functions are noninvasive.
 This means that a model's BMI does not make calls to other
 components or tools and is not modified to use any
@@ -56,15 +56,16 @@ dependencies into a model, so the model can still be used
 in a stand-alone manner.
 
 The BMI is expressed
-in the `Scientific Interface Definition Language`_ (SIDL)
-in the file `bmi.sidl <./bmi.sidl>`_.
-BMI specifications for five languages -- C, C++, Fortran, Java,
-and Python -- are derived from this SIDL file.
+in the `Scientific Interface Definition Language`_ (SIDL).
+From `bmi.sidl <./bmi.sidl>`_,
+CSDMS has derived BMI specifications
+for five languages--C, C++, Fortran, Java,
+and Python.
 For each language,
 links to the specification and an example implementation
 are listed in the table below.
 
-.. table::
+.. table:: BMI languages
    :align: center
    :widths: 10, 10, 15
 
@@ -84,6 +85,29 @@ Alternatively, the specifications can be installed through conda
 (C, C++, Fortran, Python) or Maven (Java).
 See the links above for details.
 
+While CSDMS currently supports the languages listed above,
+a BMI specification can be written for any language.
+BMI is a community-driven standard;
+`contributions <CONTRIBUTING.rst>`_
+that follow the `contributor code of conduct <./CODE-OF-CONDUCT.rst>`_
+are welcomed,
+and are `acknowledged <./AUTHORS.rst>`_.
+
+The table below lists community-contributed
+language specifications and examples
+for two languages, Javascript and Julia.
+
+.. table:: Community-contributed BMI languages
+   :align: center
+   :widths: 10, 10, 15
+
+   ==========  =============  ======================
+   Language    Specification  Example implementation
+   ==========  =============  ======================
+   Javascript  `bmi-js`_      `bmi-example-js`_
+   Julia       `bmi-julia`_   `bmi-example-julia`_
+   ==========  =============  ======================
+
 The default branch of this repository
 reflects the current state of development for the BMI.
 When implementing a BMI,
@@ -92,13 +116,6 @@ currently this is `Basic Model Interface 2.0`_.
 For more information on implementing a BMI,
 see the `documentation`_.
 
-While CSDMS currently supports the languages listed above,
-a BMI can be written for any language.
-BMI is a community-driven standard;
-`contributions <CONTRIBUTING.rst>`_
-that follow the `contributor code of conduct <./CODE-OF-CONDUCT.rst>`_
-are welcomed,
-and are `acknowledged <./AUTHORS.rst>`_.
 BMI is open source software released under the `MIT License <./LICENSE>`_.
 BMI is an element of the `CSDMS Workbench`_,
 an integrated system of software tools, technologies, and standards
@@ -117,11 +134,15 @@ is supported by the National Science Foundation.*
 .. _bmi-fortran: https://github.com/csdms/bmi-fortran
 .. _bmi-java: https://github.com/csdms/bmi-java
 .. _bmi-python: https://github.com/csdms/bmi-python
+.. _bmi-js: https://github.com/uihilab/bmi-js
+.. _bmi-julia: https://github.com/Deltares/BasicModelInterface.jl
 .. _bmi-example-c: https://github.com/csdms/bmi-example-c
 .. _bmi-example-cxx: https://github.com/csdms/bmi-example-cxx
 .. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
 .. _bmi-example-java: https://github.com/csdms/bmi-example-java
 .. _bmi-example-python: https://github.com/csdms/bmi-example-python
+.. _bmi-example-js: https://github.com/uihilab/bmi-example-js
+.. _bmi-example-julia: https://github.com/csdms/bmi-example-julia
 .. _latest release: https://github.com/csdms/bmi/releases
 .. _Basic Model Interface 2.0: https://github.com/csdms/bmi/releases/tag/v2.0
 .. _documentation: https://bmi.readthedocs.io

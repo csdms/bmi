@@ -12,6 +12,8 @@ Contributors
 ------------
 
 * Richard Barnes
+* Ibrahim Demir
+* Greg Ewing
 * Michael Galloy
 * Julian Hofer
 * Rolf Hut
@@ -21,10 +23,12 @@ Contributors
 * Boyana Norris
 * Scott Peckham
 * Mark Piper
+* Carlos Erazo Ramirez
 * Mike Taves
 * Greg Tucker
-* Ben van Werkhoven
+* Ashani Vaidya
 * Martijn Visser
+* Ben van Werkhoven
 
 If you have contributed to the BMI project and your name is missing,
 please send an email to the coordinators, or open a pull request
