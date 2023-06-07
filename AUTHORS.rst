@@ -15,6 +15,7 @@ Contributors
 * Ibrahim Demir
 * Greg Ewing
 * Michael Galloy
+* Sam Harrison
 * Julian Hofer
 * Rolf Hut
 * Eric Hutton
