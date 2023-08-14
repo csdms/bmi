@@ -38,11 +38,11 @@ def build_docs(session: nox.Session) -> None:
 @nox.session(python=False, name="clean-docs")
 def clean_docs(session: nox.Session) -> None:
     """Clean up the docs folder."""
-    build_dir = ROOT / "docs" / "build"
+    docs_dir = ROOT / "docs"
 
-    if (build_dir / "html").is_dir():
-        with session.chdir(build_dir):
-            shutil.rmtree("html")
+    if (docs_dir / "build").is_dir():
+        with session.chdir(docs_dir):
+            shutil.rmtree("build")
 
     if (ROOT / "build").is_dir():
         session.chdir(ROOT / "build")
@@ -54,3 +54,5 @@ def clean_docs(session: nox.Session) -> None:
 def nuke(session):
     """Run all clean sessions."""
     clean_docs(session)
+    if (ROOT / "__pycache__").is_dir():
+        shutil.rmtree("__pycache__")
