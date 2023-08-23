@@ -310,7 +310,7 @@ Institutional Partner benefits are:
 * Ability to influence the Project through the participation of their Council
   Member.
 
-A list of current Institutional Partners is maintained at the page 
+A list of current Institutional Partners is maintained at the page
 `Institutional Partners`_.
 
 Document history

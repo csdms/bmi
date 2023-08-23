@@ -3,7 +3,7 @@
 Model grid functions
 --------------------
 
-The functions in this section describe :ref:`model grids <model_grids>`. 
+The functions in this section describe :ref:`model grids <model_grids>`.
 In the BMI,
 every :term:`exchange item` is defined on a grid,
 and is referenced by a :term:`grid identifier`
@@ -395,7 +395,7 @@ Get the number of :term:`faces <face>` in the grid.
 Get the edge-node connectivity.
 
 For each edge, connectivity is given as node at edge tail, followed by
-node at edge head. The total length of the array is 
+node at edge head. The total length of the array is
 2 * :ref:`get_grid_edge_count`.
 
 **Implementation notes**
@@ -451,7 +451,7 @@ Get the face-node connectivity.
 
 For each face, the nodes (listed in a counter-clockwise direction)
 that form the boundary of the face.
-For a grid of quadrilaterals, 
+For a grid of quadrilaterals,
 the total length of the array is 4 * :ref:`get_grid_face_count`.
 More generally,
 the length of the array is the sum of the values of

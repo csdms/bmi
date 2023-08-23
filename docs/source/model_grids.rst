@@ -184,9 +184,9 @@ are given by coordinates
    x = [0, 1, 2, 1, 3, 4]
    y = [3, 1, 2, 4, 0, 3]
 
-These will be the outputs of the :ref:`get_grid_x` and 
+These will be the outputs of the :ref:`get_grid_x` and
 :ref:`get_grid_y` functions, respectively.
-The nodes are indexed, so 
+The nodes are indexed, so
 node 0 is at *(x, y) = (0, 3)*,
 node 1 is at *(x, y) = (1, 1)*, etc.
 
@@ -194,7 +194,7 @@ As with the grid nodes,
 the grid :term:`edges <edge>` and :term:`faces <face>` are indexed.
 In the figure,
 the edges are depicted in blue italics,
-while the faces are boldfaced. 
+while the faces are boldfaced.
 The outputs from :ref:`get_grid_node_count`, :ref:`get_grid_edge_count`,
 and :ref:`get_grid_face_count` are:
 

@@ -34,7 +34,7 @@ bibliography: paper.bib
 
 Component modeling is a research technique
 in which new models are constructed by coupling the inputs and outputs
-of simpler existing models. 
+of simpler existing models.
 Component modeling traces its roots
 to component-based software engineering,
 where a software system is constructed from a number
@@ -96,7 +96,7 @@ and an example implementation are listed in Table 1 below.
 Detailed instructions for building the language specification and example
 are given within each repository.
 
-\  
+\
 
 **Table 1:**
 Repositories containing BMI language specifications and examples.

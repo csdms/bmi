@@ -26,7 +26,7 @@ jobs:
         if:
           github.event_name == 'push' || github.event.pull_request.head.repo.full_name !=
           github.repository
-    
+
         runs-on: ubuntu-latest
 
         steps:
@@ -35,6 +35,9 @@ jobs:
 
           - name: Install dependencies
             run: pip install nox
+
+          - name: Check for lint
+            run: nox -s lint
 
           - name: Build documentation
             run: nox -s build-docs

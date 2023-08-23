@@ -24,7 +24,7 @@ grouped by functional category.
    :widths: 30, 70
 
    ==============================  =========================================
-   Function                        Description 
+   Function                        Description
    ==============================  =========================================
    :ref:`initialize`               Perform startup tasks for the model.
    :ref:`update`                   Advance model state by one time step.

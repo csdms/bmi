@@ -4,7 +4,7 @@ Model information functions
 ---------------------------
 
 These functions supply the model name
-and the model's :term:`exchange items <exchange item>` -- 
+and the model's :term:`exchange items <exchange item>` --
 the variables that the model can use from
 and provide to other models that have a BMI.
 

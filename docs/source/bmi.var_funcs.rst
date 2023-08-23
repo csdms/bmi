@@ -7,7 +7,7 @@ These BMI functions provide information
 about a particular input or output variable.
 They must accommodate any variable returned from the
 :ref:`get_input_var_names` or :ref:`get_output_var_names` functions --
-the variable name is used as an argument in each function. 
+the variable name is used as an argument in each function.
 Based on the information returned,
 type or unit conversions can be applied when necessary.
 
