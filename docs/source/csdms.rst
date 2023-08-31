@@ -4,7 +4,7 @@ BMI-based tools: *babelizer* and *pymt*
 =======================================
 
 A model that provides the BMI functions can be converted
-to a plug-and-play component 
+to a plug-and-play component
 that runs in the CSDMS `Python Modeling Toolkit`_ (*pymt*).
 This conversion process can be done
 automatically with the CSDMS `Babelizer`_, which generates
