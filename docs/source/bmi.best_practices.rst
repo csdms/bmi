@@ -46,7 +46,7 @@ here are some tips to help when writing a BMI for a model.
   responsibility to ensure that array information is
   flattened/redimensionalized in the correct order.
 
-* Recall that models can have mulitple grids. This can be particularly
+* Recall that models can have multiple grids. This can be particularly
   useful for defining :term:`exchange items <exchange item>` that
   don't vary over the model domain; e.g., a diffusivity -- just define
   the variable on a separate :ref:`scalar grid <unstructured_grids>`.
