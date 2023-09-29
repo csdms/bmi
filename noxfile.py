@@ -29,8 +29,8 @@ def build_docs(session: nox.Session) -> None:
         "html",
         "-W",
         "--keep-going",
-        docs_dir / "source",
-        build_dir / "html",
+        (docs_dir / "source").as_posix(),
+        (build_dir / "html").as_posix(),
     )
     session.log(f"generated docs at {build_dir / 'html'!s}")
 
