@@ -52,7 +52,7 @@ where the elements have equal width in each dimension.
 That is, for a two-dimensional grid, elements have a constant width
 of ``dx`` in the *x*-direction and ``dy`` in the *y*-direction.
 The case of ``dx == dy`` is oftentimes called
-a *raster* or *Catesian grid*.
+a *raster* or *Cartesian grid*.
 
 To completely specify a uniform rectilinear grid,
 only three pieces of information are needed:
