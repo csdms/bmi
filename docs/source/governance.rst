@@ -304,7 +304,7 @@ that suggests a formal relationship.
 
 Institutional Partner benefits are:
 
-* Acknowledgement on Project websites, in talks, and on promotional material.
+* Acknowledgment on Project websites, in talks, and on promotional material.
 * Ability to acknowledge their own funding sources on Project websites, in
   talks, and on promotional material.
 * Ability to influence the Project through the participation of their Council
@@ -318,8 +318,8 @@ Document history
 
 https://github.com/csdms/bmi/commits/master/docs/source/governance.rst
 
-Acknowledgements
-----------------
+Acknowledgments
+---------------
 
 Substantial portions of this document were adapted from the `NumPy governance
 document`_.
