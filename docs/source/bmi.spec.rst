@@ -20,6 +20,12 @@ Following the table is a detailed description of each function,
 including the function prototype in :term:`SIDL`,
 grouped by functional category.
 
+**Implementation notes**
+
+* *Parallel*: All functions MUST be called on all MPI threads.
+* *Parallel*: When a function returns a status code, the value returned SHOULD be the same across all MPI threads.
+* *Parallel*: All other return arguments MUST be the same across all MPI threads unless explicitly stated otherwise.
+
 .. table:: **Table 3:** Summary of BMI functions.
    :align: center
    :widths: 30, 70

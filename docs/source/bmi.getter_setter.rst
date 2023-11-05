@@ -48,6 +48,8 @@ even if the model uses dimensional variables.
   variable may not be accessible after calling :ref:`finalize`.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: the number of items may vary per MPI thread,
+  hence the size and content of the *dest* argument will vary per MPI thread.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
@@ -76,6 +78,8 @@ even if the model's state has changed.
 * In Python, a :term:`numpy` array is returned.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: the reference returned will vary per MPI thread.
+  It refers only to the data for the thread considered.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
@@ -102,6 +106,9 @@ Additionally,
 
 * Both *dest* and *inds* are flattened arrays.
 * The *inds* argument is always of type integer.
+* *Parallel*: the indices are the *local* indices within the MPI thread.
+  The number of indices for which data is retrieved may vary per MPI thread.
+  The length and content of the *dest* argument will vary per MPI thread.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
@@ -137,6 +144,8 @@ even if the model uses dimensional variables.
   variable may not be accessible after calling :ref:`finalize`.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: the number of items may vary per MPI thread,
+  hence the size and content of the *src* argument will vary per MPI thread.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
@@ -162,5 +171,8 @@ Additionally,
 
 * Both *src* and *inds* are flattened arrays.
 * The *inds* argument is always of type integer.
+* *Parallel*: the indices are the *local* indices within the MPI thread.
+  The number of indices for which data is set may vary per MPI thread.
+  The length and content of the *src* argument will vary per MPI thread.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]

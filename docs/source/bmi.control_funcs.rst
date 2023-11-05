@@ -10,6 +10,38 @@ model -- a calling application is able to, for instance, update a
 model one time step at a time, change its state, and then continue
 updating.
 
+.. _parallel_initialize:
+
+*parallel_initialize*
+.....................
+
+.. code-block:: java
+
+    /* SIDL */
+    int parallel_initialize(in integer mpi_communicator);
+
+
+The `parallel_initialize` function initializes the model for running
+in a parallel environment.
+It initializes the MPI communicator that the model should use to
+communicate between all of its threads.
+The `parallel_initialize` function must be called before the
+`initialize` function.
+This communicator could be ``mpi_comm_world``,
+but it is typically a derived communicator across a subset of the
+MPI threads available for the whole simulation.
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
+* Models should be refactored, if necessary, to accept the mpi_communicator
+  via the model API.
+* The MPI communicator is not in all environments represented by an integer.
+  **TODO**: check with experts.
+
+[:ref:`control_funcs` | :ref:`basic_model_interface`]
+
+
 .. _initialize:
 
 *initialize*
@@ -41,6 +73,9 @@ formatted.
   a string -- a basic type in these languages.
 * In C and Fortran, an integer status code indicating success (zero) or failure (nonzero)
   is returned. In C++, Java, and Python, an exception is raised on failure.
+* When a model runs across multiple MPI threads, the `parallel_initialize`
+  should be called first to make sure that the model can communicate with
+  the other MPI threads on which it runs.
 
 [:ref:`control_funcs` | :ref:`basic_model_interface`]
 

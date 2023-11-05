@@ -113,6 +113,39 @@ for :ref:`unstructured <unstructured_grids>` and
   size is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: this function returns the *total number* of elements across all threads.
+  For a parallel model this is *not* the length of the arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_partition_size:
+
+*get_grid_partition_size*
+.........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_partition_size(in int grid, out int size);
+
+Given a :term:`grid identifier`,
+get the number of elements (or :term:`nodes <node>`)
+of that grid within the current partition as an integer.
+
+The grid partition size is used for, among other things, the
+length of arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`
+for :ref:`unstructured <unstructured_grids>` and
+:ref:`structured quad <structured_quad>` grids.
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
+* This function is needed for every :ref:`grid type <model_grids>`.
+* In C++, Java, and Python, the *size* argument is omitted and the grid
+  size is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -153,6 +186,44 @@ the cells.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: this function returns the shape of the overall grid.
+
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_partition_range:
+
+*get_grid_partition_range*
+..........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_shape(in int grid, in array<int, 1> start, in array<int, 1> end);
+
+Get the index range of the partition in each coordinate direction.
+The index range includes ghost nodes.
+
+Note that this function (as well as the other grid functions)
+returns information ordered with "ij" indexing (as opposed to "xy").
+
+Also note that the grid partition range is the index range of :term:`nodes <node>`
+in the coordinate directions and not the number of cells or elements.
+It is possible for grid values to be associated with the nodes or with
+the cells.
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
+* This function is used for describing all :ref:`structured grids
+  <structured_grids>`.
+* In Python, the *start* and *end* argument are :term:`numpy <NumPy>` arrays.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* **TODO**: say something about indices starting at 0 or 1; other places within BMI as well?
+
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -234,7 +305,8 @@ Get the locations of the grid :term:`nodes <node>` in the first
 coordinate direction.
 
 The length of the resulting one-dimensional array depends on the grid type.
-(It will use a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
+(It will use a value from either :ref:`get_grid_shape`,
+:ref:`get_grid_partition_range` or :ref:`get_grid_size`.)
 See :ref:`model_grids` for more information.
 
 **Implementation notes**
@@ -246,6 +318,10 @@ See :ref:`model_grids` for more information.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: the coordinates returned only concern the index range
+  returned by :ref:`get_grid_partition_range`.
+  The length and content of the *x* argument will vary per MPI thread.
+  Where partitions overlap, they MUST return the same coordinate values.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -264,8 +340,8 @@ Get the locations of the grid :term:`nodes <node>` in the second
 coordinate direction.
 
 The length of the resulting one-dimensional array depends on the grid type.
-(It will use a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
-See :ref:`model_grids` for more information.
+(It will use a value from either :ref:`get_grid_shape`,
+:ref:`get_grid_partition_range` or :ref:`get_grid_size`.)
 
 **Implementation notes**
 
@@ -276,6 +352,10 @@ See :ref:`model_grids` for more information.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: the coordinates returned only concern the index range
+  returned by :ref:`get_grid_partition_range`.
+  The length and content of the *y* argument will vary per MPI thread.
+  Where partitions overlap, they MUST return the same coordinate values.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -294,8 +374,8 @@ Get the locations of the grid :term:`nodes <node>` in the third
 coordinate direction.
 
 The length of the resulting one-dimensional array depends on the grid type.
-(It will use a value from either :ref:`get_grid_shape` or :ref:`get_grid_size`.)
-See :ref:`model_grids` for more information.
+(It will use a value from either :ref:`get_grid_shape`,
+:ref:`get_grid_partition_range` or :ref:`get_grid_size`.)
 
 **Implementation notes**
 
@@ -306,6 +386,194 @@ See :ref:`model_grids` for more information.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: the coordinates returned only concern the index range
+  returned by :ref:`get_grid_partition_range`.
+  The length and content of the *z* argument will vary per MPI thread.
+  Where partitions overlap, they MUST return the same coordinate values.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_global_node_nr:
+
+*get_grid_global_node_nr*
+.........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_global_node_nr(in int grid, in array<int, 1> global_index);
+
+Get the global node number of the grid :term:`nodes <node>`.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will use a value from either :ref:`get_grid_shape`,
+:ref:`get_grid_partition_range` or :ref:`get_grid_size`.)
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *global_index* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* Where partitions overlap, they MUST return the same *global_index*.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_node_partition:
+
+*get_grid_node_partition*
+.........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_node_partition(in int grid, in array<int, 1> partition);
+
+Get the partition with which the grid :term:`nodes <node>` are associated.
+Nodes may occur in multiple partitions, but they belong to only one partition.
+Duplicate nodes in other partitions are ghost nodes.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will use a value from either :ref:`get_grid_shape`,
+:ref:`get_grid_partition_range` or :ref:`get_grid_size`.)
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
+* This function is used for describing :ref:`rectilinear <rectilinear>`,
+  :ref:`structured quadrilateral <structured_quad>`,
+  and all :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *partition* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* Where partitions overlap, they MUST return the same *partition*.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_global_edge_nr:
+
+*get_grid_global_edge_nr*
+.........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_global_edge_nr(in int grid, in array<int, 1> global_index);
+
+Get the global edge number of the grid :term:`edges <edge>`.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will use a value from either :ref:`get_grid_shape`,
+:ref:`get_grid_partition_range` or :ref:`get_grid_size`.)
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
+* This function is used for describing :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *global_index* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* Where partitions overlap, they MUST return the same `global_index`.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_edge_partition:
+
+*get_grid_edge_partition*
+.........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_edge_partition(in int grid, in array<int, 1> partition);
+
+Get the partition with which the grid :term:`edges <edge>` are associated.
+Edges may occur in multiple partitions, but they belong to only one partition.
+Duplicate edges in other partitions are ghost edges.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will use a value from either :ref:`get_grid_shape`,
+:ref:`get_grid_partition_range` or :ref:`get_grid_size`.)
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
+* This function is used for describing :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *partition* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* Where partitions overlap, they MUST return the same *partition*.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_global_face_nr:
+
+*get_grid_global_face_nr*
+.........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_global_face_nr(in int grid, in array<int, 1> global_index);
+
+Get the global face number of the grid :term:`faces <face>`.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will use a value from either :ref:`get_grid_shape`,
+:ref:`get_grid_partition_range` or :ref:`get_grid_size`.)
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
+* This function is used for describing :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *global_index* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* Where partitions overlap, they MUST return the same `global_index`.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_face_partition:
+
+*get_grid_face_partition*
+.........................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_face_partition(in int grid, in array<int, 1> partition);
+
+Get the partition with which the grid :term:`faces <face>` are associated.
+Faces may occur in multiple partitions, but they belong to only one partition.
+Duplicate faces in other partitions are ghost faces.
+
+The length of the resulting one-dimensional array depends on the grid type.
+(It will use a value from either :ref:`get_grid_shape`,
+:ref:`get_grid_partition_range` or :ref:`get_grid_size`.)
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
+* This function is used for describing :ref:`unstructured <unstructured_grids>` grids.
+* In Python, the *partition* argument is a :term:`numpy <NumPy>` array.
+* In C++ and Java, this is a void function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* Where partitions overlap, they MUST return the same *partition*.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -320,10 +588,37 @@ See :ref:`model_grids` for more information.
    /* SIDL */
    int get_grid_node_count(in int grid, out int count);
 
-Get the number of :term:`nodes <node>` in the grid.
+Get the total number of :term:`nodes <node>` in the grid.
 
 **Implementation notes**
 
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In C++, Java, and Python, the *count* argument is omitted and the node
+  count is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* *Parallel*: this function returns the *total number* of nodes across all threads.
+  For a parallel model this is *not* the length of the arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_partition_node_count:
+
+*get_grid_partition_node_count*
+...............................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_partition_node_count(in int grid, out int count);
+
+Get the number of :term:`nodes <node>` in the grid partition (including ghost nodes).
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
 * In C++, Java, and Python, the *count* argument is omitted and the node
@@ -344,10 +639,37 @@ Get the number of :term:`nodes <node>` in the grid.
    /* SIDL */
    int get_grid_edge_count(in int grid, out int count);
 
-Get the number of :term:`edges <edge>` in the grid.
+Get the total number of :term:`edges <edge>` in the grid.
 
 **Implementation notes**
 
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In C++, Java, and Python, the *count* argument is omitted and the edge
+  count is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* *Parallel*: this function returns the *total number* of edges across all threads.
+  For a parallel model this is *not* the length of the arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_partition_edge_count:
+
+*get_grid_partition_edge_count*
+...............................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_partition_edge_count(in int grid, out int count);
+
+Get the number of :term:`edges <edge>` in the grid partition (including ghost edges).
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
 * In C++, Java, and Python, the *count* argument is omitted and the edge
@@ -368,10 +690,37 @@ Get the number of :term:`edges <edge>` in the grid.
    /* SIDL */
    int get_grid_face_count(in int grid, out int count);
 
-Get the number of :term:`faces <face>` in the grid.
+Get the total number of :term:`faces <face>` in the grid.
 
 **Implementation notes**
 
+* This function is used for describing :ref:`unstructured
+  <unstructured_grids>` grids.
+* In C++, Java, and Python, the *count* argument is omitted and the face
+  count is returned from the function.
+* In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+* *Parallel*: this function returns the *total number* of faces across all threads.
+  For a parallel model this is *not* the length of the arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`.
+
+[:ref:`grid_funcs` | :ref:`basic_model_interface`]
+
+
+.. _get_grid_partition_face_count:
+
+*get_grid_partition_face_count*
+...............................
+
+.. code-block:: java
+
+   /* SIDL */
+   int get_grid_partition_face_count(in int grid, out int count);
+
+Get the number of :term:`faces <face>` in the grid partition (including ghost faces).
+
+**Implementation notes**
+
+* This function is only needed for MPI aware models.
 * This function is used for describing :ref:`unstructured
   <unstructured_grids>` grids.
 * In C++, Java, and Python, the *count* argument is omitted and the face
@@ -396,7 +745,7 @@ Get the edge-node connectivity.
 
 For each edge, connectivity is given as node at edge tail, followed by
 node at edge head. The total length of the array is
-2 * :ref:`get_grid_edge_count`.
+2 * :ref:`get_grid_edge_count` when not running in parallel.
 
 **Implementation notes**
 
@@ -406,6 +755,11 @@ node at edge head. The total length of the array is
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: this function returns the connectivity for the edges
+  and nodes on the current thread, hence the length and content of
+  *edge_nodes* varies per MPI thread.
+  The total length of the array is
+  2 * :ref:`get_grid_partition_edge_count`.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -433,6 +787,9 @@ The length of the array returned is the sum of the values of
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: this function returns the connectivity for the faces
+  and edges on the current thread, hence the length and content of
+  *face_edges* varies per MPI thread.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -452,7 +809,8 @@ Get the face-node connectivity.
 For each face, the nodes (listed in a counter-clockwise direction)
 that form the boundary of the face.
 For a grid of quadrilaterals,
-the total length of the array is 4 * :ref:`get_grid_face_count`.
+the total length of the array is 4 * :ref:`get_grid_face_count`
+when not running in parallel.
 More generally,
 the length of the array is the sum of the values of
 :ref:`get_grid_nodes_per_face`.
@@ -465,6 +823,9 @@ the length of the array is the sum of the values of
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: this function returns the connectivity for the faces
+  and nodes on the current thread, hence the length and content of
+  *face_nodes* varies per MPI thread.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -481,7 +842,8 @@ the length of the array is the sum of the values of
 
 Get the number of nodes for each face.
 
-The returned array has a length of :ref:`get_grid_face_count`.
+The returned array has a length of :ref:`get_grid_face_count`
+when not running in parallel.
 The number of edges per face is equal to the number of nodes per face.
 
 **Implementation notes**
@@ -492,5 +854,8 @@ The number of edges per face is equal to the number of nodes per face.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+* *Parallel*: this function returns the number of nodes per face on the
+  current thread, hence the length and content of
+  *nodes_per_face* varies per MPI thread.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]

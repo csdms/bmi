@@ -26,5 +26,6 @@ This function supplies the version of BMI implemented as a string.
   status code indicating success (zero) or failure (nonzero) is returned.
 * In C++, Java, and Python, this argument is omitted, and a string -- a basic type
   in these languages -- is returned from the function.
+* *Parallel*: **TODO**: determine how to flag that a component is MPI aware? Using a BMI extension?
 
 [:ref:`metadata_funcs` | :ref:`basic_model_interface`]
