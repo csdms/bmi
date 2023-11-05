@@ -73,7 +73,7 @@ formatted.
   a string -- a basic type in these languages.
 * In C and Fortran, an integer status code indicating success (zero) or failure (nonzero)
   is returned. In C++, Java, and Python, an exception is raised on failure.
-* When a model runs across multiple MPI threads, the `parallel_initialize`
+* *Parallel*: When a model runs across multiple MPI threads, the `parallel_initialize`
   should be called first to make sure that the model can communicate with
   the other MPI threads on which it runs.
 
