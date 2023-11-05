@@ -23,71 +23,71 @@ grouped by functional category.
 **Implementation notes**
 
 * *Parallel*: All functions MUST be called on all MPI threads.
-* *Parallel*: When a function returns a status code, the value returned SHOULD be the same across all MPI threads.
-* *Parallel*: All other return arguments MUST be the same across all MPI threads unless explicitly stated otherwise.
+  When a function returns a status code, the value returned SHOULD be the same across all MPI threads.
+  All other return arguments MUST be the same across all MPI threads unless explicitly stated otherwise.
 
 .. table:: **Table 3:** Summary of BMI functions.
    :align: center
    :widths: 30, 70
 
-   ===================================  =========================================
-   Function                             Description
-   ===================================  =========================================
-   :ref:`get_bmi_version`               Version of the BMI implemented.
-   :ref:`parallel_initialize`           Perform startup tasks for a parallel model e.g. initialize MPI communicator. [MPI only]
-   :ref:`initialize`                    Perform startup tasks for the model.
-   :ref:`update`                        Advance model state by one time step.
-   :ref:`update_until`                  Advance model state until the given time.
-   :ref:`finalize`                      Perform tear-down tasks for the model.
-   :ref:`get_component_name`            Name of the model.
-   :ref:`get_input_item_count`          Count of a model's input variables.
-   :ref:`get_output_item_count`         Count of a model's output variables.
-   :ref:`get_input_var_names`           List of a model's input variables.
-   :ref:`get_output_var_names`          List of a model's output variables.
-   :ref:`get_var_grid`                  Get the grid identifier for a variable.
-   :ref:`get_var_type`                  Get the data type of a variable.
-   :ref:`get_var_units`                 Get the units of a variable.
-   :ref:`get_var_itemsize`              Get the size (in bytes) of one element of a variable.
-   :ref:`get_var_nbytes`                Get the total size (in bytes) of a variable.
-   :ref:`get_var_location`              Get the grid element type of a variable.
-   :ref:`get_current_time`              Current time of the model.
-   :ref:`get_start_time`                Start time of the model.
-   :ref:`get_end_time`                  End time of the model.
-   :ref:`get_time_units`                Time units used in the model.
-   :ref:`get_time_step`                 Time step used in the model.
-   :ref:`get_value`                     Get a copy of values of a given variable.
-   :ref:`get_value_ptr`                 Get a reference to the values of a given variable.
-   :ref:`get_value_at_indices`          Get variable values at specific locations.
-   :ref:`set_value`                     Set the values of a given variable.
-   :ref:`set_value_at_indices`          Set the values of a variable at specific locations.
-   :ref:`get_grid_rank`                 Get the number of dimensions of a computational grid.
-   :ref:`get_grid_size`                 Get the total number of elements of a computational grid.
-   :ref:`get_grid_partition_size`       Get the number of elements of a computational grid partition.
-   :ref:`get_grid_type`                 Get the grid type as a string.
-   :ref:`get_grid_shape`                Get the dimensions of a computational grid.
-   :ref:`get_grid_partition_range`      Get the index range of a computational grid partition.
-   :ref:`get_grid_spacing`              Get the spacing between grid nodes.
-   :ref:`get_grid_origin`               Get the origin of a grid.
-   :ref:`get_grid_x`                    Get the locations of a grid's nodes in dimension 1.
-   :ref:`get_grid_y`                    Get the locations of a grid's nodes in dimension 2.
-   :ref:`get_grid_z`                    Get the locations of a grid's nodes in dimension 3.
-   :ref:`get_grid_global_node_nr`       Get the global index of the grid's nodes. [MPI only]
-   :ref:`get_grid_node_partition`       Get the partition number of the grid's nodes. [MPI only]
-   :ref:`get_grid_global_edge_nr`       Get the global index of the grid's edges. [MPI only]
-   :ref:`get_grid_edge_partition`       Get the partition number of the grid's edges. [MPI only]
-   :ref:`get_grid_global_face_nr`       Get the global index of the grid's faces. [MPI only]
-   :ref:`get_grid_face_partition`       Get the partition number of the grid's faces. [MPI only]
-   :ref:`get_grid_node_count`           Get the number of nodes in the grid.
-   :ref:`get_grid_partition_node_count` Get the number of nodes in the grid partition. [MPI only]
-   :ref:`get_grid_edge_count`           Get the number of edges in the grid.
-   :ref:`get_grid_partition_edge_count` Get the number of edges in the grid partition. [MPI only]
-   :ref:`get_grid_face_count`           Get the number of faces in the grid.
-   :ref:`get_grid_partition_face_count` Get the number of faces in the grid partition. [MPI only]
-   :ref:`get_grid_edge_nodes`           Get the edge-node connectivity.
-   :ref:`get_grid_face_edges`           Get the face-edge connectivity.
-   :ref:`get_grid_face_nodes`           Get the face-node connectivity.
-   :ref:`get_grid_nodes_per_face`       Get the number of nodes for each face.
-   ===================================  =========================================
+   ====================================  =========================================
+   Function                              Description
+   ====================================  =========================================
+   :ref:`get_bmi_version`                Version of the BMI implemented.
+   :ref:`parallel_initialize`            Perform startup tasks for a parallel model e.g. initialize MPI communicator. (MPI only)
+   :ref:`initialize`                     Perform startup tasks for the model.
+   :ref:`update`                         Advance model state by one time step.
+   :ref:`update_until`                   Advance model state until the given time.
+   :ref:`finalize`                       Perform tear-down tasks for the model.
+   :ref:`get_component_name`             Name of the model.
+   :ref:`get_input_item_count`           Count of a model's input variables.
+   :ref:`get_output_item_count`          Count of a model's output variables.
+   :ref:`get_input_var_names`            List of a model's input variables.
+   :ref:`get_output_var_names`           List of a model's output variables.
+   :ref:`get_var_grid`                   Get the grid identifier for a variable.
+   :ref:`get_var_type`                   Get the data type of a variable.
+   :ref:`get_var_units`                  Get the units of a variable.
+   :ref:`get_var_itemsize`               Get the size (in bytes) of one element of a variable.
+   :ref:`get_var_nbytes`                 Get the total size (in bytes) of a variable.
+   :ref:`get_var_location`               Get the grid element type of a variable.
+   :ref:`get_current_time`               Current time of the model.
+   :ref:`get_start_time`                 Start time of the model.
+   :ref:`get_end_time`                   End time of the model.
+   :ref:`get_time_units`                 Time units used in the model.
+   :ref:`get_time_step`                  Time step used in the model.
+   :ref:`get_value`                      Get a copy of values of a given variable.
+   :ref:`get_value_ptr`                  Get a reference to the values of a given variable.
+   :ref:`get_value_at_indices`           Get variable values at specific locations.
+   :ref:`set_value`                      Set the values of a given variable.
+   :ref:`set_value_at_indices`           Set the values of a variable at specific locations.
+   :ref:`get_grid_rank`                  Get the number of dimensions of a computational grid.
+   :ref:`get_grid_size`                  Get the total number of elements of a computational grid.
+   :ref:`get_grid_partition_size`        Get the number of elements of a computational grid partition.
+   :ref:`get_grid_type`                  Get the grid type as a string.
+   :ref:`get_grid_shape`                 Get the dimensions of a computational grid.
+   :ref:`get_grid_partition_range`       Get the index range of a computational grid partition.
+   :ref:`get_grid_spacing`               Get the spacing between grid nodes.
+   :ref:`get_grid_origin`                Get the origin of a grid.
+   :ref:`get_grid_x`                     Get the locations of a grid's nodes in dimension 1.
+   :ref:`get_grid_y`                     Get the locations of a grid's nodes in dimension 2.
+   :ref:`get_grid_z`                     Get the locations of a grid's nodes in dimension 3.
+   :ref:`get_grid_global_node_nr`        Get the global index of the grid's nodes. (MPI only)
+   :ref:`get_grid_node_partition`        Get the partition number of the grid's nodes. (MPI only)
+   :ref:`get_grid_global_edge_nr`        Get the global index of the grid's edges. (MPI only)
+   :ref:`get_grid_edge_partition`        Get the partition number of the grid's edges. (MPI only)
+   :ref:`get_grid_global_face_nr`        Get the global index of the grid's faces. (MPI only)
+   :ref:`get_grid_face_partition`        Get the partition number of the grid's faces. (MPI only)
+   :ref:`get_grid_node_count`            Get the number of nodes in the grid.
+   :ref:`get_grid_partition_node_count`  Get the number of nodes in the grid partition. (MPI only)
+   :ref:`get_grid_edge_count`            Get the number of edges in the grid.
+   :ref:`get_grid_partition_edge_count`  Get the number of edges in the grid partition. (MPI only)
+   :ref:`get_grid_face_count`            Get the number of faces in the grid.
+   :ref:`get_grid_partition_face_count`  Get the number of faces in the grid partition. (MPI only)
+   :ref:`get_grid_edge_nodes`            Get the edge-node connectivity.
+   :ref:`get_grid_face_edges`            Get the face-edge connectivity.
+   :ref:`get_grid_face_nodes`            Get the face-node connectivity.
+   :ref:`get_grid_nodes_per_face`        Get the number of nodes for each face.
+   ====================================  =========================================
 
 .. include:: bmi.metadata_funcs.rst
 .. include:: bmi.control_funcs.rst
