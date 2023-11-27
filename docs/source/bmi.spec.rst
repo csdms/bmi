@@ -83,7 +83,7 @@ grouped by functional category.
 ..
    Links
 
-.. _UDUNITS: http://www.unidata.ucar.edu/software/udunits/
+.. _UDUNITS: https://www.unidata.ucar.edu/software/udunits/
 .. _The Units Database: https://www.unidata.ucar.edu/software/udunits/udunits-current/doc/udunits/udunits2.html#Database
 .. _time unit conventions: https://www.unidata.ucar.edu/software/udunits/udunits-current/udunits/udunits2-accepted.xml
 .. _primitive types: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html

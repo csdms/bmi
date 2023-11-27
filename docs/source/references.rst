@@ -10,8 +10,8 @@ Community Surface Dynamics Modeling System (CSDMS)
     modeling--the CSDMS 2.0 approach", *International Environmental
     Modelling and Software Society (iEMSs), 7th International Congress
     on Environmental Modelling and Software* (Ames DP, Quinn N., eds),
-    San Diego, CA,
-    USA. http://www.iemss.org/society/index.php/iemss-2014-proceedings.
+    San Diego, CA, USA.
+    https://scholarsarchive.byu.edu/iemssconference/2014/Stream-B/4/ (retrieved 2023-11-23).
 
 Basic Model Interface (BMI)
 
@@ -19,7 +19,7 @@ Basic Model Interface (BMI)
     component-based approach to integrated modeling in the
     geosciences: The design of CSDMS", *Computers & Geosciences*,
     **53**: 3-12, ISSN 0098-3004,
-    http://dx.doi.org/10.1016/j.cageo.2012.04.002.
+    https://doi.org/10.1016/j.cageo.2012.04.002.
 
   Hutton, Eric WH; Piper, Mark D; Tucker, Gregory E (2020): "The Basic
     Model Interface 2.0: A standard interface for coupling numerical
@@ -38,7 +38,7 @@ Scientific Interface Definition Language (SIDL)
     language interoperability for scientific computing through
     Babel". *The International Journal of High Performance Computing
     Applications*. **26** (3): 260–274.
-    http://dx.doi.org/10.1177/1094342011414036
+    https://doi.org/10.1177/1094342011414036
 
 Model grids
 

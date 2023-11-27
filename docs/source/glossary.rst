@@ -156,7 +156,7 @@ A glossary of terms used with BMI.
    NumPy
 
       A Python library that provides arrays. Outputs from *pymt* are
-      NumPy arrays. See also http://www.numpy.org.
+      NumPy arrays. See also https://numpy.org.
 
    object
 

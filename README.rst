@@ -128,7 +128,7 @@ is supported by the National Science Foundation.*
 .. Links
 
 .. _Community Surface Dynamics Modeling System: https://csdms.colorado.edu
-.. _Scientific Interface Definition Language: http://dx.doi.org/10.1177/1094342011414036
+.. _Scientific Interface Definition Language: https://doi.org/10.1177/1094342011414036
 .. _bmi-c: https://github.com/csdms/bmi-c
 .. _bmi-cxx: https://github.com/csdms/bmi-cxx
 .. _bmi-fortran: https://github.com/csdms/bmi-fortran
