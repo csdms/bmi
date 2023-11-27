@@ -4,7 +4,7 @@ Citation
 If you use the Basic Model Interface for work/research
 presented in a publication, we ask that you please cite:
 
-Peckham, S.D., Hutton, E.W., and Norris, B., 2013. A component-based approach to integrated modeling in the geosciences: The design of CSDMS. *Computers & Geosciences*, 53, pp.3-12, http://dx.doi.org/10.1016/j.cageo.2012.04.002.
+Peckham, S.D., Hutton, E.W., and Norris, B., 2013. A component-based approach to integrated modeling in the geosciences: The design of CSDMS. *Computers & Geosciences*, 53, pp.3-12, https://doi.org/10.1016/j.cageo.2012.04.002.
 
 Hutton, E.W.H., Piper, M.D., and Tucker, G.E., 2020. The Basic Model Interface 2.0: A standard interface for coupling numerical models in the geosciences. *Journal of Open Source Software*, 5(51), 2317, https://doi.org/10.21105/joss.02317
 

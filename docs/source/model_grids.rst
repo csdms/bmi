@@ -246,8 +246,8 @@ The vector is formed from the node indices as displayed in the figure:
 
 .. Links
 
-.. _Delaunay triangles: http://en.wikipedia.org/wiki/Delaunay_triangulation
-.. _Voronoi tesselations: http://en.wikipedia.org/wiki/Voronoi_tessellation
-.. _equilateral triangles: http://en.wikipedia.org/wiki/Triangle_tiling
-.. _hexagons: http://en.wikipedia.org/wiki/Hexagonal_tiling
-.. _ugrid conventions: http://ugrid-conventions.github.io/ugrid-conventions
+.. _Delaunay triangles: https://en.wikipedia.org/wiki/Delaunay_triangulation
+.. _Voronoi tesselations: https://en.wikipedia.org/wiki/Voronoi_tessellation
+.. _equilateral triangles: https://en.wikipedia.org/wiki/Triangular_tiling
+.. _hexagons: https://en.wikipedia.org/wiki/Hexagonal_tiling
+.. _ugrid conventions: https://ugrid-conventions.github.io/ugrid-conventions
