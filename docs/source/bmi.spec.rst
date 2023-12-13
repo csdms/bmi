@@ -22,9 +22,9 @@ grouped by functional category.
 
 **Implementation notes**
 
-* *Parallel*: All functions MUST be called on all MPI threads.
-  When a function returns a status code, the value returned SHOULD be the same across all MPI threads.
-  All other return arguments MUST be the same across all MPI threads unless explicitly stated otherwise.
+* *Parallel*: All functions MUST be called on all MPI ranks.
+  When a function returns a status code, the value returned SHOULD be the same across all MPI ranks.
+  All other return arguments MUST be the same across all MPI ranks unless explicitly stated otherwise.
 
 .. table:: **Table 3:** Summary of BMI functions.
    :align: center
