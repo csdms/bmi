@@ -338,8 +338,8 @@ document, as per the `CC-0 public domain dedication / license`_.
 .. _Community Surface Dynamics Modeling System: https://csdms.colorado.edu
 .. _CONTRIBUTING: https://github.com/csdms/bmi/blob/master/CONTRIBUTING.rst
 .. _Chapter 4: Social and Political Infrastructure
-.. _Social and Political Infrastructure: http://producingoss.com/en/producingoss.html#social-infrastructure
-.. _Consensus-based Democracy: http://producingoss.com/en/producingoss.html#consensus-democracy
+.. _Social and Political Infrastructure: https://producingoss.com/en/producingoss.html#social-infrastructure
+.. _Consensus-based Democracy: https://producingoss.com/en/producingoss.html#consensus-democracy
 .. _Apache Foundation voting process: https://www.apache.org/foundation/voting.html
 .. _Steering Council: ./council.html
 .. _Institutional Partners: ./partners.html
