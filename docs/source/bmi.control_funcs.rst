@@ -39,7 +39,7 @@ MPI ranks available for the whole simulation.
 * The MPI communicator in the Fortran ``mpi_f08`` module is type
   ``MPI_Comm``. The integer value of variable ``foo`` of type ``MPI_Comm`` can
   be accessed with ``foo%MPI_VAL``. This might be needed during interaction with
-  non-Fortran models and Fortran model using the ``mpi`` module.
+  non-Fortran models and Fortran models using the ``mpi`` module.
 
 
 
