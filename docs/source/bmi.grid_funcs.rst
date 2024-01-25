@@ -113,7 +113,7 @@ for :ref:`unstructured <unstructured_grids>` and
   size is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-* *Parallel*: this function returns the *total number* of elements across all threads.
+* *Parallel*: this function returns the *total number* of elements across all ranks.
   For a parallel model this is *not* the length of the arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
@@ -320,7 +320,7 @@ See :ref:`model_grids` for more information.
   (nonzero) is returned.
 * *Parallel*: the coordinates returned only concern the index range
   returned by :ref:`get_grid_partition_range`.
-  The length and content of the *x* argument will vary per MPI thread.
+  The length and content of the *x* argument will vary per MPI rank.
   Where partitions overlap, they MUST return the same coordinate values.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
@@ -354,7 +354,7 @@ The length of the resulting one-dimensional array depends on the grid type.
   (nonzero) is returned.
 * *Parallel*: the coordinates returned only concern the index range
   returned by :ref:`get_grid_partition_range`.
-  The length and content of the *y* argument will vary per MPI thread.
+  The length and content of the *y* argument will vary per MPI rank.
   Where partitions overlap, they MUST return the same coordinate values.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
@@ -388,7 +388,7 @@ The length of the resulting one-dimensional array depends on the grid type.
   (nonzero) is returned.
 * *Parallel*: the coordinates returned only concern the index range
   returned by :ref:`get_grid_partition_range`.
-  The length and content of the *z* argument will vary per MPI thread.
+  The length and content of the *z* argument will vary per MPI rank.
   Where partitions overlap, they MUST return the same coordinate values.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
@@ -598,7 +598,7 @@ Get the total number of :term:`nodes <node>` in the grid.
   count is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-* *Parallel*: this function returns the *total number* of nodes across all threads.
+* *Parallel*: this function returns the *total number* of nodes across all ranks.
   For a parallel model this is *not* the length of the arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
@@ -649,7 +649,7 @@ Get the total number of :term:`edges <edge>` in the grid.
   count is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-* *Parallel*: this function returns the *total number* of edges across all threads.
+* *Parallel*: this function returns the *total number* of edges across all ranks.
   For a parallel model this is *not* the length of the arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
@@ -700,7 +700,7 @@ Get the total number of :term:`faces <face>` in the grid.
   count is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-* *Parallel*: this function returns the *total number* of faces across all threads.
+* *Parallel*: this function returns the *total number* of faces across all ranks.
   For a parallel model this is *not* the length of the arrays returned by :ref:`get_grid_x` and :ref:`get_grid_y`.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
@@ -756,8 +756,8 @@ node at edge head. The total length of the array is
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 * *Parallel*: this function returns the connectivity for the edges
-  and nodes on the current thread, hence the length and content of
-  *edge_nodes* varies per MPI thread.
+  and nodes on the current rank, hence the length and content of
+  *edge_nodes* varies per MPI rank.
   The total length of the array is
   2 * :ref:`get_grid_partition_edge_count`.
 
@@ -788,8 +788,8 @@ The length of the array returned is the sum of the values of
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 * *Parallel*: this function returns the connectivity for the faces
-  and edges on the current thread, hence the length and content of
-  *face_edges* varies per MPI thread.
+  and edges on the current rank, hence the length and content of
+  *face_edges* varies per MPI rank.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -824,8 +824,8 @@ the length of the array is the sum of the values of
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 * *Parallel*: this function returns the connectivity for the faces
-  and nodes on the current thread, hence the length and content of
-  *face_nodes* varies per MPI thread.
+  and nodes on the current rank, hence the length and content of
+  *face_nodes* varies per MPI rank.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
@@ -855,7 +855,7 @@ The number of edges per face is equal to the number of nodes per face.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 * *Parallel*: this function returns the number of nodes per face on the
-  current thread, hence the length and content of
-  *nodes_per_face* varies per MPI thread.
+  current rank, hence the length and content of
+  *nodes_per_face* varies per MPI rank.
 
 [:ref:`grid_funcs` | :ref:`basic_model_interface`]

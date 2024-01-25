@@ -18,26 +18,30 @@ updating.
 .. code-block:: java
 
     /* SIDL */
-    int parallel_initialize(in integer mpi_communicator);
+    int parallel_initialize(in integer comm);
 
 
 The `parallel_initialize` function initializes the model for running
 in a parallel environment.
-It initializes the MPI communicator that the model should use to
-communicate between all of its threads.
+It sets the MPI communicator that the model should use to
+communicate between all of its ranks.
 The `parallel_initialize` function must be called before the
 `initialize` function.
-This communicator could be ``mpi_comm_world``,
+This communicator could be ``MPI_COMM_WORLD``,
 but it is typically a derived communicator across a subset of the
-MPI threads available for the whole simulation.
+MPI ranks available for the whole simulation.
 
 **Implementation notes**
 
 * This function is only needed for MPI aware models.
-* Models should be refactored, if necessary, to accept the mpi_communicator
+* Models should be refactored, if necessary, to accept the MPI communicator
   via the model API.
-* The MPI communicator is not in all environments represented by an integer.
-  **TODO**: check with experts.
+* The MPI communicator in the Fortran ``mpi_f08`` module is type
+  ``MPI_Comm``. The integer value of variable ``foo`` of type ``MPI_Comm`` can
+  be accessed with ``foo%MPI_VAL``. This might be needed during interaction with
+  non-Fortran models and Fortran model using the ``mpi`` module.
+
+
 
 [:ref:`control_funcs` | :ref:`basic_model_interface`]
 
@@ -73,9 +77,9 @@ formatted.
   a string -- a basic type in these languages.
 * In C and Fortran, an integer status code indicating success (zero) or failure (nonzero)
   is returned. In C++, Java, and Python, an exception is raised on failure.
-* *Parallel*: When a model runs across multiple MPI threads, the `parallel_initialize`
+* *Parallel*: When a model runs across multiple MPI ranks, the `parallel_initialize`
   should be called first to make sure that the model can communicate with
-  the other MPI threads on which it runs.
+  the other MPI ranks on which it runs.
 
 [:ref:`control_funcs` | :ref:`basic_model_interface`]
 

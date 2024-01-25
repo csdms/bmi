@@ -150,8 +150,8 @@ a variable; i.e., the number of items multiplied by the size of each item.
   amount of memory used by the variable is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-* *Parallel*: the number of items may vary per MPI thread,
-  hence the value returned will typically vary per MPI thread.
+* *Parallel*: the number of items may vary per MPI rank,
+  hence the value returned will typically vary per MPI rank.
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 
