@@ -6,13 +6,11 @@ References
 Community Surface Dynamics Modeling System (CSDMS)
 --------------------------------------------------
 
-Syvitski, James P; Hutton, Eric; Piper, Mark; Overeem, Irina;
-Kettner, Albert; Peckham, Scott (2014): **"Plug and play component
-modeling--the CSDMS 2.0 approach"**, *International Environmental
-Modelling and Software Society (iEMSs), 7th International Congress
-on Environmental Modelling and Software* (Ames DP, Quinn N., eds),
-San Diego, CA, USA.
-https://scholarsarchive.byu.edu/iemssconference/2014/Stream-B/4/ (retrieved 2023-11-23).
+Tucker, G. E., Hutton, E. W., Piper, M. D., Campforts, B., Gan,
+T., Barnhart, K. R., ... & Syvitski, J. (2022). **CSDMS: a
+community platform for numerical modeling of Earth surface
+processes**. Geoscientific Model Development, 15(4), 1413-1439.
+
 
 Basic Model Interface (BMI)
 ---------------------------
