@@ -118,12 +118,42 @@ todo_include_todos = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = "alabaster"
+html_theme = "furo"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-# html_theme_options = {}
+html_theme_options = {
+    "announcement": None,
+    "source_repository": "https://github.com/csdms/bmi/",
+    "source_branch": "develop",
+    "source_directory": "docs/source",
+    "sidebar_hide_name": True,
+    "footer_icons": [
+        {
+            "name": "power",
+            "url": "https://csdms.colorado.edu",
+            "html": """
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  stroke-width="0"
+                  version="1.1"
+                  viewBox="0 0 16 16"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 0l-6 8h6l-4 8 14-10h-8l6-6z"
+                  ></path>
+                </svg>
+                <b><i>Powered by CSDMS</i></b>
+            """,
+            "class": "",
+        },
+    ],
+}
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
@@ -137,7 +167,7 @@ html_theme = "alabaster"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = "_static/powered-by-logo-header.png"
+html_logo = "_static/bmi-logo.svg"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -163,22 +193,7 @@ html_static_path = ["_static"]
 # html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-html_sidebars = {
-    "index": [
-        "sidebarintro.html",
-        "links.html",
-        "searchbox.html",
-        "localtoc.html",
-        "sourcelink.html",
-    ],
-    "**": [
-        "sidebarintro.html",
-        "links.html",
-        "searchbox.html",
-        "localtoc.html",
-        "sourcelink.html",
-    ],
-}
+# html_sidebars = {}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
