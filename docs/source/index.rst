@@ -83,17 +83,21 @@ A complete description of the functions that make up the BMI is given next.
 
 .. include:: bmi.spec.rst
 
-
-Additional Topics
-=================
-
 .. toctree::
+   :caption: Getting Started
+   :hidden:
    :maxdepth: 2
 
-   bmi.getting_started
+   How to <bmi.getting_started>
    bmi.best_practices
+
+.. toctree::
+   :caption: Reference
+   :hidden:
+   :maxdepth: 2
+
    model_grids
-   csdms
+   BMI-based tools <csdms>
    glossary
    references
 
@@ -101,31 +105,43 @@ BMI is an element of the `CSDMS Workbench`_,
 an integrated system of software tools, technologies, and standards
 for building and coupling models.
 
+..
+    Help
+    ----
 
-Help
-----
-
-Adding a BMI to a model can be a daunting task.
-If you'd like assistance,
-CSDMS can help.
-Depending on your need, we can provide advice or consulting services.
-Feel free to contact us through the `CSDMS Help Desk`_.
-
-
-Project Information
--------------------
+    Adding a BMI to a model can be a daunting task.
+    If you'd like assistance,
+    CSDMS can help.
+    Depending on your need, we can provide advice or consulting services.
+    Feel free to contact us through the `CSDMS Help Desk`_.
 
 .. toctree::
+   :caption: Contrubuting
+   :hidden:
+   :maxdepth: 1
+
+   contributing
+   Code of Conduct <conduct>
+
+.. toctree::
+   :caption: About
+   :hidden:
    :maxdepth: 1
 
    citation
-   contributing
-   conduct
    credits
    Governance <governance>
    council
    partners
 
+.. toctree::
+   :caption: Project Links
+   :hidden:
+   :maxdepth: 1
+
+   Help <https://github.com/csdms/help-desk>
+   GitHub <https://github.com/csdms/bmi>
+   Docs <https://bmi.readthedocs.io>
 
 .. Links:
 
