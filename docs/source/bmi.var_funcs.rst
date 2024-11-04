@@ -15,7 +15,7 @@ type or unit conversions can be applied when necessary.
 .. _get_var_grid:
 
 *get_var_grid*
-..............
+^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -45,7 +45,7 @@ A model can have one or more grids.
 .. _get_var_type:
 
 *get_var_type*
-..............
+^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -74,7 +74,7 @@ while in Fortran, use `integer`, `real`, and `double precision`.
 .. _get_var_units:
 
 *get_var_units*
-...............
+^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -109,7 +109,7 @@ full description of valid unit names and a list of supported units.
 .. _get_var_itemsize:
 
 *get_var_itemsize*
-..................
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -134,7 +134,7 @@ For example, if data for a variable are stored as 64-bit integers,
 .. _get_var_nbytes:
 
 *get_var_nbytes*
-................
+^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -157,7 +157,7 @@ a variable; i.e., the number of items multiplied by the size of each item.
 .. _get_var_location:
 
 *get_var_location*
-..................
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 

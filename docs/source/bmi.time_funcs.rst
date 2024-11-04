@@ -9,7 +9,7 @@ Model time is always expressed as a floating point value.
 .. _get_current_time:
 
 *get_current_time*
-..................
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -31,7 +31,7 @@ The current model time.
 .. _get_start_time:
 
 *get_start_time*
-................
+^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -54,7 +54,7 @@ The start time of the  model.
 .. _get_end_time:
 
 *get_end_time*
-................
+^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -79,7 +79,7 @@ The end time of the  model.
 .. _get_time_units:
 
 *get_time_units*
-................
+^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -110,7 +110,7 @@ It's recommended to use `time unit conventions`_ from Unidata's
 .. _get_time_step:
 
 *get_time_step*
-...............
+^^^^^^^^^^^^^^^
 
 .. code-block:: java
 

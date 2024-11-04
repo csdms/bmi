@@ -13,7 +13,7 @@ updating.
 .. _initialize:
 
 *initialize*
-............
+^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -48,7 +48,7 @@ formatted.
 .. _update:
 
 *update*
-........
+^^^^^^^^
 
 .. code-block:: java
 
@@ -77,7 +77,7 @@ function can just return without doing anything.
 .. _update_until:
 
 *update_until*
-..............
+^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -105,7 +105,7 @@ to reflect that the model was updated to the requested time.
 .. _finalize:
 
 *finalize*
-..........
+^^^^^^^^^^
 
 .. code-block:: java
 
