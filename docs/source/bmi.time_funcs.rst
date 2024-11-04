@@ -131,3 +131,5 @@ The time step is always expressed as a floating point value.
   (nonzero) is returned.
 
 [:ref:`time_funcs` | :ref:`basic_model_interface`]
+
+.. include:: links.rst

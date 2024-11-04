@@ -164,3 +164,5 @@ Additionally,
 * The *inds* argument is always of type integer.
 
 [:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
+
+.. include:: links.rst
