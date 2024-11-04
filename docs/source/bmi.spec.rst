@@ -6,13 +6,17 @@ The Basic Model Interface
 The functions that comprise the Basic Model Interface
 can be grouped into categories:
 
-* :ref:`metadata_funcs`
-* :ref:`control_funcs`
-* :ref:`info_funcs`
-* :ref:`var_funcs`
-* :ref:`time_funcs`
-* :ref:`getter_setter_funcs`
-* :ref:`grid_funcs`
+.. toctree::
+   :maxdepth: 1
+
+   Metadata <bmi.metadata_funcs>
+   Control <bmi.control_funcs>
+   Info <bmi.info_funcs>
+   Variables <bmi.var_funcs>
+   Time <bmi.time_funcs>
+   Getters and setters <bmi.getter_setter>
+   Grid <bmi.grid_funcs>
+
 
 Table 3 lists the individual BMI functions
 along with a brief description.
@@ -70,15 +74,6 @@ grouped by functional category.
    :ref:`get_grid_face_nodes`      Get the face-node connectivity.
    :ref:`get_grid_nodes_per_face`  Get the number of nodes for each face.
    ==============================  =========================================
-
-.. include:: bmi.metadata_funcs.rst
-.. include:: bmi.control_funcs.rst
-.. include:: bmi.info_funcs.rst
-.. include:: bmi.var_funcs.rst
-.. include:: bmi.time_funcs.rst
-.. include:: bmi.getter_setter.rst
-.. include:: bmi.grid_funcs.rst
-
 
 ..
    Links
