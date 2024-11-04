@@ -81,8 +81,6 @@ two documents may be particularly helpful when writing a BMI:
 
 A complete description of the functions that make up the BMI is given next.
 
-.. include:: bmi.spec.rst
-
 .. toctree::
    :caption: Getting Started
    :hidden:
@@ -96,6 +94,7 @@ A complete description of the functions that make up the BMI is given next.
    :hidden:
    :maxdepth: 2
 
+   BMI Spec <bmi.spec>
    model_grids
    BMI-based tools <csdms>
    glossary
