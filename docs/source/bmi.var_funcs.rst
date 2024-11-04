@@ -183,7 +183,4 @@ element the variable is defined. Valid return values are:
 
 [:ref:`var_funcs` | :ref:`basic_model_interface`]
 
-
-.. Links
-
-.. _dtype: https://docs.scipy.org/doc/numpy/reference/arrays.dtypes.html
+.. include:: links.rst
