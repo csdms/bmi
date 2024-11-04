@@ -74,12 +74,3 @@ grouped by functional category.
    :ref:`get_grid_face_nodes`      Get the face-node connectivity.
    :ref:`get_grid_nodes_per_face`  Get the number of nodes for each face.
    ==============================  =========================================
-
-..
-   Links
-
-.. _UDUNITS: https://www.unidata.ucar.edu/software/udunits/
-.. _The Units Database: https://docs.unidata.ucar.edu/udunits/current/#Database
-.. _time unit conventions: https://docs.unidata.ucar.edu/udunits/current/udunits2-accepted.xml
-.. _primitive types: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html
-.. _wrapper classes: https://docs.oracle.com/javase/tutorial/java/data/numberclasses.html
