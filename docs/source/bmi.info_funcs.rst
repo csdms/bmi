@@ -11,7 +11,7 @@ and provide to other models that have a BMI.
 .. _get_component_name:
 
 *get_component_name*
-....................
+^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -33,7 +33,7 @@ but it should be unique to prevent conflicts with other components.
 .. _get_input_item_count:
 
 *get_input_item_count*
-......................
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -55,7 +55,7 @@ Also the number of variables that can be set with :ref:`set_value`.
 .. _get_output_item_count:
 
 *get_output_item_count*
-.......................
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -77,7 +77,7 @@ Also the number of variables that can be retrieved with :ref:`get_value`.
 .. _get_input_var_names:
 
 *get_input_var_names*
-.....................
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -111,7 +111,7 @@ Standard Names do not have to be used within the model.
 .. _get_output_var_names:
 
 *get_output_var_names*
-......................
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
