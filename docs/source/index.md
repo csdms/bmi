@@ -1,5 +1,4 @@
-The Basic Model Interface
-=========================
+# The Basic Model Interface
 
 When you climb in the driver's seat of an unfamiliar car,
 you are nonetheless presented with a familiar sight.
@@ -26,7 +25,7 @@ We believe that numerical models,
 and the sub-components that make up those models,
 should offer a similar kind of standardization.
 To this end,
-the `Community Surface Dynamics Modeling System`_ (CSDMS)
+the [Community Surface Dynamics Modeling System] (CSDMS)
 has developed the *Basic Model Interface* (BMI):
 a set of standard control and query functions that,
 when added to a model code,
@@ -40,8 +39,9 @@ The specification for each language is given in Table 1,
 along with a corresponding example
 in which the BMI is implemented.
 
-.. _specs_and_examples:
+(specs-and-examples)=
 
+```{eval-rst}
 .. table:: **Table 1:** BMI languages.
    :align: center
    :widths: 20, 25, 25, 30
@@ -55,11 +55,13 @@ in which the BMI is implemented.
    Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_
    Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
    ========  =============  ==============  ======================
+```
 
 BMI is a community standard.
 Table 2 lists community-contributed language specifications and examples
 for two languages, Javascript and Julia.
 
+```{eval-rst}
 .. table:: **Table 2:** Community-contributed BMI languages.
    :align: center
    :widths: 20, 25, 25, 30
@@ -70,101 +72,106 @@ for two languages, Javascript and Julia.
    Javascript  `bmi.js`_      `bmi-js`_     `bmi-example-js`_
    Julia       `bmi.jl`_      `bmi-julia`_  `bmi-example-julia`_
    ==========  =============  ============  =====================
+```
 
 Along with the examples,
 two documents may be particularly helpful when writing a BMI:
 
-* :ref:`Getting Started Guide <getting_started>` --- a place to start
+- {ref}`Getting Started Guide <getting_started>` --- a place to start
   if you haven't written a BMI before
-* :ref:`BMI Best Practices <best_practices>` --- our collected wisdom on
+- {ref}`BMI Best Practices <best_practices>` --- our collected wisdom on
   implementing a BMI
 
 A complete description of the functions that make up the BMI is given next.
 
-.. toctree::
-   :caption: Getting Started
-   :hidden:
-   :maxdepth: 2
+```{toctree}
+:caption: Getting Started
+:hidden: true
+:maxdepth: 2
 
-   How to <bmi.getting_started>
-   bmi.best_practices
+How to <bmi.getting_started>
+bmi.best_practices
+```
 
-.. toctree::
-   :caption: Reference
-   :hidden:
-   :maxdepth: 2
+```{toctree}
+:caption: Reference
+:hidden: true
+:maxdepth: 2
 
-   BMI Spec <bmi.spec>
-   model_grids
-   BMI-based tools <csdms>
-   glossary
-   references
+BMI Spec <bmi.spec>
+model_grids
+BMI-based tools <csdms>
+glossary
+references
+```
 
-BMI is an element of the `CSDMS Workbench`_,
+BMI is an element of the [CSDMS Workbench],
 an integrated system of software tools, technologies, and standards
 for building and coupling models.
 
-..
-    Help
-    ----
+% Help
+% ----
+%
+% Adding a BMI to a model can be a daunting task.
+% If you'd like assistance,
+% CSDMS can help.
+% Depending on your need, we can provide advice or consulting services.
+% Feel free to contact us through the `CSDMS Help Desk`_.
 
-    Adding a BMI to a model can be a daunting task.
-    If you'd like assistance,
-    CSDMS can help.
-    Depending on your need, we can provide advice or consulting services.
-    Feel free to contact us through the `CSDMS Help Desk`_.
+```{toctree}
+:caption: Contrubuting
+:hidden: true
+:maxdepth: 1
 
-.. toctree::
-   :caption: Contrubuting
-   :hidden:
-   :maxdepth: 1
+contributing
+Code of Conduct <conduct>
+```
 
-   contributing
-   Code of Conduct <conduct>
+```{toctree}
+:caption: About
+:hidden: true
+:maxdepth: 1
 
-.. toctree::
-   :caption: About
-   :hidden:
-   :maxdepth: 1
+citation
+credits
+Governance <governance>
+council
+partners
+```
 
-   citation
-   credits
-   Governance <governance>
-   council
-   partners
+```{toctree}
+:caption: Project Links
+:hidden: true
+:maxdepth: 1
 
-.. toctree::
-   :caption: Project Links
-   :hidden:
-   :maxdepth: 1
+Help <https://github.com/csdms/help-desk>
+GitHub <https://github.com/csdms/bmi>
+Docs <https://bmi.readthedocs.io>
+```
 
-   Help <https://github.com/csdms/help-desk>
-   GitHub <https://github.com/csdms/bmi>
-   Docs <https://bmi.readthedocs.io>
+% Links:
 
-.. Links:
-
-.. _Community Surface Dynamics Modeling System: https://csdms.colorado.edu
-.. _bmi.h: https://github.com/csdms/bmi-c/blob/master/bmi.h
-.. _bmi.hxx: https://github.com/csdms/bmi-cxx/blob/master/bmi.hxx
-.. _bmi.f90: https://github.com/csdms/bmi-fortran/blob/master/bmi.f90
-.. _bmi.java: https://github.com/csdms/bmi-java/blob/master/src/main/java/edu/colorado/csdms/bmi/BMI.java
-.. _bmi.py: https://github.com/csdms/bmi-python/blob/master/src/bmipy/bmi.py
-.. _bmi.js: https://github.com/uihilab/BMI-JS/blob/main/bmijs/bmi.js
-.. _bmi.jl: https://github.com/Deltares/BasicModelInterface.jl/blob/master/src/BasicModelInterface.jl
-.. _bmi-c: https://github.com/csdms/bmi-c
-.. _bmi-cxx: https://github.com/csdms/bmi-cxx
-.. _bmi-fortran: https://github.com/csdms/bmi-fortran
-.. _bmi-java: https://github.com/csdms/bmi-java
-.. _bmi-python: https://github.com/csdms/bmi-python
-.. _bmi-js: https://github.com/uihilab/bmi-js
-.. _bmi-julia: https://github.com/Deltares/BasicModelInterface.jl
-.. _bmi-example-c: https://github.com/csdms/bmi-example-c
-.. _bmi-example-cxx: https://github.com/csdms/bmi-example-cxx
-.. _bmi-example-fortran: https://github.com/csdms/bmi-example-fortran
-.. _bmi-example-java: https://github.com/csdms/bmi-example-java
-.. _bmi-example-python: https://github.com/csdms/bmi-example-python
-.. _bmi-example-js: https://github.com/uihilab/bmi-example-js
-.. _bmi-example-julia: https://github.com/csdms/bmi-example-julia
-.. _CSDMS Workbench: https://csdms.colorado.edu/wiki/Workbench
-.. _CSDMS Help Desk: https://github.com/csdms/help-desk
+[bmi-c]: https://github.com/csdms/bmi-c
+[bmi-cxx]: https://github.com/csdms/bmi-cxx
+[bmi-example-c]: https://github.com/csdms/bmi-example-c
+[bmi-example-cxx]: https://github.com/csdms/bmi-example-cxx
+[bmi-example-fortran]: https://github.com/csdms/bmi-example-fortran
+[bmi-example-java]: https://github.com/csdms/bmi-example-java
+[bmi-example-js]: https://github.com/uihilab/bmi-example-js
+[bmi-example-julia]: https://github.com/csdms/bmi-example-julia
+[bmi-example-python]: https://github.com/csdms/bmi-example-python
+[bmi-fortran]: https://github.com/csdms/bmi-fortran
+[bmi-java]: https://github.com/csdms/bmi-java
+[bmi-js]: https://github.com/uihilab/bmi-js
+[bmi-julia]: https://github.com/Deltares/BasicModelInterface.jl
+[bmi-python]: https://github.com/csdms/bmi-python
+[bmi.f90]: https://github.com/csdms/bmi-fortran/blob/master/bmi.f90
+[bmi.h]: https://github.com/csdms/bmi-c/blob/master/bmi.h
+[bmi.hxx]: https://github.com/csdms/bmi-cxx/blob/master/bmi.hxx
+[bmi.java]: https://github.com/csdms/bmi-java/blob/master/src/main/java/edu/colorado/csdms/bmi/BMI.java
+[bmi.jl]: https://github.com/Deltares/BasicModelInterface.jl/blob/master/src/BasicModelInterface.jl
+[bmi.js]: https://github.com/uihilab/BMI-JS/blob/main/bmijs/bmi.js
+[bmi.py]: https://github.com/csdms/bmi-python/blob/master/src/bmipy/bmi.py
+[community surface dynamics modeling system]: https://csdms.colorado.edu
+[csdms help desk]: https://github.com/csdms/help-desk
+[csdms workbench]: https://csdms.colorado.edu/wiki/Workbench
