@@ -21,10 +21,22 @@ state variable can be changed or check the new data for validity.
 *get_value*
 ^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int get_value(in string name, in array<> dest);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_value(in string name, in array<> dest);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_value(self, name: str, dest: NDArray[Any]) -> NDArray[Any]:
 
 The `get_value` function takes a variable name and copies values into a
 provided array parameter.
@@ -54,10 +66,22 @@ even if the model uses dimensional variables.
 *get_value_ptr*
 ^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int get_value_ptr(in string name, out array<> dest_ptr);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_value_ptr(in string name, out array<> dest_ptr);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_value_ptr(self, name: str) -> NDArray[Any]:
 
 The `get_value_ptr` function takes a variable name and returns a reference
 to a variable.
@@ -81,10 +105,24 @@ even if the model's state has changed.
 *get_value_at_indices*
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int get_value_at_indices(in string name, in array<> dest, in array<int, 1> inds);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_value_at_indices(in string name, in array<> dest, in array<int, 1> inds);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_value_at_indices(
+             self, name: str, dest: NDArray[Any], inds: NDArray[np.int_]
+         ) -> NDArray[Any]:
 
 Use the `get_value_at_indices` function to get a copy of a variable's values
 at the locations specified by the one-dimensional array indices
@@ -105,10 +143,22 @@ Additionally,
 *set_value*
 ^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int set_value(in string name, in array<> src);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int set_value(in string name, in array<> src);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def set_value(self, name: str, src: NDArray[Any]) -> None:
 
 The `set_value` function takes a variable name and an array of values,
 *src*,
@@ -138,10 +188,24 @@ even if the model uses dimensional variables.
 *set_value_at_indices*
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int set_value_at_indices(in string name, in array<int, 1> inds, in array<> src);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int set_value_at_indices(in string name, in array<int, 1> inds, in array<> src);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def set_value_at_indices(
+             self, name: str, inds: NDArray[np.int_], src: NDArray[Any]
+         ) -> None:
 
 Use the `set_value_at_indices` function to set a variable's values
 at the locations specified by the one-dimensional array indices
