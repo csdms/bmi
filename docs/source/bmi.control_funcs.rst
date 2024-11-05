@@ -15,11 +15,22 @@ updating.
 *initialize*
 ^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-    /* SIDL */
-    int initialize(in string config_file);
+   .. tab-item:: SIDL
+      :sync: sidl
 
+      .. code-block:: java
+
+         int initialize(in string config_file);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def initialize(self, config_file: str) -> None:
 
 The `initialize` function accepts a string argument that gives the
 path to its :term:`configuration file`.
@@ -48,10 +59,22 @@ formatted.
 *update*
 ^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-    /* SIDL */
-    int update();
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int update();
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def update(self) -> None:
 
 The `update` function advances the model by a single time step. This
 is the model's own internal time step (as returned by the BMI
@@ -75,10 +98,22 @@ function can just return without doing anything.
 *update_until*
 ^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-    /* SIDL */
-    int update_until(in double time);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int update_until(in double time);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def update_until(self, time: float) -> None:
 
 The `update_until` function updates the model to a particular time,
 as provided by its *time* argument.
@@ -101,11 +136,22 @@ to reflect that the model was updated to the requested time.
 *finalize*
 ^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-    /* SIDL */
-    int finalize();
+   .. tab-item:: SIDL
+      :sync: sidl
 
+      .. code-block:: java
+
+         int finalize();
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def finalize(self) -> None:
 
 The `finalize` function should perform all tasks that take place
 after exiting the model's time loop.  This typically includes
