@@ -25,8 +25,6 @@ The current model time.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`time_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_start_time:
 
@@ -47,8 +45,6 @@ The start time of the  model.
   from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`time_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_end_time:
@@ -72,8 +68,6 @@ The end time of the  model.
   from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`time_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_time_units:
@@ -104,8 +98,6 @@ It's recommended to use `time unit conventions`_ from Unidata's
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`time_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_time_step:
 
@@ -129,7 +121,5 @@ The time step is always expressed as a floating point value.
   from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`time_funcs` | :ref:`basic_model_interface`]
 
 .. include:: links.rst
