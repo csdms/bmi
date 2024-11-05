@@ -17,10 +17,23 @@ type or unit conversions can be applied when necessary.
 *get_var_grid*
 ^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int get_var_grid(in string name, out int grid);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_var_grid(in string name, out int grid);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_var_grid(self, name: str) -> int:
+
 
 Each input and output variable is defined on a grid.
 (Available grid types are listed in the :ref:`grid_funcs` section.)
@@ -45,10 +58,22 @@ A model can have one or more grids.
 *get_var_type*
 ^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int get_var_type(in string name, out string type);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_var_type(in string name, out string type);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_var_type(self, name: str) -> str:
 
 The `get_var_type` function provides the data type of the
 variable as it's stored in memory by the model.
@@ -72,10 +97,22 @@ while in Fortran, use `integer`, `real`, and `double precision`.
 *get_var_units*
 ^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int get_var_units(in string name, out string units);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_var_units(in string name, out string units);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_var_units(self, name: str) -> str:
 
 Get the units of the given variable.
 Standard unit names, in lower case, should be used,
@@ -105,10 +142,22 @@ full description of valid unit names and a list of supported units.
 *get_var_itemsize*
 ^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int get_var_itemsize(in string name, out int size);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_var_itemsize(in string name, out int size);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_var_itemsize(self, name: str) -> int:
 
 The `get_var_itemsize` function provides the size, in bytes,
 of a single element of the variable.
@@ -128,10 +177,22 @@ For example, if data for a variable are stored as 64-bit integers,
 *get_var_nbytes*
 ^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int get_var_nbytes(in string name, out int nbytes);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_var_nbytes(in string name, out int nbytes);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_var_nbytes(self, name: str) -> int:
 
 The `get_var_nbytes` function provides the total amount of memory used to store
 a variable; i.e., the number of items multiplied by the size of each item.
@@ -149,10 +210,22 @@ a variable; i.e., the number of items multiplied by the size of each item.
 *get_var_location*
 ^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-   /* SIDL */
-   int get_var_location(in string name, out string location);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_var_location(in string name, out string location);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_var_location(self, name: str) -> str:
 
 The `get_var_location` function,
 given a variable name, returns a string that indicates on what grid
