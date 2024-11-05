@@ -39,8 +39,6 @@ A model can have one or more grids.
 * In C and Fortran, an integer status code indicating success (zero) or
   failure (nonzero) is returned.
 
-[:ref:`var_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_var_type:
 
@@ -67,8 +65,6 @@ while in Fortran, use `integer`, `real`, and `double precision`.
   (nonzero) is returned.
 * In Java, only `primitive types`_ (e.g., ``int``, ``double``), not
   `wrapper classes`_ (e.g., ``Integer``, ``Double``), are supported.
-
-[:ref:`var_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_var_units:
@@ -103,8 +99,6 @@ full description of valid unit names and a list of supported units.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`var_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_var_itemsize:
 
@@ -128,8 +122,6 @@ For example, if data for a variable are stored as 64-bit integers,
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`var_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_var_nbytes:
 
@@ -150,8 +142,6 @@ a variable; i.e., the number of items multiplied by the size of each item.
   amount of memory used by the variable is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`var_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_var_location:
@@ -180,7 +170,5 @@ element the variable is defined. Valid return values are:
   (nonzero) is returned.
 * If the given variable is a scalar (i.e., defined on a :ref:`scalar
   grid <unstructured_grids>`), the location from this function is ignored.
-
-[:ref:`var_funcs` | :ref:`basic_model_interface`]
 
 .. include:: links.rst
