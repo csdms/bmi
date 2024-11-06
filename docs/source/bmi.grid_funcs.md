@@ -41,6 +41,12 @@ int get_grid_type(in int grid, out string type);
 def get_grid_type(self, grid: int) -> str:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_type(void *self, int grid, char *type);
+```
+:::
 ::::
 
 Given a {term}`grid identifier`, get the type of that grid as a string.
@@ -84,6 +90,12 @@ int get_grid_rank(in int grid, out int rank);
 def get_grid_rank(self, grid: int) -> int:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_rank(void *self, int grid, int *rank);
+```
+:::
 ::::
 
 Given a {term}`grid identifier`, get the {term}`rank` (the number of
@@ -123,6 +135,12 @@ int get_grid_size(in int grid, out int size);
 def get_grid_size(self, grid: int) -> int:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_size(void *self, int grid, int *size);
+```
+:::
 ::::
 
 Given a {term}`grid identifier`,
@@ -160,6 +178,12 @@ int get_grid_shape(in int grid, in array<int, 1> shape);
 :sync: python
 ```python
 def get_grid_shape(self, grid: int, shape: NDArray[np.int_]) -> NDArray[np.int_]:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_shape(void *self, int grid, int *shape);
 ```
 :::
 ::::
@@ -213,6 +237,12 @@ def get_grid_spacing(
 ) -> NDArray[np.float64]:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_spacing(void *self, int grid, double *spacing);
+```
+:::
 ::::
 
 Get the distance between the {term}`nodes <node>` of the model grid.
@@ -253,6 +283,12 @@ int get_grid_origin(in int grid, in array<double, 1> origin);
 def get_grid_origin(
     self, grid: int, origin: NDArray[np.float64]
 ) -> NDArray[np.float64]:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_origin(void *self, int grid, double *origin);
 ```
 :::
 ::::
@@ -296,6 +332,12 @@ int get_grid_x(in int grid, in array<double, 1> x);
 def get_grid_x(self, grid: int, x: NDArray[np.float64]) -> NDArray[np.float64]:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_x(void *self, int grid, double *x);
+```
+:::
 ::::
 
 Get the locations of the grid {term}`nodes <node>` in the first
@@ -333,6 +375,12 @@ int get_grid_y(in int grid, in array<double, 1> y);
 :sync: python
 ```python
 def get_grid_y(self, grid: int, y: NDArray[np.float64]) -> NDArray[np.float64]:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_y(void *self, int grid, double *y);
 ```
 :::
 ::::
@@ -374,6 +422,12 @@ int get_grid_z(in int grid, in array<double, 1> z);
 def get_grid_z(self, grid: int, z: NDArray[np.float64]) -> NDArray[np.float64]:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_z(void *self, int grid, double *z);
+```
+:::
 ::::
 
 Get the locations of the grid {term}`nodes <node>` in the third
@@ -413,6 +467,12 @@ int get_grid_node_count(in int grid, out int count);
 def get_grid_node_count(self, grid: int) -> int:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_node_count(void *self, int grid, int *count);
+```
+:::
 ::::
 
 Get the number of {term}`nodes <node>` in the grid.
@@ -444,6 +504,12 @@ int get_grid_edge_count(in int grid, out int count);
 :sync: python
 ```python
 def get_grid_edge_count(self, grid: int) -> int:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_edge_count(void *self, int grid, int *count);
 ```
 :::
 ::::
@@ -479,6 +545,12 @@ int get_grid_face_count(in int grid, out int count);
 def get_grid_face_count(self, grid: int) -> int:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_face_count(void *self, int grid, int *count);
+```
+:::
 ::::
 
 Get the number of {term}`faces <face>` in the grid.
@@ -512,6 +584,12 @@ int get_grid_edge_nodes(in int grid, in array<int, 1> edge_nodes);
 def get_grid_edge_nodes(
     self, grid: int, edge_nodes: NDArray[np.int_]
 ) -> NDArray[np.int_]:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_edge_nodes(void *self, int grid, int *edge_nodes);
 ```
 :::
 ::::
@@ -553,6 +631,12 @@ def get_grid_face_edges(
 ) -> NDArray[np.int_]:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_face_edges(void *self, int grid, int *face_edges);
+```
+:::
 ::::
 
 Get the face-edge connectivity.
@@ -589,6 +673,12 @@ int get_grid_face_nodes(in int grid, in array<int, 1> face_nodes);
 def get_grid_face_nodes(
     self, grid: int, face_nodes: NDArray[np.int_]
 ) -> NDArray[np.int_]:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_face_nodes(void *self, int grid, int *face_nodes);
 ```
 :::
 ::::
@@ -632,6 +722,12 @@ int get_grid_nodes_per_face(in int grid, in array<int, 1> nodes_per_face);
 def get_grid_nodes_per_face(
     self, grid: int, nodes_per_face: NDArray[np.int_]
 ) -> NDArray[np.int_]:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_grid_nodes_per_face(void *self, int grid, int *nodes_per_face);
 ```
 :::
 ::::
