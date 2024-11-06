@@ -1,3 +1,2 @@
-```{eval-rst}
-.. include:: ../../CITATION.rst
-```
+:::{include} ../../CITATION.md
+:::
