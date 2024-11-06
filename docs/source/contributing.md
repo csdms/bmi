@@ -1,3 +1,2 @@
-```{eval-rst}
-.. include:: ../../CONTRIBUTING.rst
-```
+:::{include} ../../CONTRIBUTING.md
+:::
