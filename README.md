@@ -65,21 +65,13 @@ For each language,
 links to the specification and an example implementation
 are listed in the table below.
 
-```{eval-rst}
-.. table:: BMI languages
-   :align: center
-   :widths: 10, 10, 15
-
-   ========  ==============  ======================
-   Language  Specification   Example implementation
-   ========  ==============  ======================
-   C         `bmi-c`_        `bmi-example-c`_
-   C++       `bmi-cxx`_      `bmi-example-cxx`_
-   Fortran   `bmi-fortran`_  `bmi-example-fortran`_
-   Java      `bmi-java`_     `bmi-example-java`_
-   Python    `bmi-python`_   `bmi-example-python`_
-   ========  ==============  ======================
-```
+| Language | Specification | Example implementation |
+| -------- | ------------- | ---------------------- |
+| C        | [bmi-c]       | [bmi-example-c]        |
+| C++      | [bmi-cxx]     | [bmi-example-cxx]      |
+| Fortran  | [bmi-fortran] | [bmi-example-fortran]  |
+| Java     | [bmi-java]    | [bmi-example-java]     |
+| Python   | [bmi-python]  | [bmi-example-python]   |
 
 Detailed instructions for building the specifications and examples
 are given at each link above.
@@ -99,18 +91,10 @@ The table below lists community-contributed
 language specifications and examples
 for two languages, Javascript and Julia.
 
-```{eval-rst}
-.. table:: Community-contributed BMI languages
-   :align: center
-   :widths: 10, 10, 15
-
-   ==========  =============  ======================
-   Language    Specification  Example implementation
-   ==========  =============  ======================
-   Javascript  `bmi-js`_      `bmi-example-js`_
-   Julia       `bmi-julia`_   `bmi-example-julia`_
-   ==========  =============  ======================
-```
+| Language   | Specification | Example implementation |
+| ---------- | ------------- | ---------------------- |
+| Javascript | [bmi-js]      | [bmi-example-js]       |
+| Julia      | [bmi-julia]   | [bmi-example-julia]    |
 
 The default branch of this repository
 reflects the current state of development for the BMI.
