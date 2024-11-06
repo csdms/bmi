@@ -1,3 +1,2 @@
-```{eval-rst}
-.. include:: ../../AUTHORS.rst
-```
+:::{include} ../../AUTHORS.md
+:::
