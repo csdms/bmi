@@ -1,42 +1,27 @@
-```{eval-rst}
-.. role:: raw-html-m2r(raw)
-   :format: html
+![[License: MIT][license-link]][license-badge]
+![[DOI][doi-link]][doi-badge]
+![[Documentation][rtd-link]][rtd-badge]
+![[JOSS Article][joss-link]][joss-badge]
 
-```
+[doi-badge]: https://zenodo.org/badge/DOI/10.5281/zenodo.3955010.svg
+[doi-link]: https://doi.org/10.5281/zenodo.3955009
+[license-badge]: https://img.shields.io/badge/License-MIT-yellow.svg
+[license-link]: https://opensource.org/licenses/MIT
+[rtd-badge]: https://readthedocs.org/projects/bmi/badge/?version=stable
+[rtd-link]: https://bmi.readthedocs.io/en/stable
+[joss-badge]: https://joss.theoj.org/papers/10.21105/joss.02317/status.svg
+[joss-link]: https://doi.org/10.21105/joss.02317
 
-```{raw} html
-<p align="center">
-   <a href='https://bmi.readthedocs.org/'>
-      <img src='https://github.com/csdms/bmi/raw/develop/docs/source/_static/bmi-logo-header-text.png'/>
-   </a>
-</p>
-```
+# The Basic Model Interface
 
-```{raw} html
-<h2 align="center">The Basic Model Interface</h2>
-```
 
-```{raw} html
-<p align="center">
-
-<a href='https://doi.org/10.5281/zenodo.3955009'>
-  <img src='https://zenodo.org/badge/DOI/10.5281/zenodo.3955010.svg' alt='DOI'></a>
-<a href="https://doi.org/10.21105/joss.02317">
-  <img src="https://joss.theoj.org/papers/10.21105/joss.02317/status.svg" alt="JOSS article"></a>
-<a href='https://bmi.readthedocs.io/en/stable'>
-  <img src='https://readthedocs.org/projects/bmi/badge/?version=stable' alt='Documentation Status'></a>
-<a href="https://opensource.org/licenses/MIT">
-  <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
-
-</p>
-
-<p align="center">
+---
 
 The Basic Model Interface (BMI) is a standardized set of functions
 that allows coupling of models to models and models to data.
 
-</p>
-```
+---
+
 
 The *Basic Model Interface* (BMI),
 developed by the [Community Surface Dynamics Modeling System] (CSDMS),
