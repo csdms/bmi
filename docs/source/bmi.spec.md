@@ -31,47 +31,47 @@ grouped by functional category.
    ==============================  =========================================
    Function                        Description
    ==============================  =========================================
-   :ref:`get_bmi_version`          Version of the BMI implemented.
+   :ref:`get-bmi-version`          Version of the BMI implemented.
    :ref:`initialize`               Perform startup tasks for the model.
    :ref:`update`                   Advance model state by one time step.
-   :ref:`update_until`             Advance model state until the given time.
+   :ref:`update-until`             Advance model state until the given time.
    :ref:`finalize`                 Perform tear-down tasks for the model.
-   :ref:`get_component_name`       Name of the model.
-   :ref:`get_input_item_count`     Count of a model's input variables.
-   :ref:`get_output_item_count`    Count of a model's output variables.
-   :ref:`get_input_var_names`      List of a model's input variables.
-   :ref:`get_output_var_names`     List of a model's output variables.
-   :ref:`get_var_grid`             Get the grid identifier for a variable.
-   :ref:`get_var_type`             Get the data type of a variable.
-   :ref:`get_var_units`            Get the units of a variable.
-   :ref:`get_var_itemsize`         Get the size (in bytes) of one element of a variable.
-   :ref:`get_var_nbytes`           Get the total size (in bytes) of a variable.
-   :ref:`get_var_location`         Get the grid element type of a variable.
-   :ref:`get_current_time`         Current time of the model.
-   :ref:`get_start_time`           Start time of the model.
-   :ref:`get_end_time`             End time of the model.
-   :ref:`get_time_units`           Time units used in the model.
-   :ref:`get_time_step`            Time step used in the model.
-   :ref:`get_value`                Get a copy of values of a given variable.
-   :ref:`get_value_ptr`            Get a reference to the values of a given variable.
-   :ref:`get_value_at_indices`     Get variable values at specific locations.
-   :ref:`set_value`                Set the values of a given variable.
-   :ref:`set_value_at_indices`     Set the values of a variable at specific locations.
-   :ref:`get_grid_rank`            Get the number of dimensions of a computational grid.
-   :ref:`get_grid_size`            Get the total number of elements of a computational grid.
-   :ref:`get_grid_type`            Get the grid type as a string.
-   :ref:`get_grid_shape`           Get the dimensions of a computational grid.
-   :ref:`get_grid_spacing`         Get the spacing between grid nodes.
-   :ref:`get_grid_origin`          Get the origin of a grid.
-   :ref:`get_grid_x`               Get the locations of a grid's nodes in dimension 1.
-   :ref:`get_grid_y`               Get the locations of a grid's nodes in dimension 2.
-   :ref:`get_grid_z`               Get the locations of a grid's nodes in dimension 3.
-   :ref:`get_grid_node_count`      Get the number of nodes in the grid.
-   :ref:`get_grid_edge_count`      Get the number of edges in the grid.
-   :ref:`get_grid_face_count`      Get the number of faces in the grid.
-   :ref:`get_grid_edge_nodes`      Get the edge-node connectivity.
-   :ref:`get_grid_face_edges`      Get the face-edge connectivity.
-   :ref:`get_grid_face_nodes`      Get the face-node connectivity.
-   :ref:`get_grid_nodes_per_face`  Get the number of nodes for each face.
+   :ref:`get-component-name`       Name of the model.
+   :ref:`get-input-item-count`     Count of a model's input variables.
+   :ref:`get-output-item-count`    Count of a model's output variables.
+   :ref:`get-input-var-names`      List of a model's input variables.
+   :ref:`get-output-var-names`     List of a model's output variables.
+   :ref:`get-var-grid`             Get the grid identifier for a variable.
+   :ref:`get-var-type`             Get the data type of a variable.
+   :ref:`get-var-units`            Get the units of a variable.
+   :ref:`get-var-itemsize`         Get the size (in bytes) of one element of a variable.
+   :ref:`get-var-nbytes`           Get the total size (in bytes) of a variable.
+   :ref:`get-var-location`         Get the grid element type of a variable.
+   :ref:`get-current-time`         Current time of the model.
+   :ref:`get-start-time`           Start time of the model.
+   :ref:`get-end-time`             End time of the model.
+   :ref:`get-time-units`           Time units used in the model.
+   :ref:`get-time-step`            Time step used in the model.
+   :ref:`get-value`                Get a copy of values of a given variable.
+   :ref:`get-value-ptr`            Get a reference to the values of a given variable.
+   :ref:`get-value-at-indices`     Get variable values at specific locations.
+   :ref:`set-value`                Set the values of a given variable.
+   :ref:`set-value-at-indices`     Set the values of a variable at specific locations.
+   :ref:`get-grid-rank`            Get the number of dimensions of a computational grid.
+   :ref:`get-grid-size`            Get the total number of elements of a computational grid.
+   :ref:`get-grid-type`            Get the grid type as a string.
+   :ref:`get-grid-shape`           Get the dimensions of a computational grid.
+   :ref:`get-grid-spacing`         Get the spacing between grid nodes.
+   :ref:`get-grid-origin`          Get the origin of a grid.
+   :ref:`get-grid-x`               Get the locations of a grid's nodes in dimension 1.
+   :ref:`get-grid-y`               Get the locations of a grid's nodes in dimension 2.
+   :ref:`get-grid-z`               Get the locations of a grid's nodes in dimension 3.
+   :ref:`get-grid-node-count`      Get the number of nodes in the grid.
+   :ref:`get-grid-edge-count`      Get the number of edges in the grid.
+   :ref:`get-grid-face-count`      Get the number of faces in the grid.
+   :ref:`get-grid-edge-nodes`      Get the edge-node connectivity.
+   :ref:`get-grid-face-edges`      Get the face-edge connectivity.
+   :ref:`get-grid-face-nodes`      Get the face-node connectivity.
+   :ref:`get-grid-nodes-per-face`  Get the number of nodes for each face.
    ==============================  =========================================
 ```

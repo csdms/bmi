@@ -5,7 +5,7 @@
 These BMI functions provide information
 about a particular input or output variable.
 They must accommodate any variable returned from the
-{ref}`get_input_var_names` or {ref}`get_output_var_names` functions --
+{ref}`get-input-var-names` or {ref}`get-output-var-names` functions --
 the variable name is used as an argument in each function.
 Based on the information returned,
 type or unit conversions can be applied when necessary.
@@ -35,10 +35,10 @@ type or unit conversions can be applied when necessary.
 ```
 
 Each input and output variable is defined on a grid.
-(Available grid types are listed in the {ref}`grid_funcs` section.)
+(Available grid types are listed in the {ref}`grid-funcs` section.)
 The `get_var_grid` function provides the identifier (an integer) for this grid.
 The identifier can be passed to the BMI
-{ref}`grid information <grid_funcs>` functions
+{ref}`grid information <grid-funcs>` functions
 to get the details of a particular grid;
 e.g., *x*- and *y*-coordinates, size, type, etc.
 A model can have one or more grids.
@@ -241,7 +241,7 @@ element the variable is defined. Valid return values are:
 - In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 - If the given variable is a scalar (i.e., defined on a {ref}`scalar
-  grid <unstructured_grids>`), the location from this function is ignored.
+  grid <unstructured-grids>`), the location from this function is ignored.
 
 ```{eval-rst}
 .. include:: links.rst

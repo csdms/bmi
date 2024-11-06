@@ -324,7 +324,7 @@ document, as per the [CC-0 public domain dedication / license].
 [community surface dynamics modeling system]: https://csdms.colorado.edu
 [consensus-based democracy]: https://producingoss.com/en/producingoss.html#consensus-democracy
 [contributing]: https://github.com/csdms/bmi/blob/master/CONTRIBUTING.rst
-[institutional partners]: ./partners.html
+[institutional partners]: partners
 [numpy governance document]: https://numpy.org/doc/stable/dev/governance/index.html
 [social and political infrastructure]: https://producingoss.com/en/producingoss.html#social-infrastructure
-[steering council]: ./council.html
+[steering council]: council
