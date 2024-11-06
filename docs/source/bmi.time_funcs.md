@@ -9,24 +9,22 @@ Model time is always expressed as a floating point value.
 
 ## *get_current_time*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_current_time(out double time);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_current_time(self) -> float:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_current_time(out double time);
 ```
+:::
+:::{tab-item} Python
+:sync: python
+```python
+def get_current_time(self) -> float:
+```
+:::
+::::
 
 The current model time.
 
@@ -41,24 +39,22 @@ The current model time.
 
 ## *get_start_time*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_start_time(out double time);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_start_time(self) -> float:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_start_time(out double time);
 ```
+:::
+:::{tab-item} Python
+:sync: python
+```python
+def get_start_time(self) -> float:
+```
+:::
+::::
 
 The start time of the  model.
 
@@ -74,24 +70,22 @@ The start time of the  model.
 
 ## *get_end_time*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_end_time(out double time);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_end_time(self) -> float:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_end_time(out double time);
 ```
+:::
+:::{tab-item} Python
+:sync: python
+``` python
+def get_end_time(self) -> float:
+```
+:::
+::::
 
 The end time of the  model.
 
@@ -109,24 +103,23 @@ The end time of the  model.
 
 ## *get_time_units*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_time_units(out string units);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_time_units(self) -> str:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_time_units(out string units);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_time_units(self) -> str:
+```
+:::
+::::
 
 Get the units of time as reported by the model's BMI (through
 {ref}`get-current-time`, {ref}`get-end-time`, etc.).
@@ -150,24 +143,22 @@ It's recommended to use [time unit conventions] from Unidata's
 
 ## *get_time_step*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_time_step(out double time_step);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_time_step(self) -> float:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_time_step(out double time_step);
 ```
+:::
+:::{tab-item} Python
+:sync: python
+```python
+def get_time_step(self) -> float:
+```
+:::
+::::
 
 Get the time step used in the model.
 The time step is always expressed as a floating point value.
@@ -182,6 +173,5 @@ The time step is always expressed as a floating point value.
 - In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-```{eval-rst}
-.. include:: links.md
-```
+:::{include} links.md
+:::
