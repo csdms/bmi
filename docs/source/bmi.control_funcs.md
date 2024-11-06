@@ -29,6 +29,13 @@ int initialize(in string config_file);
 def initialize(self, config_file: str) -> None:
 ```
 :::
+
+:::{tab-item} c
+:sync: c
+```c
+int initialize(void *self, char *config_file);
+```
+:::
 ::::
 
 The `initialize` function accepts a string argument that gives the
@@ -72,6 +79,13 @@ int update();
 def update(self) -> None:
 ```
 :::
+
+:::{tab-item} c
+:sync: c
+```c
+int update(void *self);
+```
+:::
 ::::
 
 The `update` function advances the model by a single time step. This
@@ -110,6 +124,12 @@ int update_until(in double time);
 def update_until(self, time: float) -> None:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int update_until(void *self, double then);
+```
+:::
 ::::
 
 The `update_until` function updates the model to a particular time,
@@ -145,6 +165,13 @@ int finalize();
 :sync: python
 ```python
 def finalize(self) -> None:
+```
+:::
+
+:::{tab-item} c
+:sync: c
+```c
+int finalize(void *self);
 ```
 :::
 ::::
