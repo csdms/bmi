@@ -1,28 +1,21 @@
-.. highlight:: shell
-
-============
-Contributing
-============
+# Contributing
 
 Contributions are welcomed and greatly appreciated!
 BMI is a community-driven open source project, so every little bit helps.
-`Credit`_ will always be given.
+[Credit] will always be given.
 
 This document describes how to contribute to the BMI project.
-It covers the main `BMI repository`_,
+It covers the main [BMI repository],
 as well as the language specifications and examples
 for supported languages
-listed in `Table 1`_ of the `BMI documentation`_.
+listed in [Table 1] of the [BMI documentation].
 
---------------
-Making changes
---------------
+## Making changes
 
 The following sections describe the process through which changes to the BMI
 specification, language bindings, language examples, and support tools are made.
 
-Pull requests
-~~~~~~~~~~~~~
+### Pull requests
 
 If you'd like to propose a change to the BMI or any of its language
 bindings, examples, or tools, you must submit a pull request (PR) to the
@@ -37,8 +30,7 @@ resolution through *lazy consensus*. The RFC process is intended for major
 changes to the BMI, whereas lazy consensus applies to minor changes such as
 typos or documentation updates.
 
-Request for Comment (RFC)
-~~~~~~~~~~~~~~~~~~~~~~~~~
+### Request for Comment (RFC)
 
 Once a PR has been tagged as an RFC, a review process begins.
 It proceeds in three steps:
@@ -47,8 +39,7 @@ It proceeds in three steps:
 2. summary
 3. resolution
 
-Discussion
-..........
+#### Discussion
 
 Reviewers (the other developers and interested community members) will write
 comments on your PR to help you improve its implementation, documentation, and
@@ -68,8 +59,7 @@ We expect that most PRs will not be accepted without some modification. You can
 make changes by pushing commits directly to the PR branch and leaving comments
 that explain the modifications.
 
-Summary
-.......
+#### Summary
 
 Once all parties have weighed in and there has been adequate discussion, the PR
 moves to a summary period. A team member will move for the discussion
@@ -88,66 +78,59 @@ discussion taking place during the discussion phase. There will likely be times,
 however, where stakeholders might raise serious enough concerns that the PR
 moves back into the discussion phase.
 
-Resolution
-..........
+#### Resolution
 
 The RFC process concludes with the PR being merged, closed, or postponed.
 
 There must be a *consensus* from project developers and interested community
 members for a PR to be merged. Consensus has a particular meaning when used
-with open source projects; see the `BMI governance document`_ for a definition
+with open source projects; see the [BMI governance document] for a definition
 of consensus in this context.
 
 If consensus isn't achieved, the PR will be postponed (the team feels the PR can
 wait until some future time) or closed.
 
-Lazy Consensus
-~~~~~~~~~~~~~~
+### Lazy Consensus
 
-`Lazy consensus`_, as defined by the Apache Software Foundation, is a
+[Lazy consensus], as defined by the Apache Software Foundation, is a
 decision-making policy which assumes general consent if no responses are posted
 within a defined period.
 
 For the BMI project, a PR tagged for resolution through lazy consensus can be
 merged if no comments are posted within about a week.
 
--------------------
-Reporting a problem
--------------------
+## Reporting a problem
 
 Report bugs or other problems by creating a GitHub issue at
-https://github.com/csdms/bmi/issues.
+<https://github.com/csdms/bmi/issues>.
 
 In the issue, be sure to explain the problem and include additional details to
 help maintainers reproduce the problem. Here are some suggestions that will make
 it easier to track down the source of the problem:
 
-* Use a clear and descriptive title for the issue that identifies the problem.
-* Describe, and if possible provide a minimal example that demonstrates, the
+- Use a clear and descriptive title for the issue that identifies the problem.
+- Describe, and if possible provide a minimal example that demonstrates, the
   exact steps that reproduce the problem.
-* Describe the behavior you are seeing after these steps.
-* Describe the behavior you expect to see after these steps.
+- Describe the behavior you are seeing after these steps.
+- Describe the behavior you expect to see after these steps.
 
-------------------
-Providing feedback
-------------------
+## Providing feedback
 
 The best way to send feedback is to file an issue at
-https://github.com/csdms/bmi/issues.
+<https://github.com/csdms/bmi/issues>.
 
 If you are proposing a feature:
 
-* Explain in detail how it would work.
-* Keep the scope as narrow as possible, to make it easier to implement.
-* Remember that this is a volunteer-driven project, and that contributions
+- Explain in detail how it would work.
+- Keep the scope as narrow as possible, to make it easier to implement.
+- Remember that this is a volunteer-driven project, and that contributions
   are welcome.
 
+<!-- Links -->
 
-.. Links
-
-.. _Credit: https://bmi.readthedocs.io/en/latest/credits.html
-.. _BMI repository: https://github.com/csdms/bmi
-.. _Table 1: https://bmi.readthedocs.io/en/latest/#id43
-.. _BMI documentation: https://bmi.readthedocs.io
-.. _BMI governance document: https://bmi.readthedocs.io/en/latest/governance.html
-.. _Lazy consensus: https://community.apache.org/committers/lazyConsensus.html
+[bmi documentation]: https://bmi.readthedocs.io
+[bmi governance document]: https://bmi.readthedocs.io/en/latest/governance.html
+[bmi repository]: https://github.com/csdms/bmi
+[credit]: https://bmi.readthedocs.io/en/latest/credits.html
+[lazy consensus]: https://community.apache.org/committers/lazyConsensus.html
+[table 1]: https://bmi.readthedocs.io/en/latest/#id43
