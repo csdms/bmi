@@ -78,7 +78,7 @@ formatted.
 
 The `update` function advances the model by a single time step. This
 is the model's own internal time step (as returned by the BMI
-{ref}`get_time_step` function), not the time step
+{ref}`get-time-step` function), not the time step
 of a controlling application.
 This function should perform all tasks that take place during one
 pass through the model's time loop.  It does not contain the time
@@ -121,7 +121,7 @@ If the model permits,
 the *time* argument can be a non-integral multiple of time steps,
 and even negative.
 Once called, the value returned
-by the BMI {ref}`get_current_time` function must return the provided time
+by the BMI {ref}`get-current-time` function must return the provided time
 to reflect that the model was updated to the requested time.
 
 **Implementation notes**

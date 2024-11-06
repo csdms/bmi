@@ -66,7 +66,7 @@ but it should be unique to prevent conflicts with other components.
 
 The number of variables the model can use from other models
 implementing a BMI.
-Also the number of variables that can be set with {ref}`set_value`.
+Also the number of variables that can be set with {ref}`set-value`.
 
 **Implementation notes**
 
@@ -100,7 +100,7 @@ Also the number of variables that can be set with {ref}`set_value`.
 
 The number of variables the model can provide other models
 implementing a BMI.
-Also the number of variables that can be retrieved with {ref}`get_value`.
+Also the number of variables that can be retrieved with {ref}`get-value`.
 
 **Implementation notes**
 
@@ -134,7 +134,7 @@ Also the number of variables that can be retrieved with {ref}`get_value`.
 
 Gets an array of names for the variables the model can use from other
 models implementing a BMI.
-The length of the array is given by {ref}`get_input_item_count`.
+The length of the array is given by {ref}`get-input-item-count`.
 The names are preferably in the form of CSDMS {term}`Standard Names`.
 Standard Names enable a modeling framework to determine whether an
 input variable in one model is equivalent to, or compatible with,
@@ -180,7 +180,7 @@ Standard Names do not have to be used within the model.
 
 Gets an array of names for the variables the model can provide to other
 models implementing a BMI.
-The length of the array is given by {ref}`get_output_item_count`.
+The length of the array is given by {ref}`get-output-item-count`.
 The names are preferably in the form of CSDMS {term}`Standard Names`.
 Standard Names enable a modeling framework to determine whether an
 input variable in one model is equivalent to, or compatible with,

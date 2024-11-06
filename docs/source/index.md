@@ -41,30 +41,27 @@ in which the BMI is implemented.
 
 (specs-and-examples)=
 
-```{eval-rst}
-.. table:: **Table 1:** BMI languages.
-   :align: center
-   :widths: 20, 25, 25, 30
+:::{table} **Table 1:** BMI languages.
+:align: center
+:widths: 20, 25, 25, 30
 
-   ========  =============  ==============  ======================
-   Language  Specification  Repository      Example
-   ========  =============  ==============  ======================
-   C         `bmi.h`_       `bmi-c`_        `bmi-example-c`_
-   C++       `bmi.hxx`_     `bmi-cxx`_      `bmi-example-cxx`_
-   Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_
-   Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_
-   Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
-   ========  =============  ==============  ======================
-```
+| Language   Specification   Repository   Example
+| -------- | ------------- | ---------- | ------- |
+| C         `bmi.h`_       `bmi-c`_        `bmi-example-c`_
+| C++       `bmi.hxx`_     `bmi-cxx`_      `bmi-example-cxx`_
+| Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_
+| Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_
+| Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
+| -------- | ------------- | ---------- | ------- |
+:::
 
 BMI is a community standard.
 Table 2 lists community-contributed language specifications and examples
 for two languages, Javascript and Julia.
 
-```{eval-rst}
-.. table:: **Table 2:** Community-contributed BMI languages.
-   :align: center
-   :widths: 20, 25, 25, 30
+:::{table} **Table 2:** Community-contributed BMI languages.
+:align: center
+:widths: 20, 25, 25, 30
 
    ==========  =============  ============  =====================
    Language    Specification  Repository    Example
@@ -72,14 +69,14 @@ for two languages, Javascript and Julia.
    Javascript  `bmi.js`_      `bmi-js`_     `bmi-example-js`_
    Julia       `bmi.jl`_      `bmi-julia`_  `bmi-example-julia`_
    ==========  =============  ============  =====================
-```
+:::
 
 Along with the examples,
 two documents may be particularly helpful when writing a BMI:
 
-- {ref}`Getting Started Guide <getting_started>` --- a place to start
+- {ref}`Getting Started Guide <getting-started>` --- a place to start
   if you haven't written a BMI before
-- {ref}`BMI Best Practices <best_practices>` --- our collected wisdom on
+- {ref}`BMI Best Practices <best-practices>` --- our collected wisdom on
   implementing a BMI
 
 A complete description of the functions that make up the BMI is given next.

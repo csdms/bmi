@@ -129,7 +129,7 @@ The end time of the  model.
 ```
 
 Get the units of time as reported by the model's BMI (through
-{ref}`get_current_time`, {ref}`get_end_time`, etc.).
+{ref}`get-current-time`, {ref}`get-end-time`, etc.).
 It's recommended to use [time unit conventions] from Unidata's
 [UDUNITS] package; e.g., `"s"`, `"min"`, `"h"`, `"d"`.
 

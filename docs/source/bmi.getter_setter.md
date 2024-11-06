@@ -4,7 +4,7 @@
 
 These functions are used to access and modify the variables
 that a model exposes through its BMI
-(see {ref}`get_input_var_names` and {ref}`get_output_var_names`).
+(see {ref}`get-input-var-names` and {ref}`get-output-var-names`).
 
 A *getter* is a function called to get a variable from a model's *state*.
 A model's state variables typically change with each time step,
@@ -41,7 +41,7 @@ The `get_value` function takes a variable name and copies values into a
 provided array parameter.
 The type and size of the array parameter depend on the variable,
 and can be determined through
-{ref}`get_var_type`, {ref}`get_var_nbytes`, etc.
+{ref}`get-var-type`, {ref}`get-var-nbytes`, etc.
 Recall that arrays are always flattened in BMI,
 even if the model uses dimensional variables.
 
@@ -85,7 +85,7 @@ even if the model uses dimensional variables.
 
 The `get_value_ptr` function takes a variable name and returns a reference
 to a variable.
-Unlike the array parameter returned from {ref}`get_value`,
+Unlike the array parameter returned from {ref}`get-value`,
 the reference always points to the current values of the variable,
 even if the model's state has changed.
 
@@ -131,7 +131,7 @@ The values are returned through the *dest* argument.
 
 **Implementation notes**
 
-All the notes from {ref}`get_value` apply.
+All the notes from {ref}`get-value` apply.
 Additionally,
 
 - Both *dest* and *inds* are flattened arrays.
@@ -166,7 +166,7 @@ and copies those values into the model's internal array of values,
 overwriting the current contents.
 The type and size of *src* must match the model's internal array,
 and can be determined through
-{ref}`get_var_type`, {ref}`get_var_nbytes`, etc.
+{ref}`get-var-type`, {ref}`get-var-nbytes`, etc.
 Recall that arrays are always flattened in BMI,
 even if the model uses dimensional variables.
 
@@ -213,7 +213,7 @@ in the *inds* argument.
 
 **Implementation notes**
 
-All the notes from {ref}`set_value` apply.
+All the notes from {ref}`set-value` apply.
 Additionally,
 
 - Both *src* and *inds* are flattened arrays.

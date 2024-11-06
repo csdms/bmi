@@ -6,13 +6,13 @@ If you want to add a Basic Model Interface (BMI) to your own model,
 here are some tips on getting started.
 
 1\. Take a look at the list of BMI
-{ref}`control functions and their descriptions <basic_model_interface>`
+{ref}`control functions and their descriptions <basic-model-interface>`
 to get an idea of what these functions are meant to do
 and how they provide a standard set of controls for your model.
 
 2\. On the theory that it's often easier to start with an example and
 modify it, we recommend starting with a copy of
-the {ref}`BMI example code<specs_and_examples>`---look for the version
+the {ref}`BMI example code<specs-and-examples>`---look for the version
 written in the language of your model---to use as a template.
 Each link points to a GitHub repository that includes an
 example model called "heat", and a corresponding BMI in a file called
@@ -35,15 +35,15 @@ whereas codes that are more monolithic tend to require a lot more
 refactoring (but that is probably worthwhile anyway for the sake of
 the quality and sustainability of the code!).
 Each case is a bit different.
-Be sure to check out our {ref}`BMI best practices <best_practices>` document
+Be sure to check out our {ref}`BMI best practices <best-practices>` document
 for tips.
 We encourage you to contact us with questions by posting an
 issue on the [CSDMS Help Desk].
 
 4\. Test it out. Try writing a program or script that initializes your
 model with a simple test case using the {ref}`initialize` function,
-runs it with the {ref}`update` or {ref}`update_until` functions,
-and exchanges data using {ref}`get_value` and {ref}`set_value`.
+runs it with the {ref}`update` or {ref}`update-until` functions,
+and exchanges data using {ref}`get-value` and {ref}`set-value`.
 Run a test to verify that you get the same output from your BMI'd model
 that you got from it prior to BMI'ing.
 (Note: we recommend writing a {term}`unit test` for each of your

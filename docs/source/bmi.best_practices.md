@@ -9,11 +9,11 @@ In no particular order,
 here are some tips to help when writing a BMI for a model.
 
 - All functions in the BMI must be implemented. For example, even if a
-  model operates on a {ref}`uniform rectilinear <uniform_rectilinear>`
-  grid, a {ref}`get_grid_x` function has to be written. This function
+  model operates on a {ref}`uniform rectilinear <uniform-rectilinear>`
+  grid, a {ref}`get-grid-x` function has to be written. This function
   can be empty and simply return the `BMI_FAILURE` status code or
   raise a `NotImplemented` exception, depending on the language.
-- The {ref}`BMI functions <basic_model_interface>` listed in the
+- The {ref}`BMI functions <basic-model-interface>` listed in the
   documentation are the minimum required. Optional functions that act
   as helpers can be added to a model's BMI. For example, an
   `update_frac` function that updates a model's state by a fractional
@@ -41,7 +41,7 @@ here are some tips to help when writing a BMI for a model.
 - Recall that models can have multiple grids. This can be particularly
   useful for defining {term}`exchange items <exchange item>` that
   don't vary over the model domain; e.g., a diffusivity -- just define
-  the variable on a separate {ref}`scalar grid <unstructured_grids>`.
+  the variable on a separate {ref}`scalar grid <unstructured-grids>`.
 - Avoid using global variables, if possible. This isn't strictly a BMI
   requirement, but if a model only uses local variables, its BMI will
   be self-contained. This may allow multiple instances of the model to
