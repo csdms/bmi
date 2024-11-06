@@ -45,14 +45,13 @@ in which the BMI is implemented.
 :align: center
 :widths: 20, 25, 25, 30
 
-| Language   Specification   Repository   Example
-| -------- | ------------- | ---------- | ------- |
-| C         `bmi.h`_       `bmi-c`_        `bmi-example-c`_
-| C++       `bmi.hxx`_     `bmi-cxx`_      `bmi-example-cxx`_
-| Fortran   `bmi.f90`_     `bmi-fortran`_  `bmi-example-fortran`_
-| Java      `bmi.java`_    `bmi-java`_     `bmi-example-java`_
-| Python    `bmi.py`_      `bmi-python`_   `bmi-example-python`_
-| -------- | ------------- | ---------- | ------- |
+| Language | Specification | Repository     | Example                |
+| -------- | ------------- | -------------- | ---------------------- |
+| C        | [bmi.h]       | [bmi-c]        | [bmi-example-c]        |
+| C++      | [bmi.hxx]     | [bmi-cxx]      | [bmi-example-cxx]      |
+| Fortran  | [bmi.f90]     | [bmi-fortran]  | [bmi-example-fortran]  |
+| Java     | [bmi.java]    | [bmi-java]     | [bmi-example-java]     |
+| Python   | [bmi.py]      | [bmi-python]   | [bmi-example-python]   |
 :::
 
 BMI is a community standard.
@@ -63,12 +62,10 @@ for two languages, Javascript and Julia.
 :align: center
 :widths: 20, 25, 25, 30
 
-   ==========  =============  ============  =====================
-   Language    Specification  Repository    Example
-   ==========  =============  ============  =====================
-   Javascript  `bmi.js`_      `bmi-js`_     `bmi-example-js`_
-   Julia       `bmi.jl`_      `bmi-julia`_  `bmi-example-julia`_
-   ==========  =============  ============  =====================
+| Language   | Specification | Repository   | Example              |
+| ---------- | ------------- | ------------ | -------------------- |
+| Javascript | [bmi.js]      | [bmi-js]     | [bmi-example-js]     |
+| Julia      | [bmi.jl]      | [bmi-julia]  | [bmi-example-julia]  |
 :::
 
 Along with the examples,
