@@ -8,24 +8,23 @@ These functions supply metadata about a model and its BMI.
 
 ## *get_bmi_version*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_bmi_version(out string version);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_bmi_version(self) -> str:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_bmi_version(out string version);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_bmi_version(self) -> str:
+```
+:::
+::::
 
 :::{versionadded} 2.1
 :::
