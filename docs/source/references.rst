@@ -30,11 +30,6 @@ models in the geosciences"**, *Journal of Open Source Software*,
 Scientific Interface Definition Language (SIDL)
 -----------------------------------------------
 
-Dahlgren, Tamara; Ebner, Dietmar; Epperly, Thomas; Kumfert, Gary;
-Leek, James; Prantl, Adrian (2012): "Babel User's Guide: Part I
-Foundation: SIDL Basics".
-https://computing.llnl.gov/projects/babel-high-performance-language-interoperability/docs/users_guide/index008.html (retrieved 2019-10-09).
-
 Epperly, Thomas GW; Kumfert, Gary; Dahlgren, Tamara; Ebner, Dietmar;
 Leek, Jim; Prantl, Adrian; Kohn, Scott (2011): "High-performance
 language interoperability for scientific computing through
