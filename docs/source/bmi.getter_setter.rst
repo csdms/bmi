@@ -49,8 +49,6 @@ even if the model uses dimensional variables.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
-
 .. _get_value_ptr:
 
 *get_value_ptr*
@@ -77,8 +75,6 @@ even if the model's state has changed.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_value_at_indices:
 
@@ -102,8 +98,6 @@ Additionally,
 
 * Both *dest* and *inds* are flattened arrays.
 * The *inds* argument is always of type integer.
-
-[:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
 
 
 .. _set_value:
@@ -138,8 +132,6 @@ even if the model uses dimensional variables.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
-
 
 .. _set_value_at_indices:
 
@@ -163,4 +155,4 @@ Additionally,
 * Both *src* and *inds* are flattened arrays.
 * The *inds* argument is always of type integer.
 
-[:ref:`getter_setter_funcs` | :ref:`basic_model_interface`]
+.. include:: links.rst
