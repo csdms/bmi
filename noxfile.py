@@ -20,7 +20,7 @@ def build_docs(session: nox.Session) -> None:
     docs_dir = ROOT / "docs"
     build_dir = docs_dir / "build"
 
-    session.install("sphinx>=4")
+    session.install("-r", docs_dir / "requirements.txt")
 
     build_dir.mkdir(exist_ok=True)
     session.run(
