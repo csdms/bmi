@@ -26,7 +26,7 @@ However, all BMI grid functions must be implemented.
 .. _get_grid_type:
 
 *get_grid_type*
-...............
+^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -60,7 +60,7 @@ is given in the :ref:`model_grids` section.
 .. _get_grid_rank:
 
 *get_grid_rank*
-...............
+^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -90,7 +90,7 @@ of :ref:`get_grid_x`, :ref:`get_grid_y`, etc. are implemented.
 .. _get_grid_size:
 
 *get_grid_size*
-...............
+^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -120,7 +120,7 @@ for :ref:`unstructured <unstructured_grids>` and
 .. _get_grid_shape:
 
 *get_grid_shape*
-................
+^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -160,7 +160,7 @@ the cells.
 .. _get_grid_spacing:
 
 *get_grid_spacing*
-..................
+^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -191,7 +191,7 @@ the spacing between rows is followed by spacing between columns, ``[dy, dx]``.
 .. _get_grid_origin:
 
 *get_grid_origin*
-.................
+^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -223,7 +223,7 @@ the origin is given in the column dimension, followed by the row dimension,
 .. _get_grid_x:
 
 *get_grid_x*
-............
+^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -253,7 +253,7 @@ See :ref:`model_grids` for more information.
 .. _get_grid_y:
 
 *get_grid_y*
-............
+^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -283,7 +283,7 @@ See :ref:`model_grids` for more information.
 .. _get_grid_z:
 
 *get_grid_z*
-............
+^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -313,7 +313,7 @@ See :ref:`model_grids` for more information.
 .. _get_grid_node_count:
 
 *get_grid_node_count*
-.....................
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -337,7 +337,7 @@ Get the number of :term:`nodes <node>` in the grid.
 .. _get_grid_edge_count:
 
 *get_grid_edge_count*
-.....................
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -361,7 +361,7 @@ Get the number of :term:`edges <edge>` in the grid.
 .. _get_grid_face_count:
 
 *get_grid_face_count*
-.....................
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -385,7 +385,7 @@ Get the number of :term:`faces <face>` in the grid.
 .. _get_grid_edge_nodes:
 
 *get_grid_edge_nodes*
-.....................
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -413,7 +413,7 @@ node at edge head. The total length of the array is
 .. _get_grid_face_edges:
 
 *get_grid_face_edges*
-.....................
+^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -440,7 +440,7 @@ The length of the array returned is the sum of the values of
 .. _get_grid_face_nodes:
 
 *get_grid_face_nodes*
-.....................
+`````````````````````
 
 .. code-block:: java
 
@@ -472,7 +472,7 @@ the length of the array is the sum of the values of
 .. _get_grid_nodes_per_face:
 
 *get_grid_nodes_per_face*
-.........................
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 

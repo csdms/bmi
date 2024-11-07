@@ -8,7 +8,7 @@ These functions supply metadata about a model and its BMI.
 .. _get_bmi_version:
 
 *get_bmi_version*
-.................
+^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 

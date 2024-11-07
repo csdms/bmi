@@ -19,7 +19,7 @@ state variable can be changed or check the new data for validity.
 .. _get_value:
 
 *get_value*
-...........
+^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -54,7 +54,7 @@ even if the model uses dimensional variables.
 .. _get_value_ptr:
 
 *get_value_ptr*
-...............
+^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -83,7 +83,7 @@ even if the model's state has changed.
 .. _get_value_at_indices:
 
 *get_value_at_indices*
-......................
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -109,7 +109,7 @@ Additionally,
 .. _set_value:
 
 *set_value*
-...........
+^^^^^^^^^^^
 
 .. code-block:: java
 
@@ -144,7 +144,7 @@ even if the model uses dimensional variables.
 .. _set_value_at_indices:
 
 *set_value_at_indices*
-......................
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: java
 
