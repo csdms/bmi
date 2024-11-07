@@ -7,7 +7,8 @@ Community Surface Dynamics Modeling System (CSDMS)
 --------------------------------------------------
 
 Tucker, G. E., Hutton, E. W., Piper, M. D., Campforts, B., Gan,
-T., Barnhart, K. R., ... & Syvitski, J. (2022). **CSDMS: a
+T., Barnhart, K. R., Kettner, A. J., Overeem, I., Peckham, S. D.,
+McCready, L., and Syvitski, J. (2022). **CSDMS: a
 community platform for numerical modeling of Earth surface
 processes**. Geoscientific Model Development, 15(4), 1413-1439.
 
