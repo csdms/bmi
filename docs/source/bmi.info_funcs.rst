@@ -13,10 +13,22 @@ and provide to other models that have a BMI.
 *get_component_name*
 ^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-  /* SIDL */
-  int get_component_name(out string name);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_component_name(out string name);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_component_name(self) -> str:
 
 This function supplies the name of the model component as a string.
 There are no restrictions on the name,
@@ -35,10 +47,22 @@ but it should be unique to prevent conflicts with other components.
 *get_input_item_count*
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-  /* SIDL */
-  int get_input_item_count(out int count);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_input_item_count(out int count);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_input_item_count(self) -> int:
 
 The number of variables the model can use from other models
 implementing a BMI.
@@ -57,10 +81,22 @@ Also the number of variables that can be set with :ref:`set_value`.
 *get_output_item_count*
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-  /* SIDL */
-  int get_output_item_count(out int count);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_output_item_count(out int count);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_output_item_count(self) -> int:
 
 The number of variables the model can provide other models
 implementing a BMI.
@@ -79,10 +115,22 @@ Also the number of variables that can be retrieved with :ref:`get_value`.
 *get_input_var_names*
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-  /* SIDL */
-  int get_input_var_names(out array<string, 1> names);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_input_var_names(out array<string, 1> names);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_input_var_names(self) -> tuple[str, ...]:
 
 Gets an array of names for the variables the model can use from other
 models implementing a BMI.
@@ -113,10 +161,22 @@ Standard Names do not have to be used within the model.
 *get_output_var_names*
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: java
+.. tab-set::
+   :sync-group: lang
 
-  /* SIDL */
-  int get_output_var_names(out array<string, 1> names);
+   .. tab-item:: SIDL
+      :sync: sidl
+
+      .. code-block:: java
+
+         int get_output_var_names(out array<string, 1> names);
+
+   .. tab-item:: Python
+      :sync: python
+
+      .. code-block:: python
+
+         def get_output_var_names(self) -> tuple[str, ...]:
 
 Gets an array of names for the variables the model can provide to other
 models implementing a BMI.
