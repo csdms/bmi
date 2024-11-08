@@ -1,3 +1,2 @@
-```{eval-rst}
-.. include:: ../../CODE-OF-CONDUCT.rst
-```
+:::{include} ../../CODE-OF-CONDUCT.md
+:::

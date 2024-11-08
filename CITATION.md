@@ -1,9 +1,9 @@
-Citation
-========
+# Citation
 
 If you use the Basic Model Interface for work/research
 presented in a publication, we ask that you please cite:
 
+```{eval-rst}
 .. tab-set::
 
    .. tab-item:: APA
@@ -50,3 +50,4 @@ presented in a publication, we ask that you please cite:
             },
             journal={Journal of Open Source Software}
         }
+```
