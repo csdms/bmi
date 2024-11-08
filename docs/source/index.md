@@ -131,6 +131,7 @@ credits
 Governance <governance>
 council
 partners
+License <license>
 ```
 
 ```{toctree}
