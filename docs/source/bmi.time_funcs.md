@@ -183,5 +183,5 @@ The time step is always expressed as a floating point value.
   (nonzero) is returned.
 
 ```{eval-rst}
-.. include:: links.rst
+.. include:: links.md
 ```
