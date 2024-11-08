@@ -244,5 +244,5 @@ element the variable is defined. Valid return values are:
   grid <unstructured-grids>`), the location from this function is ignored.
 
 ```{eval-rst}
-.. include:: links.rst
+.. include:: links.md
 ```

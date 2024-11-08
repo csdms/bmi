@@ -220,5 +220,5 @@ Additionally,
 - The *inds* argument is always of type integer.
 
 ```{eval-rst}
-.. include:: links.rst
+.. include:: links.md
 ```
