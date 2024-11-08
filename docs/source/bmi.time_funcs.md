@@ -1,16 +1,15 @@
-.. _time_funcs:
+(time-funcs)=
 
-Time functions
---------------
+# Time functions
 
 These simple diagnostic functions provide information on model time.
 Model time is always expressed as a floating point value.
 
-.. _get_current_time:
+(get-current-time)=
 
-*get_current_time*
-^^^^^^^^^^^^^^^^^^
+## *get_current_time*
 
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -27,22 +26,22 @@ Model time is always expressed as a floating point value.
       .. code-block:: python
 
          def get_current_time(self) -> float:
+```
 
 The current model time.
 
 **Implementation notes**
 
-* In C++, Java, and Python, the argument is omitted and the time is returned
+- In C++, Java, and Python, the argument is omitted and the time is returned
   from the function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
+(get-start-time)=
 
-.. _get_start_time:
+## *get_start_time*
 
-*get_start_time*
-^^^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -59,23 +58,23 @@ The current model time.
       .. code-block:: python
 
          def get_start_time(self) -> float:
+```
 
 The start time of the  model.
 
 **Implementation notes**
 
-* The start time in BMI is typically defined to be 0.0.
-* In C++, Java, and Python, the argument is omitted and the time is returned
+- The start time in BMI is typically defined to be 0.0.
+- In C++, Java, and Python, the argument is omitted and the time is returned
   from the function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
+(get-end-time)=
 
-.. _get_end_time:
+## *get_end_time*
 
-*get_end_time*
-^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -92,25 +91,25 @@ The start time of the  model.
       .. code-block:: python
 
          def get_end_time(self) -> float:
+```
 
 The end time of the  model.
 
 **Implementation notes**
 
-* If the model doesn't define an end time, a large number (e.g., the
+- If the model doesn't define an end time, a large number (e.g., the
   largest floating point number supported on a platform) is typically
   chosen.
-* In C++, Java, and Python, the argument is omitted and the time is returned
+- In C++, Java, and Python, the argument is omitted and the time is returned
   from the function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
+(get-time-units)=
 
-.. _get_time_units:
+## *get_time_units*
 
-*get_time_units*
-^^^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -127,31 +126,31 @@ The end time of the  model.
       .. code-block:: python
 
          def get_time_units(self) -> str:
+```
 
 Get the units of time as reported by the model's BMI (through
-:ref:`get_current_time`, :ref:`get_end_time`, etc.).
-It's recommended to use `time unit conventions`_ from Unidata's
-`UDUNITS`_ package; e.g., ``"s"``, ``"min"``, ``"h"``, ``"d"``.
+{ref}`get-current-time`, {ref}`get-end-time`, etc.).
+It's recommended to use [time unit conventions] from Unidata's
+[UDUNITS] package; e.g., `"s"`, `"min"`, `"h"`, `"d"`.
 
 **Implementation notes**
 
-* Avoid using ``"years"`` as a unit, if possible, since a year is
+- Avoid using `"years"` as a unit, if possible, since a year is
   difficult to define precisely. UDUNITS defines a year as 365.2422
   days or 31556926 seconds.
-* Dimensionless quantities should use ``""`` or ``"1"`` as the unit.
-* Models that don't vary with time, or don't have time units should
-  use ``"none"``.
-* In C++, Java, and Python, the argument is omitted and the units are returned
+- Dimensionless quantities should use `""` or `"1"` as the unit.
+- Models that don't vary with time, or don't have time units should
+  use `"none"`.
+- In C++, Java, and Python, the argument is omitted and the units are returned
   from the function as a string.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
+(get-time-step)=
 
-.. _get_time_step:
+## *get_time_step*
 
-*get_time_step*
-^^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -168,18 +167,21 @@ It's recommended to use `time unit conventions`_ from Unidata's
       .. code-block:: python
 
          def get_time_step(self) -> float:
+```
 
 Get the time step used in the model.
 The time step is always expressed as a floating point value.
 
 **Implementation notes**
 
-* A time step is typically a positive value. However, if the model
+- A time step is typically a positive value. However, if the model
   permits it, a negative value can be used (running the model
   backward).
-* In C++, Java, and Python, the argument is omitted and the time step is returned
+- In C++, Java, and Python, the argument is omitted and the time step is returned
   from the function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-.. include:: links.rst
+```{eval-rst}
+.. include:: links.md
+```

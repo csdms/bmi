@@ -26,6 +26,7 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "myst_parser",
     "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
     "sphinx.ext.imgmath",
@@ -38,8 +39,8 @@ templates_path = ["_templates"]
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
-# source_suffix = ['.rst', '.md']
-source_suffix = ".rst"
+# source_suffix = [".rst", ".md"]
+source_suffix = ".md"
 
 # The encoding of source files.
 # source_encoding = 'utf-8-sig'
@@ -76,7 +77,7 @@ language = "en"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = []
+exclude_patterns = ["links.md"]
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -323,3 +324,5 @@ texinfo_documents = [
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
+
+myst_enable_extensions = ["colon_fence", "deflist"]

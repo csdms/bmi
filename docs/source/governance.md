@@ -1,5 +1,4 @@
-The Basic Model Interface (BMI): governance and decision-making
-===============================================================
+# The Basic Model Interface (BMI): governance and decision-making
 
 The purpose of this document is to formalize the governance process used for the
 Basic Model Interface (BMI) in both ordinary and extraordinary situations, and
@@ -7,8 +6,7 @@ to clarify how decisions are made and how the various elements of our community
 interact, including the relationship between open source collaborative
 development and work that may be funded by for-profit or non-profit entities.
 
-Summary
--------
+## Summary
 
 The Basic Model Interface (BMI) is a community-owned and community-run project.
 To the maximum extent possible, decisions about project direction are made by
@@ -20,17 +18,16 @@ community consensus, for stewarding project resources, and--in extreme
 cases--for making project decisions if the normal community-based process breaks
 down.
 
-The Project
------------
+## The Project
 
 BMI is an open source software project (hereafter, the Project) affiliated with
-the NSF-funded `Community Surface Dynamics Modeling System`_ (CSDMS). The goal
+the NSF-funded [Community Surface Dynamics Modeling System] (CSDMS). The goal
 of the Project is to develop an open source software interface standard for
 querying and controlling models. The Project also includes tools, documentation,
 and examples to support and promote this standard. The software developed by the
 Project is released under the MIT open source license, developed openly, and
 hosted on public GitHub repositories under the csdms and other GitHub
-organization. Proposed changes to the Project must follow the `CONTRIBUTING`_
+organization. Proposed changes to the Project must follow the [CONTRIBUTING]
 document in the Project's main GitHub repository.
 
 The Project is developed by a team of distributed developers, called
@@ -47,18 +44,16 @@ Contributors work on behalf of and are responsible to the larger Project
 Community. We strive to keep the barrier between Contributors and Users as low
 as possible.
 
-Governance
-----------
+## Governance
 
 This section describes the governance and leadership model of the Project. The
 foundations of Project governance are:
 
-* Openness & Transparency
-* Active Contribution
-* Institutional Neutrality
+- Openness & Transparency
+- Active Contribution
+- Institutional Neutrality
 
-Consensus-based decision making by the community
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+### Consensus-based decision making by the community
 
 Normally, decisions on the Project will be made by consensus of all interested
 Contributors. The primary goal of this approach is to ensure that the people who
@@ -70,16 +65,16 @@ high-quality software.
 The mechanism we use to accomplish this goal may be unfamiliar for those who are
 not experienced with the cultural norms around free/open-source software
 development. We provide a summary here, and highly recommend that all
-Contributors additionally read the chapter `Social and Political
-Infrastructure`_ of Karl Fogel's *Producing Open Source Software*, and in
-particular the section on `Consensus-based Democracy`_, for a more detailed
+Contributors additionally read the chapter [Social and Political
+Infrastructure][social and political infrastructure] of Karl Fogel's *Producing Open Source Software*, and in
+particular the section on [Consensus-based Democracy], for a more detailed
 discussion.
 
 In this context, consensus does not require:
 
-* that we wait to solicit everyone's opinion on every change,
-* that we ever hold a vote on anything, or
-* that everyone is happy or agrees with every decision.
+- that we wait to solicit everyone's opinion on every change,
+- that we ever hold a vote on anything, or
+- that everyone is happy or agrees with every decision.
 
 For us, what consensus means is that we entrust everyone with the right to veto
 any change if they feel it necessary. While this may sound like a recipe for
@@ -107,9 +102,9 @@ fine.
 
 If one does need to invoke a formal veto, then it should consist of:
 
-* an unambiguous statement that a veto is being invoked,
-* an explanation of why it is being invoked, and
-* a description of what conditions (if any) would convince the vetoer to
+- an unambiguous statement that a veto is being invoked,
+- an explanation of why it is being invoked, and
+- a description of what conditions (if any) would convince the vetoer to
   withdraw their veto.
 
 If all proposals for resolving some issue are vetoed, then the status quo wins
@@ -119,8 +114,7 @@ In the worst case, if a Contributor is genuinely misusing their veto in an
 obstructive fashion to the detriment of the Project, then they can be ejected
 from the Project by consensus of the Steering Council--see below.
 
-Steering Council
-^^^^^^^^^^^^^^^^
+### Steering Council
 
 The Project has a Steering Council (a.k.a. the BMI Council) that consists of
 Project Contributors and Users. The overall role of the Council is to ensure,
@@ -139,14 +133,14 @@ experienced Contributors.
 The Steering Council plays a special role in certain situations. In particular,
 the Council may, if necessary:
 
-* Make decisions about the overall scope, vision, and direction of the Project.
-* Make decisions about strategic collaborations with other organizations or
+- Make decisions about the overall scope, vision, and direction of the Project.
+- Make decisions about strategic collaborations with other organizations or
   individuals.
-* Make decisions about specific technical issues, features, bugs, and pull
+- Make decisions about specific technical issues, features, bugs, and pull
   requests. They are the primary mechanism of guiding the code review process and
   merging pull requests.
-* Update policy documents such as this one.
-* Make decisions when regular community discussion doesn’t produce consensus on
+- Update policy documents such as this one.
+- Make decisions when regular community discussion doesn’t produce consensus on
   an issue in a reasonable time frame.
 
 However, the Council's primary responsibility is to facilitate the ordinary
@@ -155,11 +149,10 @@ has to step in and formally override the community for the health of the
 Project, then they will do so, but they will consider reaching this point to
 indicate a failure in their leadership.
 
-Council decision making
-^^^^^^^^^^^^^^^^^^^^^^^
+### Council decision making
 
 If it becomes necessary for the Steering Council to produce a formal decision,
-then they will use a form of the `Apache Foundation voting process`_. This is a
+then they will use a form of the [Apache Foundation voting process]. This is a
 formalized version of consensus, in which +1 votes indicate agreement, -1 votes
 are vetoes (and must be accompanied with a rationale, as above), and fractional
 votes (e.g. -0.5, +0.5) can be used if one wishes to express an opinion without
@@ -172,11 +165,10 @@ respond--at least one week.
 In practice, we anticipate that for most Council decisions (e.g., voting in new
 members) a more informal process will suffice.
 
-Council membership
-^^^^^^^^^^^^^^^^^^
+### Council membership
 
-A list of current Steering Council Members is maintained at the page `Steering
-Council`_.
+A list of current Steering Council Members is maintained at the page [Steering
+Council][steering council].
 
 To become eligible to join the Steering Council, an individual must be a Project
 Contributor who has produced substantial contributions or a Project User that
@@ -214,17 +206,16 @@ actively harmful to the Project's well-being, and if attempts at communication
 and conflict resolution have failed. This requires the consensus of the
 remaining Members.
 
-Conflict of interest
-^^^^^^^^^^^^^^^^^^^^
+### Conflict of interest
 
 It is expected that Council Members will be employed at a range of universities,
 government agencies, companies, and non-profit organizations. Because of this,
 it is possible that Members will have conflict of interests. Such conflict of
 interests include, but are not limited to:
 
-* Financial interests, such as investments, employment or contracting work,
+- Financial interests, such as investments, employment or contracting work,
   outside of the Project that may influence their work on the Project.
-* Access to proprietary information of their employer that could potentially leak
+- Access to proprietary information of their employer that could potentially leak
   into their work with the Project.
 
 All members of the Council shall disclose to the rest of the Council any
@@ -232,8 +223,7 @@ conflict of interest they may have. Members with a conflict of interest in a
 particular issue may participate in Council discussions on that issue, but must
 recuse themselves from voting on the issue.
 
-Private communications of the Council
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+### Private communications of the Council
 
 To the maximum extent possible, Council discussions and activities will be
 public and done in collaboration and discussion with the Project Contributors
@@ -243,8 +233,7 @@ communications and decisions are needed, the Council will do its best to
 summarize those to the Community after eliding personal/private/sensitive
 information that should not be posted to the public internet.
 
-Subcommittees
-^^^^^^^^^^^^^
+### Subcommittees
 
 The Council can create subcommittees that provide leadership and guidance for
 specific aspects of the Project. Like the Council as a whole, subcommittees
@@ -252,8 +241,7 @@ should conduct their business in an open and public manner unless privacy is
 specifically called for. Private subcommittee communications should happen on
 the communication channel of the Council unless specifically called for.
 
-Institutional Partners and Funding
-----------------------------------
+## Institutional Partners and Funding
 
 The Steering Council is the primary leadership for the Project. No outside
 institution, individual, or legal entity has the ability to own, control, usurp
@@ -304,44 +292,39 @@ that suggests a formal relationship.
 
 Institutional Partner benefits are:
 
-* Acknowledgment on Project websites, in talks, and on promotional material.
-* Ability to acknowledge their own funding sources on Project websites, in
+- Acknowledgment on Project websites, in talks, and on promotional material.
+- Ability to acknowledge their own funding sources on Project websites, in
   talks, and on promotional material.
-* Ability to influence the Project through the participation of their Council
+- Ability to influence the Project through the participation of their Council
   Member.
 
 A list of current Institutional Partners is maintained at the page
-`Institutional Partners`_.
+[Institutional Partners].
 
-Document history
-----------------
+## Document history
 
-https://github.com/csdms/bmi/commits/master/docs/source/governance.rst
+<https://github.com/csdms/bmi/commits/master/docs/source/governance.rst>
 
-Acknowledgments
----------------
+## Acknowledgments
 
-Substantial portions of this document were adapted from the `NumPy governance
-document`_.
+Substantial portions of this document were adapted from the [NumPy governance
+document][numpy governance document].
 
-License
--------
+## License
 
 To the extent possible under law, the authors have waived all copyright and
 related or neighboring rights to the BMI project governance and decision-making
-document, as per the `CC-0 public domain dedication / license`_.
+document, as per the [CC-0 public domain dedication / license].
 
+% Links
 
-
-.. Links
-
-.. _Community Surface Dynamics Modeling System: https://csdms.colorado.edu
-.. _CONTRIBUTING: https://github.com/csdms/bmi/blob/master/CONTRIBUTING.rst
-.. _Chapter 4: Social and Political Infrastructure
-.. _Social and Political Infrastructure: https://producingoss.com/en/producingoss.html#social-infrastructure
-.. _Consensus-based Democracy: https://producingoss.com/en/producingoss.html#consensus-democracy
-.. _Apache Foundation voting process: https://www.apache.org/foundation/voting.html
-.. _Steering Council: ./council.html
-.. _Institutional Partners: ./partners.html
-.. _NumPy governance document: https://numpy.org/doc/stable/dev/governance/index.html
-.. _CC-0 public domain dedication / license: https://creativecommons.org/publicdomain/zero/1.0/
+[apache foundation voting process]: https://www.apache.org/foundation/voting.html
+[cc-0 public domain dedication / license]: https://creativecommons.org/publicdomain/zero/1.0/
+[chapter 4]: SocialandPoliticalInfrastructure
+[community surface dynamics modeling system]: https://csdms.colorado.edu
+[consensus-based democracy]: https://producingoss.com/en/producingoss.html#consensus-democracy
+[contributing]: https://github.com/csdms/bmi/blob/master/CONTRIBUTING.rst
+[institutional partners]: partners
+[numpy governance document]: https://numpy.org/doc/stable/dev/governance/index.html
+[social and political infrastructure]: https://producingoss.com/en/producingoss.html#social-infrastructure
+[steering council]: council
