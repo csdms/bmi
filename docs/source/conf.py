@@ -230,9 +230,6 @@ html_static_path = ["_static"]
 # implements a search results scorer. If empty, the default will be used.
 # html_search_scorer = 'scorer.js'
 
-# Output file base name for HTML help builder.
-htmlhelp_basename = "bmidoc"
-
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
 
