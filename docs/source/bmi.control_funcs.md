@@ -13,24 +13,23 @@ updating.
 
 ## *initialize*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int initialize(in string config_file);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def initialize(self, config_file: str) -> None:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int initialize(in string config_file);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def initialize(self, config_file: str) -> None:
+```
+:::
+::::
 
 The `initialize` function accepts a string argument that gives the
 path to its {term}`configuration file`.
@@ -57,24 +56,23 @@ formatted.
 
 ## *update*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int update();
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def update(self) -> None:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int update();
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def update(self) -> None:
+```
+:::
+::::
 
 The `update` function advances the model by a single time step. This
 is the model's own internal time step (as returned by the BMI
@@ -96,24 +94,23 @@ function can just return without doing anything.
 
 ## *update_until*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int update_until(in double time);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def update_until(self, time: float) -> None:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int update_until(in double time);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def update_until(self, time: float) -> None:
+```
+:::
+::::
 
 The `update_until` function updates the model to a particular time,
 as provided by its *time* argument.
@@ -134,24 +131,23 @@ to reflect that the model was updated to the requested time.
 
 ## *finalize*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int finalize();
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def finalize(self) -> None:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int finalize();
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def finalize(self) -> None:
+```
+:::
+::::
 
 The `finalize` function should perform all tasks that take place
 after exiting the model's time loop.  This typically includes
