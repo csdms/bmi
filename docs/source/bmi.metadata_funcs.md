@@ -24,6 +24,12 @@ int get_bmi_version(out string version);
 def get_bmi_version(self) -> str:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_bmi_version(void *self, char *version);
+```
+:::
 ::::
 
 :::{versionadded} 2.1

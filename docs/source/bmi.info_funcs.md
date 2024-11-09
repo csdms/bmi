@@ -27,6 +27,12 @@ int get_component_name(out string name);
 def get_component_name(self) -> str:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_component_name(void *self, char *name);
+```
+:::
 ::::
 
 This function supplies the name of the model component as a string.
@@ -58,6 +64,12 @@ int get_input_item_count(out int count);
 :sync: python
 ```python
 def get_input_item_count(self) -> int:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_input_item_count(void *self, int *count);
 ```
 :::
 ::::
@@ -93,6 +105,12 @@ int get_output_item_count(out int count);
 def get_output_item_count(self) -> int:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_output_item_count(void *self, int *count);
+```
+:::
 ::::
 
 The number of variables the model can provide other models
@@ -123,6 +141,12 @@ int get_input_var_names(out array<string, 1> names);
 :sync: python
 ```python
 def get_input_var_names(self) -> tuple[str, ...]:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_input_var_names(void *self, char **names);
 ```
 :::
 ::::
@@ -168,6 +192,12 @@ int get_output_var_names(out array<string, 1> names);
 :sync: python
 ```python
 def get_output_var_names(self) -> tuple[str, ...]:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_output_var_names(void *self, char **names);
 ```
 :::
 ::::

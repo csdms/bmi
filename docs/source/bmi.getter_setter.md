@@ -34,6 +34,12 @@ int get_value(in string name, in array<> dest);
 def get_value(self, name: str, dest: NDArray[Any]) -> NDArray[Any]:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_value(void *self, const char *name, void *dest);
+```
+:::
 ::::
 
 The `get_value` function takes a variable name and copies values into a
@@ -79,6 +85,12 @@ int get_value_ptr(in string name, out array<> dest_ptr);
 def get_value_ptr(self, name: str) -> NDArray[Any]:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_value_ptr(void *self, const char *name, void **dest_ptr);
+```
+:::
 ::::
 
 The `get_value_ptr` function takes a variable name and returns a reference
@@ -119,6 +131,14 @@ def get_value_at_indices(
 ) -> NDArray[Any]:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_value_at_indices(
+    void *self, const char *name, void *dest, int *inds, int count
+);
+```
+:::
 ::::
 
 Use the `get_value_at_indices` function to get a copy of a variable's values
@@ -152,6 +172,12 @@ int set_value(in string name, in array<> src);
 :sync: python
 ```python
 def set_value(self, name: str, src: NDArray[Any]) -> None:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int set_value(void *self, const char *name, void *src);
 ```
 :::
 ::::
@@ -198,6 +224,14 @@ int set_value_at_indices(in string name, in array<int, 1> inds, in array<> src);
 def set_value_at_indices(
     self, name: str, inds: NDArray[np.int_], src: NDArray[Any]
 ) -> None:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int set_value_at_indices(
+    void *self, const char *name, int *inds, int count, void *src
+);
 ```
 :::
 ::::

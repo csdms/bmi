@@ -24,6 +24,12 @@ int get_current_time(out double time);
 def get_current_time(self) -> float:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_current_time(void *self, double *time);
+```
+:::
 ::::
 
 The current model time.
@@ -52,6 +58,12 @@ int get_start_time(out double time);
 :sync: python
 ```python
 def get_start_time(self) -> float:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_start_time(void *self, double *time);
 ```
 :::
 ::::
@@ -83,6 +95,12 @@ int get_end_time(out double time);
 :sync: python
 ``` python
 def get_end_time(self) -> float:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_end_time(void *self, double *time);
 ```
 :::
 ::::
@@ -117,6 +135,12 @@ int get_time_units(out string units);
 :sync: python
 ```python
 def get_time_units(self) -> str:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_time_units(void *self, char *units);
 ```
 :::
 ::::
@@ -156,6 +180,12 @@ int get_time_step(out double time_step);
 :sync: python
 ```python
 def get_time_step(self) -> float:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_time_step(void *self, double *time_step);
 ```
 :::
 ::::

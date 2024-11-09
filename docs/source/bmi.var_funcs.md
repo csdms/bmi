@@ -30,6 +30,12 @@ int get_var_grid(in string name, out int grid);
 def get_var_grid(self, name: str) -> int:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_var_grid(void *self, const char *name, int *grid);
+```
+:::
 ::::
 
 Each input and output variable is defined on a grid.
@@ -69,6 +75,12 @@ int get_var_type(in string name, out string type);
 def get_var_type(self, name: str) -> str:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_var_type(void *self, const char *name, char *type);
+```
+:::
 ::::
 
 The `get_var_type` function provides the data type of the
@@ -105,6 +117,12 @@ int get_var_units(in string name, out string units);
 :sync: python
 ```python
 def get_var_units(self, name: str) -> str:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_var_units(void *self, const char *name, char *units);
 ```
 :::
 ::::
@@ -151,6 +169,12 @@ int get_var_itemsize(in string name, out int size);
 def get_var_itemsize(self, name: str) -> int:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_var_itemsize(void *self, const char *name, int *size);
+```
+:::
 ::::
 
 The `get_var_itemsize` function provides the size, in bytes,
@@ -185,6 +209,12 @@ int get_var_nbytes(in string name, out int nbytes);
 def get_var_nbytes(self, name: str) -> int:
 ```
 :::
+:::{tab-item} c
+:sync: c
+```c
+int get_var_nbytes(void *self, const char *name, int *nbytes);
+```
+:::
 ::::
 
 The `get_var_nbytes` function provides the total amount of memory used to store
@@ -215,6 +245,12 @@ int get_var_location(in string name, out string location);
 :sync: python
 ```python
 def get_var_location(self, name: str) -> str:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_var_location(void *self, const char *name, char *location);
 ```
 :::
 ::::
