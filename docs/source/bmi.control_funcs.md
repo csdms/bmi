@@ -18,22 +18,28 @@ updating.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int initialize(in string config_file);
+```{map-bmi-function} initialize
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def initialize(self, config_file: str) -> None:
+```{map-bmi-function} initialize
+:language: python
 ```
 :::
 
 :::{tab-item} c
 :sync: c
-```c
-int initialize(void *self, char *config_file);
+```{map-bmi-function} initialize
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} initialize
+:language: c++
 ```
 :::
 ::::
@@ -68,22 +74,28 @@ formatted.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int update();
+```{map-bmi-function} update
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def update(self) -> None:
+```{map-bmi-function} update
+:language: python
 ```
 :::
 
 :::{tab-item} c
 :sync: c
-```c
-int update(void *self);
+```{map-bmi-function} update
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} update
+:language: c++
 ```
 :::
 ::::
@@ -113,21 +125,27 @@ function can just return without doing anything.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int update_until(in double time);
+```{map-bmi-function} update_until
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def update_until(self, time: float) -> None:
+```{map-bmi-function} update_until
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int update_until(void *self, double then);
+```{map-bmi-function} update_until
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} update_until
+:language: c++
 ```
 :::
 ::::
@@ -156,22 +174,28 @@ to reflect that the model was updated to the requested time.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int finalize();
+```{map-bmi-function} finalize
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def finalize(self) -> None:
+```{map-bmi-function} finalize
+:language: python
 ```
 :::
 
 :::{tab-item} c
 :sync: c
-```c
-int finalize(void *self);
+```{map-bmi-function} finalize
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} finalize
+:language: c++
 ```
 :::
 ::::
