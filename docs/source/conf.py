@@ -1,3 +1,9 @@
+from docutils import nodes
+from docutils.parsers.rst import Directive
+from pygments import highlight
+from pygments.formatters import HtmlFormatter
+from pygments.lexers import find_lexer_class_by_name
+
 extensions = [
     "myst_parser",
     "sphinx.ext.intersphinx",
@@ -60,3 +66,31 @@ html_static_path = ["_static"]
 intersphinx_mapping = {"python": ("https://docs.python.org/3", None)}
 
 myst_enable_extensions = ["colon_fence", "deflist"]
+
+
+class MapBmiFunction(Directive):
+    """Insert a highlighted BMI function mapped to a language."""
+
+    required_arguments = 1
+    option_spec = {"language": str}
+
+    has_content = False
+
+    def run(self):
+        from bmi_map.bmi_map import map_bmi_function
+
+        function_name = self.arguments[0]
+        language = self.options.get("language")
+
+        content = map_bmi_function(function_name, language)
+
+        lexer = find_lexer_class_by_name(language if language != "sidl" else "java")()
+        highlighted_code = highlight(content, lexer, HtmlFormatter())
+
+        node = nodes.raw("", highlighted_code, format="html")
+
+        return [node]
+
+
+def setup(app):
+    app.add_directive("map-bmi-function", MapBmiFunction)
