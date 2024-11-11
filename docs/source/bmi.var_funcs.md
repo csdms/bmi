@@ -20,20 +20,26 @@ type or unit conversions can be applied when necessary.
 :::{tab-item} SIDL
 :sync: sidl
 
-```java
-int get_var_grid(in string name, out int grid);
+```{map-bmi-function} get_var_grid
+:language: sidl
 ```
 :::
 :::{tab-item} Python
 :sync: python
-```python
-def get_var_grid(self, name: str) -> int:
+```{map-bmi-function} get_var_grid
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_var_grid(void *self, const char *name, int *grid);
+```{map-bmi-function} get_var_grid
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_var_grid
+:language: c++
 ```
 :::
 ::::
@@ -64,21 +70,27 @@ A model can have one or more grids.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_var_type(in string name, out string type);
+```{map-bmi-function} get_var_type
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_var_type(self, name: str) -> str:
+```{map-bmi-function} get_var_type
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_var_type(void *self, const char *name, char *type);
+```{map-bmi-function} get_var_type
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_var_type
+:language: c++
 ```
 :::
 ::::
@@ -108,21 +120,26 @@ while in Fortran, use `integer`, `real`, and `double precision`.
 
 :::{tab-item} SIDL
 :sync: sidl
-
-```java
-int get_var_units(in string name, out string units);
+```{map-bmi-function} get_var_units
+:language: sidl
 ```
 :::
 :::{tab-item} Python
 :sync: python
-```python
-def get_var_units(self, name: str) -> str:
+```{map-bmi-function} get_var_units
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_var_units(void *self, const char *name, char *units);
+```{map-bmi-function} get_var_units
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_var_units
+:language: c++
 ```
 :::
 ::::
@@ -158,21 +175,27 @@ full description of valid unit names and a list of supported units.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_var_itemsize(in string name, out int size);
+```{map-bmi-function} get_var_itemsize
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_var_itemsize(self, name: str) -> int:
+```{map-bmi-function} get_var_itemsize
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_var_itemsize(void *self, const char *name, int *size);
+```{map-bmi-function} get_var_itemsize
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_var_itemsize
+:language: c++
 ```
 :::
 ::::
@@ -198,21 +221,27 @@ For example, if data for a variable are stored as 64-bit integers,
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_var_nbytes(in string name, out int nbytes);
+```{map-bmi-function} get_var_nbytes
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_var_nbytes(self, name: str) -> int:
+```{map-bmi-function} get_var_nbytes
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_var_nbytes(void *self, const char *name, int *nbytes);
+```{map-bmi-function} get_var_nbytes
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_var_nbytes
+:language: c++
 ```
 :::
 ::::
@@ -236,21 +265,27 @@ a variable; i.e., the number of items multiplied by the size of each item.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_var_location(in string name, out string location);
+```{map-bmi-function} get_var_location
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_var_location(self, name: str) -> str:
+```{map-bmi-function} get_var_location
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_var_location(void *self, const char *name, char *location);
+```{map-bmi-function} get_var_location
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_var_location
+:language: c++
 ```
 :::
 ::::
