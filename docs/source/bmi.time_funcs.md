@@ -14,20 +14,26 @@ Model time is always expressed as a floating point value.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_current_time(out double time);
+```{map-bmi-function} get_current_time
+:language: sidl
 ```
 :::
 :::{tab-item} Python
 :sync: python
-```python
-def get_current_time(self) -> float:
+```{map-bmi-function} get_current_time
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_current_time(void *self, double *time);
+```{map-bmi-function} get_current_time
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_current_time
+:language: c++
 ```
 :::
 ::::
@@ -50,20 +56,26 @@ The current model time.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_start_time(out double time);
+```{map-bmi-function} get_start_time
+:language: sidl
 ```
 :::
 :::{tab-item} Python
 :sync: python
-```python
-def get_start_time(self) -> float:
+```{map-bmi-function} get_start_time
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_start_time(void *self, double *time);
+```{map-bmi-function} get_start_time
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_start_time
+:language: c++
 ```
 :::
 ::::
@@ -87,20 +99,26 @@ The start time of the  model.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_end_time(out double time);
+```{map-bmi-function} get_end_time
+:language: sidl
 ```
 :::
 :::{tab-item} Python
 :sync: python
-``` python
-def get_end_time(self) -> float:
+```{map-bmi-function} get_end_time
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_end_time(void *self, double *time);
+```{map-bmi-function} get_end_time
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_end_time
+:language: c++
 ```
 :::
 ::::
@@ -126,21 +144,27 @@ The end time of the  model.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_time_units(out string units);
+```{map-bmi-function} get_time_units
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_time_units(self) -> str:
+```{map-bmi-function} get_time_units
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_time_units(void *self, char *units);
+```{map-bmi-function} get_time_units
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_time_units
+:language: c++
 ```
 :::
 ::::
@@ -172,20 +196,26 @@ It's recommended to use [time unit conventions] from Unidata's
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_time_step(out double time_step);
+```{map-bmi-function} get_time_step
+:language: sidl
 ```
 :::
 :::{tab-item} Python
 :sync: python
-```python
-def get_time_step(self) -> float:
+```{map-bmi-function} get_time_step
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_time_step(void *self, double *time_step);
+```{map-bmi-function} get_time_step
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_time_step
+:language: c++
 ```
 :::
 ::::
