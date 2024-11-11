@@ -16,15 +16,27 @@ and provide to other models that have a BMI.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_component_name(out string name);
+```{map-bmi-function} get_component_name
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_component_name(self) -> str:
+```{map-bmi-function} get_component_name
+:language: python
+```
+:::
+:::{tab-item} c
+:sync: c
+```{map-bmi-function} get_component_name
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_component_name
+:language: c++
 ```
 :::
 ::::
@@ -49,15 +61,27 @@ but it should be unique to prevent conflicts with other components.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_input_item_count(out int count);
+```{map-bmi-function} get_input_item_count
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_input_item_count(self) -> int:
+```{map-bmi-function} get_input_item_count
+:language: python
+```
+:::
+:::{tab-item} c
+:sync: c
+```{map-bmi-function} get_input_item_count
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_input_item_count
+:language: c++
 ```
 :::
 ::::
@@ -82,15 +106,27 @@ Also the number of variables that can be set with {ref}`set-value`.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_output_item_count(out int count);
+```{map-bmi-function} get_output_item_count
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_output_item_count(self) -> int:
+```{map-bmi-function} get_output_item_count
+:language: python
+```
+:::
+:::{tab-item} c
+:sync: c
+```{map-bmi-function} get_output_item_count
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_output_item_count
+:language: c++
 ```
 :::
 ::::
@@ -115,14 +151,26 @@ Also the number of variables that can be retrieved with {ref}`get-value`.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_input_var_names(out array<string, 1> names);
+```{map-bmi-function} get_input_var_names
+:language: sidl
 ```
 :::
 :::{tab-item} Python
 :sync: python
-```python
-def get_input_var_names(self) -> tuple[str, ...]:
+```{map-bmi-function} get_input_var_names
+:language: python
+```
+:::
+:::{tab-item} c
+:sync: c
+```{map-bmi-function} get_input_var_names
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_input_var_names
+:language: c++
 ```
 :::
 ::::
@@ -159,15 +207,27 @@ Standard Names do not have to be used within the model.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_output_var_names(out array<string, 1> names);
+```{map-bmi-function} get_output_var_names
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_output_var_names(self) -> tuple[str, ...]:
+```{map-bmi-function} get_output_var_names
+:language: python
+```
+:::
+:::{tab-item} c
+:sync: c
+```{map-bmi-function} get_output_var_names
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_output_var_names
+:language: c++
 ```
 :::
 ::::
