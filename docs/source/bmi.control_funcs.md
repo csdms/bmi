@@ -30,13 +30,13 @@ updating.
 ```
 :::
 
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} initialize
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} initialize
 :language: c++
@@ -86,13 +86,13 @@ formatted.
 ```
 :::
 
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} update
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} update
 :language: c++
@@ -136,13 +136,13 @@ function can just return without doing anything.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} update_until
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} update_until
 :language: c++
@@ -186,13 +186,13 @@ to reflect that the model was updated to the requested time.
 ```
 :::
 
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} finalize
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} finalize
 :language: c++
