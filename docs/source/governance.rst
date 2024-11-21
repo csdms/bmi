@@ -58,7 +58,7 @@ foundations of Project governance are:
 * Institutional Neutrality
 
 Consensus-based decision making by the community
-................................................
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Normally, decisions on the Project will be made by consensus of all interested
 Contributors. The primary goal of this approach is to ensure that the people who
@@ -120,7 +120,7 @@ obstructive fashion to the detriment of the Project, then they can be ejected
 from the Project by consensus of the Steering Council--see below.
 
 Steering Council
-................
+^^^^^^^^^^^^^^^^
 
 The Project has a Steering Council (a.k.a. the BMI Council) that consists of
 Project Contributors and Users. The overall role of the Council is to ensure,
@@ -156,7 +156,7 @@ Project, then they will do so, but they will consider reaching this point to
 indicate a failure in their leadership.
 
 Council decision making
-.......................
+^^^^^^^^^^^^^^^^^^^^^^^
 
 If it becomes necessary for the Steering Council to produce a formal decision,
 then they will use a form of the `Apache Foundation voting process`_. This is a
@@ -173,7 +173,7 @@ In practice, we anticipate that for most Council decisions (e.g., voting in new
 members) a more informal process will suffice.
 
 Council membership
-..................
+^^^^^^^^^^^^^^^^^^
 
 A list of current Steering Council Members is maintained at the page `Steering
 Council`_.
@@ -215,7 +215,7 @@ and conflict resolution have failed. This requires the consensus of the
 remaining Members.
 
 Conflict of interest
-....................
+^^^^^^^^^^^^^^^^^^^^
 
 It is expected that Council Members will be employed at a range of universities,
 government agencies, companies, and non-profit organizations. Because of this,
@@ -233,7 +233,7 @@ particular issue may participate in Council discussions on that issue, but must
 recuse themselves from voting on the issue.
 
 Private communications of the Council
-.....................................
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To the maximum extent possible, Council discussions and activities will be
 public and done in collaboration and discussion with the Project Contributors
@@ -244,7 +244,7 @@ summarize those to the Community after eliding personal/private/sensitive
 information that should not be posted to the public internet.
 
 Subcommittees
-.............
+^^^^^^^^^^^^^
 
 The Council can create subcommittees that provide leadership and guidance for
 specific aspects of the Project. Like the Council as a whole, subcommittees
