@@ -149,7 +149,7 @@ for building and coupling models.
 .. _bmi.hxx: https://github.com/csdms/bmi-cxx/blob/master/bmi.hxx
 .. _bmi.f90: https://github.com/csdms/bmi-fortran/blob/master/bmi.f90
 .. _bmi.java: https://github.com/csdms/bmi-java/blob/master/src/main/java/edu/colorado/csdms/bmi/BMI.java
-.. _bmi.py: https://github.com/csdms/bmi-python/blob/master/bmipy/bmi.py
+.. _bmi.py: https://github.com/csdms/bmi-python/blob/master/src/bmipy/bmi.py
 .. _bmi.js: https://github.com/uihilab/BMI-JS/blob/main/bmijs/bmi.js
 .. _bmi.jl: https://github.com/Deltares/BasicModelInterface.jl/blob/master/src/BasicModelInterface.jl
 .. _bmi-c: https://github.com/csdms/bmi-c
