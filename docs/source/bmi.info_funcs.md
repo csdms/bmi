@@ -27,13 +27,13 @@ and provide to other models that have a BMI.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_component_name
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_component_name
 :language: c++
@@ -72,13 +72,13 @@ but it should be unique to prevent conflicts with other components.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_input_item_count
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_input_item_count
 :language: c++
@@ -117,13 +117,13 @@ Also the number of variables that can be set with {ref}`set-value`.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_output_item_count
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_output_item_count
 :language: c++
@@ -161,13 +161,13 @@ Also the number of variables that can be retrieved with {ref}`get-value`.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_input_var_names
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_input_var_names
 :language: c++
@@ -218,13 +218,13 @@ Standard Names do not have to be used within the model.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_output_var_names
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_output_var_names
 :language: c++
