@@ -4,6 +4,7 @@ Visualize the nodes, edges, and faces of an unstructed grid.
 This example is based on the matplotlib demo of a PathPatch object,
 https://matplotlib.org/examples/shapes_and_collections/path_patch_demo.html.
 """
+
 import matplotlib.patches as mpatches
 import matplotlib.path as mpath
 import matplotlib.pyplot as plt
