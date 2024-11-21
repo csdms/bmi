@@ -30,13 +30,13 @@ type or unit conversions can be applied when necessary.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_var_grid
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_var_grid
 :language: c++
@@ -81,13 +81,13 @@ A model can have one or more grids.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_var_type
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_var_type
 :language: c++
@@ -130,13 +130,13 @@ while in Fortran, use `integer`, `real`, and `double precision`.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_var_units
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_var_units
 :language: c++
@@ -186,13 +186,13 @@ full description of valid unit names and a list of supported units.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_var_itemsize
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_var_itemsize
 :language: c++
@@ -232,13 +232,13 @@ For example, if data for a variable are stored as 64-bit integers,
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_var_nbytes
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_var_nbytes
 :language: c++
@@ -276,13 +276,13 @@ a variable; i.e., the number of items multiplied by the size of each item.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_var_location
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_var_location
 :language: c++
