@@ -24,13 +24,13 @@ Model time is always expressed as a floating point value.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_current_time
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_current_time
 :language: c++
@@ -66,13 +66,13 @@ The current model time.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_start_time
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_start_time
 :language: c++
@@ -109,13 +109,13 @@ The start time of the  model.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_end_time
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_end_time
 :language: c++
@@ -155,13 +155,13 @@ The end time of the  model.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_time_units
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_time_units
 :language: c++
@@ -206,13 +206,13 @@ It's recommended to use [time unit conventions] from Unidata's
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_time_step
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_time_step
 :language: c++
