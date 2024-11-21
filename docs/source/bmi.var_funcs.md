@@ -1,22 +1,20 @@
-.. _var_funcs:
+(var-funcs)=
 
-Variable information functions
-------------------------------
+# Variable information functions
 
 These BMI functions provide information
 about a particular input or output variable.
 They must accommodate any variable returned from the
-:ref:`get_input_var_names` or :ref:`get_output_var_names` functions --
+{ref}`get-input-var-names` or {ref}`get-output-var-names` functions --
 the variable name is used as an argument in each function.
 Based on the information returned,
 type or unit conversions can be applied when necessary.
 
+(get-var-grid)=
 
-.. _get_var_grid:
+## *get_var_grid*
 
-*get_var_grid*
-^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -34,30 +32,30 @@ type or unit conversions can be applied when necessary.
 
          def get_var_grid(self, name: str) -> int:
 
+```
 
 Each input and output variable is defined on a grid.
-(Available grid types are listed in the :ref:`grid_funcs` section.)
+(Available grid types are listed in the {ref}`grid-funcs` section.)
 The `get_var_grid` function provides the identifier (an integer) for this grid.
 The identifier can be passed to the BMI
-:ref:`grid information <grid_funcs>` functions
+{ref}`grid information <grid-funcs>` functions
 to get the details of a particular grid;
 e.g., *x*- and *y*-coordinates, size, type, etc.
 A model can have one or more grids.
 
 **Implementation notes**
 
-* Grid identifiers start at 0.
-* In C++, Java, and Python, the *grid* argument is omitted and the grid
+- Grid identifiers start at 0.
+- In C++, Java, and Python, the *grid* argument is omitted and the grid
   identifier is returned from the function.
-* In C and Fortran, an integer status code indicating success (zero) or
+- In C and Fortran, an integer status code indicating success (zero) or
   failure (nonzero) is returned.
 
+(get-var-type)=
 
-.. _get_var_type:
+## *get_var_type*
 
-*get_var_type*
-^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -74,6 +72,7 @@ A model can have one or more grids.
       .. code-block:: python
 
          def get_var_type(self, name: str) -> str:
+```
 
 The `get_var_type` function provides the data type of the
 variable as it's stored in memory by the model.
@@ -84,19 +83,18 @@ while in Fortran, use `integer`, `real`, and `double precision`.
 
 **Implementation notes**
 
-* In C++, Java, and Python, the *type* argument is omitted and the variable
+- In C++, Java, and Python, the *type* argument is omitted and the variable
   type name is returned from the function as a string.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-* In Java, only `primitive types`_ (e.g., ``int``, ``double``), not
-  `wrapper classes`_ (e.g., ``Integer``, ``Double``), are supported.
+- In Java, only [primitive types] (e.g., `int`, `double`), not
+  [wrapper classes] (e.g., `Integer`, `Double`), are supported.
 
+(get-var-units)=
 
-.. _get_var_units:
+## *get_var_units*
 
-*get_var_units*
-^^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -113,35 +111,35 @@ while in Fortran, use `integer`, `real`, and `double precision`.
       .. code-block:: python
 
          def get_var_units(self, name: str) -> str:
+```
 
 Get the units of the given variable.
 Standard unit names, in lower case, should be used,
-such as ``"meters"`` or ``"seconds"``.
-Standard abbreviations, such as ``"m"`` for meters, are
+such as `"meters"` or `"seconds"`.
+Standard abbreviations, such as `"m"` for meters, are
 also supported. For variables with compound units, each unit name
 is separated by a single space, with exponents other than 1 placed
-immediately after the name, as in ``"m s-1"`` for velocity,
-``"W m-2"`` for an energy flux, or ``"km2"`` for an area.
+immediately after the name, as in `"m s-1"` for velocity,
+`"W m-2"` for an energy flux, or `"km2"` for an area.
 The abbreviations used in the BMI are derived from
-Unidata's `UDUNITS`_ package.
-See, for example, `The Units Database`_ for a
+Unidata's [UDUNITS] package.
+See, for example, [The Units Database] for a
 full description of valid unit names and a list of supported units.
 
 **Implementation notes**
 
-* Dimensionless quantities should use ``""`` or ``"1"`` as the unit.
-* Variables without units should use ``"none"``.
-* In C++, Java, and Python, the *units* argument is omitted and the variable
+- Dimensionless quantities should use `""` or `"1"` as the unit.
+- Variables without units should use `"none"`.
+- In C++, Java, and Python, the *units* argument is omitted and the variable
   units name is returned from the function as a string.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
+(get-var-itemsize)=
 
-.. _get_var_itemsize:
+## *get_var_itemsize*
 
-*get_var_itemsize*
-^^^^^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -158,6 +156,7 @@ full description of valid unit names and a list of supported units.
       .. code-block:: python
 
          def get_var_itemsize(self, name: str) -> int:
+```
 
 The `get_var_itemsize` function provides the size, in bytes,
 of a single element of the variable.
@@ -166,17 +165,16 @@ For example, if data for a variable are stored as 64-bit integers,
 
 **Implementation notes**
 
-* In C++, Java, and Python, the *size* argument is omitted and the item size
+- In C++, Java, and Python, the *size* argument is omitted and the item size
   is returned from the function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
+(get-var-nbytes)=
 
-.. _get_var_nbytes:
+## *get_var_nbytes*
 
-*get_var_nbytes*
-^^^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -193,23 +191,23 @@ For example, if data for a variable are stored as 64-bit integers,
       .. code-block:: python
 
          def get_var_nbytes(self, name: str) -> int:
+```
 
 The `get_var_nbytes` function provides the total amount of memory used to store
 a variable; i.e., the number of items multiplied by the size of each item.
 
 **Implementation notes**
 
-* In C++, Java, and Python, the *nbytes* argument is omitted and the total
+- In C++, Java, and Python, the *nbytes* argument is omitted and the total
   amount of memory used by the variable is returned from the function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
+(get-var-location)=
 
-.. _get_var_location:
+## *get_var_location*
 
-*get_var_location*
-^^^^^^^^^^^^^^^^^^
-
+```{eval-rst}
 .. tab-set::
    :sync-group: lang
 
@@ -226,22 +224,25 @@ a variable; i.e., the number of items multiplied by the size of each item.
       .. code-block:: python
 
          def get_var_location(self, name: str) -> str:
+```
 
 The `get_var_location` function,
 given a variable name, returns a string that indicates on what grid
 element the variable is defined. Valid return values are:
 
-* ``node``
-* ``edge``
-* ``face``
+- `node`
+- `edge`
+- `face`
 
 **Implementation notes**
 
-* In C++, Java, and Python, the *location* argument is omitted and the location
+- In C++, Java, and Python, the *location* argument is omitted and the location
   is returned from the function.
-* In C and Fortran, an integer status code indicating success (zero) or failure
+- In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-* If the given variable is a scalar (i.e., defined on a :ref:`scalar
-  grid <unstructured_grids>`), the location from this function is ignored.
+- If the given variable is a scalar (i.e., defined on a {ref}`scalar
+  grid <unstructured-grids>`), the location from this function is ignored.
 
-.. include:: links.rst
+```{eval-rst}
+.. include:: links.md
+```
