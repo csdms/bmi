@@ -1,10 +1,5 @@
-.. image:: _static/bmi-logo-header-text.png
-    :align: center
-    :scale: 85%
-    :alt: Basic Model Interface (BMI)
-    :target: https://bmi.readthedocs.io/
-
-.. title:: BMI
+The Basic Model Interface
+=========================
 
 When you climb in the driver's seat of an unfamiliar car,
 you are nonetheless presented with a familiar sight.
