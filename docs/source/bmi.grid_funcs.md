@@ -41,13 +41,13 @@ However, all BMI grid functions must be implemented.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_type
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_type
 :language: c++
@@ -96,13 +96,13 @@ is given in the {ref}`model-grids` section.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_rank
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_rank
 :language: c++
@@ -147,13 +147,13 @@ of {ref}`get-grid-x`, {ref}`get-grid-y`, etc. are implemented.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_size
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_size
 :language: c++
@@ -198,13 +198,13 @@ for {ref}`unstructured <unstructured-grids>` and
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_shape
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_shape
 :language: c++
@@ -259,13 +259,13 @@ the cells.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_spacing
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_spacing
 :language: c++
@@ -311,13 +311,13 @@ the spacing between rows is followed by spacing between columns, `[dy, dx]`.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_origin
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_origin
 :language: c++
@@ -364,13 +364,13 @@ the origin is given in the column dimension, followed by the row dimension,
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_x
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_x
 :language: c++
@@ -415,13 +415,13 @@ See {ref}`model-grids` for more information.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_y
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_y
 :language: c++
@@ -466,13 +466,13 @@ See {ref}`model-grids` for more information.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_z
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_z
 :language: c++
@@ -517,13 +517,13 @@ See {ref}`model-grids` for more information.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_node_count
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_node_count
 :language: c++
@@ -562,13 +562,13 @@ Get the number of {term}`nodes <node>` in the grid.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_edge_count
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_edge_count
 :language: c++
@@ -607,13 +607,13 @@ Get the number of {term}`edges <edge>` in the grid.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_face_count
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_face_count
 :language: c++
@@ -652,13 +652,13 @@ Get the number of {term}`faces <face>` in the grid.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_edge_nodes
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_edge_nodes
 :language: c++
@@ -701,13 +701,13 @@ node at edge head. The total length of the array is
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_face_edges
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_face_edges
 :language: c++
@@ -749,13 +749,13 @@ The length of the array returned is the sum of the values of
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_face_nodes
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_face_nodes
 :language: c++
@@ -802,13 +802,13 @@ the length of the array is the sum of the values of
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_grid_nodes_per_face
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_grid_nodes_per_face
 :language: c++
