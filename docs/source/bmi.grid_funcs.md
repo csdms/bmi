@@ -25,24 +25,23 @@ However, all BMI grid functions must be implemented.
 
 ## *get_grid_type*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_type(in int grid, out string type);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_type(self, grid: int) -> str:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_type(in int grid, out string type);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_type(self, grid: int) -> str:
+```
+:::
+::::
 
 Given a {term}`grid identifier`, get the type of that grid as a string.
 Valid grid types are:
@@ -69,24 +68,23 @@ is given in the {ref}`model-grids` section.
 
 ## *get_grid_rank*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_rank(in int grid, out int rank);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_rank(self, grid: int) -> int:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_rank(in int grid, out int rank);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_rank(self, grid: int) -> int:
+```
+:::
+::::
 
 Given a {term}`grid identifier`, get the {term}`rank` (the number of
 dimensions) of that grid as an integer.
@@ -109,24 +107,23 @@ of {ref}`get-grid-x`, {ref}`get-grid-y`, etc. are implemented.
 
 ## *get_grid_size*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_size(in int grid, out int size);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_size(self, grid: int) -> int:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_size(in int grid, out int size);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_size(self, grid: int) -> int:
+```
+:::
+::::
 
 Given a {term}`grid identifier`,
 get the total number of elements (or {term}`nodes <node>`)
@@ -149,24 +146,23 @@ for {ref}`unstructured <unstructured-grids>` and
 
 ## *get_grid_shape*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_shape(in int grid, in array<int, 1> shape);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_shape(self, grid: int, shape: NDArray[np.int_]) -> NDArray[np.int_]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_shape(in int grid, in array<int, 1> shape);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_shape(self, grid: int, shape: NDArray[np.int_]) -> NDArray[np.int_]:
+```
+:::
+::::
 
 Get the dimensions of the model grid.
 
@@ -199,26 +195,25 @@ the cells.
 
 ## *get_grid_spacing*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_spacing(in int grid, in array<double, 1> spacing);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_spacing(
-             self, grid: int, spacing: NDArray[np.float64]
-         ) -> NDArray[np.float64]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_spacing(in int grid, in array<double, 1> spacing);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_spacing(
+    self, grid: int, spacing: NDArray[np.float64]
+) -> NDArray[np.float64]:
+```
+:::
+::::
 
 Get the distance between the {term}`nodes <node>` of the model grid.
 
@@ -242,26 +237,25 @@ the spacing between rows is followed by spacing between columns, `[dy, dx]`.
 
 ## *get_grid_origin*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_origin(in int grid, in array<double, 1> origin);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_origin(
-             self, grid: int, origin: NDArray[np.float64]
-         ) -> NDArray[np.float64]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_origin(in int grid, in array<double, 1> origin);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_origin(
+    self, grid: int, origin: NDArray[np.float64]
+) -> NDArray[np.float64]:
+```
+:::
+::::
 
 Get the coordinates of the lower-left corner of the model grid.
 
@@ -286,24 +280,23 @@ the origin is given in the column dimension, followed by the row dimension,
 
 ## *get_grid_x*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_x(in int grid, in array<double, 1> x);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_x(self, grid: int, x: NDArray[np.float64]) -> NDArray[np.float64]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_x(in int grid, in array<double, 1> x);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_x(self, grid: int, x: NDArray[np.float64]) -> NDArray[np.float64]:
+```
+:::
+::::
 
 Get the locations of the grid {term}`nodes <node>` in the first
 coordinate direction.
@@ -326,24 +319,23 @@ See {ref}`model-grids` for more information.
 
 ## *get_grid_y*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_y(in int grid, in array<double, 1> y);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_y(self, grid: int, y: NDArray[np.float64]) -> NDArray[np.float64]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_y(in int grid, in array<double, 1> y);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_y(self, grid: int, y: NDArray[np.float64]) -> NDArray[np.float64]:
+```
+:::
+::::
 
 Get the locations of the grid {term}`nodes <node>` in the second
 coordinate direction.
@@ -366,24 +358,23 @@ See {ref}`model-grids` for more information.
 
 ## *get_grid_z*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_z(in int grid, in array<double, 1> z);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_z(self, grid: int, z: NDArray[np.float64]) -> NDArray[np.float64]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_z(in int grid, in array<double, 1> z);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_z(self, grid: int, z: NDArray[np.float64]) -> NDArray[np.float64]:
+```
+:::
+::::
 
 Get the locations of the grid {term}`nodes <node>` in the third
 coordinate direction.
@@ -406,24 +397,23 @@ See {ref}`model-grids` for more information.
 
 ## *get_grid_node_count*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_node_count(in int grid, out int count);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_node_count(self, grid: int) -> int:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_node_count(in int grid, out int count);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_node_count(self, grid: int) -> int:
+```
+:::
+::::
 
 Get the number of {term}`nodes <node>` in the grid.
 
@@ -440,24 +430,23 @@ Get the number of {term}`nodes <node>` in the grid.
 
 ## *get_grid_edge_count*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_edge_count(in int grid, out int count);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_edge_count(self, grid: int) -> int:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_edge_count(in int grid, out int count);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_edge_count(self, grid: int) -> int:
+```
+:::
+::::
 
 Get the number of {term}`edges <edge>` in the grid.
 
@@ -474,24 +463,23 @@ Get the number of {term}`edges <edge>` in the grid.
 
 ## *get_grid_face_count*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_face_count(in int grid, out int count);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_face_count(self, grid: int) -> int:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_face_count(in int grid, out int count);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_face_count(self, grid: int) -> int:
+```
+:::
+::::
 
 Get the number of {term}`faces <face>` in the grid.
 
@@ -508,26 +496,25 @@ Get the number of {term}`faces <face>` in the grid.
 
 ## *get_grid_edge_nodes*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_edge_nodes(in int grid, in array<int, 1> edge_nodes);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_edge_nodes(
-             self, grid: int, edge_nodes: NDArray[np.int_]
-         ) -> NDArray[np.int_]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_edge_nodes(in int grid, in array<int, 1> edge_nodes);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_edge_nodes(
+    self, grid: int, edge_nodes: NDArray[np.int_]
+) -> NDArray[np.int_]:
+```
+:::
+::::
 
 Get the edge-node connectivity.
 
@@ -548,26 +535,25 @@ node at edge head. The total length of the array is
 
 ## *get_grid_face_edges*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_face_edges(in int grid, in array<int, 1> face_edges);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_face_edges(
-             self, grid: int, face_edges: NDArray[np.int_]
-         ) -> NDArray[np.int_]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_face_edges(in int grid, in array<int, 1> face_edges);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_face_edges(
+    self, grid: int, face_edges: NDArray[np.int_]
+) -> NDArray[np.int_]:
+```
+:::
+::::
 
 Get the face-edge connectivity.
 
@@ -587,26 +573,25 @@ The length of the array returned is the sum of the values of
 
 ### *get_grid_face_nodes*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_face_nodes(in int grid, in array<int, 1> face_nodes);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_face_nodes(
-             self, grid: int, face_nodes: NDArray[np.int_]
-         ) -> NDArray[np.int_]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_face_nodes(in int grid, in array<int, 1> face_nodes);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_face_nodes(
+    self, grid: int, face_nodes: NDArray[np.int_]
+) -> NDArray[np.int_]:
+```
+:::
+::::
 
 Get the face-node connectivity.
 
@@ -631,26 +616,25 @@ the length of the array is the sum of the values of
 
 ## *get_grid_nodes_per_face*
 
-```{eval-rst}
-.. tab-set::
-   :sync-group: lang
+::::{tab-set}
+:sync-group: lang
 
-   .. tab-item:: SIDL
-      :sync: sidl
-
-      .. code-block:: java
-
-         int get_grid_nodes_per_face(in int grid, in array<int, 1> nodes_per_face);
-
-   .. tab-item:: Python
-      :sync: python
-
-      .. code-block:: python
-
-         def get_grid_nodes_per_face(
-             self, grid: int, nodes_per_face: NDArray[np.int_]
-         ) -> NDArray[np.int_]:
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_grid_nodes_per_face(in int grid, in array<int, 1> nodes_per_face);
 ```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_grid_nodes_per_face(
+    self, grid: int, nodes_per_face: NDArray[np.int_]
+) -> NDArray[np.int_]:
+```
+:::
+::::
 
 Get the number of nodes for each face.
 
