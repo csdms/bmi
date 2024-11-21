@@ -9,7 +9,6 @@ can be grouped into categories:
 .. toctree::
    :maxdepth: 1
 
-   Metadata <bmi.metadata_funcs>
    Control <bmi.control_funcs>
    Info <bmi.info_funcs>
    Variables <bmi.var_funcs>
