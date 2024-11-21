@@ -34,13 +34,13 @@ state variable can be changed or check the new data for validity.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_value
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_value
 :language: c++
@@ -91,13 +91,13 @@ even if the model uses dimensional variables.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_value_ptr
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_value_ptr
 :language: c++
@@ -141,13 +141,13 @@ even if the model's state has changed.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} get_value_at_indices
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} get_value_at_indices
 :language: c++
@@ -188,13 +188,13 @@ Additionally,
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} set_value
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} set_value
 :language: c++
@@ -244,13 +244,13 @@ even if the model uses dimensional variables.
 :language: python
 ```
 :::
-:::{tab-item} c
+:::{tab-item} C
 :sync: c
 ```{map-bmi-function} set_value_at_indices
 :language: c
 ```
 :::
-:::{tab-item} c++
+:::{tab-item} C++
 :sync: c++
 ```{map-bmi-function} set_value_at_indices
 :language: c++
