@@ -54,8 +54,6 @@ is given in the :ref:`model_grids` section.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_grid_rank:
 
@@ -84,8 +82,6 @@ of :ref:`get_grid_x`, :ref:`get_grid_y`, etc. are implemented.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_grid_size:
 
@@ -113,8 +109,6 @@ for :ref:`unstructured <unstructured_grids>` and
   size is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_grid_shape:
@@ -154,8 +148,6 @@ the cells.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_grid_spacing:
 
@@ -184,8 +176,6 @@ the spacing between rows is followed by spacing between columns, ``[dy, dx]``.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_grid_origin:
@@ -217,8 +207,6 @@ the origin is given in the column dimension, followed by the row dimension,
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_grid_x:
 
@@ -246,8 +234,6 @@ See :ref:`model_grids` for more information.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_grid_y:
@@ -277,8 +263,6 @@ See :ref:`model_grids` for more information.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_grid_z:
 
@@ -307,8 +291,6 @@ See :ref:`model_grids` for more information.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_grid_node_count:
 
@@ -330,8 +312,6 @@ Get the number of :term:`nodes <node>` in the grid.
   count is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_grid_edge_count:
@@ -355,8 +335,6 @@ Get the number of :term:`edges <edge>` in the grid.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_grid_face_count:
 
@@ -378,8 +356,6 @@ Get the number of :term:`faces <face>` in the grid.
   count is returned from the function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_grid_edge_nodes:
@@ -407,8 +383,6 @@ node at edge head. The total length of the array is
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_grid_face_edges:
 
@@ -433,8 +407,6 @@ The length of the array returned is the sum of the values of
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
 
 
 .. _get_grid_face_nodes:
@@ -466,8 +438,6 @@ the length of the array is the sum of the values of
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
 
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
-
 
 .. _get_grid_nodes_per_face:
 
@@ -492,5 +462,3 @@ The number of edges per face is equal to the number of nodes per face.
 * In C++ and Java, this is a void function.
 * In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-
-[:ref:`grid_funcs` | :ref:`basic_model_interface`]
