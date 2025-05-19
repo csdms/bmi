@@ -3,4 +3,4 @@ myst-parser
 pygments
 sphinx
 sphinx_design
-git+https://github.com/mcflugen/bmi-map.git
+git+https://github.com/mcflugen/bmi-map.git@v0.1.0
