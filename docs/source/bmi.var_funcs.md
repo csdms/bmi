@@ -297,6 +297,10 @@ element the variable is defined. Valid return values are:
 - `node`
 - `edge`
 - `face`
+- `none`
+
+A value of `none` indicates the variable is not attached to a grid and
+that `get_var_grid` will not be implemented for this variable.
 
 **Implementation notes**
 
@@ -304,8 +308,6 @@ element the variable is defined. Valid return values are:
   is returned from the function.
 - In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-- If the given variable is a scalar (i.e., defined on a {ref}`scalar
-  grid <unstructured-grids>`), the location from this function is ignored.
 
 :::{include} links.md
 :::
