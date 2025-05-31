@@ -55,7 +55,6 @@ A model can have one or more grids.
 
 **Implementation notes**
 
-- Grid identifiers start at 0.
 - In C++, Java, and Python, the *grid* argument is omitted and the grid
   identifier is returned from the function.
 - In C and Fortran, an integer status code indicating success (zero) or
