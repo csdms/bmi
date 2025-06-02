@@ -4,7 +4,7 @@
 
 The functions in this section describe {ref}`model grids <model-grids>`.
 In the BMI,
-every {term}`exchange item` is defined on a grid,
+if an {term}`exchange item` is defined on a grid,
 and is referenced by a {term}`grid identifier`
 returned from the {ref}`get-var-grid` function.
 This identifier is a required input to the functions listed below.
