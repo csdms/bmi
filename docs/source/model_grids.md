@@ -131,8 +131,8 @@ Structured quadrilateral grids use the following BMI functions:
 ```
 
 This category includes the *unstructured* type,
-as well as the special cases
-*scalar*, *points*, and *vector*.
+as well as the special case of a grid of *points* (i.e.
+unconnected nodes).
 This is the most general grid type.
 It can be used for any type of grid.
 This grid type must be used if the grid consists of cells
