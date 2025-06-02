@@ -58,7 +58,6 @@ However, all BMI grid functions must be implemented.
 Given a {term}`grid identifier`, get the type of that grid as a string.
 Valid grid types are:
 
-- `scalar`
 - `points`
 - `vector`
 - `unstructured`
