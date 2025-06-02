@@ -304,8 +304,6 @@ element the variable is defined. Valid return values are:
   is returned from the function.
 - In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
-- If the given variable is a scalar (i.e., defined on a {ref}`scalar
-  grid <unstructured-grids>`), the location from this function is ignored.
 
 :::{include} links.md
 :::
