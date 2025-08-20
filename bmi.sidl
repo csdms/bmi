@@ -1,7 +1,7 @@
 //
 // The Basic Model Interface (BMI)
 //
-package csdms version 2.1-dev.0 {
+package csdms version 3.0-alpha1 {
   interface bmi {
 
     // Model and BMI metadata
