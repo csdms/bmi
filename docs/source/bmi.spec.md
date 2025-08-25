@@ -35,10 +35,8 @@ grouped by functional category.
 | {ref}`update-until`            | Advance model state until the given time.                 |
 | {ref}`finalize`                | Perform tear-down tasks for the model.                    |
 | {ref}`get-component-name`      | Name of the model.                                        |
-| {ref}`get-input-item-count`    | Count of a model's input variables.                       |
-| {ref}`get-output-item-count`   | Count of a model's output variables.                      |
-| {ref}`get-input-var-names`     | List of a model's input variables.                        |
-| {ref}`get-output-var-names`    | List of a model's output variables.                       |
+| {ref}`get-varset-item-count`   | Count of a model's variables in a set.                    |
+| {ref}`get-varset-members`      | List of a model's variables in a set.                     |
 | {ref}`get-var-grid`            | Get the grid identifier for a variable.                   |
 | {ref}`get-var-type`            | Get the data type of a variable.                          |
 | {ref}`get-var-units`           | Get the units of a variable.                              |
