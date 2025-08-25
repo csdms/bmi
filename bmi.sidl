@@ -1,8 +1,8 @@
 //
 // The Basic Model Interface (BMI)
 //
-package csdms version 2.1-dev.0 {
-  interface bmi {
+package csdms version 3.0-alpha1 {
+  interface bmi3 {
 
     // Model and BMI metadata
     int get_bmi_version(out string version);
