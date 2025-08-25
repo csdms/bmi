@@ -19,33 +19,49 @@ updating.
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int initialize(in string config_file);
+int initialize(in string config_file, in array<string, 1> requested_extensions, out array<string, 1> supported_extensions);
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
 ```python
-def initialize(self, config_file: str) -> None:
+def initialize(self, config_file: str, requested_extensions: list[str]) -> list[str]:
 ```
 :::
 
 :::{tab-item} c
 :sync: c
 ```c
-int initialize(void *self, char *config_file);
+int initialize(void *self, char *config_file, char const **requested_extensions, char const **supported_extensions);
 ```
 :::
 ::::
 
 The `initialize` function accepts a string argument that gives the
 path to its {term}`configuration file`.
+
 This function should perform all tasks that are to take place before
 entering the model's time loop.  Models should be refactored, if
 necessary, to read their inputs (which could include filenames for
 other input files) from a configuration file.
+
 BMI does not impose any constraint on how configuration files are
 formatted.
+
+It also takes an array of strings `requested_extensions` describing
+the extensions that the caller would like to use if the the model
+supports it. The model should determine which extensions it can
+support, given its code and potentially the contents of the
+configuration file. The supported extensions should be listed in
+elements of the output array `supported_extensions`.
+
+Use of extensions is completely optional within the scope of the core
+BMI specification. Individual callers or models may require particular
+extensions to provide their functionality. In the case where such an
+extension is missing from the requested or supported extensions arrays
+in or after the `initialize` call (respectively), the model or caller
+should fail accordingly.
 
 **Implementation notes**
 
@@ -58,6 +74,59 @@ formatted.
   a string -- a basic type in these languages.
 - In C and Fortran, an integer status code indicating success (zero) or failure (nonzero)
   is returned. In C++, Java, and Python, an exception is raised on failure.
+- In C, the length of `supported_extensions` is upper-bounded by
+  `requested_extensions`, and so should be allocated
+  accordingly. Models should copy pointers from `requested_extensions`
+  to `supported_extensions` as appropriate. This allows the caller to
+  retain ownership.
+
+**Extensions Rationale**
+
+- The set of extensions that a caller can support should
+  be known in advance, since they will have their own semantics beyond
+  those of this BMI specification. Thus, it does not make sense in
+  this setting for models to advertise any extension that the caller
+  does not support.
+- The set of extensions that a model supports may be
+  determined by the particular configuration with which it's
+  initialized. Thus, this cannot be queried before the `initialize()`
+  function.
+- Extensions may require additional initialization steps. Thus, they
+  are requested in the `initialize()` function to indicate which ones
+  will be used if available. If they require added information or
+  setup behavior from the caller, as described in their own
+  specification, the caller is responsible for conforming to that
+  specification.
+- If a caller requests a particular extension and a model indicates
+  support for it, the model may ultimately *require* that the caller
+  use the extension as it is specified. This implies, for instance,
+  that an extension requiring additional setup before the model enters
+  its time loop (e.g. setting an MPI communicator) may mean that the
+  model will fail if that setup is not done before other BMI functions
+  are called.
+
+
+(get-extension)=
+
+## *get_extension*
+
+:::{tab-item} c
+:sync: c
+```c
+int get_extension(void *self, char const *name, void **extension_object);
+```
+:::
+::::
+
+For extensions specified to provide additional functions, these should
+be accessed by the caller obtaining an associated extension object
+with those functions as members.
+
+**Implementation Notes**
+
+- In C and C++, the `extension_object` instance is owned by the model
+  object, and should be suitably handled by a call to `finalize(self)`
+  or `model->Finalize()`, respectively.
 
 (update)=
 

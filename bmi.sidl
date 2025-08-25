@@ -8,7 +8,7 @@ package csdms version 3.0-alpha1 {
     int get_bmi_version(out string version);
 
     // Model control: initialize, run, finalize (IRF)
-    int initialize(in string config_file);
+    int initialize(in string config_file, in array<string, 1> requested_extensions, out array<string, 1> supported_extensions);
     int update();
     int update_until(in double time);
     int finalize();
