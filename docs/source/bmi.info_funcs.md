@@ -46,120 +46,82 @@ but it should be unique to prevent conflicts with other components.
 - In C++, Java, and Python, this argument is omitted, and a string -- a basic type
   in these languages -- is returned from the function.
 
-(get-input-item-count)=
+(get-varset-member-count)=
 
-## *get_input_item_count*
+## *get_varset_member_count*
 
 ::::{tab-set}
 :sync-group: lang
 
 :::{tab-item} SIDL
 :sync: sidl
+
 ```java
-int get_input_item_count(out int count);
+int get_varset_member_count(in string set_name, out int count);
 ```
 :::
-
 :::{tab-item} Python
 :sync: python
 ```python
-def get_input_item_count(self) -> int:
+def get_varset_member_count(self, set_name: str) -> int:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_input_item_count(void *self, int *count);
+int get_varset_member_count(void *self, const char *name, int *count);
 ```
 :::
 ::::
 
-The number of variables the model can use from other models
-implementing a BMI.
-Also the number of variables that can be set with {ref}`set-value`.
+Gets the number of exchange items in a particular set exposed by the model.
 
 **Implementation notes**
 
-- In C++, Java, and Python, the argument is omitted and the count is returned
-  from the function.
-- In C and Fortran, an integer status code indicating success (zero) or failure
-  (nonzero) is returned.
+- In C++, Java, and Python, the *count* argument is omitted and the count
+  is returned from the function.
+- In C and Fortran, an integer status code indicating success (BMI_SUCCESS) or
+  failure (BMI_FAILURE) is returned.
 
-(get-output-item-count)=
+(get-varset-members)=
 
-## *get_output_item_count*
-
-::::{tab-set}
-:sync-group: lang
-
-:::{tab-item} SIDL
-:sync: sidl
-```java
-int get_output_item_count(out int count);
-```
-:::
-
-:::{tab-item} Python
-:sync: python
-```python
-def get_output_item_count(self) -> int:
-```
-:::
-:::{tab-item} c
-:sync: c
-```c
-int get_output_item_count(void *self, int *count);
-```
-:::
-::::
-
-The number of variables the model can provide other models
-implementing a BMI.
-Also the number of variables that can be retrieved with {ref}`get-value`.
-
-**Implementation notes**
-
-- In C++, Java, and Python, the argument is omitted and the count is
-  returned from the function.
-- In C and Fortran, an integer status code indicating success (zero) or failure
-  (nonzero) is returned.
-
-(get-input-var-names)=
-
-## *get_input_var_names*
+## *get_varset_members*
 
 ::::{tab-set}
 :sync-group: lang
 
 :::{tab-item} SIDL
 :sync: sidl
+
 ```java
-int get_input_var_names(out array<string, 1> names);
+int get_varset_members(in string set_name, out array<string, 1> names);
 ```
 :::
 :::{tab-item} Python
 :sync: python
 ```python
-def get_input_var_names(self) -> tuple[str, ...]:
+def get_varset_members(self, set_name: str) -> tuple[str, ...]:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_input_var_names(void *self, char **names);
+int get_varset_members(void *self, const char *name, char const* const* members);
 ```
 :::
 ::::
 
-Gets an array of names for the variables the model can use from other
-models implementing a BMI.
-The length of the array is given by {ref}`get-input-item-count`.
+Gets an array of names for the variables the model publishes in the requested set.
+The length of the array is given by {ref}`get-varset-member-count`.
 The names are preferably in the form of CSDMS {term}`Standard Names`.
-Standard Names enable a modeling framework to determine whether an
-input variable in one model is equivalent to, or compatible with,
-an output variable in another model.
+Standard Names enable a modeling framework to determine whether a
+variable in one model is equivalent to, or compatible with,
+a corresponding variable in another model.
 This allows the framework to automatically connect components.
 Standard Names do not have to be used within the model.
+
+Available variable sets are defined by this specification, extensions,
+or private conventions between the caller and model.
 
 **Implementation notes**
 
@@ -174,53 +136,5 @@ Standard Names do not have to be used within the model.
   function in a tuple, a standard container in the language.
 - A model might have no input variables.
 
-(get-output-var-names)=
-
-## *get_output_var_names*
-
-::::{tab-set}
-:sync-group: lang
-
-:::{tab-item} SIDL
-:sync: sidl
-```java
-int get_output_var_names(out array<string, 1> names);
-```
+:::{include} links.md
 :::
-
-:::{tab-item} Python
-:sync: python
-```python
-def get_output_var_names(self) -> tuple[str, ...]:
-```
-:::
-:::{tab-item} c
-:sync: c
-```c
-int get_output_var_names(void *self, char **names);
-```
-:::
-::::
-
-Gets an array of names for the variables the model can provide to other
-models implementing a BMI.
-The length of the array is given by {ref}`get-output-item-count`.
-The names are preferably in the form of CSDMS {term}`Standard Names`.
-Standard Names enable a modeling framework to determine whether an
-input variable in one model is equivalent to, or compatible with,
-an output variable in another model.
-This allows the framework to automatically connect components.
-Standard Names do not have to be used within the model.
-
-**Implementation notes**
-
-- In C and Fortran, the names are passed back as an array of character
-  pointers (because the variable names could have differing lengths), and an
-  integer status code indicating success (zero) or failure (nonzero) is returned.
-- In C++, the argument is omitted and the names are returned from the
-  function in a vector, a standard container in the language.
-- In Java, the argument is omitted and the names are returned from the
-  function in a string array, a standard container in the language.
-- In Python, the argument is omitted and the names are returned from the
-  function in a tuple, a standard container in the language.
-- A model may have no output variables.
