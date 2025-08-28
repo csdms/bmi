@@ -12,7 +12,7 @@ The Basic Model Interface (BMI) is a community-owned and community-run project.
 To the maximum extent possible, decisions about project direction are made by
 community consensus (but note that "consensus" here has a somewhat technical
 meaning that might not match everyone's expectations--see below). Some members
-of the community additionally contribute by serving on the Steering Council (see
+of the community additionally contribute by serving on the BMI Council (see
 below), where they are responsible for facilitating the establishment of
 community consensus, for stewarding project resources, and--in extreme
 cases--for making project decisions if the normal community-based process breaks
@@ -21,13 +21,13 @@ down.
 ## The Project
 
 BMI is an open source software project (hereafter, the Project) affiliated with
-the NSF-funded [Community Surface Dynamics Modeling System] (CSDMS). The goal
+the NSF-funded [Community Surface Dynamics Modeling System][CSDMS] (CSDMS). The goal
 of the Project is to develop an open source software interface standard for
 querying and controlling models. The Project also includes tools, documentation,
 and examples to support and promote this standard. The software developed by the
 Project is released under the MIT open source license, developed openly, and
-hosted on public GitHub repositories under the csdms and other GitHub
-organization. Proposed changes to the Project must follow the [CONTRIBUTING]
+hosted on public GitHub repositories under the [csdms][csdms-github-org] and other GitHub
+organizations. Proposed changes to the Project must follow the [CONTRIBUTING]
 document in the Project's main GitHub repository.
 
 The Project is developed by a team of distributed developers, called
@@ -112,11 +112,11 @@ by default.
 
 In the worst case, if a Contributor is genuinely misusing their veto in an
 obstructive fashion to the detriment of the Project, then they can be ejected
-from the Project by consensus of the Steering Council--see below.
+from the Project by consensus of the BMI Council--see below.
 
-### Steering Council
+### BMI Council
 
-The Project has a Steering Council (a.k.a. the BMI Council) that consists of
+The Project has a steering council, the BMI Council, that consists of
 Project Contributors and Users. The overall role of the Council is to ensure,
 with input from the Community, the long-term well-being of the Project, both
 technically and as a community.
@@ -130,7 +130,7 @@ their expert knowledge of the Project that Council Members will provide useful
 guidance, both technical and in terms of Project direction, to potentially less
 experienced Contributors.
 
-The Steering Council plays a special role in certain situations. In particular,
+The BMI Council plays a special role in certain situations. In particular,
 the Council may, if necessary:
 
 - Make decisions about the overall scope, vision, and direction of the Project.
@@ -151,11 +151,11 @@ indicate a failure in their leadership.
 
 ### Council decision making
 
-If it becomes necessary for the Steering Council to produce a formal decision,
+If it becomes necessary for the BMI Council to produce a formal decision,
 then they will use a form of the [Apache Foundation voting process]. This is a
-formalized version of consensus, in which +1 votes indicate agreement, -1 votes
+formalized version of consensus, in which `+1` votes indicate agreement, `-1` votes
 are vetoes (and must be accompanied with a rationale, as above), and fractional
-votes (e.g. -0.5, +0.5) can be used if one wishes to express an opinion without
+votes (e.g. `-0.5`, `+0.5`) can be used if one wishes to express an opinion without
 registering a full veto. These numeric votes can also be used informally to get
 a general sense of the Community's feelings on some issue. A formal vote only
 occurs if explicitly declared, and if this does occur then the vote should be
@@ -167,17 +167,17 @@ members) a more informal process will suffice.
 
 ### Council membership
 
-A list of current Steering Council Members is maintained at the page [Steering
+A list of current BMI Council Members is maintained at the page [BMI
 Council][steering council].
 
-To become eligible to join the Steering Council, an individual must be a Project
+To become eligible to join the BMI Council, an individual must be a Project
 Contributor who has produced substantial contributions or a Project User that
 has applied BMI in a substantial way. Candidate Council Members are nominated by
 existing Council Members. The Candidate must confirm they are interested and
 willing to serve in this capacity. The Candidate becomes a Member following
-consensus of the existing Council. The Council will be initially formed from a
-set of existing Project Contributors and Users who, as of early 2022, have been
-currently active in Project development or application.
+consensus of the existing Council. The initial Council was formed from a
+set of existing Project Contributors and Users who, as of early 2022, had been
+active in Project development and application.
 
 When considering potential Members, the Council will look at candidates with a
 comprehensive view, including but not limited to code, code review,
@@ -243,7 +243,7 @@ the communication channel of the Council unless specifically called for.
 
 ## Institutional Partners and Funding
 
-The Steering Council is the primary leadership for the Project. No outside
+The BMI Council is the primary leadership for the Project. No outside
 institution, individual, or legal entity has the ability to own, control, usurp
 or influence the Project other than by participating in the Project as
 Contributors and Council Members. However, because institutions can be an
@@ -253,7 +253,7 @@ Partners.
 
 An Institutional Contributor is any individual Project Contributor who
 contributes to the project as part of their official duties as an Institutional
-Partner. Likewise, an Institutional Council Member is any Project Steering
+Partner. Likewise, an Institutional Council Member is any BMI
 Council Member who contributes to the Project as part of their official duties
 as an Institutional Partner.
 
@@ -303,7 +303,7 @@ A list of current Institutional Partners is maintained at the page
 
 ## Document history
 
-<https://github.com/csdms/bmi/commits/master/docs/source/governance.rst>
+<https://github.com/csdms/bmi/commits/develop/docs/source/governance.md>
 
 ## Acknowledgments
 
@@ -316,14 +316,15 @@ To the extent possible under law, the authors have waived all copyright and
 related or neighboring rights to the BMI project governance and decision-making
 document, as per the [CC-0 public domain dedication / license].
 
-% Links
+<!-- Links -->
 
 [apache foundation voting process]: https://www.apache.org/foundation/voting.html
 [cc-0 public domain dedication / license]: https://creativecommons.org/publicdomain/zero/1.0/
 [chapter 4]: SocialandPoliticalInfrastructure
-[community surface dynamics modeling system]: https://csdms.colorado.edu
 [consensus-based democracy]: https://producingoss.com/en/producingoss.html#consensus-democracy
-[contributing]: https://github.com/csdms/bmi/blob/master/CONTRIBUTING.rst
+[contributing]: https://github.com/csdms/bmi/blob/develop/CONTRIBUTING.md
+[CSDMS]: https://csdms.colorado.edu
+[csdms-github-org]: https://github.com/csdms
 [institutional partners]: partners
 [numpy governance document]: https://numpy.org/doc/stable/dev/governance/index.html
 [social and political infrastructure]: https://producingoss.com/en/producingoss.html#social-infrastructure
