@@ -17,4 +17,4 @@ The current members of the BMI Council are:
 
 Former members:
 
-- Niels Drost (eScience Center)
+- Niels Drost (eScience Center) (2022-2025)
