@@ -1,4 +1,4 @@
-# Steering Council
+# BMI Council
 
 The current members of the BMI Council are:
 
