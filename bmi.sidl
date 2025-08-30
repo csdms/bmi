@@ -1,7 +1,7 @@
 //
 // The Basic Model Interface (BMI)
 //
-package csdms version 2.1-dev.0 {
+package csdms version 3.0-alpha1 {
   interface bmi {
 
     // Model and BMI metadata
@@ -15,10 +15,10 @@ package csdms version 2.1-dev.0 {
 
     // Model information
     int get_component_name(out string name);
-    int get_input_item_count(out int count);
-    int get_output_item_count(out int count);
-    int get_input_var_names(out array<string, 1> names);
-    int get_output_var_names(out array<string, 1> names);
+
+    // Variable set information
+    int get_varset_member_count(in string set_name, out int count);
+    int get_varset_members(in string set_name, out array<string, 1> names);
 
     // Variable information
     int get_var_grid(in string name, out int grid);
