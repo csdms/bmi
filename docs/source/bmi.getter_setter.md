@@ -24,25 +24,25 @@ state variable can be changed or check the new data for validity.
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int get_value(in string name, in array<> dest);
+int get_value(in int index, in array<> dest);
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
 ```python
-def get_value(self, name: str, dest: NDArray[Any]) -> NDArray[Any]:
+def get_value(self, index: int, dest: NDArray[Any]) -> NDArray[Any]:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_value(void *self, const char *name, void *dest);
+int get_value(void *self, int index, void *dest);
 ```
 :::
 ::::
 
-The `get_value` function takes a variable name and copies values into a
+The `get_value` function takes a variable index and copies values into a
 provided array parameter.
 The type and size of the array parameter depend on the variable,
 and can be determined through
@@ -75,25 +75,25 @@ even if the model uses dimensional variables.
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int get_value_ptr(in string name, out array<> dest_ptr);
+int get_value_ptr(in int index, out array<> dest_ptr);
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
 ```python
-def get_value_ptr(self, name: str) -> NDArray[Any]:
+def get_value_ptr(self, index: int) -> NDArray[Any]:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_value_ptr(void *self, const char *name, void **dest_ptr);
+int get_value_ptr(void *self, int index, void **dest_ptr);
 ```
 :::
 ::::
 
-The `get_value_ptr` function takes a variable name and returns a reference
+The `get_value_ptr` function takes a variable index and returns a reference
 to a variable.
 Unlike the array parameter returned from {ref}`get-value`,
 the reference always points to the current values of the variable,
@@ -119,7 +119,7 @@ even if the model's state has changed.
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int get_value_at_indices(in string name, in array<> dest, in array<int, 1> inds);
+int get_value_at_indices(in int index, in array<> dest, in array<int, 1> inds);
 ```
 :::
 
@@ -127,7 +127,7 @@ int get_value_at_indices(in string name, in array<> dest, in array<int, 1> inds)
 :sync: python
 ```python
 def get_value_at_indices(
-    self, name: str, dest: NDArray[Any], inds: NDArray[np.int_]
+    self, index: int, dest: NDArray[Any], inds: NDArray[np.int_]
 ) -> NDArray[Any]:
 ```
 :::
@@ -135,7 +135,7 @@ def get_value_at_indices(
 :sync: c
 ```c
 int get_value_at_indices(
-    void *self, const char *name, void *dest, int *inds, int count
+    void *self, int index, void *dest, int *inds, int count
 );
 ```
 :::
@@ -164,25 +164,25 @@ Additionally,
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int set_value(in string name, in array<> src);
+int set_value(in int index, in array<> src);
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
 ```python
-def set_value(self, name: str, src: NDArray[Any]) -> None:
+def set_value(self, index: int, src: NDArray[Any]) -> None:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int set_value(void *self, const char *name, void *src);
+int set_value(void *self, int index, void *src);
 ```
 :::
 ::::
 
-The `set_value` function takes a variable name and an array of values,
+The `set_value` function takes a variable index and an array of values,
 *src*,
 and copies those values into the model's internal array of values,
 overwriting the current contents.
@@ -214,7 +214,7 @@ even if the model uses dimensional variables.
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int set_value_at_indices(in string name, in array<int, 1> inds, in array<> src);
+int set_value_at_indices(in int index, in array<int, 1> inds, in array<> src);
 ```
 :::
 
@@ -222,7 +222,7 @@ int set_value_at_indices(in string name, in array<int, 1> inds, in array<> src);
 :sync: python
 ```python
 def set_value_at_indices(
-    self, name: str, inds: NDArray[np.int_], src: NDArray[Any]
+    self, index: int, inds: NDArray[np.int_], src: NDArray[Any]
 ) -> None:
 ```
 :::
@@ -230,7 +230,7 @@ def set_value_at_indices(
 :sync: c
 ```c
 int set_value_at_indices(
-    void *self, const char *name, int *inds, int count, void *src
+    void *self, int index, int *inds, int count, void *src
 );
 ```
 :::
