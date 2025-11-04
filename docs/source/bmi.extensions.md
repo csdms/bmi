@@ -33,6 +33,11 @@ specific to a programming language or platform.
 
 ## Published Variable Sets
 
+Extensions may define a variable set or sets that models and callers
+can use to enrich their interactions. If a single name, it should
+match that of the extension. Multiple names should each be an
+elaboration of the extension's name. Extensions are free to define the
+semantics of these sets as they please.
 
 ## Shared Conventions and Protocols
 
