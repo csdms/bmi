@@ -41,6 +41,9 @@ semantics of these sets as they please.
 
 ## Shared Conventions and Protocols
 
+Extensions may describe added constraints or enrished semantics for
+how models and callers will interact using existing function in core
+BMI or extensions they otherwise depend on.
 
 ## Relationship of Standardized Extensions to developers and the BMI specification process
 
