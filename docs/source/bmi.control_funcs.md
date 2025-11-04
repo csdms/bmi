@@ -101,14 +101,32 @@ should fail accordingly.
   support for it, the model may ultimately *require* that the caller
   use the extension as it is specified. This implies, for instance,
   that an extension requiring additional setup before the model enters
-  its time loop (e.g. setting an MPI communicator) may mean that the
-  model will fail if that setup is not done before other BMI functions
-  are called.
+  its time loop (e.g. setting values of calibration parameters or an
+  MPI communicator) may mean that the model will fail if that setup is
+  not done before other BMI functions are called.
 
 
 (get-extension)=
 
 ## *get_extension*
+
+
+::::{tab-set}
+:sync-group: lang
+
+:::{tab-item} SIDL
+:sync: sidl
+```java
+int get_extension(in string extension_name, out pointer extension_object);
+```
+:::
+
+:::{tab-item} Python
+:sync: python
+```python
+def get_extension(self, extension_name: str) -> object:
+```
+:::
 
 :::{tab-item} c
 :sync: c
@@ -116,7 +134,17 @@ should fail accordingly.
 int get_extension(void *self, char const *name, void **extension_object);
 ```
 :::
+
+:::{tab-item} c++
+:sync: c++
+```c++
+void* get_extension(std::string name);
+```
+:::
 ::::
+
+
+
 
 For extensions specified to provide additional functions, these should
 be accessed by the caller obtaining an associated extension object
@@ -124,9 +152,75 @@ with those functions as members.
 
 **Implementation Notes**
 
+- For staticly typed languages, including C, C++, and Fortran, the
+  output `extension_object` will be represented as an anonymous
+  (type-erased) pointer - `void *` or `type(c_ptr)`. The caller is
+  responsible for knowing the type of the pointed-to object, and
+  casting the pointer appropriately.
+- In dynamically typed languages like Python, the return value will be
+  an object reference. The caller is expected to know what methods are
+  valid to call on the referenced object. If type checking is desired,
+  it may be implemented by wrapping the `get_extension` call in a
+  function with a suitable type hint on its return value.
 - In C and C++, the `extension_object` instance is owned by the model
   object, and should be suitably handled by a call to `finalize(self)`
   or `model->Finalize()`, respectively.
+- Depending on the model implementation language, the pointed-to
+  object need not be wholly distinct or disjoint in memory from the
+  model itself (i.e. `self` or `this`):
+
+```python
+def get_extension(self, extension_name: str):
+    if extension_name not in enabled_extensions:
+        raise UnimplementedException
+    return self
+```
+
+```c++
+class MyModel : public bmi::Bmi, public ExtensionA, public ExtensionB
+{
+  // ...
+  void* get_extension(std::string name) override {
+    // Casts below offset `this` to reference the corresponding vtable
+    if (name == "ExtensionA") { return static_cast<ExtensionA*>(this); }
+    if (name == "ExtensionB") { return static_cast<ExtensionB*>(this); }
+    throw std::runtime_error("Unimplemented extension requested");
+  }
+
+  void ExtensionA_Method1(int param1, void* param2) override;
+  void ExtensionA_Method2(int param1, void* param2) override;
+
+  void ExtensionB_Method1(int param1, void* param2) override;
+  void ExtensionB_Method2(int param1, void* param2) override;
+};
+```
+
+```c
+int MyModel_ExtensionA_Method1(struct Bmi *self, int param1, void* param2);
+int MyModel_ExtensionA_Method2(struct Bmi *self, int param1, void* param2);
+
+struct MyModel
+{
+  // ...
+
+  struct ExtensionA extension_a = {
+    .method1 = &MyModel_ExtensionA_Method1;
+    .method2 = &MyModel_ExtensionA_Method2;
+  };
+};
+
+// ...
+int MyModel_get_extension(struct Bmi *self, const char *extension_name, void** extension_object) {
+  struct MyModel *my_model = self->data;
+
+  if (strcmp(extension_name, "ExtensionA") == 0) {
+    *extension_object = &my_model->extension_a;
+    return BMI_SUCCESS;
+  }
+
+  return BMI_FAILURE;
+}
+```
 
 (update)=
 
