@@ -26,7 +26,7 @@ int initialize(in string config_file, in array<string, 1> requested_extensions, 
 :::{tab-item} Python
 :sync: python
 ```python
-def initialize(self, config_file: str, requested_extensions: list[str]) -> list[str]:
+def initialize(self, config_file: str, requested_extensions: Collection[str]) -> Collection[str]:
 ```
 :::
 
