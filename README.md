@@ -74,12 +74,13 @@ and are [acknowledged](./AUTHORS.rst).
 
 The table below lists community-contributed
 language specifications and examples
-for two languages, Javascript and Julia.
+for Javascript, Julia, and R.
 
 | Language   | Specification | Example implementation |
 | ---------- | ------------- | ---------------------- |
 | Javascript | [bmi-js]      | [bmi-example-js]       |
 | Julia      | [bmi-julia]   | [bmi-example-julia]    |
+| R          | [bmi-r]       | [bmi-example-r]        |
 
 The default branch of this repository
 reflects the current state of development for the BMI.
@@ -109,11 +110,13 @@ is supported by the National Science Foundation.*
 [bmi-example-js]: https://github.com/uihilab/bmi-example-js
 [bmi-example-julia]: https://github.com/csdms/bmi-example-julia
 [bmi-example-python]: https://github.com/csdms/bmi-example-python
+[bmi-example-r]: https://github.com/csdms/bmi-example-r
 [bmi-fortran]: https://github.com/csdms/bmi-fortran
 [bmi-java]: https://github.com/csdms/bmi-java
 [bmi-js]: https://github.com/uihilab/bmi-js
 [bmi-julia]: https://github.com/Deltares/BasicModelInterface.jl
 [bmi-python]: https://github.com/csdms/bmi-python
+[bmi-r]: https://github.com/csdms/bmi-r
 [community surface dynamics modeling system]: https://csdms.colorado.edu
 [csdms workbench]: https://csdms.colorado.edu/wiki/Workbench
 [documentation]: https://bmi.readthedocs.io
