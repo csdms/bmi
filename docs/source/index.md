@@ -56,7 +56,7 @@ in which the BMI is implemented.
 
 BMI is a community standard.
 Table 2 lists community-contributed language specifications and examples
-for two languages, Javascript and Julia.
+for Javascript, Julia, and R.
 
 :::{table} **Table 2:** Community-contributed BMI languages.
 :align: center
@@ -66,6 +66,7 @@ for two languages, Javascript and Julia.
 | ---------- | ------------- | ------------ | -------------------- |
 | Javascript | [bmi.js]      | [bmi-js]     | [bmi-example-js]     |
 | Julia      | [bmi.jl]      | [bmi-julia]  | [bmi-example-julia]  |
+| R          | [bmi.R]       | [bmi-r]      | [bmi-example-r]      |
 :::
 
 Along with the examples,
@@ -155,11 +156,13 @@ Docs <https://bmi.readthedocs.io>
 [bmi-example-js]: https://github.com/uihilab/bmi-example-js
 [bmi-example-julia]: https://github.com/csdms/bmi-example-julia
 [bmi-example-python]: https://github.com/csdms/bmi-example-python
+[bmi-example-r]: https://github.com/csdms/bmi-example-r
 [bmi-fortran]: https://github.com/csdms/bmi-fortran
 [bmi-java]: https://github.com/csdms/bmi-java
 [bmi-js]: https://github.com/uihilab/bmi-js
 [bmi-julia]: https://github.com/Deltares/BasicModelInterface.jl
 [bmi-python]: https://github.com/csdms/bmi-python
+[bmi-r]: https://github.com/csdms/bmi-r
 [bmi.f90]: https://github.com/csdms/bmi-fortran/blob/master/bmi.f90
 [bmi.h]: https://github.com/csdms/bmi-c/blob/master/bmi.h
 [bmi.hxx]: https://github.com/csdms/bmi-cxx/blob/master/bmi.hxx
@@ -167,6 +170,7 @@ Docs <https://bmi.readthedocs.io>
 [bmi.jl]: https://github.com/Deltares/BasicModelInterface.jl/blob/master/src/BasicModelInterface.jl
 [bmi.js]: https://github.com/uihilab/BMI-JS/blob/main/bmijs/bmi.js
 [bmi.py]: https://github.com/csdms/bmi-python/blob/master/src/bmipy/bmi.py
+[bmi.R]: https://github.com/csdms/bmi-r/blob/main/R/bmi.R
 [community surface dynamics modeling system]: https://csdms.colorado.edu
 [csdms help desk]: https://github.com/csdms/help-desk
 [csdms workbench]: https://csdms.colorado.edu/wiki/Workbench
