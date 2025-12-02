@@ -3,7 +3,7 @@
 The current members of the BMI Council are:
 
 - Ryan Cabell (NCAR)
-- Joe Hughes (USGS)
+- Joe Hughes (INTERA)
 - Rolf Hut (TU Delft)
 - Eric Hutton (CSDMS)
 - Bert Jagers (Deltares)
