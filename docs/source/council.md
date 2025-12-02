@@ -8,7 +8,6 @@ The current members of the BMI Council are:
 - Eric Hutton (CSDMS)
 - Bert Jagers (Deltares)
 - Allen Lee (CoMSES Net)
-- Rich McDonald (USGS)
 - Fred Ogden (NOAA)
 - Scott Peckham (University of Colorado and NOAA)
 - Mark Piper (CSDMS)
@@ -18,3 +17,4 @@ The current members of the BMI Council are:
 Former members:
 
 - Niels Drost (eScience Center) (2022-2025)
+- Rich McDonald (USGS) (2022-2025)
