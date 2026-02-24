@@ -57,7 +57,7 @@ in which the BMI is implemented.
 
 BMI is a community standard.
 Table 2 lists community-contributed language specifications and examples
-for Javascript and Julia.
+for two languages, Javascript and Julia.
 
 :::{table} **Table 2:** Community-contributed BMI languages.
 :align: center

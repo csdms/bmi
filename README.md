@@ -75,7 +75,7 @@ and are [acknowledged](./AUTHORS.rst).
 
 The table below lists community-contributed
 language specifications and examples
-for Javascript and Julia.
+for two languages, Javascript and Julia.
 
 | Language   | Specification | Example implementation |
 | ---------- | ------------- | ---------------------- |
