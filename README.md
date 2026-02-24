@@ -67,10 +67,10 @@ See the links above for details.
 While CSDMS currently supports the languages listed above,
 a BMI specification can be written for any language.
 BMI is a community-driven standard;
-[contributions](CONTRIBUTING.rst)
-that follow the [contributor code of conduct](./CODE-OF-CONDUCT.rst)
+[contributions](CONTRIBUTING.md)
+that follow the [contributor code of conduct](./CODE-OF-CONDUCT.md)
 are welcomed,
-and are [acknowledged](./AUTHORS.rst).
+and are [acknowledged](./AUTHORS.md).
 
 The table below lists community-contributed
 language specifications and examples
