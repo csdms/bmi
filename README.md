@@ -57,6 +57,7 @@ are listed in the table below.
 | Fortran  | [bmi-fortran] | [bmi-example-fortran]  |
 | Java     | [bmi-java]    | [bmi-example-java]     |
 | Python   | [bmi-python]  | [bmi-example-python]   |
+| R        | [bmi-r]       | [bmi-example-r]        |
 
 Detailed instructions for building the specifications and examples
 are given at each link above.
@@ -74,13 +75,12 @@ and are [acknowledged](./AUTHORS.rst).
 
 The table below lists community-contributed
 language specifications and examples
-for Javascript, Julia, and R.
+for Javascript and Julia.
 
 | Language   | Specification | Example implementation |
 | ---------- | ------------- | ---------------------- |
 | Javascript | [bmi-js]      | [bmi-example-js]       |
 | Julia      | [bmi-julia]   | [bmi-example-julia]    |
-| R          | [bmi-r]       | [bmi-example-r]        |
 
 The default branch of this repository
 reflects the current state of development for the BMI.

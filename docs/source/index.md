@@ -52,11 +52,12 @@ in which the BMI is implemented.
 | Fortran  | [bmi.f90]     | [bmi-fortran]  | [bmi-example-fortran]  |
 | Java     | [bmi.java]    | [bmi-java]     | [bmi-example-java]     |
 | Python   | [bmi.py]      | [bmi-python]   | [bmi-example-python]   |
+| R        | [bmi.R]       | [bmi-r]      | [bmi-example-r]          |
 :::
 
 BMI is a community standard.
 Table 2 lists community-contributed language specifications and examples
-for Javascript, Julia, and R.
+for Javascript and Julia.
 
 :::{table} **Table 2:** Community-contributed BMI languages.
 :align: center
@@ -66,7 +67,6 @@ for Javascript, Julia, and R.
 | ---------- | ------------- | ------------ | -------------------- |
 | Javascript | [bmi.js]      | [bmi-js]     | [bmi-example-js]     |
 | Julia      | [bmi.jl]      | [bmi-julia]  | [bmi-example-julia]  |
-| R          | [bmi.R]       | [bmi-r]      | [bmi-example-r]      |
 :::
 
 Along with the examples,
