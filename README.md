@@ -57,6 +57,7 @@ are listed in the table below.
 | Fortran  | [bmi-fortran] | [bmi-example-fortran]  |
 | Java     | [bmi-java]    | [bmi-example-java]     |
 | Python   | [bmi-python]  | [bmi-example-python]   |
+| R        | [bmi-r]       | [bmi-example-r]        |
 
 Detailed instructions for building the specifications and examples
 are given at each link above.
@@ -109,11 +110,13 @@ is supported by the National Science Foundation.*
 [bmi-example-js]: https://github.com/uihilab/bmi-example-js
 [bmi-example-julia]: https://github.com/csdms/bmi-example-julia
 [bmi-example-python]: https://github.com/csdms/bmi-example-python
+[bmi-example-r]: https://github.com/csdms/bmi-example-r
 [bmi-fortran]: https://github.com/csdms/bmi-fortran
 [bmi-java]: https://github.com/csdms/bmi-java
 [bmi-js]: https://github.com/uihilab/bmi-js
 [bmi-julia]: https://github.com/Deltares/BasicModelInterface.jl
 [bmi-python]: https://github.com/csdms/bmi-python
+[bmi-r]: https://github.com/csdms/bmi-r
 [community surface dynamics modeling system]: https://csdms.colorado.edu
 [csdms workbench]: https://csdms.colorado.edu/wiki/Workbench
 [documentation]: https://bmi.readthedocs.io

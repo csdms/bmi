@@ -21,9 +21,11 @@
 - Scott Peckham
 - Mark Piper
 - Carlos Erazo Ramirez
+- Bart Schilperoort
 - Mike Taves
 - Greg Tucker
 - Ashani Vaidya
+- Stefan Verhoeven
 - Martijn Visser
 - Ben van Werkhoven
 

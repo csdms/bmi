@@ -52,6 +52,7 @@ in which the BMI is implemented.
 | Fortran  | [bmi.f90]     | [bmi-fortran]  | [bmi-example-fortran]  |
 | Java     | [bmi.java]    | [bmi-java]     | [bmi-example-java]     |
 | Python   | [bmi.py]      | [bmi-python]   | [bmi-example-python]   |
+| R        | [bmi.R]       | [bmi-r]      | [bmi-example-r]          |
 :::
 
 BMI is a community standard.
@@ -155,11 +156,13 @@ Docs <https://bmi.readthedocs.io>
 [bmi-example-js]: https://github.com/uihilab/bmi-example-js
 [bmi-example-julia]: https://github.com/csdms/bmi-example-julia
 [bmi-example-python]: https://github.com/csdms/bmi-example-python
+[bmi-example-r]: https://github.com/csdms/bmi-example-r
 [bmi-fortran]: https://github.com/csdms/bmi-fortran
 [bmi-java]: https://github.com/csdms/bmi-java
 [bmi-js]: https://github.com/uihilab/bmi-js
 [bmi-julia]: https://github.com/Deltares/BasicModelInterface.jl
 [bmi-python]: https://github.com/csdms/bmi-python
+[bmi-r]: https://github.com/csdms/bmi-r
 [bmi.f90]: https://github.com/csdms/bmi-fortran/blob/master/bmi.f90
 [bmi.h]: https://github.com/csdms/bmi-c/blob/master/bmi.h
 [bmi.hxx]: https://github.com/csdms/bmi-cxx/blob/master/bmi.hxx
@@ -167,6 +170,7 @@ Docs <https://bmi.readthedocs.io>
 [bmi.jl]: https://github.com/Deltares/BasicModelInterface.jl/blob/master/src/BasicModelInterface.jl
 [bmi.js]: https://github.com/uihilab/BMI-JS/blob/main/bmijs/bmi.js
 [bmi.py]: https://github.com/csdms/bmi-python/blob/master/src/bmipy/bmi.py
+[bmi.R]: https://github.com/csdms/bmi-r/blob/main/R/bmi.R
 [community surface dynamics modeling system]: https://csdms.colorado.edu
 [csdms help desk]: https://github.com/csdms/help-desk
 [csdms workbench]: https://csdms.colorado.edu/wiki/Workbench
