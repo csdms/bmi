@@ -23,21 +23,27 @@ state variable can be changed or check the new data for validity.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_value(in string name, in array<> dest);
+```{map-bmi-function} get_value
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_value(self, name: str, dest: NDArray[Any]) -> NDArray[Any]:
+```{map-bmi-function} get_value
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_value(void *self, const char *name, void *dest);
+```{map-bmi-function} get_value
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_value
+:language: c++
 ```
 :::
 ::::
@@ -74,21 +80,27 @@ even if the model uses dimensional variables.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_value_ptr(in string name, out array<> dest_ptr);
+```{map-bmi-function} get_value_ptr
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_value_ptr(self, name: str) -> NDArray[Any]:
+```{map-bmi-function} get_value_ptr
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_value_ptr(void *self, const char *name, void **dest_ptr);
+```{map-bmi-function} get_value_ptr
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_value_ptr
+:language: c++
 ```
 :::
 ::::
@@ -118,25 +130,27 @@ even if the model's state has changed.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_value_at_indices(in string name, in array<> dest, in array<int, 1> inds);
+```{map-bmi-function} get_value_at_indices
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_value_at_indices(
-    self, name: str, dest: NDArray[Any], inds: NDArray[np.int_]
-) -> NDArray[Any]:
+```{map-bmi-function} get_value_at_indices
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_value_at_indices(
-    void *self, const char *name, void *dest, int *inds, int count
-);
+```{map-bmi-function} get_value_at_indices
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_value_at_indices
+:language: c++
 ```
 :::
 ::::
@@ -163,21 +177,27 @@ Additionally,
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int set_value(in string name, in array<> src);
+```{map-bmi-function} set_value
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def set_value(self, name: str, src: NDArray[Any]) -> None:
+```{map-bmi-function} set_value
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int set_value(void *self, const char *name, void *src);
+```{map-bmi-function} set_value
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} set_value
+:language: c++
 ```
 :::
 ::::
@@ -213,25 +233,27 @@ even if the model uses dimensional variables.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int set_value_at_indices(in string name, in array<int, 1> inds, in array<> src);
+```{map-bmi-function} set_value_at_indices
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def set_value_at_indices(
-    self, name: str, inds: NDArray[np.int_], src: NDArray[Any]
-) -> None:
+```{map-bmi-function} set_value_at_indices
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int set_value_at_indices(
-    void *self, const char *name, int *inds, int count, void *src
-);
+```{map-bmi-function} set_value_at_indices
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} set_value_at_indices
+:language: c++
 ```
 :::
 ::::

@@ -13,21 +13,27 @@ These functions supply metadata about a model and its BMI.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_bmi_version(out string version);
+```{map-bmi-function} get_bmi_version
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_bmi_version(self) -> str:
+```{map-bmi-function} get_bmi_version
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_bmi_version(void *self, char *version);
+```{map-bmi-function} get_bmi_version
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_bmi_version
+:language: c++
 ```
 :::
 ::::

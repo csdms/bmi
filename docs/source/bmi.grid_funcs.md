@@ -30,21 +30,27 @@ However, all BMI grid functions must be implemented.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_type(in int grid, out string type);
+```{map-bmi-function} get_grid_type
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_type(self, grid: int) -> str:
+```{map-bmi-function} get_grid_type
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_type(void *self, int grid, char *type);
+```{map-bmi-function} get_grid_type
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_type
+:language: c++
 ```
 :::
 ::::
@@ -79,21 +85,27 @@ is given in the {ref}`model-grids` section.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_rank(in int grid, out int rank);
+```{map-bmi-function} get_grid_rank
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_rank(self, grid: int) -> int:
+```{map-bmi-function} get_grid_rank
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_rank(void *self, int grid, int *rank);
+```{map-bmi-function} get_grid_rank
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_rank
+:language: c++
 ```
 :::
 ::::
@@ -124,21 +136,27 @@ of {ref}`get-grid-x`, {ref}`get-grid-y`, etc. are implemented.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_size(in int grid, out int size);
+```{map-bmi-function} get_grid_size
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_size(self, grid: int) -> int:
+```{map-bmi-function} get_grid_size
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_size(void *self, int grid, int *size);
+```{map-bmi-function} get_grid_size
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_size
+:language: c++
 ```
 :::
 ::::
@@ -169,21 +187,27 @@ for {ref}`unstructured <unstructured-grids>` and
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_shape(in int grid, in array<int, 1> shape);
+```{map-bmi-function} get_grid_shape
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_shape(self, grid: int, shape: NDArray[np.int_]) -> NDArray[np.int_]:
+```{map-bmi-function} get_grid_shape
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_shape(void *self, int grid, int *shape);
+```{map-bmi-function} get_grid_shape
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_shape
+:language: c++
 ```
 :::
 ::::
@@ -224,23 +248,27 @@ the cells.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_spacing(in int grid, in array<double, 1> spacing);
+```{map-bmi-function} get_grid_spacing
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_spacing(
-    self, grid: int, spacing: NDArray[np.float64]
-) -> NDArray[np.float64]:
+```{map-bmi-function} get_grid_spacing
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_spacing(void *self, int grid, double *spacing);
+```{map-bmi-function} get_grid_spacing
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_spacing
+:language: c++
 ```
 :::
 ::::
@@ -272,23 +300,27 @@ the spacing between rows is followed by spacing between columns, `[dy, dx]`.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_origin(in int grid, in array<double, 1> origin);
+```{map-bmi-function} get_grid_origin
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_origin(
-    self, grid: int, origin: NDArray[np.float64]
-) -> NDArray[np.float64]:
+```{map-bmi-function} get_grid_origin
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_origin(void *self, int grid, double *origin);
+```{map-bmi-function} get_grid_origin
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_origin
+:language: c++
 ```
 :::
 ::::
@@ -321,21 +353,27 @@ the origin is given in the column dimension, followed by the row dimension,
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_x(in int grid, in array<double, 1> x);
+```{map-bmi-function} get_grid_x
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_x(self, grid: int, x: NDArray[np.float64]) -> NDArray[np.float64]:
+```{map-bmi-function} get_grid_x
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_x(void *self, int grid, double *x);
+```{map-bmi-function} get_grid_x
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_x
+:language: c++
 ```
 :::
 ::::
@@ -366,21 +404,27 @@ See {ref}`model-grids` for more information.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_y(in int grid, in array<double, 1> y);
+```{map-bmi-function} get_grid_y
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_y(self, grid: int, y: NDArray[np.float64]) -> NDArray[np.float64]:
+```{map-bmi-function} get_grid_y
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_y(void *self, int grid, double *y);
+```{map-bmi-function} get_grid_y
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_y
+:language: c++
 ```
 :::
 ::::
@@ -411,21 +455,27 @@ See {ref}`model-grids` for more information.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_z(in int grid, in array<double, 1> z);
+```{map-bmi-function} get_grid_z
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_z(self, grid: int, z: NDArray[np.float64]) -> NDArray[np.float64]:
+```{map-bmi-function} get_grid_z
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_z(void *self, int grid, double *z);
+```{map-bmi-function} get_grid_z
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_z
+:language: c++
 ```
 :::
 ::::
@@ -456,21 +506,27 @@ See {ref}`model-grids` for more information.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_node_count(in int grid, out int count);
+```{map-bmi-function} get_grid_node_count
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_node_count(self, grid: int) -> int:
+```{map-bmi-function} get_grid_node_count
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_node_count(void *self, int grid, int *count);
+```{map-bmi-function} get_grid_node_count
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_node_count
+:language: c++
 ```
 :::
 ::::
@@ -495,21 +551,27 @@ Get the number of {term}`nodes <node>` in the grid.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_edge_count(in int grid, out int count);
+```{map-bmi-function} get_grid_edge_count
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_edge_count(self, grid: int) -> int:
+```{map-bmi-function} get_grid_edge_count
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_edge_count(void *self, int grid, int *count);
+```{map-bmi-function} get_grid_edge_count
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_edge_count
+:language: c++
 ```
 :::
 ::::
@@ -534,21 +596,27 @@ Get the number of {term}`edges <edge>` in the grid.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_face_count(in int grid, out int count);
+```{map-bmi-function} get_grid_face_count
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_face_count(self, grid: int) -> int:
+```{map-bmi-function} get_grid_face_count
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_face_count(void *self, int grid, int *count);
+```{map-bmi-function} get_grid_face_count
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_face_count
+:language: c++
 ```
 :::
 ::::
@@ -573,23 +641,27 @@ Get the number of {term}`faces <face>` in the grid.
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_edge_nodes(in int grid, in array<int, 1> edge_nodes);
+```{map-bmi-function} get_grid_edge_nodes
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_edge_nodes(
-    self, grid: int, edge_nodes: NDArray[np.int_]
-) -> NDArray[np.int_]:
+```{map-bmi-function} get_grid_edge_nodes
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_edge_nodes(void *self, int grid, int *edge_nodes);
+```{map-bmi-function} get_grid_edge_nodes
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_edge_nodes
+:language: c++
 ```
 :::
 ::::
@@ -618,23 +690,27 @@ node at edge head. The total length of the array is
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_face_edges(in int grid, in array<int, 1> face_edges);
+```{map-bmi-function} get_grid_face_edges
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_face_edges(
-    self, grid: int, face_edges: NDArray[np.int_]
-) -> NDArray[np.int_]:
+```{map-bmi-function} get_grid_face_edges
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_face_edges(void *self, int grid, int *face_edges);
+```{map-bmi-function} get_grid_face_edges
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_face_edges
+:language: c++
 ```
 :::
 ::::
@@ -662,23 +738,27 @@ The length of the array returned is the sum of the values of
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_face_nodes(in int grid, in array<int, 1> face_nodes);
+```{map-bmi-function} get_grid_face_nodes
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_face_nodes(
-    self, grid: int, face_nodes: NDArray[np.int_]
-) -> NDArray[np.int_]:
+```{map-bmi-function} get_grid_face_nodes
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_face_nodes(void *self, int grid, int *face_nodes);
+```{map-bmi-function} get_grid_face_nodes
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_face_nodes
+:language: c++
 ```
 :::
 ::::
@@ -711,23 +791,27 @@ the length of the array is the sum of the values of
 
 :::{tab-item} SIDL
 :sync: sidl
-```java
-int get_grid_nodes_per_face(in int grid, in array<int, 1> nodes_per_face);
+```{map-bmi-function} get_grid_nodes_per_face
+:language: sidl
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
-```python
-def get_grid_nodes_per_face(
-    self, grid: int, nodes_per_face: NDArray[np.int_]
-) -> NDArray[np.int_]:
+```{map-bmi-function} get_grid_nodes_per_face
+:language: python
 ```
 :::
 :::{tab-item} c
 :sync: c
-```c
-int get_grid_nodes_per_face(void *self, int grid, int *nodes_per_face);
+```{map-bmi-function} get_grid_nodes_per_face
+:language: c
+```
+:::
+:::{tab-item} c++
+:sync: c++
+```{map-bmi-function} get_grid_nodes_per_face
+:language: c++
 ```
 :::
 ::::
