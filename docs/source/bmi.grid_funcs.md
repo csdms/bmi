@@ -4,18 +4,12 @@
 
 The functions in this section describe {ref}`model grids <model-grids>`.
 In the BMI,
-every {term}`exchange item` is defined on a grid,
+if an {term}`exchange item` is defined on a grid,
 and is referenced by a {term}`grid identifier`
 returned from the {ref}`get-var-grid` function.
 This identifier is a required input to the functions listed below.
 
 A model can have multiple grids.
-For example,
-consider modeling the diffusion of temperature over a flat plate.
-One grid could be a uniform rectilinear grid on which
-temperature is defined.
-A second grid could be a scalar,
-on which a constant thermal diffusivity is defined.
 
 Not all grid functions are used by each type of grid.
 However, all BMI grid functions must be implemented.
@@ -58,7 +52,6 @@ However, all BMI grid functions must be implemented.
 Given a {term}`grid identifier`, get the type of that grid as a string.
 Valid grid types are:
 
-- `scalar`
 - `points`
 - `vector`
 - `unstructured`

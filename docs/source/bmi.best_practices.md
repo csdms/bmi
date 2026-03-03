@@ -38,10 +38,10 @@ here are some tips to help when writing a BMI for a model.
   coupling models written in different languages. It's the developer's
   responsibility to ensure that array information is
   flattened/redimensionalized in the correct order.
-- Recall that models can have multiple grids. This can be particularly
-  useful for defining {term}`exchange items <exchange item>` that
-  don't vary over the model domain; e.g., a diffusivity -- just define
-  the variable on a separate {ref}`scalar grid <unstructured-grids>`.
+- Recall that model variables do not have to be attached to a grid.
+  This can be useful for defining {term}`exchange items <exchange item>`
+  that don't vary over the model domain.
+- Models can have multiple grids.
 - Avoid using global variables, if possible. This isn't strictly a BMI
   requirement, but if a model only uses local variables, its BMI will
   be self-contained. This may allow multiple instances of the model to
