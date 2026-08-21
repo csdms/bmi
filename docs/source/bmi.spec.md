@@ -17,6 +17,11 @@ Getters and setters <bmi.getter_setter>
 Grid <bmi.grid_funcs>
 ```
 
+Additionally, the BMI council has defined a number of
+{ref}`standardized extensions <bmi.extensions>` that provide
+additional functionality or more specific expectations of how models
+and callers can interact.
+
 Table 3 lists the individual BMI functions
 along with a brief description.
 Following the table is a detailed description of each function,
