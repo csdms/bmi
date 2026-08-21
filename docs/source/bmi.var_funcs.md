@@ -1,59 +1,27 @@
 (var-funcs)=
 
+(var-enumeration-funcs)=
+
+# Variable enumeration functions
+
+These functions supply the model's {term}`exchange items <exchange item>` --
+the variables that the model can use from and provide to
+other models that have a BMI.
+
+
+
+
+(var-information-funcs)=
+
 # Variable information functions
 
 These BMI functions provide information
-about a particular input or output variable.
+about a particular variable.
 They must accommodate any variable returned from the
-{ref}`get-input-var-names` or {ref}`get-output-var-names` functions --
+{ref}`get-varset-members` function --
 the variable name is used as an argument in each function.
 Based on the information returned,
 type or unit conversions can be applied when necessary.
-
-(get-var-grid)=
-
-## *get_var_grid*
-
-::::{tab-set}
-:sync-group: lang
-
-:::{tab-item} SIDL
-:sync: sidl
-
-```java
-int get_var_grid(in string name, out int grid);
-```
-:::
-:::{tab-item} Python
-:sync: python
-```python
-def get_var_grid(self, name: str) -> int:
-```
-:::
-:::{tab-item} c
-:sync: c
-```c
-int get_var_grid(void *self, const char *name, int *grid);
-```
-:::
-::::
-
-Each input and output variable is defined on a grid.
-(Available grid types are listed in the {ref}`grid-funcs` section.)
-The `get_var_grid` function provides the identifier (an integer) for this grid.
-The identifier can be passed to the BMI
-{ref}`grid information <grid-funcs>` functions
-to get the details of a particular grid;
-e.g., *x*- and *y*-coordinates, size, type, etc.
-A model can have one or more grids.
-
-**Implementation notes**
-
-- Grid identifiers start at 0.
-- In C++, Java, and Python, the *grid* argument is omitted and the grid
-  identifier is returned from the function.
-- In C and Fortran, an integer status code indicating success (zero) or
-  failure (nonzero) is returned.
 
 (get-var-type)=
 
@@ -98,56 +66,6 @@ while in Fortran, use `integer`, `real`, and `double precision`.
   (nonzero) is returned.
 - In Java, only [primitive types] (e.g., `int`, `double`), not
   [wrapper classes] (e.g., `Integer`, `Double`), are supported.
-
-(get-var-units)=
-
-## *get_var_units*
-
-::::{tab-set}
-:sync-group: lang
-
-:::{tab-item} SIDL
-:sync: sidl
-
-```java
-int get_var_units(in string name, out string units);
-```
-:::
-:::{tab-item} Python
-:sync: python
-```python
-def get_var_units(self, name: str) -> str:
-```
-:::
-:::{tab-item} c
-:sync: c
-```c
-int get_var_units(void *self, const char *name, char *units);
-```
-:::
-::::
-
-Get the units of the given variable.
-Standard unit names, in lower case, should be used,
-such as `"meters"` or `"seconds"`.
-Standard abbreviations, such as `"m"` for meters, are
-also supported. For variables with compound units, each unit name
-is separated by a single space, with exponents other than 1 placed
-immediately after the name, as in `"m s-1"` for velocity,
-`"W m-2"` for an energy flux, or `"km2"` for an area.
-The abbreviations used in the BMI are derived from
-Unidata's [UDUNITS] package.
-See, for example, [The Units Database] for a
-full description of valid unit names and a list of supported units.
-
-**Implementation notes**
-
-- Dimensionless quantities should use `""` or `"1"` as the unit.
-- Variables without units should use `"none"`.
-- In C++, Java, and Python, the *units* argument is omitted and the variable
-  units name is returned from the function as a string.
-- In C and Fortran, an integer status code indicating success (zero) or failure
-  (nonzero) is returned.
 
 (get-var-itemsize)=
 
@@ -226,6 +144,101 @@ a variable; i.e., the number of items multiplied by the size of each item.
   amount of memory used by the variable is returned from the function.
 - In C and Fortran, an integer status code indicating success (zero) or failure
   (nonzero) is returned.
+
+(get-var-units)=
+
+## *get_var_units*
+
+::::{tab-set}
+:sync-group: lang
+
+:::{tab-item} SIDL
+:sync: sidl
+
+```java
+int get_var_units(in string name, out string units);
+```
+:::
+:::{tab-item} Python
+:sync: python
+```python
+def get_var_units(self, name: str) -> str:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_var_units(void *self, const char *name, char *units);
+```
+:::
+::::
+
+Get the units of the given variable.
+Standard unit names, in lower case, should be used,
+such as `"meters"` or `"seconds"`.
+Standard abbreviations, such as `"m"` for meters, are
+also supported. For variables with compound units, each unit name
+is separated by a single space, with exponents other than 1 placed
+immediately after the name, as in `"m s-1"` for velocity,
+`"W m-2"` for an energy flux, or `"km2"` for an area.
+The abbreviations used in the BMI are derived from
+Unidata's [UDUNITS] package.
+See, for example, [The Units Database] for a
+full description of valid unit names and a list of supported units.
+
+**Implementation notes**
+
+- Dimensionless quantities should use `""` or `"1"` as the unit.
+- Variables without units should use `"none"`.
+- In C++, Java, and Python, the *units* argument is omitted and the variable
+  units name is returned from the function as a string.
+- In C and Fortran, an integer status code indicating success (zero) or failure
+  (nonzero) is returned.
+
+(get-var-grid)=
+
+## *get_var_grid*
+
+::::{tab-set}
+:sync-group: lang
+
+:::{tab-item} SIDL
+:sync: sidl
+
+```java
+int get_var_grid(in string name, out int grid);
+```
+:::
+:::{tab-item} Python
+:sync: python
+```python
+def get_var_grid(self, name: str) -> int:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_var_grid(void *self, const char *name, int *grid);
+```
+:::
+::::
+
+Each input and output variable is defined on a grid.
+(Available grid types are listed in the {ref}`grid-funcs` section.)
+The `get_var_grid` function provides the identifier (an integer) for this grid.
+The identifier can be passed to the BMI
+{ref}`grid information <grid-funcs>` functions
+to get the details of a particular grid;
+e.g., *x*- and *y*-coordinates, size, type, etc.
+A model can have one or more grids.
+
+**Implementation notes**
+
+- Grid identifiers start at 0.
+- In C++, Java, and Python, the *grid* argument is omitted and the grid
+  identifier is returned from the function.
+- In C and Fortran, an integer status code indicating success (zero) or
+  failure (nonzero) is returned.
 
 (get-var-location)=
 
