@@ -6,9 +6,44 @@ These BMI functions provide information
 about a particular input or output variable.
 They must accommodate any variable returned from the
 {ref}`get-input-var-names` or {ref}`get-output-var-names` functions --
-the variable name is used as an argument in each function.
-Based on the information returned,
-type or unit conversions can be applied when necessary.
+the variable index as obtained from {ref}`get-var-index` is used as an argument in each function.
+Based on the information returned, type or unit conversions can be applied when necessary.
+
+(get-var-index)=
+
+## *get_var_index*
+
+::::{tab-set}
+:sync-group: lang
+
+:::{tab-item} SIDL
+:sync: sidl
+
+```java
+int get_var_index(in string name, out int index);
+```
+:::
+:::{tab-item} Python
+:sync: python
+```python
+def get_var_index(self, name: str) -> int:
+```
+:::
+:::{tab-item} c
+:sync: c
+```c
+int get_var_index(void *self, const char *name, int *index);
+```
+:::
+::::
+
+Each input and output variable is associated with a numerical index.
+The `get_var_index` function provides the value for this index.
+These index values need not be in any particular order or range.
+The identifier can be passed to the BMI
+{ref}`variable information <var-funcs>` functions
+to get the details of a particular variable;
+e.g., size, type, units, grid, etc.
 
 (get-var-grid)=
 
@@ -21,19 +56,19 @@ type or unit conversions can be applied when necessary.
 :sync: sidl
 
 ```java
-int get_var_grid(in string name, out int grid);
+int get_var_grid(in int index, out int grid);
 ```
 :::
 :::{tab-item} Python
 :sync: python
 ```python
-def get_var_grid(self, name: str) -> int:
+def get_var_grid(self, index: int) -> int:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_var_grid(void *self, const char *name, int *grid);
+int get_var_grid(void *self, int index, int *grid);
 ```
 :::
 ::::
@@ -65,20 +100,20 @@ A model can have one or more grids.
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int get_var_type(in string name, out string type);
+int get_var_type(in int index, out string type);
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
 ```python
-def get_var_type(self, name: str) -> str:
+def get_var_type(self, index: int) -> str:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_var_type(void *self, const char *name, char *type);
+int get_var_type(void *self, int index, char *type);
 ```
 :::
 ::::
@@ -110,19 +145,19 @@ while in Fortran, use `integer`, `real`, and `double precision`.
 :sync: sidl
 
 ```java
-int get_var_units(in string name, out string units);
+int get_var_units(in int index, out string units);
 ```
 :::
 :::{tab-item} Python
 :sync: python
 ```python
-def get_var_units(self, name: str) -> str:
+def get_var_units(self, index: int) -> str:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_var_units(void *self, const char *name, char *units);
+int get_var_units(void *self, int index, char *units);
 ```
 :::
 ::::
@@ -159,20 +194,20 @@ full description of valid unit names and a list of supported units.
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int get_var_itemsize(in string name, out int size);
+int get_var_itemsize(in int index, out int size);
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
 ```python
-def get_var_itemsize(self, name: str) -> int:
+def get_var_itemsize(self, index: int) -> int:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_var_itemsize(void *self, const char *name, int *size);
+int get_var_itemsize(void *self, int index, int *size);
 ```
 :::
 ::::
@@ -199,20 +234,20 @@ For example, if data for a variable are stored as 64-bit integers,
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int get_var_nbytes(in string name, out int nbytes);
+int get_var_nbytes(in int index, out int nbytes);
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
 ```python
-def get_var_nbytes(self, name: str) -> int:
+def get_var_nbytes(self, index: int) -> int:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_var_nbytes(void *self, const char *name, int *nbytes);
+int get_var_nbytes(void *self, int index, int *nbytes);
 ```
 :::
 ::::
@@ -237,26 +272,26 @@ a variable; i.e., the number of items multiplied by the size of each item.
 :::{tab-item} SIDL
 :sync: sidl
 ```java
-int get_var_location(in string name, out string location);
+int get_var_location(in int index, out string location);
 ```
 :::
 
 :::{tab-item} Python
 :sync: python
 ```python
-def get_var_location(self, name: str) -> str:
+def get_var_location(self, index: int) -> str:
 ```
 :::
 :::{tab-item} c
 :sync: c
 ```c
-int get_var_location(void *self, const char *name, char *location);
+int get_var_location(void *self, int index, char *location);
 ```
 :::
 ::::
 
 The `get_var_location` function,
-given a variable name, returns a string that indicates on what grid
+given a variable index, returns a string that indicates on what grid
 element the variable is defined. Valid return values are:
 
 - `node`

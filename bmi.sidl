@@ -21,12 +21,13 @@ package csdms version 3.0-alpha1 {
     int get_output_var_names(out array<string, 1> names);
 
     // Variable information
-    int get_var_grid(in string name, out int grid);
-    int get_var_type(in string name, out string type);
-    int get_var_units(in string name, out string units);
-    int get_var_itemsize(in string name, out int size);
-    int get_var_nbytes(in string name, out int nbytes);
-    int get_var_location(in string name, out string location);
+    int get_var_index(in string name, out int index);
+    int get_var_grid(in int index, out int grid);
+    int get_var_type(in int index, out string type);
+    int get_var_units(in int index, out string units);
+    int get_var_itemsize(in int index, out int size);
+    int get_var_nbytes(in int index, out int nbytes);
+    int get_var_location(in int index, out string location);
 
     // Time information
     int get_current_time(out double time);
@@ -36,14 +37,14 @@ package csdms version 3.0-alpha1 {
     int get_time_step(out double time_step);
 
     // Getters
-    int get_value(in string name, in array<> dest);
-    int get_value_ptr(in string name, out array<> dest_ptr);
-    int get_value_at_indices(in string name, in array<> dest,
+    int get_value(in int index, in array<> dest);
+    int get_value_ptr(in int index, out array<> dest_ptr);
+    int get_value_at_indices(in int index, in array<> dest,
         in array<int, 1> inds);
 
     // Setters
-    int set_value(in string name, in array<> src);
-    int set_value_at_indices(in string name, in array<int, 1> inds,
+    int set_value(in int index, in array<> src);
+    int set_value_at_indices(in int index, in array<int, 1> inds,
         in array<> src);
 
     // Grid information
