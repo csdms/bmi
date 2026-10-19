@@ -178,6 +178,9 @@ For extensions specified to provide additional functions, these should
 be accessed by the caller obtaining an associated extension object
 with those functions as members.
 
+`get_extension` fails for an extension that was not both requested by
+the caller and listed as supported by the model in `initialize`.
+
 **Implementation Notes**
 
 - In C and C++, the output `extension_object` will be represented as
