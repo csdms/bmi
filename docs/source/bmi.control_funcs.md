@@ -36,6 +36,19 @@ def initialize(self, config_file: str, requested_extensions: Collection[str]) ->
 int initialize(void *self, char *config_file, char const **requested_extensions, char const **supported_extensions);
 ```
 :::
+
+:::{tab-item} Fortran
+:sync: fortran
+```fortran
+function initialize(this, config_file, requested_extensions, supported_extensions) result(bmi_status)
+  class(bmi), target, intent(out) :: this
+  character(len=*), intent(in) :: config_file
+  character(len=*), intent(in) :: requested_extensions(:)
+  character(len=BMI_MAX_EXTENSION_NAME), allocatable, intent(out) :: supported_extensions(:)
+  integer :: bmi_status
+end function initialize
+```
+:::
 ::::
 
 The `initialize` function accepts a string argument that gives the
@@ -79,6 +92,9 @@ should fail accordingly.
   accordingly. Models should copy pointers from `requested_extensions`
   to `supported_extensions` as appropriate. This allows the caller to
   retain ownership.
+- In Fortran, the model allocates `supported_extensions` to the number
+  of supported extensions, which may be zero. The caller owns the
+  array.
 
 **Extensions Rationale**
 
@@ -141,6 +157,18 @@ int get_extension(void *self, char const *name, void **extension_object);
 void* get_extension(std::string name);
 ```
 :::
+
+:::{tab-item} Fortran
+:sync: fortran
+```fortran
+function get_extension(this, extension_name, extension_object) result(bmi_status)
+  class(bmi), target, intent(in) :: this
+  character(len=*), intent(in) :: extension_name
+  class(bmi_extension), pointer, intent(out) :: extension_object
+  integer :: bmi_status
+end function get_extension
+```
+:::
 ::::
 
 
@@ -150,21 +178,32 @@ For extensions specified to provide additional functions, these should
 be accessed by the caller obtaining an associated extension object
 with those functions as members.
 
+`get_extension` fails for an extension that was not both requested by
+the caller and listed as supported by the model in `initialize`.
+
 **Implementation Notes**
 
-- For staticly typed languages, including C, C++, and Fortran, the
-  output `extension_object` will be represented as an anonymous
-  (type-erased) pointer - `void *` or `type(c_ptr)`. The caller is
+- In C and C++, the output `extension_object` will be represented as
+  an anonymous (type-erased) pointer, `void *`. The caller is
   responsible for knowing the type of the pointed-to object, and
   casting the pointer appropriately.
+- In Fortran, the output `extension_object` is a polymorphic pointer
+  to the abstract type `bmi_extension`, which has no components. Each
+  extension that adds functions defines an abstract type that extends
+  `bmi_extension`, with those functions as deferred type-bound
+  procedures. The caller recovers that type with `select type`.
+  `type(c_ptr)` is not used, since `c_f_pointer` cannot recover a
+  polymorphic object. A model that also provides a C interface through
+  `bind(C)` procedures uses `type(c_ptr)` in that layer.
 - In dynamically typed languages like Python, the return value will be
   an object reference. The caller is expected to know what methods are
   valid to call on the referenced object. If type checking is desired,
   it may be implemented by wrapping the `get_extension` call in a
   function with a suitable type hint on its return value.
-- In C and C++, the `extension_object` instance is owned by the model
-  object, and should be suitably handled by a call to `finalize(self)`
-  or `model->Finalize()`, respectively.
+- In C, C++, and Fortran, the `extension_object` instance is owned by
+  the model object, and should be suitably handled by a call to
+  `finalize(self)`, `model->Finalize()`, or `model%finalize()`,
+  respectively. A Fortran caller must not deallocate it.
 - Depending on the model implementation language, the pointed-to
   object need not be wholly distinct or disjoint in memory from the
   model itself (i.e. `self` or `this`):
@@ -220,6 +259,72 @@ int MyModel_get_extension(struct Bmi *self, const char *extension_name, void** e
 
   return BMI_FAILURE;
 }
+```
+
+Fortran has no multiple inheritance, so a Fortran model holds each
+extension object as a component. The extension object reaches the
+model's state through a pointer that the model sets in `initialize`,
+where the model also records which extensions it supports:
+
+```fortran
+! Provided by the BMI Fortran bindings
+type, abstract :: bmi_extension
+end type bmi_extension
+
+! Defined by the specification of ExtensionA
+type, abstract, extends(bmi_extension) :: extension_a
+contains
+  procedure(extension_a_method1), deferred :: method1
+  procedure(extension_a_method2), deferred :: method2
+end type extension_a
+
+! Implemented by the model
+type, extends(extension_a) :: my_extension_a
+  type(my_model_state), pointer :: state => null()
+contains
+  procedure :: method1 => my_extension_a_method1
+  procedure :: method2 => my_extension_a_method2
+end type my_extension_a
+
+type, extends(bmi) :: my_model
+  type(my_model_state), pointer :: state => null()
+  type(my_extension_a) :: extension_a
+  logical :: extension_a_enabled = .false.
+contains
+  ! ...
+  procedure :: get_extension => my_model_get_extension
+end type my_model
+
+! ...
+function my_model_get_extension(this, extension_name, extension_object) result(bmi_status)
+  class(my_model), target, intent(in) :: this
+  character(len=*), intent(in) :: extension_name
+  class(bmi_extension), pointer, intent(out) :: extension_object
+  integer :: bmi_status
+
+  extension_object => null()
+  bmi_status = BMI_FAILURE
+  select case (extension_name)
+  case ("ExtensionA")
+    if (this%extension_a_enabled) then
+      extension_object => this%extension_a
+      bmi_status = BMI_SUCCESS
+    end if
+  end select
+end function my_model_get_extension
+```
+
+A Fortran caller then uses the extension object as follows:
+
+```fortran
+class(bmi_extension), pointer :: extension_object
+
+if (model%get_extension("ExtensionA", extension_object) == BMI_SUCCESS) then
+  select type (extension_object)
+  class is (extension_a)
+    status = extension_object%method1(param1, param2)
+  end select
+end if
 ```
 
 (update)=

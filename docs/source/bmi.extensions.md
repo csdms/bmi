@@ -24,6 +24,11 @@ extension itself. If an extension needs to expose multiple distinct
 objects, the name used for each should be an elaboration of the
 extension's name.
 
+In Fortran, an extension object is an abstract type that extends
+`bmi_extension`, with the added functions as deferred type-bound
+procedures. A model provides the extension object by extending that
+type.
+
 The extension must specify the type signature of each extension object
 it defines, with all of its members. For interoperability, develoeprs
 are encouraged to use types and calling conventions that follow the
