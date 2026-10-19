@@ -263,7 +263,8 @@ int MyModel_get_extension(struct Bmi *self, const char *extension_name, void** e
 
 Fortran has no multiple inheritance, so a Fortran model holds each
 extension object as a component. The extension object reaches the
-model's state through a pointer that the model sets in `initialize`:
+model's state through a pointer that the model sets in `initialize`,
+where the model also records which extensions it supports:
 
 ```fortran
 ! Provided by the BMI Fortran bindings
@@ -288,6 +289,7 @@ end type my_extension_a
 type, extends(bmi) :: my_model
   type(my_model_state), pointer :: state => null()
   type(my_extension_a) :: extension_a
+  logical :: extension_a_enabled = .false.
 contains
   ! ...
   procedure :: get_extension => my_model_get_extension
@@ -300,13 +302,14 @@ function my_model_get_extension(this, extension_name, extension_object) result(b
   class(bmi_extension), pointer, intent(out) :: extension_object
   integer :: bmi_status
 
+  extension_object => null()
+  bmi_status = BMI_FAILURE
   select case (extension_name)
   case ("ExtensionA")
-    extension_object => this%extension_a
-    bmi_status = BMI_SUCCESS
-  case default
-    extension_object => null()
-    bmi_status = BMI_FAILURE
+    if (this%extension_a_enabled) then
+      extension_object => this%extension_a
+      bmi_status = BMI_SUCCESS
+    end if
   end select
 end function my_model_get_extension
 ```
